@@ -12,9 +12,12 @@ Every material change should leave enough context for a reviewer to understand:
 
 ## Contribution Rules
 
-- Keep changes scoped. Do not mix governance-policy edits with unrelated formatting churn.
-- Prefer additive history. Add new templates, records, or sections instead of overwriting evidence without explanation.
-- Use explicit filenames. Prefer names that indicate purpose rather than temporary working labels.
+- Keep changes scoped. Do not mix governance-policy edits with unrelated
+  formatting churn.
+- Prefer additive history. Add new templates, records, or sections
+  instead of overwriting evidence without explanation.
+- Use explicit filenames. Prefer names that indicate purpose rather than
+  temporary working labels.
 - When introducing implementation assets later, place them in clearly
   named top-level directories and update the root README.
 

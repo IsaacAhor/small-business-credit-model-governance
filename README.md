@@ -40,8 +40,10 @@ Use this repository to separate governance evidence from future
 implementation details:
 
 - `docs/` holds project-facing documents such as roadmap and operating notes
-- `governance/` holds reusable templates for inventory, validation, and change control
-- future code, notebooks, or pipelines can be added later under clearly named directories once the modeling approach is chosen
+- `governance/` holds reusable templates for inventory, validation, and
+  change control
+- future code, notebooks, or pipelines can be added later under clearly
+  named directories once the modeling approach is chosen
 
 ## Near-Term Priorities
 
