@@ -1,6 +1,7 @@
 # Small Business Credit Model Governance
 
-This repository is the working home for a lightweight but defensible model-governance framework for small-business credit decisioning.
+This repository is the working home for a lightweight but defensible
+model-governance framework for small-business credit decisioning.
 
 The immediate goal is to make it easy to:
 
@@ -11,7 +12,8 @@ The immediate goal is to make it easy to:
 
 ## Scope
 
-This repo is currently scaffolded as a governance-first repository. It is set up to support:
+This repo is currently scaffolded as a governance-first repository.
+It is set up to support:
 
 - policy and control documentation
 - model inventory and version tracking
@@ -34,7 +36,8 @@ CONTRIBUTING.md
 
 ## Working Approach
 
-Use this repository to separate governance evidence from future implementation details:
+Use this repository to separate governance evidence from future
+implementation details:
 
 - `docs/` holds project-facing documents such as roadmap and operating notes
 - `governance/` holds reusable templates for inventory, validation, and change control
