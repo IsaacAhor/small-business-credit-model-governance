@@ -71,11 +71,18 @@ It should avoid drifting into:
 
 ## Near-Term Priorities
 
-1. Complete the framework document in `docs/`.
-2. Draft the first practitioner-facing article from the article outline.
+1. Refine the first full framework draft in `docs/framework-draft.md`.
+2. Refine the first practitioner-facing article draft in `docs/practitioner-article-draft.md`.
 3. Convert the checklist templates into repeatable governance artifacts.
-4. Add the first notebook or prototype module using synthetic or clearly described proxy data.
+4. Expand the synthetic demonstration notebook in `notebooks/synthetic-monitoring-demo.ipynb`.
 
 ## Current Status
 
-This is the initial scaffold. The next steps are to complete the framework document, draft the first article, and add a first implementation notebook or prototype module.
+This repository now contains:
+
+- a first full framework draft
+- a first practitioner article draft
+- a first synthetic notebook starter
+- reusable monitoring and governance templates
+
+The next steps are to strengthen the framework, connect the article to external sources and demonstration outputs, and expand the notebook into a reviewable prototype workflow.

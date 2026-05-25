@@ -91,3 +91,7 @@ This article should later point to:
 - do not overclaim adoption or impact
 - do not pretend proxy data is production small business underwriting data
 - keep the piece anchored in model governance, explainability, and fair-lending monitoring
+
+## Draft Status
+
+The first substantive draft derived from this outline is now in `docs/practitioner-article-draft.md`.
