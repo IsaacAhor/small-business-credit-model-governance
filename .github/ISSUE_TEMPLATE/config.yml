@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Repository roadmap
+    url: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/main/docs/repository-roadmap.md
+    about: Review the planned repository direction before opening a broad request.

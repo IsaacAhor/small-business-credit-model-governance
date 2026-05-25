@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  markdown-and-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v18
+        with:
+          globs: |
+            **/*.md
+
+      - name: Verify expected starter files exist
+        run: |
+          test -f README.md
+          test -f CONTRIBUTING.md
+          test -f docs/repository-roadmap.md
+          test -f governance/model-inventory-template.md
+          test -f governance/validation-checklist.md
+          test -f governance/change-log-template.md
+          test -f .github/pull_request_template.md
