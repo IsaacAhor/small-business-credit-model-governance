@@ -1,64 +1,81 @@
 # Small Business Credit Model Governance
 
-This repository is the working home for a lightweight but defensible
-model-governance framework for small-business credit decisioning.
+This repository contains a practical body of work focused on interpretable model governance and fair-lending monitoring for machine-learning-based small business credit underwriting.
 
-The immediate goal is to make it easy to:
+The project is designed to support several connected outputs:
 
-- document the model and its intended use
-- track data, assumptions, thresholds, and changes
-- capture validation evidence and review outcomes
-- support internal review, audit readiness, and future regulatory expansion
+- a framework for governing ML-based small business underwriting systems
+- monitoring checklists for explainability, fair lending, and model risk oversight
+- implementation-oriented notebooks and templates
+- practitioner-facing written work that translates the framework into usable methods
+
+## Core Objective
+
+The central objective of this repository is to develop, validate, and disseminate practical model governance, explainability, and fair-lending monitoring frameworks for machine-learning-based small business credit underwriting in the United States.
+
+This includes work related to:
+
+- adverse action reason generation and explanation quality
+- less discriminatory alternative assessment
+- ongoing model-risk oversight
+- fairness and compliance monitoring
+- governance documentation for deployment and post-deployment review
 
 ## Scope
 
-This repo is currently scaffolded as a governance-first repository.
-It is set up to support:
+This repository is governance-first and intentionally narrow. It is set up to support:
 
 - policy and control documentation
-- model inventory and version tracking
-- validation and monitoring artifacts
-- implementation work once code and data assets are added
+- model inventory and monitoring structure
+- validation and review artifacts
+- implementation work once code and demonstration assets are added
 
-It does not yet assume a specific modeling stack. That is deliberate.
+It does not assume a fixed modeling stack at this stage.
 
-## Initial Repository Layout
+## Repository Structure
 
-```text
-.github/
-  ISSUE_TEMPLATE/
-  workflows/
-docs/
-governance/
-README.md
-CONTRIBUTING.md
-```
+- `docs/`
+  Framework and article planning documents.
+- `notebooks/`
+  Implementation notes and future analytical notebooks.
+- `src/`
+  Future reusable code modules and scripts.
+- `templates/`
+  Checklists and governance templates.
 
-## Working Approach
+## Initial Deliverables
 
-Use this repository to separate governance evidence from future
-implementation details:
+The first phase of this repository is structured around four deliverables:
 
-- `docs/` holds project-facing documents such as roadmap and operating notes
-- `governance/` holds reusable templates for inventory, validation, and
-  change control
-- future code, notebooks, or pipelines can be added later under clearly
-  named directories once the modeling approach is chosen
+1. A flagship framework outline for model governance and fair-lending monitoring.
+2. A practitioner article outline aligned to the same endeavor.
+3. Reusable governance and fair-lending monitoring checklists.
+4. A path toward notebooks or prototype tooling using synthetic or appropriately described demonstration data.
+
+## Working Scope Discipline
+
+This repository should remain narrowly focused on:
+
+- small business credit underwriting
+- model governance
+- explainability
+- fair-lending monitoring
+- interpretable risk oversight
+
+It should avoid drifting into:
+
+- generic AI commentary
+- broad fintech branding
+- unsupported legal conclusions
+- claims of real-world deployment that are not documented
 
 ## Near-Term Priorities
 
-1. Define the model use case, decision boundary, and business owner.
-2. Create the first model inventory entry.
-3. Define validation criteria before model development expands.
-4. Add implementation directories once the technical stack is selected.
+1. Complete the framework document in `docs/`.
+2. Draft the first practitioner-facing article from the article outline.
+3. Convert the checklist templates into repeatable governance artifacts.
+4. Add the first notebook or prototype module using synthetic or clearly described proxy data.
 
-## Review Standard
+## Current Status
 
-Changes to this repository should be reviewable by someone who needs to answer:
-
-- what changed
-- why it changed
-- what governance impact it has
-- whether validation or monitoring requirements need to be updated
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution expectations and the PR checklist.
+This is the initial scaffold. The next steps are to complete the framework document, draft the first article, and add a first implementation notebook or prototype module.
