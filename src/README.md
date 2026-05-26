@@ -1,7 +1,14 @@
 # Source
 
-This directory is reserved for reusable code modules that may support future
-notebooks, dashboards, or prototype tooling.
+This directory now holds the first reusable code modules for the governance
+evidence engine.
+
+Current contents:
+
+- `credit_gov/schemas/`
+  Typed validation models and dataset-validation logic for Phase 1 records.
+- `credit_gov/cli.py`
+  Command-line entry point for validating deterministic synthetic inputs.
 
 Possible future modules:
 

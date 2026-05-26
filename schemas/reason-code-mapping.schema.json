@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/reason-code-mapping.schema.json",
+  "title": "Reason Code Mapping",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "mapping_id",
+    "version_id",
+    "driver_or_signal",
+    "reason_code",
+    "reason_text",
+    "mapping_version"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "reason_code_mapping"
+    },
+    "mapping_id": {
+      "type": "string",
+      "pattern": "^map-[a-z0-9-]+$"
+    },
+    "version_id": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "driver_or_signal": {
+      "type": "string",
+      "minLength": 3
+    },
+    "reason_code": {
+      "type": "string",
+      "pattern": "^RC-[0-9]{3}$"
+    },
+    "reason_text": {
+      "type": "string",
+      "minLength": 5
+    },
+    "mapping_version": {
+      "type": "string",
+      "pattern": "^mapver-[a-z0-9-]+$"
+    }
+  }
+}

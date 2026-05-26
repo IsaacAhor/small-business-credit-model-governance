@@ -1,0 +1,21 @@
+[
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0001",
+    "application_date": "2026-05-03",
+    "segment": "micro",
+    "decision_outcome": "approved",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 712.4,
+      "requested_amount": 45000.0,
+      "decision_timestamp": "2026-05-03T14:22:00Z"
+    },
+    "monitoring": {
+      "region": "south",
+      "channel": "digital",
+      "review_batch_id": "run-2026-05"
+    }
+  }
+]

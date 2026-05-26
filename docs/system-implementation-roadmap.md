@@ -61,6 +61,13 @@ Deliverables:
 - deterministic synthetic demo inputs under `data/synthetic/`
 - schema validation tests
 
+Status:
+
+- Phase 1 is now implemented with JSON schemas under `schemas/`, typed validation
+  models under `src/credit_gov/schemas/`, deterministic synthetic demo inputs
+  under `data/synthetic/monthly-demo/`, and command-line validation through
+  `python scripts/validate_phase1.py`.
+
 Initial contracts:
 
 - model registry record
@@ -92,6 +99,11 @@ Deliverables:
 - timestamped evidence pack folder
 - Markdown monitoring report
 - unit tests for metric logic
+
+Next pending task:
+
+- implement the first one-command monitoring workflow that consumes the Phase 1
+  validated synthetic inputs and emits metrics, breaches, and an evidence pack
 
 Initial metrics:
 

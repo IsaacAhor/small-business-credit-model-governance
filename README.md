@@ -49,10 +49,16 @@ It does not assume a fixed modeling stack at this stage.
 
 - `docs/`
   Framework and article planning documents.
+- `schemas/`
+  Phase 1 JSON contracts for governed records and evidence-pack manifests.
 - `notebooks/`
   Implementation notes and future analytical notebooks.
 - `src/`
-  Future reusable code modules and scripts.
+  Reusable validation models, CLI entry points, and later workflow code.
+- `data/synthetic/`
+  Deterministic demonstration inputs for validation and future monitoring runs.
+- `tests/`
+  Validation checks for schema, typed-model, and synthetic-data integrity.
 - `templates/`
   Checklists and governance templates.
 - `governance/`
@@ -68,6 +74,7 @@ The first phase of this repository is structured around four deliverables:
 4. A path toward executable tooling using synthetic or appropriately described
    demonstration data.
 5. A Phase 0 system design layer for a governance evidence engine.
+6. A Phase 1 data-contract layer with command-line validation.
 
 ## Working Scope Discipline
 
@@ -112,7 +119,7 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 3. Refine the first practitioner-facing article draft in `docs/practitioner-article-draft.md`.
 4. Convert the checklist templates into repeatable governance artifacts.
 5. Expand the synthetic demonstration notebook in `notebooks/synthetic-monitoring-demo.ipynb`.
-6. Build toward the executable system described in `docs/system-implementation-roadmap.md`.
+6. Build the one-command monitoring workflow described in `docs/system-implementation-roadmap.md`.
 
 ## Current Status
 
@@ -123,8 +130,9 @@ This repository now contains:
 - a first synthetic notebook starter
 - reusable monitoring and governance templates
 - Phase 0 system design documents for a governance evidence engine
+- Phase 1 JSON schemas, typed validation models, deterministic synthetic demo records, and validation tests
 - repository guardrails that check required governance artifacts and data discipline
 
-The next steps are to align each public artifact to the locked endeavor,
-connect the article and framework to external sources and demonstration outputs,
-and build the Phase 1 data contracts that support the evidence-engine roadmap.
+The next steps are to turn the validated synthetic inputs into a one-command
+monthly monitoring run with metric outputs, breach logic, and reviewer-ready
+evidence-pack generation.

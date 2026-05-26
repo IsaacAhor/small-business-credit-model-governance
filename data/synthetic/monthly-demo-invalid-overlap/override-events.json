@@ -1,0 +1,11 @@
+[
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0001",
+    "decision_id": "dec-0001",
+    "override_type": "manual_approval",
+    "override_reason": "Synthetic validation fixture only.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-05-04"
+  }
+]

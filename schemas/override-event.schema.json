@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/override-event.schema.json",
+  "title": "Override Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "override_id",
+    "decision_id",
+    "override_type",
+    "override_reason",
+    "reviewer",
+    "override_date"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "override_event"
+    },
+    "override_id": {
+      "type": "string",
+      "pattern": "^ovr-[a-z0-9-]+$"
+    },
+    "decision_id": {
+      "type": "string",
+      "pattern": "^dec-[a-z0-9-]+$"
+    },
+    "override_type": {
+      "enum": [
+        "policy_exception",
+        "manual_approval",
+        "manual_decline"
+      ]
+    },
+    "override_reason": {
+      "type": "string",
+      "minLength": 5
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 3
+    },
+    "override_date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

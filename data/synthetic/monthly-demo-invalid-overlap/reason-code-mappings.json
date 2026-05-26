@@ -1,0 +1,11 @@
+[
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-001",
+    "version_id": "ver-2026-05",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_code": "RC-101",
+    "reason_text": "Insufficient cash flow stability",
+    "mapping_version": "mapver-2026-05"
+  }
+]

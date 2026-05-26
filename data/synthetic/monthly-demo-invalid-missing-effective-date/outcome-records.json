@@ -1,0 +1,10 @@
+[
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0001",
+    "decision_id": "dec-0001",
+    "observation_period": "3m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  }
+]

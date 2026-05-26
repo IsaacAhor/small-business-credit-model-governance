@@ -65,6 +65,11 @@ Status:
 - add typed Python validation models under `src/credit_gov/`
 - create deterministic synthetic demo data aligned to the schemas
 
+Status:
+
+- Phase 6 is now implemented with repository schemas, typed validation models,
+  deterministic synthetic demo inputs, and validation tests.
+
 ## Phase 7: Executable Governance Workflow
 
 - add a CLI-driven monthly monitoring workflow

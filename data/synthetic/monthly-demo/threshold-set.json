@@ -1,0 +1,23 @@
+{
+  "record_type": "threshold_set",
+  "threshold_set_id": "thr-2026-05-monthly",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "review_cadence": "monthly",
+  "thresholds": [
+    {
+      "metric_name": "approval_rate",
+      "comparison_rule": "less_than",
+      "threshold_value": 0.35,
+      "severity": "medium",
+      "escalation_owner": "Model Risk Governance"
+    },
+    {
+      "metric_name": "override_rate",
+      "comparison_rule": "greater_than",
+      "threshold_value": 0.1,
+      "severity": "high",
+      "escalation_owner": "Credit Policy Review"
+    }
+  ]
+}

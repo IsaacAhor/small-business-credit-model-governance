@@ -21,3 +21,9 @@ jobs:
 
       - name: Verify expected starter files exist
         run: python scripts/validate_repository.py
+
+      - name: Validate Phase 1 demo dataset
+        run: python scripts/validate_phase1.py
+
+      - name: Run Phase 1 tests
+        run: python -m unittest discover -s tests -p "test_*.py"

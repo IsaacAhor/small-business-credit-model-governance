@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/model-registry-record.schema.json",
+  "title": "Model Registry Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "model_id",
+    "model_name",
+    "business_owner",
+    "technical_owner",
+    "intended_use",
+    "target_population",
+    "status",
+    "monitoring_only_fields",
+    "underwriting_fields"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "model_registry_record"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^mdl-[a-z0-9-]+$"
+    },
+    "model_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "business_owner": {
+      "type": "string",
+      "minLength": 3
+    },
+    "technical_owner": {
+      "type": "string",
+      "minLength": 3
+    },
+    "intended_use": {
+      "type": "string",
+      "minLength": 10
+    },
+    "target_population": {
+      "type": "string",
+      "minLength": 5
+    },
+    "status": {
+      "enum": [
+        "development",
+        "active",
+        "challenger",
+        "retired"
+      ]
+    },
+    "monitoring_only_fields": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "underwriting_fields": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "record_type": "model_registry_record",
+  "model_id": "mdl-smb-credit-xgb",
+  "model_name": "Small Business Credit Underwriting Model",
+  "business_owner": "Small Business Credit Risk",
+  "technical_owner": "Model Risk Governance",
+  "intended_use": "Risk-rank small business applicants for manual and automated underwriting review.",
+  "target_population": "U.S. small business credit applicants",
+  "status": "active",
+  "monitoring_only_fields": [
+    "region",
+    "channel",
+    "review_batch_id"
+  ],
+  "underwriting_fields": [
+    "score",
+    "requested_amount",
+    "decision_timestamp"
+  ]
+}

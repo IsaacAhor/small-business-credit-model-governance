@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/score-output.schema.json",
+  "title": "Score Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "decision_id",
+    "score_value",
+    "score_band",
+    "score_version"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "score_output"
+    },
+    "decision_id": {
+      "type": "string",
+      "pattern": "^dec-[a-z0-9-]+$"
+    },
+    "score_value": {
+      "type": "number"
+    },
+    "score_band": {
+      "type": "string",
+      "minLength": 1
+    },
+    "score_version": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    }
+  }
+}
