@@ -14,6 +14,7 @@ Describe the problem.
 
 - Who is affected?
 - Is governance evidence incorrect, incomplete, or blocked?
+- Does this affect a notebook, checklist, template, or CI guardrail?
 
 ## Reproduction or Location
 

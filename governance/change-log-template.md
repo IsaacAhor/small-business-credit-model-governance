@@ -9,6 +9,7 @@
 - Date:
 - Requested by:
 - Implemented by:
+- Reviewed by:
 
 ## Summary
 
@@ -23,6 +24,12 @@ Explain why the change was necessary.
 - Expected effect on decisions:
 - Expected effect on performance:
 - Governance or policy impact:
+- Feature or data-source impact:
+- Threshold impact:
+- Segmentation impact:
+- Explanation or reason-code impact:
+- Fair-lending monitoring impact:
+- Synthetic-data or demonstration assumption impact:
 - Monitoring changes required:
 
 ## Validation
@@ -31,3 +38,10 @@ Explain why the change was necessary.
 - Evidence location:
 - Reviewer:
 - Approval status:
+
+## Post-Change Controls
+
+- Post-change monitoring date:
+- Escalation owner:
+- Open follow-up items:
+- Linked issue or pull request:

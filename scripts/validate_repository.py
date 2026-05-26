@@ -1,0 +1,164 @@
+"""Repository guardrails for governance artifacts.
+
+The checks are intentionally lightweight and stdlib-only so they can run in
+GitHub Actions before the repository has a formal Python package.
+"""
+
+from __future__ import annotations
+
+import json
+import re
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+REQUIRED_FILES = [
+    "README.md",
+    "CONTRIBUTING.md",
+    ".github/pull_request_template.md",
+    ".github/ISSUE_TEMPLATE/model-governance-gap.md",
+    ".github/ISSUE_TEMPLATE/validation-finding.md",
+    ".github/ISSUE_TEMPLATE/monitoring-breach.md",
+    "docs/repository-roadmap.md",
+    "governance/control-matrix.md",
+    "governance/data-policy.md",
+    "governance/model-inventory-template.md",
+    "governance/validation-checklist.md",
+    "governance/change-log-template.md",
+    "templates/model-governance-checklist.md",
+    "templates/fair-lending-monitoring-checklist.md",
+]
+
+REQUIRED_TERMS = {
+    "README.md": [
+        "Core Objective",
+        "Evidence Standard",
+        "Data Policy",
+        "fair-lending monitoring",
+    ],
+    "governance/model-inventory-template.md": [
+        "Adverse-action or reason-code mapping",
+        "Protected-class proxy review",
+        "Less discriminatory alternative trigger logic",
+    ],
+    "governance/validation-checklist.md": [
+        "Explainability",
+        "Fair-Lending Screening",
+        "Thresholds and Overrides",
+    ],
+    ".github/pull_request_template.md": [
+        "Domain Impact",
+        "Data provenance or synthetic-data assumptions",
+        "Fair-lending monitoring",
+    ],
+}
+
+DATA_EXTENSIONS = {
+    ".csv",
+    ".tsv",
+    ".xlsx",
+    ".xls",
+    ".parquet",
+    ".feather",
+    ".sqlite",
+    ".db",
+}
+
+LINK_PATTERN = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+
+
+def fail(message: str) -> None:
+    print(f"ERROR: {message}")
+    sys.exit(1)
+
+
+def check_required_files() -> None:
+    missing = [path for path in REQUIRED_FILES if not (ROOT / path).is_file()]
+    if missing:
+        fail("Missing required files: " + ", ".join(missing))
+
+
+def check_required_terms() -> None:
+    for path, terms in REQUIRED_TERMS.items():
+        text = (ROOT / path).read_text(encoding="utf-8")
+        missing = [term for term in terms if term not in text]
+        if missing:
+            fail(f"{path} is missing required terms: {', '.join(missing)}")
+
+
+def check_local_markdown_links() -> None:
+    for markdown_path in ROOT.rglob("*.md"):
+        text = markdown_path.read_text(encoding="utf-8")
+        for match in LINK_PATTERN.finditer(text):
+            target = match.group(1).strip()
+            if (
+                target.startswith(("http://", "https://", "mailto:"))
+                or target.startswith("#")
+                or "://" in target
+            ):
+                continue
+            target_path = target.split("#", 1)[0]
+            if not target_path:
+                continue
+            resolved = (markdown_path.parent / target_path).resolve()
+            try:
+                resolved.relative_to(ROOT)
+            except ValueError:
+                fail(f"{markdown_path} links outside repo: {target}")
+            if not resolved.exists():
+                fail(f"{markdown_path} has broken local link: {target}")
+
+
+def check_notebooks() -> None:
+    for notebook_path in ROOT.rglob("*.ipynb"):
+        with notebook_path.open(encoding="utf-8") as handle:
+            notebook = json.load(handle)
+        cells = notebook.get("cells", [])
+        markdown_text = "\n".join(
+            "".join(cell.get("source", []))
+            for cell in cells
+            if cell.get("cell_type") == "markdown"
+        ).lower()
+        if "synthetic" not in markdown_text and "demonstration" not in markdown_text:
+            fail(
+                f"{notebook_path} must disclose synthetic or demonstration status"
+            )
+
+
+def check_data_files() -> None:
+    data_files = [
+        path
+        for path in ROOT.rglob("*")
+        if path.is_file()
+        and ".git" not in path.parts
+        and path.suffix.lower() in DATA_EXTENSIONS
+    ]
+    for path in data_files:
+        relative = path.relative_to(ROOT)
+        parts = relative.parts
+        is_allowed = (
+            len(parts) >= 2
+            and parts[0] == "data"
+            and parts[1] == "synthetic"
+            and any(token in path.name.lower() for token in ("synthetic", "demo"))
+        )
+        if not is_allowed:
+            fail(
+                "Data-like files must live under data/synthetic/ and include "
+                f"'synthetic' or 'demo' in the filename: {relative}"
+            )
+
+
+def main() -> None:
+    check_required_files()
+    check_required_terms()
+    check_local_markdown_links()
+    check_notebooks()
+    check_data_files()
+    print("Repository guardrails passed.")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,7 @@
 # Source
 
-This directory is reserved for reusable code modules that may support future notebooks, dashboards, or prototype tooling.
+This directory is reserved for reusable code modules that may support future
+notebooks, dashboards, or prototype tooling.
 
 Possible future modules:
 
@@ -11,3 +12,5 @@ Possible future modules:
 - reporting or checklist generation utilities
 
 Code added here should remain tightly aligned to the repository's stated scope.
+Utilities that affect metrics, thresholds, explanation outputs, or fairness
+screening should have a linked validation note or test.

@@ -1,6 +1,8 @@
 # Small Business Credit Model Governance
 
-This repository contains a practical body of work focused on interpretable model governance and fair-lending monitoring for machine-learning-based small business credit underwriting.
+This repository contains a practical body of work focused on interpretable
+model governance and fair-lending monitoring for machine-learning-based small
+business credit underwriting.
 
 The project is designed to support several connected outputs:
 
@@ -11,7 +13,10 @@ The project is designed to support several connected outputs:
 
 ## Core Objective
 
-The central objective of this repository is to develop, validate, and disseminate practical model governance, explainability, and fair-lending monitoring frameworks for machine-learning-based small business credit underwriting in the United States.
+The central objective of this repository is to develop, validate, and
+disseminate practical model governance, explainability, and fair-lending
+monitoring frameworks for machine-learning-based small business credit
+underwriting in the United States.
 
 This includes work related to:
 
@@ -42,6 +47,8 @@ It does not assume a fixed modeling stack at this stage.
   Future reusable code modules and scripts.
 - `templates/`
   Checklists and governance templates.
+- `governance/`
+  Control records, inventory templates, validation standards, and change logs.
 
 ## Initial Deliverables
 
@@ -69,6 +76,25 @@ It should avoid drifting into:
 - unsupported legal conclusions
 - claims of real-world deployment that are not documented
 
+## Evidence Standard
+
+Repository artifacts should distinguish between:
+
+- framework claims
+- demonstration outputs
+- cited external references
+- production or institution-specific evidence
+
+Do not present a synthetic notebook, draft framework, or checklist as evidence
+of production deployment. If an artifact is illustrative, label it that way.
+
+## Data Policy
+
+Public artifacts should use synthetic, simulated, or clearly licensed
+demonstration data unless a dataset is approved and documented. Data-like files
+must not be added casually. Any future non-synthetic data source should have a
+documented provenance, permitted use, sensitivity classification, and reviewer.
+
 ## Near-Term Priorities
 
 1. Refine the first full framework draft in `docs/framework-draft.md`.
@@ -85,4 +111,6 @@ This repository now contains:
 - a first synthetic notebook starter
 - reusable monitoring and governance templates
 
-The next steps are to strengthen the framework, connect the article to external sources and demonstration outputs, and expand the notebook into a reviewable prototype workflow.
+The next steps are to strengthen the framework, connect the article to external
+sources and demonstration outputs, and expand the notebook into a reviewable
+prototype workflow.

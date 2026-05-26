@@ -20,11 +20,4 @@ jobs:
             **/*.md
 
       - name: Verify expected starter files exist
-        run: |
-          test -f README.md
-          test -f CONTRIBUTING.md
-          test -f docs/repository-roadmap.md
-          test -f governance/model-inventory-template.md
-          test -f governance/validation-checklist.md
-          test -f governance/change-log-template.md
-          test -f .github/pull_request_template.md
+        run: python scripts/validate_repository.py
