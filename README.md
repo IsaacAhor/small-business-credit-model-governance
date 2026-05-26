@@ -98,9 +98,11 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 ## Near-Term Priorities
 
 1. Refine the first full framework draft in `docs/framework-draft.md`.
-2. Refine the first practitioner-facing article draft in `docs/practitioner-article-draft.md`.
-3. Convert the checklist templates into repeatable governance artifacts.
-4. Expand the synthetic demonstration notebook in `notebooks/synthetic-monitoring-demo.ipynb`.
+2. Define the Phase 0 system design layer in `docs/system-charter.md`, `docs/system-boundaries.md`, `docs/control-workflow.md`, and `docs/domain-object-model.md`.
+3. Refine the first practitioner-facing article draft in `docs/practitioner-article-draft.md`.
+4. Convert the checklist templates into repeatable governance artifacts.
+5. Expand the synthetic demonstration notebook in `notebooks/synthetic-monitoring-demo.ipynb`.
+6. Build toward the executable system described in `docs/system-implementation-roadmap.md`.
 
 ## Current Status
 
