@@ -4,19 +4,27 @@ This repository contains a practical body of work focused on interpretable
 model governance and fair-lending monitoring for machine-learning-based small
 business credit underwriting.
 
+The locked endeavor is to develop, validate, and disseminate practical methods,
+monitoring protocols, documentation standards, and tools for governance of
+machine-learning-based small business credit underwriting systems in the United
+States, including adverse action reason generation, less discriminatory
+alternative assessment, and ongoing model-risk oversight, to improve regulatory
+compliance, decision transparency, and responsible access to small business
+credit.
+
 The project is designed to support several connected outputs:
 
 - a framework for governing ML-based small business underwriting systems
 - monitoring checklists for explainability, fair lending, and model risk oversight
-- implementation-oriented notebooks and templates
+- implementation-oriented system designs, notebooks, and templates
 - practitioner-facing written work that translates the framework into usable methods
 
 ## Core Objective
 
-The central objective of this repository is to develop, validate, and
-disseminate practical model governance, explainability, and fair-lending
-monitoring frameworks for machine-learning-based small business credit
-underwriting in the United States.
+The central objective of this repository is to execute the locked endeavor
+through public, reviewable artifacts: methods, monitoring protocols,
+documentation standards, templates, synthetic demonstrations, and eventually a
+configuration-driven governance evidence engine.
 
 This includes work related to:
 
@@ -54,10 +62,12 @@ It does not assume a fixed modeling stack at this stage.
 
 The first phase of this repository is structured around four deliverables:
 
-1. A flagship framework outline for model governance and fair-lending monitoring.
-2. A practitioner article outline aligned to the same endeavor.
+1. A flagship framework for model governance and fair-lending monitoring.
+2. A practitioner article aligned to the same endeavor.
 3. Reusable governance and fair-lending monitoring checklists.
-4. A path toward notebooks or prototype tooling using synthetic or appropriately described demonstration data.
+4. A path toward executable tooling using synthetic or appropriately described
+   demonstration data.
+5. A Phase 0 system design layer for a governance evidence engine.
 
 ## Working Scope Discipline
 
@@ -112,7 +122,9 @@ This repository now contains:
 - a first practitioner article draft
 - a first synthetic notebook starter
 - reusable monitoring and governance templates
+- Phase 0 system design documents for a governance evidence engine
+- repository guardrails that check required governance artifacts and data discipline
 
-The next steps are to strengthen the framework, connect the article to external
-sources and demonstration outputs, and expand the notebook into a reviewable
-prototype workflow.
+The next steps are to align each public artifact to the locked endeavor,
+connect the article and framework to external sources and demonstration outputs,
+and build the Phase 1 data contracts that support the evidence-engine roadmap.

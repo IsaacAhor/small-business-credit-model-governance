@@ -231,4 +231,3 @@ The first serious build target is:
 > A one-command monthly monitoring run that validates synthetic data, computes
 > configured monitoring metrics, identifies threshold breaches, and emits a
 > reviewer-ready evidence pack.
-

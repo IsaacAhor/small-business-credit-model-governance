@@ -1,5 +1,19 @@
 # Repository Roadmap
 
+## Endeavor Anchor
+
+The locked endeavor is to develop, validate, and disseminate practical methods,
+monitoring protocols, documentation standards, and tools for governance of
+machine-learning-based small business credit underwriting systems in the United
+States, including adverse action reason generation, less discriminatory
+alternative assessment, and ongoing model-risk oversight, to improve regulatory
+compliance, decision transparency, and responsible access to small business
+credit.
+
+All roadmap phases should support that endeavor. The evidence engine is the
+implementation vehicle for the "tools" and "monitoring protocols" portions of
+the endeavor.
+
 This roadmap is now paired with `docs/system-implementation-roadmap.md`, which
 defines the next technical implementation stage.
 

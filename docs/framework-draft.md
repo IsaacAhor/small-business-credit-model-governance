@@ -2,13 +2,24 @@
 
 ## 1. Introduction
 
-This document presents a practical governance framework for machine-learning-based small business credit underwriting systems. The framework is designed for environments where institutions need to balance predictive performance with transparency, explanation quality, fair-lending oversight, and disciplined model-risk management.
+This document presents a practical governance framework for
+machine-learning-based small business credit underwriting systems. It supports
+the locked endeavor to develop, validate, and disseminate practical methods,
+monitoring protocols, documentation standards, and tools for this domain.
+
+The framework is designed for environments where institutions need to balance
+predictive performance with transparency, explanation quality, fair-lending
+oversight, and disciplined model-risk management.
 
 Small business underwriting is a useful focus area because it sits at the intersection of credit access, portfolio risk, operational decisioning, and compliance-sensitive model behavior. In many institutions, governance controls evolve more slowly than modeling techniques. That gap becomes more serious when underwriting systems influence approval, pricing, limit-setting, or exception handling in ways that may be difficult to explain or monitor over time.
 
 The purpose of this framework is not to provide legal advice or institution-specific policy language. Its purpose is to define practical governance methods, monitoring protocols, documentation standards, and evaluative tools that can help a lender, fintech, or model-risk team document model purpose, assign ownership, monitor key risks, review explanations, screen for potential fair-lending concerns, and escalate governance issues before they become uncontrolled.
 
-This framework is also intended to support an executable governance workflow. The target operating model is a repeatable evidence-pack process in which structured records, thresholds, monitoring outputs, breaches, and reviewer signoff can be documented consistently. The framework therefore serves both as a policy artifact and as a design anchor for later implementation work.
+This framework is also intended to support an executable governance workflow.
+The target operating model is a repeatable evidence-pack process in which
+structured records, thresholds, monitoring outputs, breaches, and reviewer
+signoff can be documented consistently. The framework therefore serves both as
+a policy artifact and as a design anchor for later implementation work.
 
 ## 1A. Intended Outputs
 
