@@ -184,6 +184,7 @@ def validate_record(payload: dict[str, Any], schema: dict[str, Any], model_facto
 def validate_dataset(dataset_dir: Path) -> ValidationResult:
     errors: list[str] = []
     validated_files: list[str] = []
+    payloads: dict[str, Any] = {}
     for spec in SCHEMA_SPECS:
         data_path = dataset_dir / spec.filename
         schema_path = SCHEMA_DIR / spec.schema_file
@@ -195,6 +196,7 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
             continue
         try:
             payload = load_json(data_path)
+            payloads[spec.filename] = payload
             schema = load_json(schema_path)
             records = payload if isinstance(payload, list) else [payload]
             if isinstance(payload, list) and not payload:
@@ -206,12 +208,117 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
             validated_files.append(spec.filename)
         except Exception as exc:  # noqa: BLE001
             errors.append(f"{spec.filename}: {exc}")
+    if not errors:
+        try:
+            validate_dataset_relationships(dataset_dir, payloads)
+        except Exception as exc:  # noqa: BLE001
+            errors.append(f"dataset relationships: {exc}")
     return ValidationResult(
         ok=not errors,
         dataset_dir=str(dataset_dir),
         validated_files=validated_files,
         errors=errors,
     )
+
+
+def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) -> None:
+    model_registry = require_object_payload(payloads, "model-registry-record.json")
+    model_version = require_object_payload(payloads, "model-version-record.json")
+    threshold_set = require_object_payload(payloads, "threshold-set.json")
+    manifest = require_object_payload(payloads, "evidence-pack-manifest.json")
+
+    decisions = require_list_payload(payloads, "application-decision-records.json")
+    score_outputs = require_list_payload(payloads, "score-outputs.json")
+    reason_mappings = require_list_payload(payloads, "reason-code-mappings.json")
+    overrides = require_list_payload(payloads, "override-events.json")
+    outcomes = require_list_payload(payloads, "outcome-records.json")
+    breaches = require_list_payload(payloads, "breach-records.json")
+
+    model_id = model_registry["model_id"]
+    version_id = model_version["version_id"]
+    run_id = manifest["run_id"]
+
+    require_equal(model_version["model_id"], model_id, "model-version-record.json.model_id")
+    require_equal(threshold_set["model_id"], model_id, "threshold-set.json.model_id")
+    require_equal(threshold_set["version_id"], version_id, "threshold-set.json.version_id")
+    require_equal(manifest["model_id"], model_id, "evidence-pack-manifest.json.model_id")
+    require_equal(manifest["version_id"], version_id, "evidence-pack-manifest.json.version_id")
+
+    decision_ids = {record["decision_id"] for record in decisions}
+    for index, record in enumerate(decisions):
+        require_equal(
+            record["monitoring"]["review_batch_id"],
+            run_id,
+            f"application-decision-records.json[{index}].monitoring.review_batch_id",
+        )
+
+    for index, record in enumerate(score_outputs):
+        require_member(
+            record["decision_id"],
+            decision_ids,
+            f"score-outputs.json[{index}].decision_id",
+        )
+        require_equal(
+            record["score_version"],
+            version_id,
+            f"score-outputs.json[{index}].score_version",
+        )
+
+    for index, record in enumerate(reason_mappings):
+        require_equal(record["version_id"], version_id, f"reason-code-mappings.json[{index}].version_id")
+
+    for index, record in enumerate(overrides):
+        require_member(
+            record["decision_id"],
+            decision_ids,
+            f"override-events.json[{index}].decision_id",
+        )
+
+    for index, record in enumerate(outcomes):
+        require_member(
+            record["decision_id"],
+            decision_ids,
+            f"outcome-records.json[{index}].decision_id",
+        )
+
+    threshold_metrics = {record["metric_name"] for record in threshold_set["thresholds"]}
+    for index, record in enumerate(breaches):
+        require_equal(record["run_id"], run_id, f"breach-records.json[{index}].run_id")
+        require_member(
+            record["metric_name"],
+            threshold_metrics,
+            f"breach-records.json[{index}].metric_name",
+        )
+
+    for reference in manifest["input_references"]:
+        if not (dataset_dir / reference).is_file():
+            raise ValueError(
+                f"evidence-pack-manifest.json.input_references missing file: {reference}"
+            )
+
+
+def require_object_payload(payloads: dict[str, Any], filename: str) -> dict[str, Any]:
+    payload = payloads[filename]
+    if not isinstance(payload, dict):
+        raise ValueError(f"{filename} must be an object for relationship validation")
+    return payload
+
+
+def require_list_payload(payloads: dict[str, Any], filename: str) -> list[dict[str, Any]]:
+    payload = payloads[filename]
+    if not isinstance(payload, list):
+        raise ValueError(f"{filename} must be an array for relationship validation")
+    return payload
+
+
+def require_equal(actual: str, expected: str, field: str) -> None:
+    if actual != expected:
+        raise ValueError(f"{field} must equal {expected}")
+
+
+def require_member(actual: str, allowed: set[str], field: str) -> None:
+    if actual not in allowed:
+        raise ValueError(f"{field} references unknown value: {actual}")
 
 
 def validate_application_decision_business_rules(record: dict[str, Any], index: int) -> None:
@@ -223,4 +330,3 @@ def validate_application_decision_business_rules(record: dict[str, Any], index: 
             f"application_decision_records[{index}] mixes underwriting and monitoring fields: "
             + ", ".join(overlap)
         )
-

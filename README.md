@@ -114,12 +114,11 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Harden Phase 1 validation so the demo dataset is coherent across files, not only valid file by file.
-2. Add invalid fixtures and tests for broken decision references, mismatched model/version IDs, invalid breach metrics, and missing manifest references.
-3. Build the Phase 2 one-command monitoring workflow described in `docs/system-implementation-roadmap.md`.
-4. Generate deterministic metric outputs, breach records, and a reviewer-ready evidence pack from synthetic inputs.
-5. Refine the framework and practitioner article after the executable workflow can produce report excerpts.
-6. Preserve public PR, commit, and validation history as implementation milestones land.
+1. Build the Phase 2 one-command monitoring workflow described in `docs/system-implementation-roadmap.md`.
+2. Generate deterministic metric outputs, breach records, and a reviewer-ready evidence pack from synthetic inputs.
+3. Add at least one no-breach and one controlled-breach monitoring scenario.
+4. Refine the framework and practitioner article after the executable workflow can produce report excerpts.
+5. Preserve public PR, commit, and validation history as implementation milestones land.
 
 ## Current Status
 
@@ -131,8 +130,9 @@ This repository now contains:
 - reusable monitoring and governance templates
 - Phase 0 system design documents for a governance evidence engine
 - Phase 1 JSON schemas, typed validation models, deterministic synthetic demo records, and validation tests
+- Phase 1A cross-file evidence-integrity validation for the synthetic demo records
 - repository guardrails that check required governance artifacts and data discipline
 
-The next steps are to harden cross-file evidence integrity, then turn the
-validated synthetic inputs into a one-command monthly monitoring run with metric
-outputs, breach logic, and reviewer-ready evidence-pack generation.
+The next steps are to turn the validated synthetic inputs into a one-command
+monthly monitoring run with metric outputs, breach logic, and reviewer-ready
+evidence-pack generation.

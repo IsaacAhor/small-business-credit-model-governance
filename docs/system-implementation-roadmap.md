@@ -93,12 +93,12 @@ Acceptance criteria:
 Deliverables:
 
 - cross-file validation for decision IDs, model IDs, version IDs, run IDs, threshold metrics, breach records, and manifest references
-- invalid fixture datasets for broken references and mismatched relationships
+- invalid relationship tests for broken references and mismatched relationships
 - tests for relationship validation and CLI failure behavior
 
-Next pending task:
+Status:
 
-- strengthen the Phase 1 validator so validated inputs form a coherent evidence set before Phase 2 generates evidence packs
+- Phase 1A is implemented with cross-file relationship checks in the Phase 1 validator and tests for broken decision references, mismatched version context, invalid breach metrics, missing manifest references, and CLI failure behavior.
 
 Acceptance criteria:
 
@@ -106,7 +106,7 @@ Acceptance criteria:
 - threshold, breach, reason-code, manifest, model, and version records agree on model/version/run context where applicable
 - breach metrics are present in the configured threshold set
 - manifest input references point to files present in the dataset
-- invalid relationship fixtures fail with specific errors
+- invalid relationship scenarios fail with specific errors
 
 ## Phase 2: Monthly Monitoring Workflow
 
