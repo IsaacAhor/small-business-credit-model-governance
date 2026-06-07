@@ -11,4 +11,3 @@ Rules:
 - inputs should remain stable so validation tests and future workflow runs are reproducible
 
 The first dataset under this directory supports the Phase 1 data-contract layer.
-

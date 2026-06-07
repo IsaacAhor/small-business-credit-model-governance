@@ -88,6 +88,26 @@ Acceptance criteria:
 - synthetic data status is disclosed
 - underwriting fields are separated from monitoring-only fields
 
+## Phase 1A: Evidence Integrity Hardening
+
+Deliverables:
+
+- cross-file validation for decision IDs, model IDs, version IDs, run IDs, threshold metrics, breach records, and manifest references
+- invalid fixture datasets for broken references and mismatched relationships
+- tests for relationship validation and CLI failure behavior
+
+Next pending task:
+
+- strengthen the Phase 1 validator so validated inputs form a coherent evidence set before Phase 2 generates evidence packs
+
+Acceptance criteria:
+
+- score, override, and outcome records reference existing decision records
+- threshold, breach, reason-code, manifest, model, and version records agree on model/version/run context where applicable
+- breach metrics are present in the configured threshold set
+- manifest input references point to files present in the dataset
+- invalid relationship fixtures fail with specific errors
+
 ## Phase 2: Monthly Monitoring Workflow
 
 Deliverables:
