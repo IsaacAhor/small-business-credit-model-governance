@@ -19,4 +19,3 @@ Current contracts:
 These schemas are paired with typed validation models under
 `src/credit_gov/schemas/` and deterministic synthetic inputs under
 `data/synthetic/monthly-demo/`.
-

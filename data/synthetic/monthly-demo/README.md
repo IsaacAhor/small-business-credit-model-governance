@@ -11,4 +11,3 @@ Purpose:
 
 This dataset does not represent production lending activity or legal
 compliance.
-
