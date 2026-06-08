@@ -114,9 +114,9 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Build the Phase 2 one-command monitoring workflow described in `docs/system-implementation-roadmap.md`.
-2. Generate deterministic metric outputs, breach records, and a reviewer-ready evidence pack from synthetic inputs.
-3. Add at least one no-breach and one controlled-breach monitoring scenario.
+1. Refine the Phase 2 monitoring workflow with broader metric coverage and report sections.
+2. Expand evidence-pack outputs toward issue-review and signoff depth described in `docs/system-implementation-roadmap.md`.
+3. Add targeted tests for metric edge cases, drift logic, and fair-lending screening behavior.
 4. Refine the framework and practitioner article after the executable workflow can produce report excerpts.
 5. Preserve public PR, commit, and validation history as implementation milestones land.
 
@@ -131,8 +131,8 @@ This repository now contains:
 - Phase 0 system design documents for a governance evidence engine
 - Phase 1 JSON schemas, typed validation models, deterministic synthetic demo records, and validation tests
 - Phase 1A cross-file evidence-integrity validation for the synthetic demo records
+- a Phase 2 one-command synthetic monthly monitoring workflow that emits metrics, breaches, issues, and reviewer-ready evidence packs
 - repository guardrails that check required governance artifacts and data discipline
 
-The next steps are to turn the validated synthetic inputs into a one-command
-monthly monitoring run with metric outputs, breach logic, and reviewer-ready
-evidence-pack generation.
+The next steps are to deepen metric coverage, extend issue-review and signoff
+artifacts, and build the later control extensions described in the roadmap.

@@ -10,5 +10,8 @@ Thumbs.db
 __pycache__/
 *.pyc
 
+# Generated evidence packs
+evidence/
+
 # Notebooks
 .ipynb_checkpoints/

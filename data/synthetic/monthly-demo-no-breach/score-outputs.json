@@ -1,0 +1,16 @@
+[
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0001",
+    "score_value": 712.4,
+    "score_band": "A",
+    "score_version": "ver-2026-05"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0002",
+    "score_value": 601.8,
+    "score_band": "C",
+    "score_version": "ver-2026-05"
+  }
+]

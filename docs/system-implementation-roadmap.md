@@ -120,10 +120,13 @@ Deliverables:
 - Markdown monitoring report
 - unit tests for metric logic
 
-Next pending task:
+Status:
 
-- implement the first one-command monitoring workflow that consumes the Phase 1
-  validated synthetic inputs and emits metrics, breaches, and an evidence pack
+- Phase 2 is now implemented with a one-command workflow in
+  `scripts/run_monthly_monitoring.py`, deterministic metric computation and
+  threshold evaluation in `src/credit_gov/monitoring.py`, reviewer-ready
+  evidence-pack generation under `evidence/`, and tests covering controlled-
+  breach and no-breach scenarios.
 
 Initial metrics:
 

@@ -199,7 +199,7 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
             payloads[spec.filename] = payload
             schema = load_json(schema_path)
             records = payload if isinstance(payload, list) else [payload]
-            if isinstance(payload, list) and not payload:
+            if isinstance(payload, list) and not payload and spec.filename != "breach-records.json":
                 raise ValueError(f"{spec.filename} must contain at least one record")
             for index, record in enumerate(records):
                 validate_record(record, schema, spec.model_factory)

@@ -1,0 +1,19 @@
+{
+  "record_type": "evidence_pack_manifest",
+  "run_id": "run-2026-05",
+  "created_at": "2026-05-26T12:00:00Z",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "input_references": [
+    "model-registry-record.json",
+    "model-version-record.json",
+    "threshold-set.json",
+    "application-decision-records.json"
+  ],
+  "output_files": [
+    "metric_results.json",
+    "breach_register.json",
+    "monitoring_report.md"
+  ],
+  "reviewer_status": "pending_review"
+}
