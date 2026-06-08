@@ -1,0 +1,54 @@
+[
+  {
+    "finding_id": "flf-0001",
+    "screen_name": "Regional approval-rate ratio",
+    "metric_name": "approval_rate_ratio",
+    "comparison_group": "region",
+    "observed_value": 0.0,
+    "threshold_value": 0.8,
+    "comparison_rule": "less_than",
+    "severity": "medium",
+    "owner": "Fair Lending Review",
+    "review_trigger": "deeper_fair_lending_review",
+    "result_type": "screening_only_not_legal_conclusion"
+  },
+  {
+    "finding_id": "flf-0002",
+    "screen_name": "Regional approval-rate ratio",
+    "metric_name": "approval_rate_ratio",
+    "comparison_group": "segment",
+    "observed_value": 0.0,
+    "threshold_value": 0.8,
+    "comparison_rule": "less_than",
+    "severity": "medium",
+    "owner": "Fair Lending Review",
+    "review_trigger": "deeper_fair_lending_review",
+    "result_type": "screening_only_not_legal_conclusion"
+  },
+  {
+    "finding_id": "flf-0003",
+    "screen_name": "Regional override-rate difference",
+    "metric_name": "override_rate_difference",
+    "comparison_group": "region",
+    "observed_value": 1.0,
+    "threshold_value": 0.25,
+    "comparison_rule": "greater_than",
+    "severity": "medium",
+    "owner": "Fair Lending Review",
+    "review_trigger": "deeper_fair_lending_review",
+    "result_type": "screening_only_not_legal_conclusion"
+  },
+  {
+    "finding_id": "flf-0004",
+    "screen_name": "Regional override-rate difference",
+    "metric_name": "override_rate_difference",
+    "comparison_group": "segment",
+    "observed_value": 1.0,
+    "threshold_value": 0.25,
+    "comparison_rule": "greater_than",
+    "severity": "medium",
+    "owner": "Fair Lending Review",
+    "review_trigger": "deeper_fair_lending_review",
+    "result_type": "screening_only_not_legal_conclusion"
+  }
+]

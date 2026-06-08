@@ -16,12 +16,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
     "README.md",
+    "PROJECT_BRIEF.md",
     "CONTRIBUTING.md",
     ".github/pull_request_template.md",
     ".github/ISSUE_TEMPLATE/model-governance-gap.md",
     ".github/ISSUE_TEMPLATE/validation-finding.md",
     ".github/ISSUE_TEMPLATE/monitoring-breach.md",
+    "docs/evidence-map.md",
+    "docs/references.md",
     "docs/repository-roadmap.md",
+    "examples/evidence-packs/monthly-demo/README.md",
     "governance/control-matrix.md",
     "governance/data-policy.md",
     "governance/model-inventory-template.md",
@@ -33,10 +37,31 @@ REQUIRED_FILES = [
 
 REQUIRED_TERMS = {
     "README.md": [
-        "Core Objective",
+        "For Reviewers",
+        "Reproducibility",
         "Evidence Standard",
         "Data Policy",
         "fair-lending monitoring",
+    ],
+    "PROJECT_BRIEF.md": [
+        "Problem",
+        "Proposed Contribution",
+        "Current Limitations",
+    ],
+    "docs/evidence-map.md": [
+        "What it supports",
+        "What it does not prove",
+        "Synthetic data should be described as demonstration data.",
+    ],
+    "docs/references.md": [
+        "Regulation B",
+        "Model Risk Management",
+        "NIST",
+    ],
+    "examples/evidence-packs/monthly-demo/README.md": [
+        "Synthetic data only.",
+        "not legal conclusions",
+        "Regeneration Command",
     ],
     "governance/model-inventory-template.md": [
         "Adverse-action or reason-code mapping",

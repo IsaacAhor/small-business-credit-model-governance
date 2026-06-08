@@ -1,8 +1,66 @@
 # Small Business Credit Model Governance
 
-This repository contains a practical body of work focused on interpretable
-model governance and fair-lending monitoring for machine-learning-based small
-business credit underwriting.
+[![CI](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml/badge.svg)](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml)
+
+This repository contains a practical body of work focused on model governance,
+fair-lending monitoring, and reviewer-ready documentation for
+machine-learning-based small business credit underwriting systems.
+
+## For Reviewers
+
+This repository demonstrates a repeatable governance workflow for
+machine-learning-based small business credit underwriting systems. It shows how
+a lender, validator, auditor, regulator-facing reviewer, or
+policy/compliance professional could organize model records, threshold
+reviews, adverse-action reason QA, fair-lending screening triggers, issue
+registers, and reviewer-ready evidence packs using synthetic demonstration
+data.
+
+## What This Repository Demonstrates
+
+The repository is meant to show practical execution, not only concept notes. It
+brings together public, reviewable artifacts that support a governance workflow
+for:
+
+- model records and documentation standards
+- threshold configuration and monitoring review
+- adverse-action reason generation QA
+- fair-lending screening and escalation triggers
+- issue tracking and evidence-pack assembly
+- ongoing model-risk oversight using deterministic demonstration inputs
+
+## Who This Repository Is For
+
+This repository should be readable and useful to:
+
+- reviewers evaluating the professional value of the work
+- non-technical reviewers who need a plain-language view of what the system does
+- policy, compliance, fair-lending, validation, and model-risk professionals
+- potential adopters evaluating how a governance workflow could be structured
+- researchers or practitioners assessing governance methods using synthetic data
+
+## What This Repository Contains
+
+The repository is designed to support several connected outputs:
+
+- a framework for governing ML-based small business underwriting systems
+- monitoring checklists for explainability, fair lending, and model-risk oversight
+- implementation-oriented system designs, workflows, and templates
+- practitioner-facing written work that translates the framework into usable methods
+- a configuration-driven governance evidence engine built around synthetic data
+
+## What It Does Not Claim
+
+This repository uses synthetic demonstration data and public documentation
+artifacts. It does not claim:
+
+- confidential production deployment
+- institution-specific legal conclusions
+- broad external adoption
+- independent recognition by itself
+- automatic certification of regulatory compliance
+
+## Endeavor Alignment
 
 The locked endeavor is to develop, validate, and disseminate practical methods,
 monitoring protocols, documentation standards, and tools for governance of
@@ -12,36 +70,31 @@ alternative assessment, and ongoing model-risk oversight, to improve regulatory
 compliance, decision transparency, and responsible access to small business
 credit.
 
-The project is designed to support several connected outputs:
+The central objective of this repository is to execute that endeavor through
+public, reviewable artifacts: methods, monitoring protocols, documentation
+standards, templates, synthetic demonstrations, and a configuration-driven
+governance evidence engine.
 
-- a framework for governing ML-based small business underwriting systems
-- monitoring checklists for explainability, fair lending, and model risk oversight
-- implementation-oriented system designs, notebooks, and templates
-- practitioner-facing written work that translates the framework into usable methods
+## Core Use Cases
 
-## Core Objective
-
-The central objective of this repository is to execute the locked endeavor
-through public, reviewable artifacts: methods, monitoring protocols,
-documentation standards, templates, synthetic demonstrations, and eventually a
-configuration-driven governance evidence engine.
-
-This includes work related to:
-
-- adverse action reason generation and explanation quality
-- less discriminatory alternative assessment
-- ongoing model-risk oversight
-- fairness and compliance monitoring
-- governance documentation for deployment and post-deployment review
+- monthly monitoring runs that compute metrics, identify threshold breaches, and
+  generate evidence packs
+- adverse-action reason review that tests mapping quality, specificity, and
+  traceability
+- fair-lending screening that flags disparity indicators for governance review
+- change-review workflows for model versions, thresholds, and reason-code
+  mappings
+- independent validation review supported by reviewer-facing summary artifacts
 
 ## Scope
 
-This repository is governance-first and intentionally narrow. It is set up to support:
+This repository is governance-first and intentionally narrow. It is set up to
+support:
 
 - policy and control documentation
 - model inventory and monitoring structure
 - validation and review artifacts
-- implementation work once code and demonstration assets are added
+- implementation work tied to a synthetic governance evidence workflow
 
 It does not assume a fixed modeling stack at this stage.
 
@@ -57,6 +110,8 @@ It does not assume a fixed modeling stack at this stage.
   Reusable validation models, CLI entry points, and later workflow code.
 - `data/synthetic/`
   Deterministic demonstration inputs for validation and future monitoring runs.
+- `examples/`
+  Curated synthetic example outputs that can be reviewed without running code.
 - `tests/`
   Validation checks for schema, typed-model, and synthetic-data integrity.
 - `templates/`
@@ -66,7 +121,7 @@ It does not assume a fixed modeling stack at this stage.
 
 ## Initial Deliverables
 
-The first phase of this repository is structured around four deliverables:
+The first phase of this repository is structured around six deliverables:
 
 1. A flagship framework for model governance and fair-lending monitoring.
 2. A practitioner article aligned to the same endeavor.
@@ -105,6 +160,32 @@ Repository artifacts should distinguish between:
 Do not present a synthetic notebook, draft framework, or checklist as evidence
 of production deployment. If an artifact is illustrative, label it that way.
 
+## Reproducibility
+
+Run Phase 1 data-contract validation:
+
+```bash
+python scripts/validate_phase1.py
+```
+
+Run the monthly monitoring workflow against the default synthetic dataset:
+
+```bash
+python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root evidence
+```
+
+Run the repository tests:
+
+```bash
+python -m unittest discover -s tests -p "test_*.py"
+```
+
+Run repository guardrails:
+
+```bash
+python scripts/validate_repository.py
+```
+
 ## Data Policy
 
 Public artifacts should use synthetic, simulated, or clearly licensed
@@ -126,7 +207,7 @@ This repository now contains:
 
 - a first full framework draft
 - a first practitioner article draft
-- a first synthetic notebook starter
+- synthetic monitoring demonstration assets
 - reusable monitoring and governance templates
 - Phase 0 system design documents for a governance evidence engine
 - Phase 1 JSON schemas, typed validation models, deterministic synthetic demo records, and validation tests

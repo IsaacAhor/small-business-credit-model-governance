@@ -1,0 +1,11 @@
+{
+  "mapping_versions": [
+    "mapver-2026-05"
+  ],
+  "reason_code_distribution": {
+    "RC-101": 0.5,
+    "RC-102": 0.5
+  },
+  "mapped_reason_code_count": 2,
+  "generated_reason_code_count": 2
+}

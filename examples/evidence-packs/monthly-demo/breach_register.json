@@ -1,0 +1,12 @@
+[
+  {
+    "record_type": "breach_record",
+    "breach_id": "brc-0001",
+    "run_id": "run-2026-05",
+    "metric_name": "override_rate",
+    "observed_value": 0.5,
+    "threshold_value": 0.1,
+    "severity": "high",
+    "owner": "Credit Policy Review"
+  }
+]

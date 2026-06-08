@@ -25,5 +25,8 @@ jobs:
       - name: Validate Phase 1 demo dataset
         run: python scripts/validate_phase1.py
 
-      - name: Run Phase 1 tests
+      - name: Run monthly monitoring smoke test
+        run: python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root .tmp-ci-evidence
+
+      - name: Run tests
         run: python -m unittest discover -s tests -p "test_*.py"

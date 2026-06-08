@@ -1,0 +1,18 @@
+{
+  "label": "qa_screening_only_not_legal_conclusion",
+  "declined_decision_count": 1,
+  "reason_output_count": 2,
+  "exception_count": 0,
+  "exceptions": [],
+  "stability": {
+    "mapping_versions": [
+      "mapver-2026-05"
+    ],
+    "reason_code_distribution": {
+      "RC-101": 0.5,
+      "RC-102": 0.5
+    },
+    "mapped_reason_code_count": 2,
+    "generated_reason_code_count": 2
+  }
+}

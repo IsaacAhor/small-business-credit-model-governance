@@ -1,0 +1,76 @@
+{
+  "run_id": "run-2026-05",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "total_decisions": 2,
+  "approval_rate": 0.5,
+  "decline_rate": 0.5,
+  "override_rate": 0.5,
+  "manual_review_rate": 0.5,
+  "score_distribution": {
+    "count": 2,
+    "minimum": 601.8,
+    "maximum": 712.4,
+    "average": 657.1,
+    "bands": {
+      "A": 1,
+      "C": 1
+    }
+  },
+  "reason_code_distribution": {
+    "configured_reason_code_count": 2,
+    "generated_reason_output_count": 2,
+    "counts": {
+      "RC-101": 1,
+      "RC-102": 1
+    }
+  },
+  "population_drift_indicators": {
+    "baseline": "not_configured_for_demo",
+    "segment_mix": {
+      "micro": 0.5,
+      "small": 0.5
+    },
+    "region_mix": {
+      "midwest": 0.5,
+      "south": 0.5
+    },
+    "channel_mix": {
+      "branch": 0.5,
+      "digital": 0.5
+    }
+  },
+  "fair_lending_screening": {
+    "label": "screening_only_not_legal_conclusion",
+    "approval_rate_by_region": {
+      "midwest": {
+        "total": 1,
+        "approved": 0,
+        "approval_rate": 0.0
+      },
+      "south": {
+        "total": 1,
+        "approved": 1,
+        "approval_rate": 1.0
+      }
+    },
+    "approval_rate_by_segment": {
+      "micro": {
+        "total": 1,
+        "approved": 1,
+        "approval_rate": 1.0
+      },
+      "small": {
+        "total": 1,
+        "approved": 0,
+        "approval_rate": 0.0
+      }
+    },
+    "minimum_region_approval_rate": 0.0,
+    "maximum_region_approval_rate": 1.0
+  },
+  "outcome_summary": {
+    "performing": 1,
+    "delinquent": 1
+  }
+}
