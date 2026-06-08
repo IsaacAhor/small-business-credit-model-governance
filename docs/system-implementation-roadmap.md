@@ -76,6 +76,7 @@ Initial contracts:
 - application decision record
 - score output
 - reason-code mapping
+- adverse-action reason output
 - override event
 - outcome record
 - breach record
@@ -155,6 +156,14 @@ Deliverables:
 - reason-code stability report
 - traceable exception samples
 - report section in the evidence pack
+
+Status:
+
+- Phase 3 is now implemented with an adverse-action reason output schema,
+  typed validation model, relationship validation, reason QA checks for missing,
+  unmapped, generic, driver-mismatched, and mapping-version-mismatched reason
+  outputs, evidence-pack reason QA outputs, and tests for clean and exception
+  scenarios.
 
 Checks:
 
@@ -255,6 +264,8 @@ Every executable run should create a timestamped evidence folder containing:
 - `threshold_set.json`
 - `metric_results.json`
 - `breach_register.json`
+- `reason_qa_results.json`
+- `reason_stability_report.json`
 - `issue_register.json`
 - `monitoring_report.md`
 - `reviewer_signoff.md`

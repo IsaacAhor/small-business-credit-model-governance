@@ -87,6 +87,20 @@ Key fields:
 - reason_text
 - mapping_version
 
+### Adverse-Action Reason Output
+
+Represents a generated reason output tied to a monitored adverse decision.
+
+Key fields:
+
+- reason_output_id
+- decision_id
+- version_id
+- reason_code
+- driver_or_signal
+- reason_rank
+- mapping_version
+
 ### Override Event
 
 Represents a manual or policy override linked to a decision.
@@ -159,7 +173,8 @@ Key fields:
 - one model version can reference one or more threshold sets
 - one monitoring run can process many application decision records
 - one decision record can be linked to zero or more override events
-- one decision record can reference zero or more reason-code mapping outputs
+- one decision record can reference zero or more adverse-action reason outputs
+- one adverse-action reason output should be reviewable against a governed reason-code mapping
 - one run can create many breach records
 - one issue record can group one or more related breaches
 - one evidence pack manifest should reference the main records and outputs produced by a run

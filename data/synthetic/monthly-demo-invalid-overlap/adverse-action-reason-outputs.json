@@ -1,0 +1,12 @@
+[
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0001",
+    "decision_id": "dec-0002",
+    "version_id": "ver-2026-05",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-05"
+  }
+]

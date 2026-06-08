@@ -78,9 +78,21 @@ Status:
 - generate breach records and an evidence pack
 - add tests for schema validation and metric logic
 
+Status:
+
+- Phase 7 now has a first executable workflow with monthly monitoring,
+  threshold comparison, breach generation, issue generation, adverse-action
+  reason QA outputs, and reviewer-ready evidence-pack generation.
+
 ## Phase 8: Domain-Specific Control Extensions
 
 - add adverse-action reason QA
 - add fair-lending screening and escalation outputs
 - add model-version change impact reporting
 - add vendor model oversight metadata and heightened monitoring mode
+
+Status:
+
+- Adverse-action reason QA is implemented for synthetic reason outputs. The
+  remaining Phase 8 priorities are fair-lending escalation, model-change
+  review, and vendor oversight.

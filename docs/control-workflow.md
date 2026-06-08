@@ -16,6 +16,7 @@ Inputs should be collected in structured form, including:
 - application decision records
 - score outputs
 - reason-code mapping
+- adverse-action reason outputs for declined or otherwise adverse decisions
 - override records
 - outcome records where available
 
@@ -38,6 +39,7 @@ The workflow should compute configured metrics such as:
 - score distribution summaries
 - override and manual-review rates
 - reason-code distributions
+- adverse-action reason QA exceptions
 - drift indicators
 - configured disparity-oriented screens
 
@@ -62,6 +64,10 @@ Threshold breaches should create explicit records that identify:
 
 Where appropriate, breach records should lead to issue records for remediation tracking.
 
+Reason QA exceptions should identify the affected decision, reason output,
+exception type, and review owner without presenting the exception as a legal
+conclusion.
+
 ### 6. Assemble Evidence Pack
 
 Every run should generate a reviewer-ready evidence pack containing:
@@ -70,6 +76,8 @@ Every run should generate a reviewer-ready evidence pack containing:
 - input fingerprints or references
 - metric outputs
 - breach register
+- reason QA results
+- reason stability report
 - issue register
 - monitoring report
 - reviewer signoff artifact

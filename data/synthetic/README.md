@@ -10,4 +10,5 @@ Rules:
 - each dataset should disclose its synthetic status and intended monitoring use
 - inputs should remain stable so validation tests and future workflow runs are reproducible
 
-The first dataset under this directory supports the Phase 1 data-contract layer.
+The datasets under this directory support validation, monthly monitoring,
+controlled-breach, no-breach, and adverse-action reason QA demonstrations.

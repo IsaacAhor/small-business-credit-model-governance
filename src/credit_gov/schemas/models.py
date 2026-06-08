@@ -275,6 +275,34 @@ class ReasonCodeMapping(BaseRecord):
 
 
 @dataclass(slots=True)
+class AdverseActionReasonOutput(BaseRecord):
+    reason_output_id: str
+    decision_id: str
+    version_id: str
+    reason_code: str
+    driver_or_signal: str
+    reason_rank: float
+    mapping_version: str
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any]) -> "AdverseActionReasonOutput":
+        reason_rank = payload.get("reason_rank")
+        require_type(reason_rank, (int, float), "reason_rank")
+        if float(reason_rank) <= 0:
+            raise ValueError("reason_rank must be greater than zero")
+        return cls(
+            **cls._base_kwargs(payload),
+            reason_output_id=require_non_empty_string(payload.get("reason_output_id"), "reason_output_id", 3),
+            decision_id=require_non_empty_string(payload.get("decision_id"), "decision_id", 3),
+            version_id=require_non_empty_string(payload.get("version_id"), "version_id", 3),
+            reason_code=require_non_empty_string(payload.get("reason_code"), "reason_code", 3),
+            driver_or_signal=require_non_empty_string(payload.get("driver_or_signal"), "driver_or_signal", 3),
+            reason_rank=float(reason_rank),
+            mapping_version=require_non_empty_string(payload.get("mapping_version"), "mapping_version", 3),
+        )
+
+
+@dataclass(slots=True)
 class OverrideEvent(BaseRecord):
     override_id: str
     decision_id: str
@@ -372,4 +400,3 @@ class EvidencePackManifest(BaseRecord):
             output_files=require_string_list(payload.get("output_files"), "output_files"),
             reviewer_status=require_non_empty_string(payload.get("reviewer_status"), "reviewer_status", 3),
         )
-

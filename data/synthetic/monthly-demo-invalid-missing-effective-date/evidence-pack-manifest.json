@@ -8,11 +8,14 @@
     "model-registry-record.json",
     "model-version-record.json",
     "threshold-set.json",
-    "application-decision-records.json"
+    "application-decision-records.json",
+    "adverse-action-reason-outputs.json"
   ],
   "output_files": [
     "metric_results.json",
     "breach_register.json",
+    "reason_qa_results.json",
+    "reason_stability_report.json",
     "monitoring_report.md"
   ],
   "reviewer_status": "pending_review"

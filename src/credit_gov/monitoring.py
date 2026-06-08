@@ -20,6 +20,7 @@ class MonitoringRunResult:
     metrics: dict[str, Any]
     breaches: list[dict[str, Any]]
     issues: list[dict[str, Any]]
+    reason_qa: dict[str, Any]
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -30,6 +31,7 @@ class MonitoringRunResult:
             "metrics": self.metrics,
             "breaches": self.breaches,
             "issues": self.issues,
+            "reason_qa": self.reason_qa,
         }
 
 
@@ -46,6 +48,7 @@ def load_dataset_payloads(dataset_dir: Path) -> dict[str, Any]:
         "decisions": load_json(dataset_dir / "application-decision-records.json"),
         "score_outputs": load_json(dataset_dir / "score-outputs.json"),
         "reason_mappings": load_json(dataset_dir / "reason-code-mappings.json"),
+        "reason_outputs": load_json(dataset_dir / "adverse-action-reason-outputs.json"),
         "overrides": load_json(dataset_dir / "override-events.json"),
         "outcomes": load_json(dataset_dir / "outcome-records.json"),
         "manifest": load_json(dataset_dir / "evidence-pack-manifest.json"),
@@ -67,12 +70,14 @@ def run_monthly_monitoring(
             metrics={},
             breaches=[],
             issues=[],
+            reason_qa={},
         )
 
     payloads = load_dataset_payloads(dataset_dir)
     metrics = compute_metrics(payloads)
+    reason_qa = compute_reason_qa(payloads)
     breaches = evaluate_thresholds(metrics, payloads["threshold_set"], payloads["manifest"]["run_id"])
-    issues = build_issue_register(breaches)
+    issues = build_issue_register(breaches, reason_qa["exceptions"])
 
     evidence_root = (evidence_root or dataset_dir / ".." / ".." / "evidence").resolve()
     evidence_dir = build_evidence_pack(
@@ -82,6 +87,7 @@ def run_monthly_monitoring(
         metrics=metrics,
         breaches=breaches,
         issues=issues,
+        reason_qa=reason_qa,
     )
     return MonitoringRunResult(
         ok=True,
@@ -91,6 +97,7 @@ def run_monthly_monitoring(
         metrics=metrics,
         breaches=breaches,
         issues=issues,
+        reason_qa=reason_qa,
     )
 
 
@@ -98,6 +105,7 @@ def compute_metrics(payloads: dict[str, Any]) -> dict[str, Any]:
     decisions = payloads["decisions"]
     scores = payloads["score_outputs"]
     reason_mappings = payloads["reason_mappings"]
+    reason_outputs = payloads["reason_outputs"]
     outcomes = payloads["outcomes"]
 
     total_decisions = len(decisions)
@@ -111,7 +119,7 @@ def compute_metrics(payloads: dict[str, Any]) -> dict[str, Any]:
     segments = count_by_key(decisions, "segment")
     regions = count_by_nested_key(decisions, "monitoring", "region")
     channels = count_by_nested_key(decisions, "monitoring", "channel")
-    reason_codes = count_by_key(reason_mappings, "reason_code")
+    reason_codes = count_by_key(reason_outputs, "reason_code")
     outcomes_summary = count_by_key(outcomes, "repayment_or_default_indicator")
 
     fairness_by_region = build_group_outcomes(decisions, "region")
@@ -135,6 +143,7 @@ def compute_metrics(payloads: dict[str, Any]) -> dict[str, Any]:
         },
         "reason_code_distribution": {
             "configured_reason_code_count": len(reason_mappings),
+            "generated_reason_output_count": len(reason_outputs),
             "counts": reason_codes,
         },
         "population_drift_indicators": {
@@ -158,6 +167,119 @@ def compute_metrics(payloads: dict[str, Any]) -> dict[str, Any]:
         },
         "outcome_summary": outcomes_summary,
     }
+
+
+def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
+    decisions = payloads["decisions"]
+    reason_mappings = payloads["reason_mappings"]
+    reason_outputs = payloads["reason_outputs"]
+
+    mappings_by_code = {
+        record["reason_code"]: record
+        for record in reason_mappings
+    }
+    outputs_by_decision: dict[str, list[dict[str, Any]]] = {}
+    for output in reason_outputs:
+        outputs_by_decision.setdefault(output["decision_id"], []).append(output)
+
+    exceptions: list[dict[str, Any]] = []
+    declined_decisions = [
+        record for record in decisions if record["decision_outcome"] == "declined"
+    ]
+    for decision in declined_decisions:
+        outputs = outputs_by_decision.get(decision["decision_id"], [])
+        if not outputs:
+            exceptions.append(
+                build_reason_exception(
+                    decision["decision_id"],
+                    None,
+                    "missing_reason_code",
+                    "Declined decision has no generated adverse-action reason output.",
+                )
+            )
+            continue
+        for output in sorted(outputs, key=lambda item: item["reason_rank"]):
+            mapping = mappings_by_code.get(output["reason_code"])
+            if mapping is None:
+                exceptions.append(
+                    build_reason_exception(
+                        decision["decision_id"],
+                        output,
+                        "unmapped_reason_code",
+                        "Generated reason code is not present in the governed reason-code mapping.",
+                    )
+                )
+                continue
+            if output["driver_or_signal"] != mapping["driver_or_signal"]:
+                exceptions.append(
+                    build_reason_exception(
+                        decision["decision_id"],
+                        output,
+                        "driver_mapping_mismatch",
+                        "Generated reason driver does not match the governed mapping.",
+                    )
+                )
+            if output["mapping_version"] != mapping["mapping_version"]:
+                exceptions.append(
+                    build_reason_exception(
+                        decision["decision_id"],
+                        output,
+                        "mapping_version_mismatch",
+                        "Generated reason mapping version does not match the governed mapping.",
+                    )
+                )
+            if is_generic_reason_text(mapping["reason_text"]):
+                exceptions.append(
+                    build_reason_exception(
+                        decision["decision_id"],
+                        output,
+                        "generic_reason_text",
+                        "Mapped reason text is too generic for governance review.",
+                    )
+                )
+
+    reason_code_counts = count_by_key(reason_outputs, "reason_code") if reason_outputs else {}
+    return {
+        "label": "qa_screening_only_not_legal_conclusion",
+        "declined_decision_count": len(declined_decisions),
+        "reason_output_count": len(reason_outputs),
+        "exception_count": len(exceptions),
+        "exceptions": exceptions,
+        "stability": {
+            "mapping_versions": sorted({record["mapping_version"] for record in reason_mappings}),
+            "reason_code_distribution": to_share_map(reason_code_counts, len(reason_outputs)),
+            "mapped_reason_code_count": len(reason_mappings),
+            "generated_reason_code_count": len(reason_code_counts),
+        },
+    }
+
+
+def build_reason_exception(
+    decision_id: str,
+    output: dict[str, Any] | None,
+    exception_type: str,
+    message: str,
+) -> dict[str, Any]:
+    return {
+        "exception_id": f"rex-{decision_id}-{exception_type}",
+        "decision_id": decision_id,
+        "reason_output_id": output["reason_output_id"] if output else None,
+        "reason_code": output["reason_code"] if output else None,
+        "exception_type": exception_type,
+        "message": message,
+    }
+
+
+def is_generic_reason_text(reason_text: str) -> bool:
+    normalized = reason_text.strip().lower()
+    generic_values = {
+        "other",
+        "insufficient information",
+        "not applicable",
+        "generic reason",
+        "miscellaneous",
+    }
+    return normalized in generic_values or len(normalized.split()) < 3
 
 
 def evaluate_thresholds(
@@ -200,7 +322,10 @@ def threshold_breached(observed_value: float, comparison_rule: str, threshold_va
     raise ValueError(f"Unsupported comparison rule: {comparison_rule}")
 
 
-def build_issue_register(breaches: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def build_issue_register(
+    breaches: list[dict[str, Any]],
+    reason_exceptions: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
     issues: list[dict[str, Any]] = []
     for index, breach in enumerate(breaches, start=1):
         issues.append(
@@ -216,6 +341,22 @@ def build_issue_register(breaches: list[dict[str, Any]]) -> list[dict[str, Any]]
                 "due_date": "2026-06-30",
             }
         )
+    for exception in reason_exceptions:
+        issue_index = len(issues) + 1
+        issues.append(
+            {
+                "issue_id": f"iss-{issue_index:04d}",
+                "linked_breach_ids": [],
+                "linked_reason_exception_ids": [exception["exception_id"]],
+                "summary": (
+                    f"Reason QA exception for {exception['decision_id']}: "
+                    f"{exception['exception_type']}."
+                ),
+                "status": "open",
+                "owner": "Model Risk Governance",
+                "due_date": "2026-06-30",
+            }
+        )
     return issues
 
 
@@ -226,6 +367,7 @@ def build_evidence_pack(
     metrics: dict[str, Any],
     breaches: list[dict[str, Any]],
     issues: list[dict[str, Any]],
+    reason_qa: dict[str, Any],
 ) -> Path:
     manifest = payloads["manifest"]
     evidence_dir = evidence_root / format_evidence_dir_name(
@@ -250,6 +392,8 @@ def build_evidence_pack(
             "threshold_set.json",
             "metric_results.json",
             "breach_register.json",
+            "reason_qa_results.json",
+            "reason_stability_report.json",
             "issue_register.json",
             "monitoring_report.md",
             "reviewer_signoff.md",
@@ -270,13 +414,15 @@ def build_evidence_pack(
     write_json(evidence_dir / "threshold_set.json", payloads["threshold_set"])
     write_json(evidence_dir / "metric_results.json", metrics)
     write_json(evidence_dir / "breach_register.json", breaches)
+    write_json(evidence_dir / "reason_qa_results.json", reason_qa)
+    write_json(evidence_dir / "reason_stability_report.json", reason_qa["stability"])
     write_json(evidence_dir / "issue_register.json", issues)
     (evidence_dir / "monitoring_report.md").write_text(
-        render_monitoring_report(metrics, breaches, issues),
+        render_monitoring_report(metrics, breaches, issues, reason_qa),
         encoding="utf-8",
     )
     (evidence_dir / "reviewer_signoff.md").write_text(
-        render_reviewer_signoff(generated_manifest, breaches),
+        render_reviewer_signoff(generated_manifest, breaches, reason_qa["exceptions"]),
         encoding="utf-8",
     )
     return evidence_dir
@@ -293,6 +439,7 @@ def render_monitoring_report(
     metrics: dict[str, Any],
     breaches: list[dict[str, Any]],
     issues: list[dict[str, Any]],
+    reason_qa: dict[str, Any],
 ) -> str:
     breach_lines = (
         "\n".join(
@@ -311,6 +458,14 @@ def render_monitoring_report(
         if issues
         else "- No remediation issues were opened."
     )
+    reason_exception_lines = (
+        "\n".join(
+            f"- {exception['decision_id']}: {exception['exception_type']} ({exception['message']})"
+            for exception in reason_qa["exceptions"]
+        )
+        if reason_qa["exceptions"]
+        else "- No reason QA exceptions were generated for this run."
+    )
     return (
         "# Monthly Monitoring Report\n\n"
         "This report is deterministic, synthetic, and intended only for governance workflow demonstration.\n\n"
@@ -322,6 +477,12 @@ def render_monitoring_report(
         f"- Decline rate: {metrics['decline_rate']}\n"
         f"- Override rate: {metrics['override_rate']}\n"
         f"- Manual review rate: {metrics['manual_review_rate']}\n\n"
+        "## Adverse-Action Reason QA\n\n"
+        f"- Declined decisions reviewed: {reason_qa['declined_decision_count']}\n"
+        f"- Generated reason outputs reviewed: {reason_qa['reason_output_count']}\n"
+        f"- QA exception count: {reason_qa['exception_count']}\n"
+        "- Result type: screening only, not a legal conclusion\n\n"
+        f"{reason_exception_lines}\n\n"
         "## Threshold Breaches\n\n"
         f"{breach_lines}\n\n"
         "## Issue Register\n\n"
@@ -329,8 +490,16 @@ def render_monitoring_report(
     )
 
 
-def render_reviewer_signoff(manifest: dict[str, Any], breaches: list[dict[str, Any]]) -> str:
-    review_state = "Escalation recommended" if breaches else "No escalation required in demo run"
+def render_reviewer_signoff(
+    manifest: dict[str, Any],
+    breaches: list[dict[str, Any]],
+    reason_exceptions: list[dict[str, Any]],
+) -> str:
+    review_state = (
+        "Escalation recommended"
+        if breaches or reason_exceptions
+        else "No escalation required in demo run"
+    )
     return (
         "# Reviewer Signoff\n\n"
         "This artifact supports governance workflow demonstration only.\n\n"

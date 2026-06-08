@@ -11,6 +11,7 @@ Current contracts:
 - application decision record
 - score output
 - reason-code mapping
+- adverse-action reason output
 - override event
 - outcome record
 - breach record

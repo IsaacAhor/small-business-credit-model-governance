@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from .models import (
+    AdverseActionReasonOutput,
     ApplicationDecisionRecord,
     BreachRecord,
     EvidencePackManifest,
@@ -63,6 +64,11 @@ SCHEMA_SPECS: tuple[SchemaSpec, ...] = (
     ),
     SchemaSpec("score-outputs.json", "score-output.schema.json", ScoreOutput.from_dict),
     SchemaSpec("reason-code-mappings.json", "reason-code-mapping.schema.json", ReasonCodeMapping.from_dict),
+    SchemaSpec(
+        "adverse-action-reason-outputs.json",
+        "adverse-action-reason-output.schema.json",
+        AdverseActionReasonOutput.from_dict,
+    ),
     SchemaSpec("override-events.json", "override-event.schema.json", OverrideEvent.from_dict),
     SchemaSpec("outcome-records.json", "outcome-record.schema.json", OutcomeRecord.from_dict),
     SchemaSpec("breach-records.json", "breach-record.schema.json", BreachRecord.from_dict),
@@ -199,7 +205,11 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
             payloads[spec.filename] = payload
             schema = load_json(schema_path)
             records = payload if isinstance(payload, list) else [payload]
-            if isinstance(payload, list) and not payload and spec.filename != "breach-records.json":
+            optional_empty_lists = {
+                "adverse-action-reason-outputs.json",
+                "breach-records.json",
+            }
+            if isinstance(payload, list) and not payload and spec.filename not in optional_empty_lists:
                 raise ValueError(f"{spec.filename} must contain at least one record")
             for index, record in enumerate(records):
                 validate_record(record, schema, spec.model_factory)
@@ -230,6 +240,7 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
     decisions = require_list_payload(payloads, "application-decision-records.json")
     score_outputs = require_list_payload(payloads, "score-outputs.json")
     reason_mappings = require_list_payload(payloads, "reason-code-mappings.json")
+    reason_outputs = require_list_payload(payloads, "adverse-action-reason-outputs.json")
     overrides = require_list_payload(payloads, "override-events.json")
     outcomes = require_list_payload(payloads, "outcome-records.json")
     breaches = require_list_payload(payloads, "breach-records.json")
@@ -266,6 +277,18 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
 
     for index, record in enumerate(reason_mappings):
         require_equal(record["version_id"], version_id, f"reason-code-mappings.json[{index}].version_id")
+
+    for index, record in enumerate(reason_outputs):
+        require_member(
+            record["decision_id"],
+            decision_ids,
+            f"adverse-action-reason-outputs.json[{index}].decision_id",
+        )
+        require_equal(
+            record["version_id"],
+            version_id,
+            f"adverse-action-reason-outputs.json[{index}].version_id",
+        )
 
     for index, record in enumerate(overrides):
         require_member(
