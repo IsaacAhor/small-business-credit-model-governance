@@ -1,0 +1,44 @@
+{
+  "record_type": "fair_lending_screening_config",
+  "screening_config_id": "fls-2026-05-monthly",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "comparison_groups": [
+    {
+      "group_name": "region",
+      "source": "monitoring",
+      "field": "region"
+    },
+    {
+      "group_name": "segment",
+      "source": "decision",
+      "field": "segment"
+    }
+  ],
+  "screens": [
+    {
+      "screen_name": "Regional approval-rate ratio",
+      "metric_name": "approval_rate_ratio",
+      "comparison_rule": "less_than",
+      "threshold_value": 0.8,
+      "severity": "medium",
+      "escalation_owner": "Fair Lending Review"
+    },
+    {
+      "screen_name": "Regional override-rate difference",
+      "metric_name": "override_rate_difference",
+      "comparison_rule": "greater_than",
+      "threshold_value": 0.25,
+      "severity": "medium",
+      "escalation_owner": "Fair Lending Review"
+    },
+    {
+      "screen_name": "Reason-code concentration by segment",
+      "metric_name": "reason_code_concentration",
+      "comparison_rule": "greater_than",
+      "threshold_value": 0.75,
+      "severity": "low",
+      "escalation_owner": "Model Risk Governance"
+    }
+  ]
+}

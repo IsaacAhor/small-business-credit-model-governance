@@ -12,6 +12,7 @@ Current contracts:
 - score output
 - reason-code mapping
 - adverse-action reason output
+- fair-lending screening config
 - override event
 - outcome record
 - breach record

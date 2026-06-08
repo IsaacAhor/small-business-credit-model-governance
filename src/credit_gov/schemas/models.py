@@ -303,6 +303,80 @@ class AdverseActionReasonOutput(BaseRecord):
 
 
 @dataclass(slots=True)
+class FairLendingComparisonGroup:
+    group_name: str
+    source: str
+    field: str
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any], field: str) -> "FairLendingComparisonGroup":
+        return cls(
+            group_name=require_non_empty_string(payload.get("group_name"), f"{field}.group_name", 3),
+            source=require_non_empty_string(payload.get("source"), f"{field}.source", 3),
+            field=require_non_empty_string(payload.get("field"), f"{field}.field", 3),
+        )
+
+
+@dataclass(slots=True)
+class FairLendingScreen:
+    screen_name: str
+    metric_name: str
+    comparison_rule: str
+    threshold_value: float
+    severity: str
+    escalation_owner: str
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any], field: str) -> "FairLendingScreen":
+        threshold_value = payload.get("threshold_value")
+        require_type(threshold_value, (int, float), f"{field}.threshold_value")
+        return cls(
+            screen_name=require_non_empty_string(payload.get("screen_name"), f"{field}.screen_name", 3),
+            metric_name=require_non_empty_string(payload.get("metric_name"), f"{field}.metric_name", 3),
+            comparison_rule=require_non_empty_string(payload.get("comparison_rule"), f"{field}.comparison_rule", 3),
+            threshold_value=float(threshold_value),
+            severity=require_non_empty_string(payload.get("severity"), f"{field}.severity", 3),
+            escalation_owner=require_non_empty_string(payload.get("escalation_owner"), f"{field}.escalation_owner", 3),
+        )
+
+
+@dataclass(slots=True)
+class FairLendingScreeningConfig(BaseRecord):
+    screening_config_id: str
+    model_id: str
+    version_id: str
+    comparison_groups: list[FairLendingComparisonGroup]
+    screens: list[FairLendingScreen]
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any]) -> "FairLendingScreeningConfig":
+        comparison_groups_payload = payload.get("comparison_groups")
+        screens_payload = payload.get("screens")
+        require_type(comparison_groups_payload, list, "comparison_groups")
+        require_type(screens_payload, list, "screens")
+        comparison_groups = [
+            FairLendingComparisonGroup.from_dict(item, f"comparison_groups[{index}]")
+            for index, item in enumerate(comparison_groups_payload)
+        ]
+        screens = [
+            FairLendingScreen.from_dict(item, f"screens[{index}]")
+            for index, item in enumerate(screens_payload)
+        ]
+        if not comparison_groups:
+            raise ValueError("comparison_groups must contain at least one item")
+        if not screens:
+            raise ValueError("screens must contain at least one item")
+        return cls(
+            **cls._base_kwargs(payload),
+            screening_config_id=require_non_empty_string(payload.get("screening_config_id"), "screening_config_id", 3),
+            model_id=require_non_empty_string(payload.get("model_id"), "model_id", 3),
+            version_id=require_non_empty_string(payload.get("version_id"), "version_id", 3),
+            comparison_groups=comparison_groups,
+            screens=screens,
+        )
+
+
+@dataclass(slots=True)
 class OverrideEvent(BaseRecord):
     override_id: str
     decision_id: str

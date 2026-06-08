@@ -101,6 +101,18 @@ Key fields:
 - reason_rank
 - mapping_version
 
+### Fair-Lending Screening Config
+
+Represents configured comparison groups and screening thresholds for governance review.
+
+Key fields:
+
+- screening_config_id
+- model_id
+- version_id
+- comparison_groups
+- screens
+
 ### Override Event
 
 Represents a manual or policy override linked to a decision.
@@ -175,6 +187,8 @@ Key fields:
 - one decision record can be linked to zero or more override events
 - one decision record can reference zero or more adverse-action reason outputs
 - one adverse-action reason output should be reviewable against a governed reason-code mapping
+- one monitoring run can apply one fair-lending screening config
+- one fair-lending screening finding can generate one governance issue record
 - one run can create many breach records
 - one issue record can group one or more related breaches
 - one evidence pack manifest should reference the main records and outputs produced by a run

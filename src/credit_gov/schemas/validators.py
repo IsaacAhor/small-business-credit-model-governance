@@ -14,6 +14,7 @@ from .models import (
     ApplicationDecisionRecord,
     BreachRecord,
     EvidencePackManifest,
+    FairLendingScreeningConfig,
     ModelRegistryRecord,
     ModelVersionRecord,
     OutcomeRecord,
@@ -68,6 +69,11 @@ SCHEMA_SPECS: tuple[SchemaSpec, ...] = (
         "adverse-action-reason-outputs.json",
         "adverse-action-reason-output.schema.json",
         AdverseActionReasonOutput.from_dict,
+    ),
+    SchemaSpec(
+        "fair-lending-screening-config.json",
+        "fair-lending-screening-config.schema.json",
+        FairLendingScreeningConfig.from_dict,
     ),
     SchemaSpec("override-events.json", "override-event.schema.json", OverrideEvent.from_dict),
     SchemaSpec("outcome-records.json", "outcome-record.schema.json", OutcomeRecord.from_dict),
@@ -235,6 +241,7 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
     model_registry = require_object_payload(payloads, "model-registry-record.json")
     model_version = require_object_payload(payloads, "model-version-record.json")
     threshold_set = require_object_payload(payloads, "threshold-set.json")
+    fair_lending_config = require_object_payload(payloads, "fair-lending-screening-config.json")
     manifest = require_object_payload(payloads, "evidence-pack-manifest.json")
 
     decisions = require_list_payload(payloads, "application-decision-records.json")
@@ -252,6 +259,8 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
     require_equal(model_version["model_id"], model_id, "model-version-record.json.model_id")
     require_equal(threshold_set["model_id"], model_id, "threshold-set.json.model_id")
     require_equal(threshold_set["version_id"], version_id, "threshold-set.json.version_id")
+    require_equal(fair_lending_config["model_id"], model_id, "fair-lending-screening-config.json.model_id")
+    require_equal(fair_lending_config["version_id"], version_id, "fair-lending-screening-config.json.version_id")
     require_equal(manifest["model_id"], model_id, "evidence-pack-manifest.json.model_id")
     require_equal(manifest["version_id"], version_id, "evidence-pack-manifest.json.version_id")
 

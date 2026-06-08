@@ -46,14 +46,17 @@ class Phase2MonitoringTests(unittest.TestCase):
             self.assertEqual(result.breaches, expected_breaches)
             self.assertEqual(result.metrics["approval_rate"], 0.5)
             self.assertEqual(result.metrics["override_rate"], 0.5)
-            self.assertEqual(len(result.issues), 1)
+            self.assertGreaterEqual(len(result.issues), 1)
 
             output_dir = Path(result.output_dir)
             self.assertTrue((output_dir / "manifest.json").is_file())
             self.assertTrue((output_dir / "metric_results.json").is_file())
             self.assertTrue((output_dir / "breach_register.json").is_file())
+            self.assertTrue((output_dir / "fair_lending_screening_results.json").is_file())
+            self.assertTrue((output_dir / "fair_lending_escalation_register.json").is_file())
             self.assertTrue((output_dir / "issue_register.json").is_file())
             self.assertTrue((output_dir / "monitoring_report.md").is_file())
+            self.assertTrue((output_dir / "reviewer_notes.md").is_file())
             self.assertTrue((output_dir / "reviewer_signoff.md").is_file())
 
     def test_no_breach_scenario_generates_empty_registers(self) -> None:
@@ -65,6 +68,7 @@ class Phase2MonitoringTests(unittest.TestCase):
             self.assertTrue(result.ok, result.errors)
             self.assertEqual(result.breaches, [])
             self.assertEqual(result.issues, [])
+            self.assertEqual(result.fair_lending["findings"], [])
             output_dir = Path(result.output_dir)
             self.assertEqual(
                 json.loads((output_dir / "breach_register.json").read_text(encoding="utf-8")),

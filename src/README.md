@@ -9,13 +9,13 @@ Current contents:
   Typed validation models and dataset-validation logic for governed records.
 - `credit_gov/monitoring.py`
   Monthly monitoring workflow, metric computation, threshold comparison,
-  reason-code QA, issue generation, and evidence-pack assembly.
+  reason-code QA, fair-lending screening, issue generation, and evidence-pack
+  assembly.
 - `credit_gov/cli.py`
   Command-line entry point for validating deterministic synthetic inputs.
 
 Possible future modules:
 
-- fairness screening utilities
 - drift detection helpers
 - reporting or checklist generation utilities
 

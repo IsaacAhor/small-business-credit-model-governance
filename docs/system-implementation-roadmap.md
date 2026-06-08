@@ -77,6 +77,7 @@ Initial contracts:
 - score output
 - reason-code mapping
 - adverse-action reason output
+- fair-lending screening config
 - override event
 - outcome record
 - breach record
@@ -190,6 +191,13 @@ Deliverables:
 - issue record generation
 - reviewer notes template
 
+Status:
+
+- Phase 4 is now implemented with configurable comparison groups, approval-rate
+  ratio screens, override-rate difference screens, reason-code concentration
+  screens, escalation findings, issue records, reviewer notes, evidence-pack
+  fair-lending outputs, and tests for triggered and clean scenarios.
+
 Acceptance criteria:
 
 - screening metrics are configuration-driven
@@ -266,8 +274,11 @@ Every executable run should create a timestamped evidence folder containing:
 - `breach_register.json`
 - `reason_qa_results.json`
 - `reason_stability_report.json`
+- `fair_lending_screening_results.json`
+- `fair_lending_escalation_register.json`
 - `issue_register.json`
 - `monitoring_report.md`
+- `reviewer_notes.md`
 - `reviewer_signoff.md`
 
 ## First Build Target

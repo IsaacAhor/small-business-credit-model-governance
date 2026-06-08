@@ -8,6 +8,7 @@
     "model-registry-record.json",
     "model-version-record.json",
     "threshold-set.json",
+    "fair-lending-screening-config.json",
     "application-decision-records.json",
     "adverse-action-reason-outputs.json"
   ],
@@ -16,6 +17,9 @@
     "breach_register.json",
     "reason_qa_results.json",
     "reason_stability_report.json",
+    "fair_lending_screening_results.json",
+    "fair_lending_escalation_register.json",
+    "reviewer_notes.md",
     "monitoring_report.md"
   ],
   "reviewer_status": "pending_review"

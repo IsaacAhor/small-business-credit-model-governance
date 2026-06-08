@@ -1,0 +1,23 @@
+{
+  "record_type": "fair_lending_screening_config",
+  "screening_config_id": "fls-2026-05-monthly-invalid-overlap",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "comparison_groups": [
+    {
+      "group_name": "region",
+      "source": "monitoring",
+      "field": "region"
+    }
+  ],
+  "screens": [
+    {
+      "screen_name": "Regional approval-rate ratio",
+      "metric_name": "approval_rate_ratio",
+      "comparison_rule": "less_than",
+      "threshold_value": 0.8,
+      "severity": "medium",
+      "escalation_owner": "Fair Lending Review"
+    }
+  ]
+}

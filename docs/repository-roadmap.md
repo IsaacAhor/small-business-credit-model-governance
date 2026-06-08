@@ -82,7 +82,8 @@ Status:
 
 - Phase 7 now has a first executable workflow with monthly monitoring,
   threshold comparison, breach generation, issue generation, adverse-action
-  reason QA outputs, and reviewer-ready evidence-pack generation.
+  reason QA outputs, fair-lending screening outputs, and reviewer-ready
+  evidence-pack generation.
 
 ## Phase 8: Domain-Specific Control Extensions
 
@@ -93,6 +94,6 @@ Status:
 
 Status:
 
-- Adverse-action reason QA is implemented for synthetic reason outputs. The
-  remaining Phase 8 priorities are fair-lending escalation, model-change
-  review, and vendor oversight.
+- Adverse-action reason QA and fair-lending screening/escalation are
+  implemented for synthetic demonstration inputs. The remaining Phase 8
+  priorities are model-change review and vendor oversight.

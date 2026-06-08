@@ -114,9 +114,9 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Add stronger fair-lending screening and escalation logic for Phase 4.
-2. Expand reviewer-facing issue tracking and signoff depth.
-3. Add targeted tests for drift logic, fair-lending screens, and issue escalation behavior.
+1. Add model-version, threshold-set, and reason-code mapping change review for Phase 5.
+2. Expand reviewer-facing validation summaries and signoff depth.
+3. Add targeted tests for drift logic, model-change impact, and validation-review behavior.
 4. Refine the framework and practitioner article after the executable workflow can produce report excerpts.
 5. Preserve public PR, commit, and validation history as implementation milestones land.
 
@@ -133,7 +133,8 @@ This repository now contains:
 - Phase 1A cross-file evidence-integrity validation for the synthetic demo records
 - a Phase 2 one-command synthetic monthly monitoring workflow that emits metrics, breaches, issues, and reviewer-ready evidence packs
 - a Phase 3 adverse-action reason QA workflow that checks generated reason outputs, records traceable exceptions, and adds reason QA reports to evidence packs
+- a Phase 4 fair-lending screening workflow that applies configured comparison groups, creates escalation findings, and adds reviewer notes to evidence packs
 - repository guardrails that check required governance artifacts and data discipline
 
-The next steps are to deepen fair-lending screening, drift logic, issue-review
-artifacts, and signoff controls described in the roadmap.
+The next steps are to add model-change review, validation summaries, drift
+logic, and stronger signoff controls described in the roadmap.

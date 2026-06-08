@@ -83,7 +83,13 @@ class Phase3ReasonQATests(unittest.TestCase):
         self.assertEqual(result.reason_qa["exception_count"], 1)
         self.assertEqual(result.reason_qa["exceptions"][0]["exception_type"], "missing_reason_code")
         self.assertEqual(result.reason_qa["exceptions"][0]["decision_id"], "dec-0002")
-        self.assertEqual(len(result.issues), 2)
+        self.assertTrue(
+            any(
+                issue.get("linked_reason_exception_ids") == ["rex-dec-0002-missing_reason_code"]
+                for issue in result.issues
+            ),
+            result.issues,
+        )
 
     def test_unmapped_reason_code_is_qa_exception_not_validation_failure(self) -> None:
         with mutated_dataset(

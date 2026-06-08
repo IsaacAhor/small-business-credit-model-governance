@@ -11,4 +11,5 @@ Rules:
 - inputs should remain stable so validation tests and future workflow runs are reproducible
 
 The datasets under this directory support validation, monthly monitoring,
-controlled-breach, no-breach, and adverse-action reason QA demonstrations.
+controlled-breach, no-breach, adverse-action reason QA, and fair-lending
+screening demonstrations.

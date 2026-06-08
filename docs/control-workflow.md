@@ -13,6 +13,7 @@ Inputs should be collected in structured form, including:
 - model registry record
 - model version record
 - threshold set
+- fair-lending screening configuration
 - application decision records
 - score outputs
 - reason-code mapping
@@ -78,8 +79,11 @@ Every run should generate a reviewer-ready evidence pack containing:
 - breach register
 - reason QA results
 - reason stability report
+- fair-lending screening results
+- fair-lending escalation register
 - issue register
 - monitoring report
+- reviewer notes
 - reviewer signoff artifact
 
 ### 7. Review and Signoff

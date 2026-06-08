@@ -21,6 +21,7 @@ class MonitoringRunResult:
     breaches: list[dict[str, Any]]
     issues: list[dict[str, Any]]
     reason_qa: dict[str, Any]
+    fair_lending: dict[str, Any]
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -32,6 +33,7 @@ class MonitoringRunResult:
             "breaches": self.breaches,
             "issues": self.issues,
             "reason_qa": self.reason_qa,
+            "fair_lending": self.fair_lending,
         }
 
 
@@ -45,6 +47,7 @@ def load_dataset_payloads(dataset_dir: Path) -> dict[str, Any]:
         "model_registry": load_json(dataset_dir / "model-registry-record.json"),
         "model_version": load_json(dataset_dir / "model-version-record.json"),
         "threshold_set": load_json(dataset_dir / "threshold-set.json"),
+        "fair_lending_config": load_json(dataset_dir / "fair-lending-screening-config.json"),
         "decisions": load_json(dataset_dir / "application-decision-records.json"),
         "score_outputs": load_json(dataset_dir / "score-outputs.json"),
         "reason_mappings": load_json(dataset_dir / "reason-code-mappings.json"),
@@ -71,13 +74,15 @@ def run_monthly_monitoring(
             breaches=[],
             issues=[],
             reason_qa={},
+            fair_lending={},
         )
 
     payloads = load_dataset_payloads(dataset_dir)
     metrics = compute_metrics(payloads)
     reason_qa = compute_reason_qa(payloads)
+    fair_lending = compute_fair_lending_screening(payloads)
     breaches = evaluate_thresholds(metrics, payloads["threshold_set"], payloads["manifest"]["run_id"])
-    issues = build_issue_register(breaches, reason_qa["exceptions"])
+    issues = build_issue_register(breaches, reason_qa["exceptions"], fair_lending["findings"])
 
     evidence_root = (evidence_root or dataset_dir / ".." / ".." / "evidence").resolve()
     evidence_dir = build_evidence_pack(
@@ -88,6 +93,7 @@ def run_monthly_monitoring(
         breaches=breaches,
         issues=issues,
         reason_qa=reason_qa,
+        fair_lending=fair_lending,
     )
     return MonitoringRunResult(
         ok=True,
@@ -98,6 +104,7 @@ def run_monthly_monitoring(
         breaches=breaches,
         issues=issues,
         reason_qa=reason_qa,
+        fair_lending=fair_lending,
     )
 
 
@@ -254,6 +261,138 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
+    decisions = payloads["decisions"]
+    reason_outputs = payloads["reason_outputs"]
+    config = payloads["fair_lending_config"]
+
+    group_results: dict[str, dict[str, Any]] = {}
+    for group_config in config["comparison_groups"]:
+        group_name = group_config["group_name"]
+        groups = build_fair_lending_group_metrics(
+            decisions,
+            reason_outputs,
+            group_config["source"],
+            group_config["field"],
+        )
+        group_results[group_name] = {
+            "source": group_config["source"],
+            "field": group_config["field"],
+            "groups": groups,
+            "summary": summarize_fair_lending_groups(groups),
+        }
+
+    findings: list[dict[str, Any]] = []
+    for screen in config["screens"]:
+        metric_name = screen["metric_name"]
+        for group_name, group_result in group_results.items():
+            observed_value = group_result["summary"].get(metric_name)
+            if observed_value is None:
+                continue
+            if threshold_breached(
+                float(observed_value),
+                screen["comparison_rule"],
+                float(screen["threshold_value"]),
+            ):
+                finding_index = len(findings) + 1
+                findings.append(
+                    {
+                        "finding_id": f"flf-{finding_index:04d}",
+                        "screen_name": screen["screen_name"],
+                        "metric_name": metric_name,
+                        "comparison_group": group_name,
+                        "observed_value": round(float(observed_value), 4),
+                        "threshold_value": float(screen["threshold_value"]),
+                        "comparison_rule": screen["comparison_rule"],
+                        "severity": screen["severity"],
+                        "owner": screen["escalation_owner"],
+                        "review_trigger": "deeper_fair_lending_review",
+                        "result_type": "screening_only_not_legal_conclusion",
+                    }
+                )
+
+    return {
+        "label": "fair_lending_screening_only_not_legal_conclusion",
+        "screening_config_id": config["screening_config_id"],
+        "comparison_group_count": len(config["comparison_groups"]),
+        "screen_count": len(config["screens"]),
+        "finding_count": len(findings),
+        "group_results": group_results,
+        "findings": findings,
+        "limitations": [
+            "Synthetic data only.",
+            "No protected-class labels are used.",
+            "Screening findings are governance review triggers, not legal conclusions.",
+        ],
+    }
+
+
+def build_fair_lending_group_metrics(
+    decisions: list[dict[str, Any]],
+    reason_outputs: list[dict[str, Any]],
+    source: str,
+    field: str,
+) -> dict[str, dict[str, Any]]:
+    reason_outputs_by_decision: dict[str, list[dict[str, Any]]] = {}
+    for output in reason_outputs:
+        reason_outputs_by_decision.setdefault(output["decision_id"], []).append(output)
+
+    groups: dict[str, dict[str, Any]] = {}
+    for decision in decisions:
+        group_value = get_group_value(decision, source, field)
+        entry = groups.setdefault(
+            group_value,
+            {
+                "total": 0,
+                "approved": 0,
+                "overrides": 0,
+                "reason_code_counts": {},
+            },
+        )
+        entry["total"] += 1
+        if decision["decision_outcome"] == "approved":
+            entry["approved"] += 1
+        if decision["override_flag"]:
+            entry["overrides"] += 1
+        for output in reason_outputs_by_decision.get(decision["decision_id"], []):
+            counts = entry["reason_code_counts"]
+            counts[output["reason_code"]] = counts.get(output["reason_code"], 0) + 1
+
+    for entry in groups.values():
+        reason_total = sum(entry["reason_code_counts"].values())
+        entry["approval_rate"] = safe_rate(entry["approved"], entry["total"])
+        entry["override_rate"] = safe_rate(entry["overrides"], entry["total"])
+        entry["reason_code_concentration"] = (
+            round(max(entry["reason_code_counts"].values()) / reason_total, 4)
+            if reason_total
+            else 0.0
+        )
+    return {key: groups[key] for key in sorted(groups)}
+
+
+def get_group_value(decision: dict[str, Any], source: str, field: str) -> str:
+    if source == "monitoring":
+        return str(decision["monitoring"][field])
+    return str(decision[field])
+
+
+def summarize_fair_lending_groups(groups: dict[str, dict[str, Any]]) -> dict[str, float]:
+    approval_rates = [entry["approval_rate"] for entry in groups.values()]
+    override_rates = [entry["override_rate"] for entry in groups.values()]
+    concentrations = [entry["reason_code_concentration"] for entry in groups.values()]
+    max_approval_rate = max(approval_rates, default=0.0)
+    min_approval_rate = min(approval_rates, default=0.0)
+    return {
+        "approval_rate_ratio": (
+            round(min_approval_rate / max_approval_rate, 4)
+            if max_approval_rate > 0
+            else 1.0
+        ),
+        "override_rate_difference": round(max(override_rates, default=0.0) - min(override_rates, default=0.0), 4),
+        "reason_code_concentration": max(concentrations, default=0.0),
+    }
+
+
 def build_reason_exception(
     decision_id: str,
     output: dict[str, Any] | None,
@@ -325,6 +464,7 @@ def threshold_breached(observed_value: float, comparison_rule: str, threshold_va
 def build_issue_register(
     breaches: list[dict[str, Any]],
     reason_exceptions: list[dict[str, Any]],
+    fair_lending_findings: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
     issues: list[dict[str, Any]] = []
     for index, breach in enumerate(breaches, start=1):
@@ -357,6 +497,23 @@ def build_issue_register(
                 "due_date": "2026-06-30",
             }
         )
+    for finding in fair_lending_findings:
+        issue_index = len(issues) + 1
+        issues.append(
+            {
+                "issue_id": f"iss-{issue_index:04d}",
+                "linked_breach_ids": [],
+                "linked_reason_exception_ids": [],
+                "linked_fair_lending_finding_ids": [finding["finding_id"]],
+                "summary": (
+                    f"Fair-lending screening trigger for {finding['comparison_group']}: "
+                    f"{finding['metric_name']} observed {finding['observed_value']}."
+                ),
+                "status": "open",
+                "owner": finding["owner"],
+                "due_date": "2026-06-30",
+            }
+        )
     return issues
 
 
@@ -368,6 +525,7 @@ def build_evidence_pack(
     breaches: list[dict[str, Any]],
     issues: list[dict[str, Any]],
     reason_qa: dict[str, Any],
+    fair_lending: dict[str, Any],
 ) -> Path:
     manifest = payloads["manifest"]
     evidence_dir = evidence_root / format_evidence_dir_name(
@@ -394,8 +552,11 @@ def build_evidence_pack(
             "breach_register.json",
             "reason_qa_results.json",
             "reason_stability_report.json",
+            "fair_lending_screening_results.json",
+            "fair_lending_escalation_register.json",
             "issue_register.json",
             "monitoring_report.md",
+            "reviewer_notes.md",
             "reviewer_signoff.md",
         ],
         "reviewer_status": manifest["reviewer_status"],
@@ -416,13 +577,19 @@ def build_evidence_pack(
     write_json(evidence_dir / "breach_register.json", breaches)
     write_json(evidence_dir / "reason_qa_results.json", reason_qa)
     write_json(evidence_dir / "reason_stability_report.json", reason_qa["stability"])
+    write_json(evidence_dir / "fair_lending_screening_results.json", fair_lending)
+    write_json(evidence_dir / "fair_lending_escalation_register.json", fair_lending["findings"])
     write_json(evidence_dir / "issue_register.json", issues)
     (evidence_dir / "monitoring_report.md").write_text(
-        render_monitoring_report(metrics, breaches, issues, reason_qa),
+        render_monitoring_report(metrics, breaches, issues, reason_qa, fair_lending),
+        encoding="utf-8",
+    )
+    (evidence_dir / "reviewer_notes.md").write_text(
+        render_reviewer_notes(fair_lending),
         encoding="utf-8",
     )
     (evidence_dir / "reviewer_signoff.md").write_text(
-        render_reviewer_signoff(generated_manifest, breaches, reason_qa["exceptions"]),
+        render_reviewer_signoff(generated_manifest, breaches, reason_qa["exceptions"], fair_lending["findings"]),
         encoding="utf-8",
     )
     return evidence_dir
@@ -440,6 +607,7 @@ def render_monitoring_report(
     breaches: list[dict[str, Any]],
     issues: list[dict[str, Any]],
     reason_qa: dict[str, Any],
+    fair_lending: dict[str, Any],
 ) -> str:
     breach_lines = (
         "\n".join(
@@ -466,6 +634,15 @@ def render_monitoring_report(
         if reason_qa["exceptions"]
         else "- No reason QA exceptions were generated for this run."
     )
+    fair_lending_lines = (
+        "\n".join(
+            f"- {finding['comparison_group']}: {finding['metric_name']} observed {finding['observed_value']} "
+            f"against threshold {finding['threshold_value']} ({finding['severity']}, owner: {finding['owner']})"
+            for finding in fair_lending["findings"]
+        )
+        if fair_lending["findings"]
+        else "- No fair-lending screening findings were generated for this run."
+    )
     return (
         "# Monthly Monitoring Report\n\n"
         "This report is deterministic, synthetic, and intended only for governance workflow demonstration.\n\n"
@@ -483,6 +660,12 @@ def render_monitoring_report(
         f"- QA exception count: {reason_qa['exception_count']}\n"
         "- Result type: screening only, not a legal conclusion\n\n"
         f"{reason_exception_lines}\n\n"
+        "## Fair-Lending Screening\n\n"
+        f"- Comparison groups reviewed: {fair_lending['comparison_group_count']}\n"
+        f"- Screening rules applied: {fair_lending['screen_count']}\n"
+        f"- Screening finding count: {fair_lending['finding_count']}\n"
+        "- Result type: screening only, not a legal conclusion\n\n"
+        f"{fair_lending_lines}\n\n"
         "## Threshold Breaches\n\n"
         f"{breach_lines}\n\n"
         "## Issue Register\n\n"
@@ -494,10 +677,11 @@ def render_reviewer_signoff(
     manifest: dict[str, Any],
     breaches: list[dict[str, Any]],
     reason_exceptions: list[dict[str, Any]],
+    fair_lending_findings: list[dict[str, Any]],
 ) -> str:
     review_state = (
         "Escalation recommended"
-        if breaches or reason_exceptions
+        if breaches or reason_exceptions or fair_lending_findings
         else "No escalation required in demo run"
     )
     return (
@@ -508,6 +692,26 @@ def render_reviewer_signoff(
         f"- Review summary: {review_state}\n\n"
         "Reviewer: ____________________\n\n"
         "Date: ____________________\n"
+    )
+
+
+def render_reviewer_notes(fair_lending: dict[str, Any]) -> str:
+    finding_lines = (
+        "\n".join(
+            f"- {finding['finding_id']}: review {finding['metric_name']} for {finding['comparison_group']} "
+            f"with owner {finding['owner']}."
+            for finding in fair_lending["findings"]
+        )
+        if fair_lending["findings"]
+        else "- No fair-lending screening findings require reviewer notes."
+    )
+    return (
+        "# Reviewer Notes\n\n"
+        "This artifact supports synthetic governance review only. Fair-lending screening findings are review triggers, not legal conclusions.\n\n"
+        "## Fair-Lending Review Notes\n\n"
+        f"{finding_lines}\n\n"
+        "Reviewer notes:\n\n"
+        "- ____________________\n"
     )
 
 
