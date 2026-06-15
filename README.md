@@ -102,6 +102,8 @@ It does not assume a fixed modeling stack at this stage.
 
 - `docs/`
   Framework and article planning documents.
+- `docs/releases/`
+  Release notes for stable public milestones.
 - `schemas/`
   Phase 1 JSON contracts for governed records and evidence-pack manifests.
 - `notebooks/`
@@ -186,6 +188,17 @@ Run repository guardrails:
 python scripts/validate_repository.py
 ```
 
+## Versioned Releases
+
+This repository now uses versioned releases to mark stable public milestones.
+Releases package coherent review points; commits remain the development history.
+
+The first release milestone is `v0.4.0`, covering Phases 0 through 4: system
+design, data contracts, evidence integrity, monthly monitoring, adverse-action
+reason QA, fair-lending screening, and reviewer-facing project packaging.
+
+See `docs/release-strategy.md` and `docs/releases/v0.4.0.md`.
+
 ## Data Policy
 
 Public artifacts should use synthetic, simulated, or clearly licensed
@@ -195,11 +208,12 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Add model-version, threshold-set, and reason-code mapping change review for Phase 5.
-2. Expand reviewer-facing validation summaries and signoff depth.
-3. Add targeted tests for drift logic, model-change impact, and validation-review behavior.
-4. Refine the framework and practitioner article after the executable workflow can produce report excerpts.
-5. Preserve public PR, commit, and validation history as implementation milestones land.
+1. Tag the current stable reviewer-facing milestone as `v0.4.0`.
+2. Add model-version, threshold-set, and reason-code mapping change review for Phase 5.
+3. Expand reviewer-facing validation summaries and signoff depth.
+4. Add targeted tests for drift logic, model-change impact, and validation-review behavior.
+5. Refine the framework and practitioner article after the executable workflow can produce report excerpts.
+6. Preserve public PR, commit, release, and validation history as implementation milestones land.
 
 ## Current Status
 
@@ -215,6 +229,7 @@ This repository now contains:
 - a Phase 2 one-command synthetic monthly monitoring workflow that emits metrics, breaches, issues, and reviewer-ready evidence packs
 - a Phase 3 adverse-action reason QA workflow that checks generated reason outputs, records traceable exceptions, and adds reason QA reports to evidence packs
 - a Phase 4 fair-lending screening workflow that applies configured comparison groups, creates escalation findings, and adds reviewer notes to evidence packs
+- release strategy documentation and `v0.4.0` release notes for stable milestone preservation
 - repository guardrails that check required governance artifacts and data discipline
 
 The next steps are to add model-change review, validation summaries, drift

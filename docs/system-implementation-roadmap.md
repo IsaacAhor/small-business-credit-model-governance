@@ -261,6 +261,16 @@ tests/
 docs/
 ```
 
+## Release Milestones
+
+Stable public milestones should be tagged as versioned releases once the
+corresponding phase is implemented, documented, and validated through the normal
+repository workflow.
+
+- `v0.4.0`: Phase 4 fair-lending screening demo and reviewer-facing evidence
+  package.
+- `v0.5.0`: Phase 5 model-change and validation-review workflow.
+
 ## Evidence Pack Standard
 
 Every executable run should create a timestamped evidence folder containing:
