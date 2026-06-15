@@ -29,15 +29,19 @@ Use semantic-style version numbers for public milestones:
 - `v0.2.0`: monthly monitoring evidence run
 - `v0.3.0`: adverse-action reason QA workflow
 - `v0.4.0`: fair-lending screening and reviewer-facing evidence package
+- `v0.4.1`: outsider packaging patch with reviewer and implementation guides
 - `v0.5.0`: model-change and validation-review workflow
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
 
+Patch releases can be used for material packaging, documentation, or
+reviewability improvements that do not change the implementation phase.
+
 ## Current Release
 
-The first versioned milestone should be `v0.4.0`, because the repository now
-contains Phases 0 through 4:
+The first versioned milestone was `v0.4.0`, because the repository contained
+Phases 0 through 4:
 
 - system design and governance charter
 - data contracts and synthetic validation
@@ -46,6 +50,10 @@ contains Phases 0 through 4:
 - adverse-action reason QA
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
+
+The current patch milestone is `v0.4.1`, which adds outsider-facing entry
+points and implementation guidance while preserving the same Phase 4 technical
+scope.
 
 ## Release Notes Location
 

@@ -16,6 +16,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
     "README.md",
+    "START_HERE.md",
+    "USE_CASES.md",
+    "IMPLEMENTATION_GUIDE.md",
     "PROJECT_BRIEF.md",
     "CONTRIBUTING.md",
     ".github/pull_request_template.md",
@@ -25,6 +28,7 @@ REQUIRED_FILES = [
     "docs/evidence-map.md",
     "docs/release-strategy.md",
     "docs/releases/v0.4.0.md",
+    "docs/releases/v0.4.1.md",
     "docs/references.md",
     "docs/repository-roadmap.md",
     "examples/evidence-packs/monthly-demo/README.md",
@@ -40,10 +44,26 @@ REQUIRED_FILES = [
 REQUIRED_TERMS = {
     "README.md": [
         "For Reviewers",
+        "Start Here",
         "Reproducibility",
         "Evidence Standard",
         "Data Policy",
         "fair-lending monitoring",
+    ],
+    "START_HERE.md": [
+        "Fast Review Path",
+        "Role-Based Paths",
+        "Important Limits",
+    ],
+    "USE_CASES.md": [
+        "Model-Risk or Validation Reviewer",
+        "Fair-Lending or Compliance Reviewer",
+        "Common Misuses To Avoid",
+    ],
+    "IMPLEMENTATION_GUIDE.md": [
+        "Define The Governed Model Context",
+        "Generate A Monthly Evidence Pack",
+        "Review Findings And Escalations",
     ],
     "PROJECT_BRIEF.md": [
         "Problem",
@@ -65,12 +85,18 @@ REQUIRED_TERMS = {
         "What This Release Demonstrates",
         "Limitations",
     ],
+    "docs/releases/v0.4.1.md": [
+        "Outsider Packaging Patch",
+        "What This Release Adds",
+        "Limitations",
+    ],
     "docs/references.md": [
         "Regulation B",
         "Model Risk Management",
         "NIST",
     ],
     "examples/evidence-packs/monthly-demo/README.md": [
+        "How To Review This Pack",
         "Synthetic data only.",
         "not legal conclusions",
         "Regeneration Command",

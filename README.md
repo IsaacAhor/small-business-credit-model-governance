@@ -16,6 +16,22 @@ reviews, adverse-action reason QA, fair-lending screening triggers, issue
 registers, and reviewer-ready evidence packs using synthetic demonstration
 data.
 
+## Start Here
+
+If you are new to the repository, use these entry points:
+
+- `START_HERE.md`
+  A short review path for understanding the repository quickly.
+- `USE_CASES.md`
+  Role-based paths for model-risk, fair-lending, compliance, credit policy,
+  fintech governance, and research reviewers.
+- `IMPLEMENTATION_GUIDE.md`
+  A practical sequence for adapting the synthetic workflow into a governed
+  monthly review pattern.
+- `examples/evidence-packs/monthly-demo/README.md`
+  A curated evidence-pack walkthrough that can be inspected without running
+  code.
+
 ## What This Repository Demonstrates
 
 The repository is meant to show practical execution, not only concept notes. It
@@ -104,6 +120,8 @@ It does not assume a fixed modeling stack at this stage.
   Framework and article planning documents.
 - `docs/releases/`
   Release notes for stable public milestones.
+- `START_HERE.md`, `USE_CASES.md`, and `IMPLEMENTATION_GUIDE.md`
+  Reviewer and adopter entry points.
 - `schemas/`
   Phase 1 JSON contracts for governed records and evidence-pack manifests.
 - `notebooks/`
@@ -197,7 +215,11 @@ The first release milestone is `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-See `docs/release-strategy.md` and `docs/releases/v0.4.0.md`.
+The latest patch milestone is `v0.4.1`, which adds outsider-facing review and
+implementation entry points without changing the Phase 4 technical scope.
+
+See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`, and
+`docs/releases/v0.4.1.md`.
 
 ## Data Policy
 
@@ -208,7 +230,7 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Tag the current stable reviewer-facing milestone as `v0.4.0`.
+1. Tag the current outsider-packaging patch milestone as `v0.4.1`.
 2. Add model-version, threshold-set, and reason-code mapping change review for Phase 5.
 3. Expand reviewer-facing validation summaries and signoff depth.
 4. Add targeted tests for drift logic, model-change impact, and validation-review behavior.
@@ -230,6 +252,7 @@ This repository now contains:
 - a Phase 3 adverse-action reason QA workflow that checks generated reason outputs, records traceable exceptions, and adds reason QA reports to evidence packs
 - a Phase 4 fair-lending screening workflow that applies configured comparison groups, creates escalation findings, and adds reviewer notes to evidence packs
 - release strategy documentation and `v0.4.0` release notes for stable milestone preservation
+- `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
 The next steps are to add model-change review, validation summaries, drift
