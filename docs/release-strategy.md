@@ -1,0 +1,60 @@
+# Release Strategy
+
+## Purpose
+
+This repository uses versioned releases to mark stable public milestones, not
+just development commits. A release identifies a coherent review point that can
+be inspected, cited, downloaded, or preserved as evidence of progress.
+
+Commits remain useful for development history. Releases serve a different role:
+they package the state of the work at meaningful implementation milestones.
+
+## Release Principles
+
+- Releases should map to completed implementation phases or major reviewer-facing
+  packaging milestones.
+- Releases should preserve synthetic demonstration artifacts and their limits.
+- Releases should not imply production deployment, lender adoption, legal
+  conclusions, or regulatory approval.
+- Release notes should identify what the release demonstrates and what it does
+  not prove.
+- Future phases should be released only after tests and repository guardrails
+  pass through the normal GitHub workflow.
+
+## Version Naming
+
+Use semantic-style version numbers for public milestones:
+
+- `v0.1.0`: data contracts and synthetic validation baseline
+- `v0.2.0`: monthly monitoring evidence run
+- `v0.3.0`: adverse-action reason QA workflow
+- `v0.4.0`: fair-lending screening and reviewer-facing evidence package
+- `v0.5.0`: model-change and validation-review workflow
+
+The `0.x` version line signals that this is still a public demonstration and
+governance evidence engine under active development, not a production release.
+
+## Current Release
+
+The first versioned milestone should be `v0.4.0`, because the repository now
+contains Phases 0 through 4:
+
+- system design and governance charter
+- data contracts and synthetic validation
+- cross-file evidence-integrity validation
+- monthly monitoring evidence-pack generation
+- adverse-action reason QA
+- fair-lending screening and escalation outputs
+- reviewer-facing project packaging and example evidence outputs
+
+## Release Notes Location
+
+Release notes are stored under `docs/releases/`. Each release note should be
+short, reviewer-readable, and disciplined about limitations.
+
+## Evidence Discipline
+
+Versioned releases can support the record by showing execution history,
+implementation maturity, and stable public artifacts. They do not by themselves
+prove external recognition, production deployment, institutional adoption, or
+regulatory acceptance.

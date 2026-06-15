@@ -23,6 +23,8 @@ REQUIRED_FILES = [
     ".github/ISSUE_TEMPLATE/validation-finding.md",
     ".github/ISSUE_TEMPLATE/monitoring-breach.md",
     "docs/evidence-map.md",
+    "docs/release-strategy.md",
+    "docs/releases/v0.4.0.md",
     "docs/references.md",
     "docs/repository-roadmap.md",
     "examples/evidence-packs/monthly-demo/README.md",
@@ -52,6 +54,16 @@ REQUIRED_TERMS = {
         "What it supports",
         "What it does not prove",
         "Synthetic data should be described as demonstration data.",
+    ],
+    "docs/release-strategy.md": [
+        "versioned releases",
+        "stable public milestones",
+        "Evidence Discipline",
+    ],
+    "docs/releases/v0.4.0.md": [
+        "Phase 4 Fair-Lending Screening Demo",
+        "What This Release Demonstrates",
+        "Limitations",
     ],
     "docs/references.md": [
         "Regulation B",
