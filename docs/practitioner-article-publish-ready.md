@@ -33,7 +33,7 @@ These questions beat broad "responsible AI" language because you can assign each
 
 An interpretable monitoring framework for this use case has four connected layers. To show that each layer is operational rather than theoretical, I built a companion engine that runs the whole loop on synthetic data. The synthetic run is a demonstration, not proof of production use, but it makes the framework concrete. You can reproduce the monthly run with one command:
 
-```
+```bash
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root evidence
 ```
 
