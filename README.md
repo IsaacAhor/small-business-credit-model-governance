@@ -133,13 +133,13 @@ It does not assume a fixed modeling stack at this stage.
 - `notebooks/`
   Implementation notes and future analytical notebooks.
 - `src/`
-  Reusable validation models, CLI entry points, and later workflow code.
+  Reusable validation, monitoring, reason-generation, and LDA assessment code.
 - `data/synthetic/`
-  Deterministic demonstration inputs for validation and future monitoring runs.
+  Deterministic demonstration inputs for validation, monitoring, and portfolio-scale workflow runs.
 - `examples/`
   Curated synthetic example outputs that can be reviewed without running code.
 - `tests/`
-  Validation checks for schema, typed-model, and synthetic-data integrity.
+  Validation checks for schemas, typed models, synthetic-data integrity, monitoring, reason QA, fair-lending screening, reason generation, and LDA assessment.
 - `templates/`
   Checklists and governance templates.
 - `governance/`
@@ -217,15 +217,16 @@ python scripts/validate_repository.py
 This repository now uses versioned releases to mark stable public milestones.
 Releases package coherent review points; commits remain the development history.
 
-The first release milestone is `v0.4.0`, covering Phases 0 through 4: system
+The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest patch milestone is `v0.4.1`, which adds outsider-facing review and
-implementation entry points without changing the Phase 4 technical scope.
+The latest release milestone is `v0.5.0`, which adds Phase 3B adverse-action
+reason generation, Phase 4B less-discriminatory-alternative assessment, and a
+portfolio-scale synthetic dataset.
 
-See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`, and
-`docs/releases/v0.4.1.md`.
+See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
+`docs/releases/v0.4.1.md`, and `docs/releases/v0.5.0.md`.
 
 ## Data Policy
 
@@ -236,11 +237,11 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Tag the current outsider-packaging patch milestone as `v0.4.1`.
-2. Add model-version, threshold-set, and reason-code mapping change review for Phase 5.
+1. Implement Phase 5 model-change and validation-review workflow.
+2. Add model-version, threshold-set, and reason-code mapping comparison.
 3. Expand reviewer-facing validation summaries and signoff depth.
 4. Add targeted tests for drift logic, model-change impact, and validation-review behavior.
-5. Refine the framework and practitioner article after the executable workflow can produce report excerpts.
+5. Refine the framework and practitioner article after the portfolio-scale workflow produces report excerpts.
 6. Preserve public PR, commit, release, and validation history as implementation milestones land.
 
 ## Current Status
@@ -248,7 +249,7 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 This repository now contains:
 
 - a first full framework draft
-- a first practitioner article draft
+- a publish-ready practitioner article and archived working drafts
 - synthetic monitoring demonstration assets
 - reusable monitoring and governance templates
 - Phase 0 system design documents for a governance evidence engine
@@ -257,9 +258,12 @@ This repository now contains:
 - a Phase 2 one-command synthetic monthly monitoring workflow that emits metrics, breaches, issues, and reviewer-ready evidence packs
 - a Phase 3 adverse-action reason QA workflow that checks generated reason outputs, records traceable exceptions, and adds reason QA reports to evidence packs
 - a Phase 4 fair-lending screening workflow that applies configured comparison groups, creates escalation findings, and adds reviewer notes to evidence packs
-- release strategy documentation and `v0.4.0` release notes for stable milestone preservation
+- a Phase 3B adverse-action reason-generation workflow with deterministic regeneration checks
+- a Phase 4B less-discriminatory-alternative assessment workflow integrated into optional monitoring evidence outputs
+- a portfolio-scale synthetic monthly dataset that exercises reason generation, reason QA, fair-lending screening, and LDA assessment
+- release strategy documentation and `v0.5.0` release notes for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
-The next steps are to add model-change review, validation summaries, drift
+The next steps are Phase 5 model-change review, validation summaries, drift
 logic, and stronger signoff controls described in the roadmap.

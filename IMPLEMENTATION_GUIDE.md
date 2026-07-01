@@ -106,6 +106,8 @@ Reviewers should ask:
 - Are adverse-action reason outputs complete, mapped, and specific enough for
   review?
 - Which findings require deeper review, remediation, or accepted-risk approval?
+- If LDA inputs are present, did the alternative assessment identify only a
+  governance review trigger rather than a legal conclusion or adoption mandate?
 - Are limitations and synthetic-data assumptions clearly disclosed?
 
 ## 7. Record Follow-Up
@@ -115,5 +117,5 @@ the control pattern. A production adaptation would need institution-specific
 owners, evidence retention rules, legal review, validation standards, and formal
 approval workflow.
 
-The next planned milestone is to strengthen model-change review, validation
-summaries, and reviewer signoff depth.
+The next planned milestone is Phase 5: model-change review, validation summaries,
+change-impact comparisons, and stronger reviewer signoff depth.

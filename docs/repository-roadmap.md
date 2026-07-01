@@ -87,13 +87,14 @@ Status:
 
 ## Phase 8: Domain-Specific Control Extensions
 
-- add adverse-action reason QA
-- add fair-lending screening and escalation outputs
+- add adverse-action reason QA and reason generation
+- add fair-lending screening, LDA assessment, and escalation outputs
 - add model-version change impact reporting
 - add vendor model oversight metadata and heightened monitoring mode
 
 Status:
 
-- Adverse-action reason QA and fair-lending screening/escalation are
-  implemented for synthetic demonstration inputs. The remaining Phase 8
-  priorities are model-change review and vendor oversight.
+- Adverse-action reason QA, adverse-action reason generation, fair-lending
+  screening/escalation, and LDA assessment are implemented for synthetic
+  demonstration inputs. The remaining Phase 8 priorities are model-change
+  review and vendor oversight.
