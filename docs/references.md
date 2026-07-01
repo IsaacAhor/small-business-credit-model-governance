@@ -17,15 +17,10 @@ institution-specific review.
 
 ## Model Risk Management
 
-- Board of Governors of the Federal Reserve System, Supervisory Guidance on
-  Model Risk Management, SR 26-2:
-  <https://www.federalreserve.gov/frrs/guidance/supervisory-guidance-on-model-risk-management.htm>
-- Federal Deposit Insurance Corporation, Agencies Revise the Interagency Model
-  Risk Management Guidance:
-  <https://www.fdic.gov/news/financial-institution-letters/2026/agencies-revise-interagency-model-risk-management-guidance>
-- Office of the Comptroller of the Currency, OCC Bulletin 2026-13, Model Risk
-  Management: Revised Guidance:
-  <https://www.occ.gov/news-events/newsroom/news-issuances-by-year/bulletins/2026-bulletins.html>
+- Board of Governors of the Federal Reserve System and Office of the Comptroller
+  of the Currency, Supervisory Guidance on Model Risk Management, SR 11-7
+  (April 4, 2011; issued jointly with the OCC as OCC Bulletin 2011-12):
+  <https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm>
 
 ## AI Risk Management and Documentation
 

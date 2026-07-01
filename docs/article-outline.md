@@ -94,4 +94,4 @@ This article should later point to:
 
 ## Draft Status
 
-The first substantive draft derived from this outline is now in `docs/practitioner-article-draft.md`.
+The publish-ready article derived from this outline is now in `docs/practitioner-article-publish-ready.md`; earlier working drafts are archived under `docs/archive/`.
