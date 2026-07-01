@@ -1,0 +1,3361 @@
+[
+  {
+    "decision_id": "dec-0001",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2484,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3774,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1619,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0002",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2469,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4936,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.196,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.321,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0005",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4781,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2235,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3208,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5953,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0006",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2457,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3747,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5481,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0007",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.1909,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1712,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.1993,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0009",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5792,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5441,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0013",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5548,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3532,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2616,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0014",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2753,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3684,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3927,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0016",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3519,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3398,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0018",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4635,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4787,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5025,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0019",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5824,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1861,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2336,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4178,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0021",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3562,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5993,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5982,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0022",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5177,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2847,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4485,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5725,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0024",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3983,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3425,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0028",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2873,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5079,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0029",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5727,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2019,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5867,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0030",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.17,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3462,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.384,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0038",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5238,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3965,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5537,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0040",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2989,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3597,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.178,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5248,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0041",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3697,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2728,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3685,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0043",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3616,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4871,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.1734,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0046",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4637,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2857,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4579,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5125,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0047",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.436,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5229,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4683,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0048",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5467,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2597,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3591,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0050",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4407,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3709,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0051",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3542,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.288,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2537,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4746,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0052",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2524,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2307,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0053",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3612,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3482,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0054",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4011,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3373,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4183,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4283,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0055",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2579,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3984,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2204,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3338,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0056",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4414,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5588,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.522,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0058",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4142,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1593,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0059",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3338,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2945,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1971,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2224,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0065",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3029,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5045,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0066",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3549,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2948,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2349,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0073",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4243,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3221,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0074",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1832,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5754,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5944,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0075",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5967,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2829,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5901,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0077",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.165,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3142,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2091,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5593,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0078",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3607,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1839,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4894,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0084",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2741,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5857,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5771,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5209,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0090",
+    "contributions": []
+  },
+  {
+    "decision_id": "dec-0091",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1946,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4658,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5338,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0094",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5858,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4202,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3082,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0098",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2208,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.428,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4533,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2724,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0099",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3279,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4197,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.1535,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2856,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0100",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5378,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.169,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.1584,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5645,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0101",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.53,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2595,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.415,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3858,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0102",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.1963,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2652,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2281,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0103",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.361,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4341,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5083,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4161,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0104",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3524,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5144,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4433,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0109",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3132,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2311,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2464,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5765,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0110",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3195,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.223,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5241,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.497,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0111",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3155,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5762,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.593,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3578,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0112",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5307,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.533,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2783,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4934,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0114",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2791,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5234,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0116",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2146,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3432,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4267,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2583,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0118",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3085,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3023,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4393,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5237,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0120",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5396,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2994,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.206,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3156,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0121",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5978,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2312,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2822,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.1962,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0123",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1803,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5003,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3148,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3223,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0124",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5822,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1617,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2337,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0125",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3534,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5544,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0128",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5998,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4735,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0129",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3447,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5598,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.1749,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2059,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0131",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4743,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4223,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0132",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3955,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4389,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2859,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2602,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0133",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5889,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2088,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3167,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0134",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5702,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4745,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2354,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0136",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4937,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3147,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3303,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0137",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3179,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5941,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0138",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5691,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2933,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3268,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4274,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0141",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4077,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4652,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2359,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0143",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5808,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2756,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2843,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5737,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0144",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5531,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3275,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3053,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0145",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.272,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4029,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0148",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5703,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.1664,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0151",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5353,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5537,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5221,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3819,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0153",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4606,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4374,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5733,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0156",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3505,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.175,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2094,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3369,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0158",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3185,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5511,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3518,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0161",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4267,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5713,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0162",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4895,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4992,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2131,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0163",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4005,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4163,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4808,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0169",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.499,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3213,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0170",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4031,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2496,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2157,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0172",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3959,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2328,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5502,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5956,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0175",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.217,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2364,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0178",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.364,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.171,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0183",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2706,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.321,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5028,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2194,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0184",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1965,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1903,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3994,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0185",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2855,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3719,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1785,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3456,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0186",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.577,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2995,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0187",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2299,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3292,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2936,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4807,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0188",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2443,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.509,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5241,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.1811,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0189",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3657,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3304,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0190",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2249,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4257,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0191",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3184,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3584,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4558,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4607,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0192",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3845,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3067,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.1939,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0193",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2221,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4019,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5813,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2543,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0196",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4278,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5162,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4677,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2839,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0197",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3404,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.369,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3918,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0198",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2378,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3228,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4027,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0199",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3919,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2257,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3558,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0201",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3069,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5175,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3476,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0202",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4065,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3895,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4186,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2258,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0203",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2624,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4701,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5228,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0204",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5776,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2973,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1511,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4984,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0206",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1573,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5682,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0207",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2627,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3173,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0208",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2097,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2518,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0209",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1964,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3154,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0212",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.42,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4234,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0215",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.1804,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.268,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0217",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4644,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4785,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5309,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0218",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4657,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2237,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0219",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2683,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5888,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4324,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0223",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4981,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2898,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.1889,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0225",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.1968,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3884,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2572,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0227",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5329,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5667,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0228",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.224,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3597,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0229",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.191,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2617,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0230",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1959,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5072,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2047,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1778,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0232",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2256,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4082,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0233",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4286,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2606,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0234",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5077,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5952,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0236",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2699,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5173,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0237",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2931,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4821,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0239",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4726,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5635,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0240",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4137,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3015,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0242",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4211,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5645,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5854,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0243",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2693,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2623,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.1805,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2655,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0244",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4429,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4592,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2232,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.1832,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0245",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.1639,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5741,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.2242,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5504,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0248",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5527,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2693,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4388,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0249",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4507,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5137,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3363,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4904,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0251",
+    "contributions": [
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5138,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2068,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3405,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0252",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5355,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3839,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5627,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0260",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.37,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3507,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5822,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3636,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0264",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5997,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5849,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0265",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2175,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4945,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5549,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0266",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4815,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4124,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5976,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0267",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2315,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1939,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0271",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3694,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.434,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2296,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0272",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5844,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3225,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.167,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2397,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0274",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3451,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4591,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2102,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0275",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.315,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4427,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.1668,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5444,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0277",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4225,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2117,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.5238,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.1972,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0279",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5581,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5259,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0282",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2012,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.3301,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3554,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.5261,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0287",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1746,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4395,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0289",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4854,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.158,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3315,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0292",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2132,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4726,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4747,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.1981,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0293",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3558,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.4152,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3769,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5837,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0295",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3538,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.21,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3357,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0299",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.5926,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4575,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.2159,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.1779,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0300",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.3799,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5086,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.4633,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4618,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0304",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.2192,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2952,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.1729,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0305",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.5038,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.2217,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0306",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.451,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3506,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.557,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4262,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0308",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3899,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_risk",
+        "contribution": 0.4321,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.2449,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.4333,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0309",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.167,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.183,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0312",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.2114,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.3259,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0313",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.1523,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4185,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3917,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.5761,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0314",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.4519,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.4053,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0320",
+    "contributions": [
+      {
+        "driver_or_signal": "collateral_coverage",
+        "contribution": 0.3982,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "credit_utilization",
+        "contribution": 0.3946,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.5994,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.3624,
+        "direction": "adverse"
+      }
+    ]
+  }
+]

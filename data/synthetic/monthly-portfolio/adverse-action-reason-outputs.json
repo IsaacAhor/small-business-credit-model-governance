@@ -1,0 +1,5062 @@
+[
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0001-1",
+    "decision_id": "dec-0001",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0001-2",
+    "decision_id": "dec-0001",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0001-3",
+    "decision_id": "dec-0001",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0002-1",
+    "decision_id": "dec-0002",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0002-2",
+    "decision_id": "dec-0002",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0002-3",
+    "decision_id": "dec-0002",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0002-4",
+    "decision_id": "dec-0002",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0005-1",
+    "decision_id": "dec-0005",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0005-2",
+    "decision_id": "dec-0005",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0005-3",
+    "decision_id": "dec-0005",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0005-4",
+    "decision_id": "dec-0005",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0006-1",
+    "decision_id": "dec-0006",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0006-2",
+    "decision_id": "dec-0006",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0006-3",
+    "decision_id": "dec-0006",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0007-1",
+    "decision_id": "dec-0007",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0007-2",
+    "decision_id": "dec-0007",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0007-3",
+    "decision_id": "dec-0007",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0009-1",
+    "decision_id": "dec-0009",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0009-2",
+    "decision_id": "dec-0009",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0013-1",
+    "decision_id": "dec-0013",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0013-2",
+    "decision_id": "dec-0013",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0013-3",
+    "decision_id": "dec-0013",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0014-1",
+    "decision_id": "dec-0014",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0014-2",
+    "decision_id": "dec-0014",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0014-3",
+    "decision_id": "dec-0014",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0016-1",
+    "decision_id": "dec-0016",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0016-2",
+    "decision_id": "dec-0016",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0018-1",
+    "decision_id": "dec-0018",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0018-2",
+    "decision_id": "dec-0018",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0018-3",
+    "decision_id": "dec-0018",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0019-1",
+    "decision_id": "dec-0019",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0019-2",
+    "decision_id": "dec-0019",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0019-3",
+    "decision_id": "dec-0019",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0019-4",
+    "decision_id": "dec-0019",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0021-1",
+    "decision_id": "dec-0021",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0021-2",
+    "decision_id": "dec-0021",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0021-3",
+    "decision_id": "dec-0021",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0022-1",
+    "decision_id": "dec-0022",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0022-2",
+    "decision_id": "dec-0022",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0022-3",
+    "decision_id": "dec-0022",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0022-4",
+    "decision_id": "dec-0022",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0024-1",
+    "decision_id": "dec-0024",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0024-2",
+    "decision_id": "dec-0024",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0028-1",
+    "decision_id": "dec-0028",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0028-2",
+    "decision_id": "dec-0028",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0029-1",
+    "decision_id": "dec-0029",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0029-2",
+    "decision_id": "dec-0029",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0029-3",
+    "decision_id": "dec-0029",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0030-1",
+    "decision_id": "dec-0030",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0030-2",
+    "decision_id": "dec-0030",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0030-3",
+    "decision_id": "dec-0030",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0038-1",
+    "decision_id": "dec-0038",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0038-2",
+    "decision_id": "dec-0038",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0038-3",
+    "decision_id": "dec-0038",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0040-1",
+    "decision_id": "dec-0040",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0040-2",
+    "decision_id": "dec-0040",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0040-3",
+    "decision_id": "dec-0040",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0040-4",
+    "decision_id": "dec-0040",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0041-1",
+    "decision_id": "dec-0041",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0041-2",
+    "decision_id": "dec-0041",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0041-3",
+    "decision_id": "dec-0041",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0043-1",
+    "decision_id": "dec-0043",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0043-2",
+    "decision_id": "dec-0043",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0043-3",
+    "decision_id": "dec-0043",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0046-1",
+    "decision_id": "dec-0046",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0046-2",
+    "decision_id": "dec-0046",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0046-3",
+    "decision_id": "dec-0046",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0046-4",
+    "decision_id": "dec-0046",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0047-1",
+    "decision_id": "dec-0047",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0047-2",
+    "decision_id": "dec-0047",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0047-3",
+    "decision_id": "dec-0047",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0048-1",
+    "decision_id": "dec-0048",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0048-2",
+    "decision_id": "dec-0048",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0048-3",
+    "decision_id": "dec-0048",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0050-1",
+    "decision_id": "dec-0050",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0050-2",
+    "decision_id": "dec-0050",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0051-1",
+    "decision_id": "dec-0051",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0051-2",
+    "decision_id": "dec-0051",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0051-3",
+    "decision_id": "dec-0051",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0051-4",
+    "decision_id": "dec-0051",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0052-1",
+    "decision_id": "dec-0052",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0052-2",
+    "decision_id": "dec-0052",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0053-1",
+    "decision_id": "dec-0053",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0053-2",
+    "decision_id": "dec-0053",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0054-1",
+    "decision_id": "dec-0054",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0054-2",
+    "decision_id": "dec-0054",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0054-3",
+    "decision_id": "dec-0054",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0054-4",
+    "decision_id": "dec-0054",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0055-1",
+    "decision_id": "dec-0055",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0055-2",
+    "decision_id": "dec-0055",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0055-3",
+    "decision_id": "dec-0055",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0055-4",
+    "decision_id": "dec-0055",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0056-1",
+    "decision_id": "dec-0056",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0056-2",
+    "decision_id": "dec-0056",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0056-3",
+    "decision_id": "dec-0056",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0058-1",
+    "decision_id": "dec-0058",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0058-2",
+    "decision_id": "dec-0058",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0059-1",
+    "decision_id": "dec-0059",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0059-2",
+    "decision_id": "dec-0059",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0059-3",
+    "decision_id": "dec-0059",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0059-4",
+    "decision_id": "dec-0059",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0065-1",
+    "decision_id": "dec-0065",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0065-2",
+    "decision_id": "dec-0065",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0066-1",
+    "decision_id": "dec-0066",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0066-2",
+    "decision_id": "dec-0066",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0066-3",
+    "decision_id": "dec-0066",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0073-1",
+    "decision_id": "dec-0073",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0073-2",
+    "decision_id": "dec-0073",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0074-1",
+    "decision_id": "dec-0074",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0074-2",
+    "decision_id": "dec-0074",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0074-3",
+    "decision_id": "dec-0074",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0075-1",
+    "decision_id": "dec-0075",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0075-2",
+    "decision_id": "dec-0075",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0075-3",
+    "decision_id": "dec-0075",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0077-1",
+    "decision_id": "dec-0077",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0077-2",
+    "decision_id": "dec-0077",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0077-3",
+    "decision_id": "dec-0077",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0077-4",
+    "decision_id": "dec-0077",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0078-1",
+    "decision_id": "dec-0078",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0078-2",
+    "decision_id": "dec-0078",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0078-3",
+    "decision_id": "dec-0078",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0084-1",
+    "decision_id": "dec-0084",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0084-2",
+    "decision_id": "dec-0084",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0084-3",
+    "decision_id": "dec-0084",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0084-4",
+    "decision_id": "dec-0084",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0091-1",
+    "decision_id": "dec-0091",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0091-2",
+    "decision_id": "dec-0091",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0091-3",
+    "decision_id": "dec-0091",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0094-1",
+    "decision_id": "dec-0094",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0094-2",
+    "decision_id": "dec-0094",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0094-3",
+    "decision_id": "dec-0094",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0098-1",
+    "decision_id": "dec-0098",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0098-2",
+    "decision_id": "dec-0098",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0098-3",
+    "decision_id": "dec-0098",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0098-4",
+    "decision_id": "dec-0098",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0099-1",
+    "decision_id": "dec-0099",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0099-2",
+    "decision_id": "dec-0099",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0099-3",
+    "decision_id": "dec-0099",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0099-4",
+    "decision_id": "dec-0099",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0100-1",
+    "decision_id": "dec-0100",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0100-2",
+    "decision_id": "dec-0100",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0100-3",
+    "decision_id": "dec-0100",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0100-4",
+    "decision_id": "dec-0100",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0101-1",
+    "decision_id": "dec-0101",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0101-2",
+    "decision_id": "dec-0101",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0101-3",
+    "decision_id": "dec-0101",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0101-4",
+    "decision_id": "dec-0101",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0102-1",
+    "decision_id": "dec-0102",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0102-2",
+    "decision_id": "dec-0102",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0102-3",
+    "decision_id": "dec-0102",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0103-1",
+    "decision_id": "dec-0103",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0103-2",
+    "decision_id": "dec-0103",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0103-3",
+    "decision_id": "dec-0103",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0103-4",
+    "decision_id": "dec-0103",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0104-1",
+    "decision_id": "dec-0104",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0104-2",
+    "decision_id": "dec-0104",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0104-3",
+    "decision_id": "dec-0104",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0109-1",
+    "decision_id": "dec-0109",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0109-2",
+    "decision_id": "dec-0109",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0109-3",
+    "decision_id": "dec-0109",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0109-4",
+    "decision_id": "dec-0109",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0110-1",
+    "decision_id": "dec-0110",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0110-2",
+    "decision_id": "dec-0110",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0110-3",
+    "decision_id": "dec-0110",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0110-4",
+    "decision_id": "dec-0110",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0111-1",
+    "decision_id": "dec-0111",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0111-2",
+    "decision_id": "dec-0111",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0111-3",
+    "decision_id": "dec-0111",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0111-4",
+    "decision_id": "dec-0111",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0112-1",
+    "decision_id": "dec-0112",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0112-2",
+    "decision_id": "dec-0112",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0112-3",
+    "decision_id": "dec-0112",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0112-4",
+    "decision_id": "dec-0112",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0114-1",
+    "decision_id": "dec-0114",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0114-2",
+    "decision_id": "dec-0114",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0116-1",
+    "decision_id": "dec-0116",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0116-2",
+    "decision_id": "dec-0116",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0116-3",
+    "decision_id": "dec-0116",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0116-4",
+    "decision_id": "dec-0116",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0118-1",
+    "decision_id": "dec-0118",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0118-2",
+    "decision_id": "dec-0118",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0118-3",
+    "decision_id": "dec-0118",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0118-4",
+    "decision_id": "dec-0118",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0120-1",
+    "decision_id": "dec-0120",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0120-2",
+    "decision_id": "dec-0120",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0120-3",
+    "decision_id": "dec-0120",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0120-4",
+    "decision_id": "dec-0120",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0121-1",
+    "decision_id": "dec-0121",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0121-2",
+    "decision_id": "dec-0121",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0121-3",
+    "decision_id": "dec-0121",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0121-4",
+    "decision_id": "dec-0121",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0123-1",
+    "decision_id": "dec-0123",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0123-2",
+    "decision_id": "dec-0123",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0123-3",
+    "decision_id": "dec-0123",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0123-4",
+    "decision_id": "dec-0123",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0124-1",
+    "decision_id": "dec-0124",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0124-2",
+    "decision_id": "dec-0124",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0124-3",
+    "decision_id": "dec-0124",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0125-1",
+    "decision_id": "dec-0125",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0125-2",
+    "decision_id": "dec-0125",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0128-1",
+    "decision_id": "dec-0128",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0128-2",
+    "decision_id": "dec-0128",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0129-1",
+    "decision_id": "dec-0129",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0129-2",
+    "decision_id": "dec-0129",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0129-3",
+    "decision_id": "dec-0129",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0129-4",
+    "decision_id": "dec-0129",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0131-1",
+    "decision_id": "dec-0131",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0131-2",
+    "decision_id": "dec-0131",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0132-1",
+    "decision_id": "dec-0132",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0132-2",
+    "decision_id": "dec-0132",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0132-3",
+    "decision_id": "dec-0132",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0132-4",
+    "decision_id": "dec-0132",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0133-1",
+    "decision_id": "dec-0133",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0133-2",
+    "decision_id": "dec-0133",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0133-3",
+    "decision_id": "dec-0133",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0134-1",
+    "decision_id": "dec-0134",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0134-2",
+    "decision_id": "dec-0134",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0134-3",
+    "decision_id": "dec-0134",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0136-1",
+    "decision_id": "dec-0136",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0136-2",
+    "decision_id": "dec-0136",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0136-3",
+    "decision_id": "dec-0136",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0137-1",
+    "decision_id": "dec-0137",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0137-2",
+    "decision_id": "dec-0137",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0138-1",
+    "decision_id": "dec-0138",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0138-2",
+    "decision_id": "dec-0138",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0138-3",
+    "decision_id": "dec-0138",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0138-4",
+    "decision_id": "dec-0138",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0141-1",
+    "decision_id": "dec-0141",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0141-2",
+    "decision_id": "dec-0141",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0141-3",
+    "decision_id": "dec-0141",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0143-1",
+    "decision_id": "dec-0143",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0143-2",
+    "decision_id": "dec-0143",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0143-3",
+    "decision_id": "dec-0143",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0143-4",
+    "decision_id": "dec-0143",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0144-1",
+    "decision_id": "dec-0144",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0144-2",
+    "decision_id": "dec-0144",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0144-3",
+    "decision_id": "dec-0144",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0145-1",
+    "decision_id": "dec-0145",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0145-2",
+    "decision_id": "dec-0145",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0148-1",
+    "decision_id": "dec-0148",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0148-2",
+    "decision_id": "dec-0148",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0151-1",
+    "decision_id": "dec-0151",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0151-2",
+    "decision_id": "dec-0151",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0151-3",
+    "decision_id": "dec-0151",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0151-4",
+    "decision_id": "dec-0151",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0153-1",
+    "decision_id": "dec-0153",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0153-2",
+    "decision_id": "dec-0153",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0153-3",
+    "decision_id": "dec-0153",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0156-1",
+    "decision_id": "dec-0156",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0156-2",
+    "decision_id": "dec-0156",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0156-3",
+    "decision_id": "dec-0156",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0156-4",
+    "decision_id": "dec-0156",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0158-1",
+    "decision_id": "dec-0158",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0158-2",
+    "decision_id": "dec-0158",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0158-3",
+    "decision_id": "dec-0158",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0161-1",
+    "decision_id": "dec-0161",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0161-2",
+    "decision_id": "dec-0161",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0162-1",
+    "decision_id": "dec-0162",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0162-2",
+    "decision_id": "dec-0162",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0162-3",
+    "decision_id": "dec-0162",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0163-1",
+    "decision_id": "dec-0163",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0163-2",
+    "decision_id": "dec-0163",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0163-3",
+    "decision_id": "dec-0163",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0169-1",
+    "decision_id": "dec-0169",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0169-2",
+    "decision_id": "dec-0169",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0170-1",
+    "decision_id": "dec-0170",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0170-2",
+    "decision_id": "dec-0170",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0170-3",
+    "decision_id": "dec-0170",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0172-1",
+    "decision_id": "dec-0172",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0172-2",
+    "decision_id": "dec-0172",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0172-3",
+    "decision_id": "dec-0172",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0172-4",
+    "decision_id": "dec-0172",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0175-1",
+    "decision_id": "dec-0175",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0175-2",
+    "decision_id": "dec-0175",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0178-1",
+    "decision_id": "dec-0178",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0178-2",
+    "decision_id": "dec-0178",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0183-1",
+    "decision_id": "dec-0183",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0183-2",
+    "decision_id": "dec-0183",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0183-3",
+    "decision_id": "dec-0183",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0183-4",
+    "decision_id": "dec-0183",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0184-1",
+    "decision_id": "dec-0184",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0184-2",
+    "decision_id": "dec-0184",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0184-3",
+    "decision_id": "dec-0184",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0185-1",
+    "decision_id": "dec-0185",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0185-2",
+    "decision_id": "dec-0185",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0185-3",
+    "decision_id": "dec-0185",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0185-4",
+    "decision_id": "dec-0185",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0186-1",
+    "decision_id": "dec-0186",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0186-2",
+    "decision_id": "dec-0186",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0187-1",
+    "decision_id": "dec-0187",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0187-2",
+    "decision_id": "dec-0187",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0187-3",
+    "decision_id": "dec-0187",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0187-4",
+    "decision_id": "dec-0187",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0188-1",
+    "decision_id": "dec-0188",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0188-2",
+    "decision_id": "dec-0188",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0188-3",
+    "decision_id": "dec-0188",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0188-4",
+    "decision_id": "dec-0188",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0189-1",
+    "decision_id": "dec-0189",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0189-2",
+    "decision_id": "dec-0189",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0190-1",
+    "decision_id": "dec-0190",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0190-2",
+    "decision_id": "dec-0190",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0191-1",
+    "decision_id": "dec-0191",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0191-2",
+    "decision_id": "dec-0191",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0191-3",
+    "decision_id": "dec-0191",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0191-4",
+    "decision_id": "dec-0191",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0192-1",
+    "decision_id": "dec-0192",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0192-2",
+    "decision_id": "dec-0192",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0192-3",
+    "decision_id": "dec-0192",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0193-1",
+    "decision_id": "dec-0193",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0193-2",
+    "decision_id": "dec-0193",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0193-3",
+    "decision_id": "dec-0193",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0193-4",
+    "decision_id": "dec-0193",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0196-1",
+    "decision_id": "dec-0196",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0196-2",
+    "decision_id": "dec-0196",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0196-3",
+    "decision_id": "dec-0196",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0196-4",
+    "decision_id": "dec-0196",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0197-1",
+    "decision_id": "dec-0197",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0197-2",
+    "decision_id": "dec-0197",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0197-3",
+    "decision_id": "dec-0197",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0198-1",
+    "decision_id": "dec-0198",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0198-2",
+    "decision_id": "dec-0198",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0198-3",
+    "decision_id": "dec-0198",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0199-1",
+    "decision_id": "dec-0199",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0199-2",
+    "decision_id": "dec-0199",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0199-3",
+    "decision_id": "dec-0199",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0201-1",
+    "decision_id": "dec-0201",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0201-2",
+    "decision_id": "dec-0201",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0201-3",
+    "decision_id": "dec-0201",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0202-1",
+    "decision_id": "dec-0202",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0202-2",
+    "decision_id": "dec-0202",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0202-3",
+    "decision_id": "dec-0202",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0202-4",
+    "decision_id": "dec-0202",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0203-1",
+    "decision_id": "dec-0203",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0203-2",
+    "decision_id": "dec-0203",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0203-3",
+    "decision_id": "dec-0203",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0204-1",
+    "decision_id": "dec-0204",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0204-2",
+    "decision_id": "dec-0204",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0204-3",
+    "decision_id": "dec-0204",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0204-4",
+    "decision_id": "dec-0204",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0206-1",
+    "decision_id": "dec-0206",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0206-2",
+    "decision_id": "dec-0206",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0207-1",
+    "decision_id": "dec-0207",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0207-2",
+    "decision_id": "dec-0207",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0208-1",
+    "decision_id": "dec-0208",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0208-2",
+    "decision_id": "dec-0208",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0209-1",
+    "decision_id": "dec-0209",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0209-2",
+    "decision_id": "dec-0209",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0212-1",
+    "decision_id": "dec-0212",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0212-2",
+    "decision_id": "dec-0212",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0215-1",
+    "decision_id": "dec-0215",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0215-2",
+    "decision_id": "dec-0215",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0217-1",
+    "decision_id": "dec-0217",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0217-2",
+    "decision_id": "dec-0217",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0217-3",
+    "decision_id": "dec-0217",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0218-1",
+    "decision_id": "dec-0218",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0218-2",
+    "decision_id": "dec-0218",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0219-1",
+    "decision_id": "dec-0219",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0219-2",
+    "decision_id": "dec-0219",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0219-3",
+    "decision_id": "dec-0219",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0223-1",
+    "decision_id": "dec-0223",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0223-2",
+    "decision_id": "dec-0223",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0223-3",
+    "decision_id": "dec-0223",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0225-1",
+    "decision_id": "dec-0225",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0225-2",
+    "decision_id": "dec-0225",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0225-3",
+    "decision_id": "dec-0225",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0227-1",
+    "decision_id": "dec-0227",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0227-2",
+    "decision_id": "dec-0227",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0228-1",
+    "decision_id": "dec-0228",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0228-2",
+    "decision_id": "dec-0228",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0229-1",
+    "decision_id": "dec-0229",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0229-2",
+    "decision_id": "dec-0229",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0230-1",
+    "decision_id": "dec-0230",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0230-2",
+    "decision_id": "dec-0230",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0230-3",
+    "decision_id": "dec-0230",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0230-4",
+    "decision_id": "dec-0230",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0232-1",
+    "decision_id": "dec-0232",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0232-2",
+    "decision_id": "dec-0232",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0233-1",
+    "decision_id": "dec-0233",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0233-2",
+    "decision_id": "dec-0233",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0234-1",
+    "decision_id": "dec-0234",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0234-2",
+    "decision_id": "dec-0234",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0236-1",
+    "decision_id": "dec-0236",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0236-2",
+    "decision_id": "dec-0236",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0237-1",
+    "decision_id": "dec-0237",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0237-2",
+    "decision_id": "dec-0237",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0239-1",
+    "decision_id": "dec-0239",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0239-2",
+    "decision_id": "dec-0239",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0240-1",
+    "decision_id": "dec-0240",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0240-2",
+    "decision_id": "dec-0240",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0242-1",
+    "decision_id": "dec-0242",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0242-2",
+    "decision_id": "dec-0242",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0242-3",
+    "decision_id": "dec-0242",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0243-1",
+    "decision_id": "dec-0243",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0243-2",
+    "decision_id": "dec-0243",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0243-3",
+    "decision_id": "dec-0243",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0243-4",
+    "decision_id": "dec-0243",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0244-1",
+    "decision_id": "dec-0244",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0244-2",
+    "decision_id": "dec-0244",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0244-3",
+    "decision_id": "dec-0244",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0244-4",
+    "decision_id": "dec-0244",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0245-1",
+    "decision_id": "dec-0245",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0245-2",
+    "decision_id": "dec-0245",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0245-3",
+    "decision_id": "dec-0245",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0245-4",
+    "decision_id": "dec-0245",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0248-1",
+    "decision_id": "dec-0248",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0248-2",
+    "decision_id": "dec-0248",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0248-3",
+    "decision_id": "dec-0248",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0249-1",
+    "decision_id": "dec-0249",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0249-2",
+    "decision_id": "dec-0249",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0249-3",
+    "decision_id": "dec-0249",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0249-4",
+    "decision_id": "dec-0249",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0251-1",
+    "decision_id": "dec-0251",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0251-2",
+    "decision_id": "dec-0251",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0251-3",
+    "decision_id": "dec-0251",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0252-1",
+    "decision_id": "dec-0252",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0252-2",
+    "decision_id": "dec-0252",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0252-3",
+    "decision_id": "dec-0252",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0260-1",
+    "decision_id": "dec-0260",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0260-2",
+    "decision_id": "dec-0260",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0260-3",
+    "decision_id": "dec-0260",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0260-4",
+    "decision_id": "dec-0260",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0264-1",
+    "decision_id": "dec-0264",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0264-2",
+    "decision_id": "dec-0264",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0265-1",
+    "decision_id": "dec-0265",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0265-2",
+    "decision_id": "dec-0265",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0265-3",
+    "decision_id": "dec-0265",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0266-1",
+    "decision_id": "dec-0266",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0266-2",
+    "decision_id": "dec-0266",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0266-3",
+    "decision_id": "dec-0266",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0267-1",
+    "decision_id": "dec-0267",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0267-2",
+    "decision_id": "dec-0267",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0271-1",
+    "decision_id": "dec-0271",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0271-2",
+    "decision_id": "dec-0271",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0271-3",
+    "decision_id": "dec-0271",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0272-1",
+    "decision_id": "dec-0272",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0272-2",
+    "decision_id": "dec-0272",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0272-3",
+    "decision_id": "dec-0272",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0272-4",
+    "decision_id": "dec-0272",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0274-1",
+    "decision_id": "dec-0274",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0274-2",
+    "decision_id": "dec-0274",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0274-3",
+    "decision_id": "dec-0274",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0275-1",
+    "decision_id": "dec-0275",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0275-2",
+    "decision_id": "dec-0275",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0275-3",
+    "decision_id": "dec-0275",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0275-4",
+    "decision_id": "dec-0275",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0277-1",
+    "decision_id": "dec-0277",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0277-2",
+    "decision_id": "dec-0277",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0277-3",
+    "decision_id": "dec-0277",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0277-4",
+    "decision_id": "dec-0277",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0279-1",
+    "decision_id": "dec-0279",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0279-2",
+    "decision_id": "dec-0279",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0282-1",
+    "decision_id": "dec-0282",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0282-2",
+    "decision_id": "dec-0282",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0282-3",
+    "decision_id": "dec-0282",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0282-4",
+    "decision_id": "dec-0282",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0287-1",
+    "decision_id": "dec-0287",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0287-2",
+    "decision_id": "dec-0287",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0289-1",
+    "decision_id": "dec-0289",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0289-2",
+    "decision_id": "dec-0289",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0289-3",
+    "decision_id": "dec-0289",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0292-1",
+    "decision_id": "dec-0292",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0292-2",
+    "decision_id": "dec-0292",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0292-3",
+    "decision_id": "dec-0292",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0292-4",
+    "decision_id": "dec-0292",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0293-1",
+    "decision_id": "dec-0293",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0293-2",
+    "decision_id": "dec-0293",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0293-3",
+    "decision_id": "dec-0293",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0293-4",
+    "decision_id": "dec-0293",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0295-1",
+    "decision_id": "dec-0295",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0295-2",
+    "decision_id": "dec-0295",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0295-3",
+    "decision_id": "dec-0295",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0299-1",
+    "decision_id": "dec-0299",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0299-2",
+    "decision_id": "dec-0299",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0299-3",
+    "decision_id": "dec-0299",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0299-4",
+    "decision_id": "dec-0299",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0300-1",
+    "decision_id": "dec-0300",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0300-2",
+    "decision_id": "dec-0300",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0300-3",
+    "decision_id": "dec-0300",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0300-4",
+    "decision_id": "dec-0300",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0304-1",
+    "decision_id": "dec-0304",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0304-2",
+    "decision_id": "dec-0304",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0304-3",
+    "decision_id": "dec-0304",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0305-1",
+    "decision_id": "dec-0305",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0305-2",
+    "decision_id": "dec-0305",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0306-1",
+    "decision_id": "dec-0306",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0306-2",
+    "decision_id": "dec-0306",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0306-3",
+    "decision_id": "dec-0306",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0306-4",
+    "decision_id": "dec-0306",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0308-1",
+    "decision_id": "dec-0308",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0308-2",
+    "decision_id": "dec-0308",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-106",
+    "driver_or_signal": "industry_risk",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0308-3",
+    "decision_id": "dec-0308",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0308-4",
+    "decision_id": "dec-0308",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0309-1",
+    "decision_id": "dec-0309",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-103",
+    "driver_or_signal": "time_in_business",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0309-2",
+    "decision_id": "dec-0309",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0312-1",
+    "decision_id": "dec-0312",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0312-2",
+    "decision_id": "dec-0312",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0313-1",
+    "decision_id": "dec-0313",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0313-2",
+    "decision_id": "dec-0313",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0313-3",
+    "decision_id": "dec-0313",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0313-4",
+    "decision_id": "dec-0313",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0314-1",
+    "decision_id": "dec-0314",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0314-2",
+    "decision_id": "dec-0314",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0320-1",
+    "decision_id": "dec-0320",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-102",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_rank": 1,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0320-2",
+    "decision_id": "dec-0320",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-105",
+    "driver_or_signal": "collateral_coverage",
+    "reason_rank": 2,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0320-3",
+    "decision_id": "dec-0320",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-104",
+    "driver_or_signal": "credit_utilization",
+    "reason_rank": 3,
+    "mapping_version": "mapver-2026-06"
+  },
+  {
+    "record_type": "adverse_action_reason_output",
+    "reason_output_id": "rso-0320-4",
+    "decision_id": "dec-0320",
+    "version_id": "ver-2026-06",
+    "reason_code": "RC-101",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_rank": 4,
+    "mapping_version": "mapver-2026-06"
+  }
+]

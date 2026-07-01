@@ -1,0 +1,16 @@
+{
+  "record_type": "model_version_record",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-06",
+  "effective_date": "2026-06-01",
+  "change_summary": "Portfolio-scale monthly monitoring demonstration version with 320 synthetic decisions.",
+  "assumptions": [
+    "Synthetic records approximate reviewer-visible control artifacts.",
+    "Monitoring thresholds are illustrative and governance-oriented."
+  ],
+  "limitations": [
+    "No production lending decisions are represented.",
+    "No protected-class labels or legal conclusions are embedded."
+  ],
+  "linked_validation_record": "val-portfolio-demo"
+}

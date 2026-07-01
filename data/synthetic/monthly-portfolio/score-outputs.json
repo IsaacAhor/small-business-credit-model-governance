@@ -1,0 +1,2242 @@
+[
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0001",
+    "score_value": 416.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0002",
+    "score_value": 528.2,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0003",
+    "score_value": 755.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0004",
+    "score_value": 627.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0005",
+    "score_value": 459.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0006",
+    "score_value": 491.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0007",
+    "score_value": 438.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0008",
+    "score_value": 622.3,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0009",
+    "score_value": 382.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0010",
+    "score_value": 559.5,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0011",
+    "score_value": 810.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0012",
+    "score_value": 800.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0013",
+    "score_value": 392.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0014",
+    "score_value": 412.6,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0015",
+    "score_value": 574.2,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0016",
+    "score_value": 337.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0017",
+    "score_value": 561.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0018",
+    "score_value": 522.6,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0019",
+    "score_value": 486.6,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0020",
+    "score_value": 821.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0021",
+    "score_value": 423.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0022",
+    "score_value": 365.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0023",
+    "score_value": 691.1,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0024",
+    "score_value": 346.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0025",
+    "score_value": 799.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0026",
+    "score_value": 779.9,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0027",
+    "score_value": 799.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0028",
+    "score_value": 461.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0029",
+    "score_value": 508.1,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0030",
+    "score_value": 325.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0031",
+    "score_value": 690.2,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0032",
+    "score_value": 795.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0033",
+    "score_value": 692.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0034",
+    "score_value": 624.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0035",
+    "score_value": 639.9,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0036",
+    "score_value": 649.6,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0037",
+    "score_value": 697.8,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0038",
+    "score_value": 315.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0039",
+    "score_value": 730.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0040",
+    "score_value": 420.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0041",
+    "score_value": 329.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0042",
+    "score_value": 715.3,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0043",
+    "score_value": 388.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0044",
+    "score_value": 737.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0045",
+    "score_value": 596.1,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0046",
+    "score_value": 335.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0047",
+    "score_value": 487.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0048",
+    "score_value": 464.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0049",
+    "score_value": 563.1,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0050",
+    "score_value": 606.5,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0051",
+    "score_value": 509.6,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0052",
+    "score_value": 387.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0053",
+    "score_value": 302.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0054",
+    "score_value": 341.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0055",
+    "score_value": 468.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0056",
+    "score_value": 437.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0057",
+    "score_value": 643.5,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0058",
+    "score_value": 545.7,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0059",
+    "score_value": 334.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0060",
+    "score_value": 835.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0061",
+    "score_value": 728.8,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0062",
+    "score_value": 703.2,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0063",
+    "score_value": 750.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0064",
+    "score_value": 828.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0065",
+    "score_value": 436.6,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0066",
+    "score_value": 468.6,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0067",
+    "score_value": 766.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0068",
+    "score_value": 839.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0069",
+    "score_value": 776.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0070",
+    "score_value": 637.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0071",
+    "score_value": 787.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0072",
+    "score_value": 851.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0073",
+    "score_value": 455.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0074",
+    "score_value": 376.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0075",
+    "score_value": 454.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0076",
+    "score_value": 789.7,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0077",
+    "score_value": 392.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0078",
+    "score_value": 374.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0079",
+    "score_value": 862.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0080",
+    "score_value": 678.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0081",
+    "score_value": 789.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0082",
+    "score_value": 810.7,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0083",
+    "score_value": 685.1,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0084",
+    "score_value": 311.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0085",
+    "score_value": 604.5,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0086",
+    "score_value": 638.2,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0087",
+    "score_value": 845.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0088",
+    "score_value": 599.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0089",
+    "score_value": 562.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0090",
+    "score_value": 332.4,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0091",
+    "score_value": 324.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0092",
+    "score_value": 772.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0093",
+    "score_value": 659.5,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0094",
+    "score_value": 486.5,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0095",
+    "score_value": 582.6,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0096",
+    "score_value": 851.9,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0097",
+    "score_value": 799.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0098",
+    "score_value": 352.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0099",
+    "score_value": 513.6,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0100",
+    "score_value": 440.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0101",
+    "score_value": 529.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0102",
+    "score_value": 435.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0103",
+    "score_value": 411.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0104",
+    "score_value": 526.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0105",
+    "score_value": 824.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0106",
+    "score_value": 713.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0107",
+    "score_value": 643.3,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0108",
+    "score_value": 772.0,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0109",
+    "score_value": 464.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0110",
+    "score_value": 375.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0111",
+    "score_value": 317.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0112",
+    "score_value": 513.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0113",
+    "score_value": 736.7,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0114",
+    "score_value": 491.5,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0115",
+    "score_value": 563.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0116",
+    "score_value": 353.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0117",
+    "score_value": 580.9,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0118",
+    "score_value": 506.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0119",
+    "score_value": 663.0,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0120",
+    "score_value": 464.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0121",
+    "score_value": 470.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0122",
+    "score_value": 627.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0123",
+    "score_value": 348.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0124",
+    "score_value": 541.0,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0125",
+    "score_value": 432.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0126",
+    "score_value": 856.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0127",
+    "score_value": 700.3,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0128",
+    "score_value": 317.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0129",
+    "score_value": 364.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0130",
+    "score_value": 800.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0131",
+    "score_value": 359.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0132",
+    "score_value": 367.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0133",
+    "score_value": 318.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0134",
+    "score_value": 364.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0135",
+    "score_value": 564.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0136",
+    "score_value": 459.6,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0137",
+    "score_value": 453.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0138",
+    "score_value": 409.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0139",
+    "score_value": 757.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0140",
+    "score_value": 635.9,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0141",
+    "score_value": 628.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0142",
+    "score_value": 675.3,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0143",
+    "score_value": 556.9,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0144",
+    "score_value": 424.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0145",
+    "score_value": 468.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0146",
+    "score_value": 609.9,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0147",
+    "score_value": 656.5,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0148",
+    "score_value": 483.9,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0149",
+    "score_value": 838.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0150",
+    "score_value": 846.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0151",
+    "score_value": 387.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0152",
+    "score_value": 838.8,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0153",
+    "score_value": 603.2,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0154",
+    "score_value": 560.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0155",
+    "score_value": 759.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0156",
+    "score_value": 413.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0157",
+    "score_value": 755.0,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0158",
+    "score_value": 359.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0159",
+    "score_value": 683.6,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0160",
+    "score_value": 686.5,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0161",
+    "score_value": 428.4,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0162",
+    "score_value": 332.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0163",
+    "score_value": 620.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0164",
+    "score_value": 596.2,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0165",
+    "score_value": 713.6,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0166",
+    "score_value": 585.9,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0167",
+    "score_value": 733.8,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0168",
+    "score_value": 655.1,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0169",
+    "score_value": 389.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0170",
+    "score_value": 516.9,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0171",
+    "score_value": 685.8,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0172",
+    "score_value": 498.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0173",
+    "score_value": 828.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0174",
+    "score_value": 571.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0175",
+    "score_value": 308.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0176",
+    "score_value": 716.2,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0177",
+    "score_value": 852.9,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0178",
+    "score_value": 362.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0179",
+    "score_value": 586.6,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0180",
+    "score_value": 800.8,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0181",
+    "score_value": 744.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0182",
+    "score_value": 638.5,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0183",
+    "score_value": 517.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0184",
+    "score_value": 300.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0185",
+    "score_value": 302.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0186",
+    "score_value": 520.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0187",
+    "score_value": 538.7,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0188",
+    "score_value": 468.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0189",
+    "score_value": 581.3,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0190",
+    "score_value": 506.9,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0191",
+    "score_value": 532.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0192",
+    "score_value": 353.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0193",
+    "score_value": 480.7,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0194",
+    "score_value": 656.3,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0195",
+    "score_value": 729.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0196",
+    "score_value": 462.4,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0197",
+    "score_value": 459.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0198",
+    "score_value": 604.7,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0199",
+    "score_value": 545.6,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0200",
+    "score_value": 584.6,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0201",
+    "score_value": 528.7,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0202",
+    "score_value": 427.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0203",
+    "score_value": 464.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0204",
+    "score_value": 384.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0205",
+    "score_value": 659.0,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0206",
+    "score_value": 489.7,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0207",
+    "score_value": 420.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0208",
+    "score_value": 655.4,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0209",
+    "score_value": 470.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0210",
+    "score_value": 661.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0211",
+    "score_value": 732.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0212",
+    "score_value": 534.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0213",
+    "score_value": 767.0,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0214",
+    "score_value": 552.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0215",
+    "score_value": 529.7,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0216",
+    "score_value": 585.1,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0217",
+    "score_value": 443.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0218",
+    "score_value": 369.4,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0219",
+    "score_value": 436.2,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0220",
+    "score_value": 578.1,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0221",
+    "score_value": 557.1,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0222",
+    "score_value": 624.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0223",
+    "score_value": 374.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0224",
+    "score_value": 600.3,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0225",
+    "score_value": 404.4,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0226",
+    "score_value": 671.1,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0227",
+    "score_value": 584.8,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0228",
+    "score_value": 463.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0229",
+    "score_value": 546.7,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0230",
+    "score_value": 480.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0231",
+    "score_value": 746.6,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0232",
+    "score_value": 416.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0233",
+    "score_value": 506.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0234",
+    "score_value": 542.9,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0235",
+    "score_value": 722.0,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0236",
+    "score_value": 356.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0237",
+    "score_value": 640.8,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0238",
+    "score_value": 707.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0239",
+    "score_value": 336.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0240",
+    "score_value": 391.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0241",
+    "score_value": 836.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0242",
+    "score_value": 519.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0243",
+    "score_value": 389.6,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0244",
+    "score_value": 537.0,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0245",
+    "score_value": 423.9,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0246",
+    "score_value": 831.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0247",
+    "score_value": 631.5,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0248",
+    "score_value": 386.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0249",
+    "score_value": 500.5,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0250",
+    "score_value": 746.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0251",
+    "score_value": 322.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0252",
+    "score_value": 386.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0253",
+    "score_value": 583.4,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0254",
+    "score_value": 750.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0255",
+    "score_value": 649.1,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0256",
+    "score_value": 769.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0257",
+    "score_value": 833.0,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0258",
+    "score_value": 720.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0259",
+    "score_value": 730.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0260",
+    "score_value": 320.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0261",
+    "score_value": 721.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0262",
+    "score_value": 664.9,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0263",
+    "score_value": 606.1,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0264",
+    "score_value": 538.4,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0265",
+    "score_value": 624.9,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0266",
+    "score_value": 513.2,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0267",
+    "score_value": 424.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0268",
+    "score_value": 703.8,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0269",
+    "score_value": 725.0,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0270",
+    "score_value": 797.9,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0271",
+    "score_value": 360.6,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0272",
+    "score_value": 428.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0273",
+    "score_value": 717.8,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0274",
+    "score_value": 356.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0275",
+    "score_value": 411.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0276",
+    "score_value": 604.1,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0277",
+    "score_value": 449.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0278",
+    "score_value": 731.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0279",
+    "score_value": 321.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0280",
+    "score_value": 707.5,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0281",
+    "score_value": 798.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0282",
+    "score_value": 300.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0283",
+    "score_value": 671.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0284",
+    "score_value": 750.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0285",
+    "score_value": 816.9,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0286",
+    "score_value": 778.8,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0287",
+    "score_value": 360.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0288",
+    "score_value": 756.9,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0289",
+    "score_value": 508.6,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0290",
+    "score_value": 758.6,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0291",
+    "score_value": 766.3,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0292",
+    "score_value": 414.0,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0293",
+    "score_value": 434.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0294",
+    "score_value": 831.4,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0295",
+    "score_value": 364.8,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0296",
+    "score_value": 766.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0297",
+    "score_value": 698.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0298",
+    "score_value": 703.7,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0299",
+    "score_value": 474.6,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0300",
+    "score_value": 333.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0301",
+    "score_value": 850.0,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0302",
+    "score_value": 777.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0303",
+    "score_value": 820.1,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0304",
+    "score_value": 538.5,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0305",
+    "score_value": 480.1,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0306",
+    "score_value": 407.3,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0307",
+    "score_value": 781.2,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0308",
+    "score_value": 583.3,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0309",
+    "score_value": 429.5,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0310",
+    "score_value": 602.6,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0311",
+    "score_value": 601.2,
+    "score_band": "C",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0312",
+    "score_value": 445.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0313",
+    "score_value": 388.1,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0314",
+    "score_value": 484.8,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0315",
+    "score_value": 556.2,
+    "score_band": "D",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0316",
+    "score_value": 655.9,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0317",
+    "score_value": 664.0,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0318",
+    "score_value": 698.8,
+    "score_band": "B",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0319",
+    "score_value": 725.5,
+    "score_band": "A",
+    "score_version": "ver-2026-06"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0320",
+    "score_value": 419.7,
+    "score_band": "E",
+    "score_version": "ver-2026-06"
+  }
+]

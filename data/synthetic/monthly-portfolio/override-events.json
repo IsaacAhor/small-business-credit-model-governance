@@ -1,0 +1,398 @@
+[
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0001",
+    "decision_id": "dec-0015",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-16"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0002",
+    "decision_id": "dec-0020",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-21"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0003",
+    "decision_id": "dec-0027",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-01"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0004",
+    "decision_id": "dec-0055",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-02"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0005",
+    "decision_id": "dec-0061",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-08"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0006",
+    "decision_id": "dec-0074",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-21"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0007",
+    "decision_id": "dec-0081",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-01"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0008",
+    "decision_id": "dec-0089",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-09"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0009",
+    "decision_id": "dec-0093",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-13"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0010",
+    "decision_id": "dec-0095",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-15"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0011",
+    "decision_id": "dec-0096",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-16"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0012",
+    "decision_id": "dec-0099",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-19"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0013",
+    "decision_id": "dec-0107",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-27"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0014",
+    "decision_id": "dec-0114",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-07"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0015",
+    "decision_id": "dec-0116",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-09"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0016",
+    "decision_id": "dec-0118",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-11"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0017",
+    "decision_id": "dec-0122",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-15"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0018",
+    "decision_id": "dec-0140",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-06"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0019",
+    "decision_id": "dec-0149",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-15"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0020",
+    "decision_id": "dec-0155",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-21"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0021",
+    "decision_id": "dec-0162",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-01"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0022",
+    "decision_id": "dec-0166",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-05"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0023",
+    "decision_id": "dec-0167",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-06"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0024",
+    "decision_id": "dec-0175",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-14"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0025",
+    "decision_id": "dec-0191",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-03"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0026",
+    "decision_id": "dec-0199",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-11"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0027",
+    "decision_id": "dec-0203",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-15"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0028",
+    "decision_id": "dec-0204",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-16"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0029",
+    "decision_id": "dec-0208",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-20"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0030",
+    "decision_id": "dec-0220",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-05"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0031",
+    "decision_id": "dec-0227",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-12"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0032",
+    "decision_id": "dec-0239",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-24"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0033",
+    "decision_id": "dec-0242",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-27"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0034",
+    "decision_id": "dec-0248",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-06"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0035",
+    "decision_id": "dec-0262",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-20"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0036",
+    "decision_id": "dec-0268",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-26"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0037",
+    "decision_id": "dec-0274",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-05"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0038",
+    "decision_id": "dec-0276",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-07"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0039",
+    "decision_id": "dec-0277",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-08"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0040",
+    "decision_id": "dec-0283",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-14"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0041",
+    "decision_id": "dec-0299",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-03"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0042",
+    "decision_id": "dec-0301",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-05"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0043",
+    "decision_id": "dec-0315",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-19"
+  },
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0044",
+    "decision_id": "dec-0319",
+    "override_type": "manual_approval",
+    "override_reason": "Analyst review recorded for governance demonstration.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-06-23"
+  }
+]
