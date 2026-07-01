@@ -1,0 +1,13 @@
+{
+  "record_type": "lda_assessment_config",
+  "assessment_id": "lda-2026-06-monthly",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-06",
+  "group_source": "monitoring",
+  "group_field": "region",
+  "performance_metric": "approval_good_bad_separation",
+  "disparity_metric": "approval_rate_ratio",
+  "min_disparity_improvement": 0.05,
+  "performance_tolerance": 0.03,
+  "outcome_good_indicator": "performing"
+}

@@ -16,6 +16,12 @@ reviews, adverse-action reason QA, fair-lending screening triggers, issue
 registers, and reviewer-ready evidence packs using synthetic demonstration
 data.
 
+The workflow now also generates adverse-action reasons from ranked decision
+drivers (then reviews them via reason QA), runs a less-discriminatory-alternative
+(LDA) assessment comparing a baseline model to a candidate alternative, and
+ships a portfolio-scale synthetic dataset (`data/synthetic/monthly-portfolio`,
+320 decisions) so screens and exceptions fire on realistic distributions.
+
 ## Start Here
 
 If you are new to the repository, use these entry points:

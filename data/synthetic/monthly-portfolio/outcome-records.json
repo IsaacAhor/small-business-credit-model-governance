@@ -1,0 +1,2562 @@
+[
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0001",
+    "decision_id": "dec-0001",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0002",
+    "decision_id": "dec-0002",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0003",
+    "decision_id": "dec-0003",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0004",
+    "decision_id": "dec-0004",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0005",
+    "decision_id": "dec-0005",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0006",
+    "decision_id": "dec-0006",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0007",
+    "decision_id": "dec-0007",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0008",
+    "decision_id": "dec-0008",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0009",
+    "decision_id": "dec-0009",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0010",
+    "decision_id": "dec-0010",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0011",
+    "decision_id": "dec-0011",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0012",
+    "decision_id": "dec-0012",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0013",
+    "decision_id": "dec-0013",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0014",
+    "decision_id": "dec-0014",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0015",
+    "decision_id": "dec-0015",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0016",
+    "decision_id": "dec-0016",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0017",
+    "decision_id": "dec-0017",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0018",
+    "decision_id": "dec-0018",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0019",
+    "decision_id": "dec-0019",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0020",
+    "decision_id": "dec-0020",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0021",
+    "decision_id": "dec-0021",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0022",
+    "decision_id": "dec-0022",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0023",
+    "decision_id": "dec-0023",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0024",
+    "decision_id": "dec-0024",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0025",
+    "decision_id": "dec-0025",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0026",
+    "decision_id": "dec-0026",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0027",
+    "decision_id": "dec-0027",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0028",
+    "decision_id": "dec-0028",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0029",
+    "decision_id": "dec-0029",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0030",
+    "decision_id": "dec-0030",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0031",
+    "decision_id": "dec-0031",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0032",
+    "decision_id": "dec-0032",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0033",
+    "decision_id": "dec-0033",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0034",
+    "decision_id": "dec-0034",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0035",
+    "decision_id": "dec-0035",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0036",
+    "decision_id": "dec-0036",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0037",
+    "decision_id": "dec-0037",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0038",
+    "decision_id": "dec-0038",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0039",
+    "decision_id": "dec-0039",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0040",
+    "decision_id": "dec-0040",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0041",
+    "decision_id": "dec-0041",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0042",
+    "decision_id": "dec-0042",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0043",
+    "decision_id": "dec-0043",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0044",
+    "decision_id": "dec-0044",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0045",
+    "decision_id": "dec-0045",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0046",
+    "decision_id": "dec-0046",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0047",
+    "decision_id": "dec-0047",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0048",
+    "decision_id": "dec-0048",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0049",
+    "decision_id": "dec-0049",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0050",
+    "decision_id": "dec-0050",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0051",
+    "decision_id": "dec-0051",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0052",
+    "decision_id": "dec-0052",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0053",
+    "decision_id": "dec-0053",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0054",
+    "decision_id": "dec-0054",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0055",
+    "decision_id": "dec-0055",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0056",
+    "decision_id": "dec-0056",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0057",
+    "decision_id": "dec-0057",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0058",
+    "decision_id": "dec-0058",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0059",
+    "decision_id": "dec-0059",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0060",
+    "decision_id": "dec-0060",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0061",
+    "decision_id": "dec-0061",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0062",
+    "decision_id": "dec-0062",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0063",
+    "decision_id": "dec-0063",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0064",
+    "decision_id": "dec-0064",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0065",
+    "decision_id": "dec-0065",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0066",
+    "decision_id": "dec-0066",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0067",
+    "decision_id": "dec-0067",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0068",
+    "decision_id": "dec-0068",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0069",
+    "decision_id": "dec-0069",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0070",
+    "decision_id": "dec-0070",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0071",
+    "decision_id": "dec-0071",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0072",
+    "decision_id": "dec-0072",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0073",
+    "decision_id": "dec-0073",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0074",
+    "decision_id": "dec-0074",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0075",
+    "decision_id": "dec-0075",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0076",
+    "decision_id": "dec-0076",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0077",
+    "decision_id": "dec-0077",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0078",
+    "decision_id": "dec-0078",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0079",
+    "decision_id": "dec-0079",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0080",
+    "decision_id": "dec-0080",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0081",
+    "decision_id": "dec-0081",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0082",
+    "decision_id": "dec-0082",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0083",
+    "decision_id": "dec-0083",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0084",
+    "decision_id": "dec-0084",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0085",
+    "decision_id": "dec-0085",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0086",
+    "decision_id": "dec-0086",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0087",
+    "decision_id": "dec-0087",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0088",
+    "decision_id": "dec-0088",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0089",
+    "decision_id": "dec-0089",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0090",
+    "decision_id": "dec-0090",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0091",
+    "decision_id": "dec-0091",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0092",
+    "decision_id": "dec-0092",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0093",
+    "decision_id": "dec-0093",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0094",
+    "decision_id": "dec-0094",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0095",
+    "decision_id": "dec-0095",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0096",
+    "decision_id": "dec-0096",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0097",
+    "decision_id": "dec-0097",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0098",
+    "decision_id": "dec-0098",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0099",
+    "decision_id": "dec-0099",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0100",
+    "decision_id": "dec-0100",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0101",
+    "decision_id": "dec-0101",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0102",
+    "decision_id": "dec-0102",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0103",
+    "decision_id": "dec-0103",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0104",
+    "decision_id": "dec-0104",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0105",
+    "decision_id": "dec-0105",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0106",
+    "decision_id": "dec-0106",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0107",
+    "decision_id": "dec-0107",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0108",
+    "decision_id": "dec-0108",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0109",
+    "decision_id": "dec-0109",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0110",
+    "decision_id": "dec-0110",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0111",
+    "decision_id": "dec-0111",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0112",
+    "decision_id": "dec-0112",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0113",
+    "decision_id": "dec-0113",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0114",
+    "decision_id": "dec-0114",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0115",
+    "decision_id": "dec-0115",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0116",
+    "decision_id": "dec-0116",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0117",
+    "decision_id": "dec-0117",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0118",
+    "decision_id": "dec-0118",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0119",
+    "decision_id": "dec-0119",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0120",
+    "decision_id": "dec-0120",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0121",
+    "decision_id": "dec-0121",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0122",
+    "decision_id": "dec-0122",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0123",
+    "decision_id": "dec-0123",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0124",
+    "decision_id": "dec-0124",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0125",
+    "decision_id": "dec-0125",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0126",
+    "decision_id": "dec-0126",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0127",
+    "decision_id": "dec-0127",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0128",
+    "decision_id": "dec-0128",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0129",
+    "decision_id": "dec-0129",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0130",
+    "decision_id": "dec-0130",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0131",
+    "decision_id": "dec-0131",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0132",
+    "decision_id": "dec-0132",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0133",
+    "decision_id": "dec-0133",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0134",
+    "decision_id": "dec-0134",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0135",
+    "decision_id": "dec-0135",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0136",
+    "decision_id": "dec-0136",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0137",
+    "decision_id": "dec-0137",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0138",
+    "decision_id": "dec-0138",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0139",
+    "decision_id": "dec-0139",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0140",
+    "decision_id": "dec-0140",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0141",
+    "decision_id": "dec-0141",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0142",
+    "decision_id": "dec-0142",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0143",
+    "decision_id": "dec-0143",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0144",
+    "decision_id": "dec-0144",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0145",
+    "decision_id": "dec-0145",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0146",
+    "decision_id": "dec-0146",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0147",
+    "decision_id": "dec-0147",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0148",
+    "decision_id": "dec-0148",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0149",
+    "decision_id": "dec-0149",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0150",
+    "decision_id": "dec-0150",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0151",
+    "decision_id": "dec-0151",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0152",
+    "decision_id": "dec-0152",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0153",
+    "decision_id": "dec-0153",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0154",
+    "decision_id": "dec-0154",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0155",
+    "decision_id": "dec-0155",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0156",
+    "decision_id": "dec-0156",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0157",
+    "decision_id": "dec-0157",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0158",
+    "decision_id": "dec-0158",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0159",
+    "decision_id": "dec-0159",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0160",
+    "decision_id": "dec-0160",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0161",
+    "decision_id": "dec-0161",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0162",
+    "decision_id": "dec-0162",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0163",
+    "decision_id": "dec-0163",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0164",
+    "decision_id": "dec-0164",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0165",
+    "decision_id": "dec-0165",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0166",
+    "decision_id": "dec-0166",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0167",
+    "decision_id": "dec-0167",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0168",
+    "decision_id": "dec-0168",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0169",
+    "decision_id": "dec-0169",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0170",
+    "decision_id": "dec-0170",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0171",
+    "decision_id": "dec-0171",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0172",
+    "decision_id": "dec-0172",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0173",
+    "decision_id": "dec-0173",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0174",
+    "decision_id": "dec-0174",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0175",
+    "decision_id": "dec-0175",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0176",
+    "decision_id": "dec-0176",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0177",
+    "decision_id": "dec-0177",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0178",
+    "decision_id": "dec-0178",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0179",
+    "decision_id": "dec-0179",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0180",
+    "decision_id": "dec-0180",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0181",
+    "decision_id": "dec-0181",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0182",
+    "decision_id": "dec-0182",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0183",
+    "decision_id": "dec-0183",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0184",
+    "decision_id": "dec-0184",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0185",
+    "decision_id": "dec-0185",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0186",
+    "decision_id": "dec-0186",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0187",
+    "decision_id": "dec-0187",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0188",
+    "decision_id": "dec-0188",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0189",
+    "decision_id": "dec-0189",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0190",
+    "decision_id": "dec-0190",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0191",
+    "decision_id": "dec-0191",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0192",
+    "decision_id": "dec-0192",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0193",
+    "decision_id": "dec-0193",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0194",
+    "decision_id": "dec-0194",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0195",
+    "decision_id": "dec-0195",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0196",
+    "decision_id": "dec-0196",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0197",
+    "decision_id": "dec-0197",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0198",
+    "decision_id": "dec-0198",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0199",
+    "decision_id": "dec-0199",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0200",
+    "decision_id": "dec-0200",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0201",
+    "decision_id": "dec-0201",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0202",
+    "decision_id": "dec-0202",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0203",
+    "decision_id": "dec-0203",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0204",
+    "decision_id": "dec-0204",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0205",
+    "decision_id": "dec-0205",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0206",
+    "decision_id": "dec-0206",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0207",
+    "decision_id": "dec-0207",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0208",
+    "decision_id": "dec-0208",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0209",
+    "decision_id": "dec-0209",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0210",
+    "decision_id": "dec-0210",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0211",
+    "decision_id": "dec-0211",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0212",
+    "decision_id": "dec-0212",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0213",
+    "decision_id": "dec-0213",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0214",
+    "decision_id": "dec-0214",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0215",
+    "decision_id": "dec-0215",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0216",
+    "decision_id": "dec-0216",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0217",
+    "decision_id": "dec-0217",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0218",
+    "decision_id": "dec-0218",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0219",
+    "decision_id": "dec-0219",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0220",
+    "decision_id": "dec-0220",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0221",
+    "decision_id": "dec-0221",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0222",
+    "decision_id": "dec-0222",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0223",
+    "decision_id": "dec-0223",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0224",
+    "decision_id": "dec-0224",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0225",
+    "decision_id": "dec-0225",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0226",
+    "decision_id": "dec-0226",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0227",
+    "decision_id": "dec-0227",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0228",
+    "decision_id": "dec-0228",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0229",
+    "decision_id": "dec-0229",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0230",
+    "decision_id": "dec-0230",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0231",
+    "decision_id": "dec-0231",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0232",
+    "decision_id": "dec-0232",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0233",
+    "decision_id": "dec-0233",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0234",
+    "decision_id": "dec-0234",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0235",
+    "decision_id": "dec-0235",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0236",
+    "decision_id": "dec-0236",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0237",
+    "decision_id": "dec-0237",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0238",
+    "decision_id": "dec-0238",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0239",
+    "decision_id": "dec-0239",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0240",
+    "decision_id": "dec-0240",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0241",
+    "decision_id": "dec-0241",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0242",
+    "decision_id": "dec-0242",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0243",
+    "decision_id": "dec-0243",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0244",
+    "decision_id": "dec-0244",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0245",
+    "decision_id": "dec-0245",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0246",
+    "decision_id": "dec-0246",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0247",
+    "decision_id": "dec-0247",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0248",
+    "decision_id": "dec-0248",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0249",
+    "decision_id": "dec-0249",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0250",
+    "decision_id": "dec-0250",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0251",
+    "decision_id": "dec-0251",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0252",
+    "decision_id": "dec-0252",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0253",
+    "decision_id": "dec-0253",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0254",
+    "decision_id": "dec-0254",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0255",
+    "decision_id": "dec-0255",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0256",
+    "decision_id": "dec-0256",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0257",
+    "decision_id": "dec-0257",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0258",
+    "decision_id": "dec-0258",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0259",
+    "decision_id": "dec-0259",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0260",
+    "decision_id": "dec-0260",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0261",
+    "decision_id": "dec-0261",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0262",
+    "decision_id": "dec-0262",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0263",
+    "decision_id": "dec-0263",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0264",
+    "decision_id": "dec-0264",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0265",
+    "decision_id": "dec-0265",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0266",
+    "decision_id": "dec-0266",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0267",
+    "decision_id": "dec-0267",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0268",
+    "decision_id": "dec-0268",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0269",
+    "decision_id": "dec-0269",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0270",
+    "decision_id": "dec-0270",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0271",
+    "decision_id": "dec-0271",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0272",
+    "decision_id": "dec-0272",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0273",
+    "decision_id": "dec-0273",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0274",
+    "decision_id": "dec-0274",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0275",
+    "decision_id": "dec-0275",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0276",
+    "decision_id": "dec-0276",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0277",
+    "decision_id": "dec-0277",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0278",
+    "decision_id": "dec-0278",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0279",
+    "decision_id": "dec-0279",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0280",
+    "decision_id": "dec-0280",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0281",
+    "decision_id": "dec-0281",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0282",
+    "decision_id": "dec-0282",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0283",
+    "decision_id": "dec-0283",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0284",
+    "decision_id": "dec-0284",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0285",
+    "decision_id": "dec-0285",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0286",
+    "decision_id": "dec-0286",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0287",
+    "decision_id": "dec-0287",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0288",
+    "decision_id": "dec-0288",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0289",
+    "decision_id": "dec-0289",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0290",
+    "decision_id": "dec-0290",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0291",
+    "decision_id": "dec-0291",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0292",
+    "decision_id": "dec-0292",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0293",
+    "decision_id": "dec-0293",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0294",
+    "decision_id": "dec-0294",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0295",
+    "decision_id": "dec-0295",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0296",
+    "decision_id": "dec-0296",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0297",
+    "decision_id": "dec-0297",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0298",
+    "decision_id": "dec-0298",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0299",
+    "decision_id": "dec-0299",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0300",
+    "decision_id": "dec-0300",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0301",
+    "decision_id": "dec-0301",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0302",
+    "decision_id": "dec-0302",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0303",
+    "decision_id": "dec-0303",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0304",
+    "decision_id": "dec-0304",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0305",
+    "decision_id": "dec-0305",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0306",
+    "decision_id": "dec-0306",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0307",
+    "decision_id": "dec-0307",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0308",
+    "decision_id": "dec-0308",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0309",
+    "decision_id": "dec-0309",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0310",
+    "decision_id": "dec-0310",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0311",
+    "decision_id": "dec-0311",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0312",
+    "decision_id": "dec-0312",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0313",
+    "decision_id": "dec-0313",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0314",
+    "decision_id": "dec-0314",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "default",
+    "realized_outcome_value": 0.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0315",
+    "decision_id": "dec-0315",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0316",
+    "decision_id": "dec-0316",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0317",
+    "decision_id": "dec-0317",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0318",
+    "decision_id": "dec-0318",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0319",
+    "decision_id": "dec-0319",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "performing",
+    "realized_outcome_value": 1.0
+  },
+  {
+    "record_type": "outcome_record",
+    "outcome_id": "out-0320",
+    "decision_id": "dec-0320",
+    "observation_period": "6m",
+    "repayment_or_default_indicator": "delinquent",
+    "realized_outcome_value": 0.0
+  }
+]

@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from credit_gov.lda import assess_less_discriminatory_alternative
 from credit_gov.schemas import validate_dataset
 
 
@@ -22,6 +23,7 @@ class MonitoringRunResult:
     issues: list[dict[str, Any]]
     reason_qa: dict[str, Any]
     fair_lending: dict[str, Any]
+    lda: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -34,12 +36,37 @@ class MonitoringRunResult:
             "issues": self.issues,
             "reason_qa": self.reason_qa,
             "fair_lending": self.fair_lending,
+            "lda": self.lda,
         }
 
 
 def load_json(path: Path) -> Any:
     with path.open(encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def load_optional_json(path: Path) -> Any | None:
+    if not path.is_file():
+        return None
+    return load_json(path)
+
+
+def compute_optional_lda(dataset_dir: Path, payloads: dict[str, Any]) -> dict[str, Any] | None:
+    """Run the LDA assessment when its optional inputs are present in the dataset.
+
+    Requires ``lda-assessment-config.json`` and ``alternative-model-decisions.json``.
+    Returns ``None`` when either is absent so existing datasets are unaffected.
+    """
+    config = load_optional_json(dataset_dir / "lda-assessment-config.json")
+    alternative = load_optional_json(dataset_dir / "alternative-model-decisions.json")
+    if config is None or alternative is None:
+        return None
+    return assess_less_discriminatory_alternative(
+        decisions=payloads["decisions"],
+        alternative_decisions=alternative,
+        outcomes=payloads["outcomes"],
+        config=config,
+    )
 
 
 def load_dataset_payloads(dataset_dir: Path) -> dict[str, Any]:
@@ -81,6 +108,7 @@ def run_monthly_monitoring(
     metrics = compute_metrics(payloads)
     reason_qa = compute_reason_qa(payloads)
     fair_lending = compute_fair_lending_screening(payloads)
+    lda = compute_optional_lda(dataset_dir, payloads)
     breaches = evaluate_thresholds(metrics, payloads["threshold_set"], payloads["manifest"]["run_id"])
     issues = build_issue_register(breaches, reason_qa["exceptions"], fair_lending["findings"])
 
@@ -94,6 +122,7 @@ def run_monthly_monitoring(
         issues=issues,
         reason_qa=reason_qa,
         fair_lending=fair_lending,
+        lda=lda,
     )
     return MonitoringRunResult(
         ok=True,
@@ -105,6 +134,7 @@ def run_monthly_monitoring(
         issues=issues,
         reason_qa=reason_qa,
         fair_lending=fair_lending,
+        lda=lda,
     )
 
 
@@ -526,6 +556,7 @@ def build_evidence_pack(
     issues: list[dict[str, Any]],
     reason_qa: dict[str, Any],
     fair_lending: dict[str, Any],
+    lda: dict[str, Any] | None = None,
 ) -> Path:
     manifest = payloads["manifest"]
     evidence_dir = evidence_root / format_evidence_dir_name(
@@ -535,6 +566,26 @@ def build_evidence_pack(
     )
     evidence_dir.mkdir(parents=True, exist_ok=True)
 
+    output_files = [
+        "manifest.json",
+        "config_snapshot.json",
+        "input_fingerprints.json",
+        "model_record.json",
+        "threshold_set.json",
+        "metric_results.json",
+        "breach_register.json",
+        "reason_qa_results.json",
+        "reason_stability_report.json",
+        "fair_lending_screening_results.json",
+        "fair_lending_escalation_register.json",
+        "issue_register.json",
+        "monitoring_report.md",
+        "reviewer_notes.md",
+        "reviewer_signoff.md",
+    ]
+    if lda is not None:
+        output_files.insert(output_files.index("issue_register.json"), "lda_assessment_results.json")
+
     generated_manifest = {
         "record_type": "evidence_pack_manifest",
         "run_id": manifest["run_id"],
@@ -542,23 +593,7 @@ def build_evidence_pack(
         "model_id": manifest["model_id"],
         "version_id": manifest["version_id"],
         "input_references": manifest["input_references"],
-        "output_files": [
-            "manifest.json",
-            "config_snapshot.json",
-            "input_fingerprints.json",
-            "model_record.json",
-            "threshold_set.json",
-            "metric_results.json",
-            "breach_register.json",
-            "reason_qa_results.json",
-            "reason_stability_report.json",
-            "fair_lending_screening_results.json",
-            "fair_lending_escalation_register.json",
-            "issue_register.json",
-            "monitoring_report.md",
-            "reviewer_notes.md",
-            "reviewer_signoff.md",
-        ],
+        "output_files": output_files,
         "reviewer_status": manifest["reviewer_status"],
     }
     write_json(evidence_dir / "manifest.json", generated_manifest)
@@ -579,9 +614,11 @@ def build_evidence_pack(
     write_json(evidence_dir / "reason_stability_report.json", reason_qa["stability"])
     write_json(evidence_dir / "fair_lending_screening_results.json", fair_lending)
     write_json(evidence_dir / "fair_lending_escalation_register.json", fair_lending["findings"])
+    if lda is not None:
+        write_json(evidence_dir / "lda_assessment_results.json", lda)
     write_json(evidence_dir / "issue_register.json", issues)
     (evidence_dir / "monitoring_report.md").write_text(
-        render_monitoring_report(metrics, breaches, issues, reason_qa, fair_lending),
+        render_monitoring_report(metrics, breaches, issues, reason_qa, fair_lending, lda),
         encoding="utf-8",
     )
     (evidence_dir / "reviewer_notes.md").write_text(
@@ -602,12 +639,35 @@ def build_input_fingerprints(dataset_dir: Path) -> dict[str, str]:
     return fingerprints
 
 
+def render_lda_section(lda: dict[str, Any] | None) -> str:
+    if lda is None:
+        return ""
+    baseline = lda["baseline"]
+    alternative = lda["alternative"]
+    comparison = lda["comparison"]
+    return (
+        "## Less-Discriminatory-Alternative Assessment\n\n"
+        f"- Assessment ID: `{lda['assessment_id']}`\n"
+        f"- Comparison group: {lda['group_source']}.{lda['group_field']}\n"
+        f"- Baseline disparity ratio: {baseline['disparity']['approval_rate_ratio']} | "
+        f"separation: {baseline['separation']['separation']}\n"
+        f"- Alternative disparity ratio: {alternative['disparity']['approval_rate_ratio']} | "
+        f"separation: {alternative['separation']['separation']}\n"
+        f"- Disparity improvement: {comparison['disparity_improvement']} | "
+        f"separation change: {comparison['separation_change']}\n"
+        f"- Qualifying alternative identified: {lda['qualifying_alternative_identified']}\n"
+        f"- Recommendation: {lda['recommendation']}\n"
+        "- Result type: synthetic assessment trigger, not a legal conclusion\n\n"
+    )
+
+
 def render_monitoring_report(
     metrics: dict[str, Any],
     breaches: list[dict[str, Any]],
     issues: list[dict[str, Any]],
     reason_qa: dict[str, Any],
     fair_lending: dict[str, Any],
+    lda: dict[str, Any] | None = None,
 ) -> str:
     breach_lines = (
         "\n".join(
@@ -666,6 +726,7 @@ def render_monitoring_report(
         f"- Screening finding count: {fair_lending['finding_count']}\n"
         "- Result type: screening only, not a legal conclusion\n\n"
         f"{fair_lending_lines}\n\n"
+        f"{render_lda_section(lda)}"
         "## Threshold Breaches\n\n"
         f"{breach_lines}\n\n"
         "## Issue Register\n\n"

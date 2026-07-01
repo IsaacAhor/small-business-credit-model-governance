@@ -180,6 +180,31 @@ Acceptance criteria:
 - reason mapping versions are recorded
 - reports distinguish QA exceptions from legal conclusions
 
+## Phase 3B: Adverse-Action Reason Generation
+
+Deliverables:
+
+- reason-generation module that derives adverse-action reasons from ranked,
+  per-decision driver contributions and the governed reason-code mapping
+- generation CLI with a `--check` drift mode
+- provenance summary of declined decisions with and without generated reasons
+
+Status:
+
+- Phase 3B is implemented in `src/credit_gov/generation.py` and
+  `scripts/generate_adverse_action_reasons.py`. Reasons are generated only for
+  declined decisions, ranked by contribution magnitude, and mapped to governed
+  reason codes. Generation is deliberately separate from the Phase 3 reason QA,
+  which then reviews the generated output. The portfolio dataset's shipped
+  reasons are provably regenerable (`--check`).
+
+Acceptance criteria:
+
+- generation is deterministic and reproducible from inputs
+- reasons are produced only for declined decisions and mapped to governed codes
+- a declined decision with no mapped driver produces no reason, which reason QA
+  surfaces as a missing-reason exception
+
 ## Phase 4: Fair-Lending Screening and Escalation
 
 Deliverables:
@@ -204,6 +229,32 @@ Acceptance criteria:
 - breach records identify the crossed threshold
 - outputs avoid unsupported legal conclusions
 - issue records include severity, owner, status, and due date
+
+## Phase 4B: Less-Discriminatory-Alternative (LDA) Assessment
+
+Deliverables:
+
+- LDA assessment module comparing a baseline model to a candidate alternative
+  on the same synthetic population
+- predictive-separation and group-disparity metrics per model
+- qualifying-alternative decision rule with a documented governance recommendation
+- optional integration into the monitoring evidence pack and a standalone CLI
+
+Status:
+
+- Phase 4B is implemented in `src/credit_gov/lda.py`,
+  `scripts/run_lda_assessment.py`, and an optional hook in the monitoring
+  workflow. When `lda-assessment-config.json` and
+  `alternative-model-decisions.json` are present, the run emits
+  `lda_assessment_results.json` and a report section. A candidate qualifies when
+  it reduces group approval-rate disparity by at least a configured margin while
+  holding predictive separation within tolerance.
+
+Acceptance criteria:
+
+- assessment is deterministic and synthetic, with explicit non-legal-conclusion framing
+- a qualifying alternative is a documented review trigger, not a mandate
+- datasets without LDA inputs run unchanged
 
 ## Phase 5: Change and Validation Review
 
