@@ -1,0 +1,10 @@
+{
+  "GEO-SOUTH-1": {"white": 0.52, "black": 0.30, "hispanic": 0.12, "api": 0.03, "aian": 0.005, "multiracial": 0.025},
+  "GEO-SOUTH-2": {"white": 0.40, "black": 0.42, "hispanic": 0.12, "api": 0.03, "aian": 0.005, "multiracial": 0.025},
+  "GEO-MIDWEST-1": {"white": 0.78, "black": 0.10, "hispanic": 0.06, "api": 0.03, "aian": 0.005, "multiracial": 0.025},
+  "GEO-MIDWEST-2": {"white": 0.66, "black": 0.20, "hispanic": 0.08, "api": 0.03, "aian": 0.005, "multiracial": 0.025},
+  "GEO-NORTHEAST-1": {"white": 0.64, "black": 0.14, "hispanic": 0.12, "api": 0.07, "aian": 0.003, "multiracial": 0.027},
+  "GEO-NORTHEAST-2": {"white": 0.50, "black": 0.22, "hispanic": 0.18, "api": 0.07, "aian": 0.003, "multiracial": 0.027},
+  "GEO-WEST-1": {"white": 0.48, "black": 0.06, "hispanic": 0.30, "api": 0.12, "aian": 0.010, "multiracial": 0.030},
+  "GEO-WEST-2": {"white": 0.38, "black": 0.05, "hispanic": 0.38, "api": 0.14, "aian": 0.020, "multiracial": 0.030}
+}

@@ -96,5 +96,11 @@ Status:
 
 - Adverse-action reason QA, adverse-action reason generation, fair-lending
   screening/escalation, and LDA assessment are implemented for synthetic
-  demonstration inputs. The remaining Phase 8 priorities are model-change
-  review and vendor oversight.
+  demonstration inputs.
+- Fair-lending screening now reports statistical significance (two-proportion
+  z-test with Fisher's exact fallback) on every disparity screen, and BISG
+  protected-class proxy estimation runs as an optional monitoring step with
+  proxy-weighted disparity testing (see `docs/fair-lending-statistics.md`).
+- The remaining priorities are the analytical-rigor track in
+  `docs/system-implementation-roadmap.md` (LDA candidate search, public-dataset
+  run, regression controls), then model-change review and vendor oversight.

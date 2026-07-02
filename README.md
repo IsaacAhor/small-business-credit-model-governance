@@ -16,11 +16,17 @@ reviews, adverse-action reason QA, fair-lending screening triggers, issue
 registers, and reviewer-ready evidence packs using synthetic demonstration
 data.
 
-The workflow now also generates adverse-action reasons from ranked decision
-drivers (then reviews them via reason QA), runs a less-discriminatory-alternative
-(LDA) assessment comparing a baseline model to a candidate alternative, and
-ships a portfolio-scale synthetic dataset (`data/synthetic/monthly-portfolio`,
-320 decisions) so screens and exceptions fire on realistic distributions.
+The workflow generates adverse-action reasons from ranked decision drivers
+(then reviews them via reason QA), reports statistical significance on every
+fair-lending disparity screen (two-proportion z-test with Fisher's exact
+fallback), estimates protected-class proxies via BISG (Bayesian Improved
+Surname Geocoding) with proxy-weighted disparity testing, and ships a
+portfolio-scale synthetic dataset (`data/synthetic/monthly-portfolio`, 320
+decisions) so screens and exceptions fire on realistic distributions. As a
+supporting risk-management component, it also includes a
+less-discriminatory-alternative (LDA) assessment step that scores a supplied
+candidate model against the baseline; see `docs/fair-lending-statistics.md`
+for the statistical methodology.
 
 ## Start Here
 
@@ -47,7 +53,10 @@ for:
 - model records and documentation standards
 - threshold configuration and monitoring review
 - adverse-action reason generation QA
-- fair-lending screening and escalation triggers
+- fair-lending screening with statistical significance testing and
+  escalation triggers
+- BISG protected-class proxy estimation with proxy-weighted disparity
+  screening
 - issue tracking and evidence-pack assembly
 - ongoing model-risk oversight using deterministic demonstration inputs
 
@@ -81,6 +90,12 @@ artifacts. It does not claim:
 - broad external adoption
 - independent recognition by itself
 - automatic certification of regulatory compliance
+
+## License and Citation
+
+The repository is licensed under the Apache License 2.0 (see `LICENSE`),
+which includes an explicit patent grant so institutions can evaluate and
+adapt the workflow. Citation metadata is provided in `CITATION.cff`.
 
 ## Endeavor Alignment
 
@@ -136,6 +151,8 @@ It does not assume a fixed modeling stack at this stage.
   Reusable validation, monitoring, reason-generation, and LDA assessment code.
 - `data/synthetic/`
   Deterministic demonstration inputs for validation, monitoring, and portfolio-scale workflow runs.
+- `data/reference/bisg/`
+  Demonstration BISG reference tables with a documented path to full Census-derived data.
 - `examples/`
   Curated synthetic example outputs that can be reviewed without running code.
 - `tests/`
@@ -265,5 +282,8 @@ This repository now contains:
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
-The next steps are Phase 5 model-change review, validation summaries, drift
-logic, and stronger signoff controls described in the roadmap.
+The current priority is the Phase 8 analytical-rigor track (see
+`docs/system-implementation-roadmap.md`): an LDA step that searches candidate
+models and a reproducible run on a recognizable public dataset. Phase 5
+model-change review, validation summaries, drift logic, and stronger signoff
+controls follow.

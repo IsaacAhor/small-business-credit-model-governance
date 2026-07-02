@@ -1,0 +1,10 @@
+{
+  "record_type": "bisg_config",
+  "config_id": "bisg-2026-06-monthly",
+  "surname_reference_path": "data/reference/bisg/demo-surname-probabilities.json",
+  "geography_reference_path": "data/reference/bisg/demo-geography-probabilities.json",
+  "national_marginals_path": "data/reference/bisg/national-marginals.json",
+  "reference_group": "white",
+  "alpha": 0.05,
+  "min_effective_count": 10
+}
