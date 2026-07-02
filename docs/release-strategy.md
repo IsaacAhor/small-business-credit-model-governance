@@ -31,7 +31,8 @@ Use semantic-style version numbers for public milestones:
 - `v0.4.0`: fair-lending screening and reviewer-facing evidence package
 - `v0.4.1`: outsider packaging patch with reviewer and implementation guides
 - `v0.5.0`: adverse-action reason generation, LDA assessment, and portfolio-scale dataset
-- `v0.6.0`: model-change and validation-review workflow
+- `v0.6.0`: statistical significance testing and BISG proxy monitoring
+- `v0.7.0`: model-change and validation-review workflow
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -52,11 +53,11 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current milestone is `v0.5.0`, which adds Phase 3B adverse-action reason
-generation, Phase 4B less-discriminatory-alternative assessment, and a
-portfolio-scale synthetic dataset (320 decisions) that exercises the screens
-and reason QA on realistic distributions. It remains a synthetic demonstration
-milestone, not production deployment, adoption, or regulatory acceptance.
+The current milestone is `v0.6.0`, which adds statistical significance testing
+to fair-lending disparity screens and optional BISG protected-class proxy
+monitoring on the portfolio-scale synthetic dataset. It remains a synthetic
+demonstration milestone, not production deployment, adoption, legal conclusion,
+or regulatory acceptance.
 
 ## Release Notes Location
 

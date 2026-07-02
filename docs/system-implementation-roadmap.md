@@ -323,7 +323,9 @@ repository workflow.
 - `v0.4.1`: outsider packaging patch with reviewer and implementation guides.
 - `v0.5.0`: Phase 3B adverse-action reason generation, Phase 4B LDA
   assessment, and portfolio-scale synthetic dataset.
-- `v0.6.0`: planned Phase 5 model-change and validation-review workflow.
+- `v0.6.0`: Phase 8 statistical significance testing and BISG proxy
+  monitoring on the portfolio-scale synthetic dataset.
+- `v0.7.0`: planned Phase 5 model-change and validation-review workflow.
 
 ## Evidence Pack Standard
 

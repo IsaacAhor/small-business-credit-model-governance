@@ -238,12 +238,13 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest release milestone is `v0.5.0`, which adds Phase 3B adverse-action
-reason generation, Phase 4B less-discriminatory-alternative assessment, and a
+The latest release milestone is `v0.6.0`, which adds statistical significance
+testing for fair-lending screens and optional BISG proxy monitoring on the
 portfolio-scale synthetic dataset.
 
 See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
-`docs/releases/v0.4.1.md`, and `docs/releases/v0.5.0.md`.
+`docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`, and
+`docs/releases/v0.6.0.md`.
 
 ## Data Policy
 
@@ -278,7 +279,7 @@ This repository now contains:
 - a Phase 3B adverse-action reason-generation workflow with deterministic regeneration checks
 - a Phase 4B less-discriminatory-alternative assessment workflow integrated into optional monitoring evidence outputs
 - a portfolio-scale synthetic monthly dataset that exercises reason generation, reason QA, fair-lending screening, and LDA assessment
-- release strategy documentation and `v0.5.0` release notes for stable milestone preservation
+- release strategy documentation and `v0.6.0` release notes for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
