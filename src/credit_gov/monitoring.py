@@ -8,8 +8,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from credit_gov.bisg import run_bisg_proxy_analysis
 from credit_gov.lda import assess_less_discriminatory_alternative
 from credit_gov.schemas import validate_dataset
+from credit_gov.stats import compare_group_proportions
 
 
 @dataclass(slots=True)
@@ -24,6 +26,7 @@ class MonitoringRunResult:
     reason_qa: dict[str, Any]
     fair_lending: dict[str, Any]
     lda: dict[str, Any] | None = None
+    bisg: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -37,6 +40,7 @@ class MonitoringRunResult:
             "reason_qa": self.reason_qa,
             "fair_lending": self.fair_lending,
             "lda": self.lda,
+            "bisg": self.bisg,
         }
 
 
@@ -66,6 +70,24 @@ def compute_optional_lda(dataset_dir: Path, payloads: dict[str, Any]) -> dict[st
         alternative_decisions=alternative,
         outcomes=payloads["outcomes"],
         config=config,
+    )
+
+
+def compute_optional_bisg(dataset_dir: Path, payloads: dict[str, Any]) -> dict[str, Any] | None:
+    """Run BISG proxy-based screening when its optional inputs are present.
+
+    Requires ``bisg-config.json`` and ``applicant-demographic-inputs.json``.
+    Returns ``None`` when either is absent so existing datasets are unaffected.
+    """
+    config = load_optional_json(dataset_dir / "bisg-config.json")
+    demographic_inputs = load_optional_json(dataset_dir / "applicant-demographic-inputs.json")
+    if config is None or demographic_inputs is None:
+        return None
+    return run_bisg_proxy_analysis(
+        decisions=payloads["decisions"],
+        demographic_inputs=demographic_inputs,
+        config=config,
+        dataset_dir=dataset_dir,
     )
 
 
@@ -109,6 +131,7 @@ def run_monthly_monitoring(
     reason_qa = compute_reason_qa(payloads)
     fair_lending = compute_fair_lending_screening(payloads)
     lda = compute_optional_lda(dataset_dir, payloads)
+    bisg = compute_optional_bisg(dataset_dir, payloads)
     breaches = evaluate_thresholds(metrics, payloads["threshold_set"], payloads["manifest"]["run_id"])
     issues = build_issue_register(breaches, reason_qa["exceptions"], fair_lending["findings"])
 
@@ -123,6 +146,7 @@ def run_monthly_monitoring(
         reason_qa=reason_qa,
         fair_lending=fair_lending,
         lda=lda,
+        bisg=bisg,
     )
     return MonitoringRunResult(
         ok=True,
@@ -135,6 +159,7 @@ def run_monthly_monitoring(
         reason_qa=reason_qa,
         fair_lending=fair_lending,
         lda=lda,
+        bisg=bisg,
     )
 
 
@@ -310,6 +335,7 @@ def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
             "field": group_config["field"],
             "groups": groups,
             "summary": summarize_fair_lending_groups(groups),
+            "significance": compute_group_significance(groups),
         }
 
     findings: list[dict[str, Any]] = []
@@ -325,21 +351,25 @@ def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
                 float(screen["threshold_value"]),
             ):
                 finding_index = len(findings) + 1
-                findings.append(
-                    {
-                        "finding_id": f"flf-{finding_index:04d}",
-                        "screen_name": screen["screen_name"],
-                        "metric_name": metric_name,
-                        "comparison_group": group_name,
-                        "observed_value": round(float(observed_value), 4),
-                        "threshold_value": float(screen["threshold_value"]),
-                        "comparison_rule": screen["comparison_rule"],
-                        "severity": screen["severity"],
-                        "owner": screen["escalation_owner"],
-                        "review_trigger": "deeper_fair_lending_review",
-                        "result_type": "screening_only_not_legal_conclusion",
-                    }
+                finding = {
+                    "finding_id": f"flf-{finding_index:04d}",
+                    "screen_name": screen["screen_name"],
+                    "metric_name": metric_name,
+                    "comparison_group": group_name,
+                    "observed_value": round(float(observed_value), 4),
+                    "threshold_value": float(screen["threshold_value"]),
+                    "comparison_rule": screen["comparison_rule"],
+                    "severity": screen["severity"],
+                    "owner": screen["escalation_owner"],
+                    "review_trigger": "deeper_fair_lending_review",
+                    "result_type": "screening_only_not_legal_conclusion",
+                }
+                significance = group_result["significance"].get(
+                    significance_key_for_metric(metric_name)
                 )
+                if significance is not None:
+                    finding["statistical_significance"] = significance
+                findings.append(finding)
 
     return {
         "label": "fair_lending_screening_only_not_legal_conclusion",
@@ -353,7 +383,46 @@ def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
             "Synthetic data only.",
             "No protected-class labels are used.",
             "Screening findings are governance review triggers, not legal conclusions.",
+            "Significance tests are unadjusted comparisons; no regression controls for legitimate credit factors.",
         ],
+    }
+
+
+def significance_key_for_metric(metric_name: str) -> str:
+    if metric_name == "approval_rate_ratio":
+        return "approval_rate"
+    if metric_name == "override_rate_difference":
+        return "override_rate"
+    return metric_name
+
+
+def compute_group_significance(groups: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """Significance tests for the extreme-group gaps that drive the screens.
+
+    Tests the lowest-rate group against the highest-rate group for approval
+    rates (the pair behind ``approval_rate_ratio``) and for override rates
+    (the pair behind ``override_rate_difference``). Reported values include
+    effect size, test used, p-value, and sample-adequacy caveats.
+    """
+    if len(groups) < 2:
+        return {}
+
+    def extreme_pair(rate_key: str, count_key: str) -> dict[str, Any]:
+        ordered = sorted(groups.items(), key=lambda item: item[1][rate_key])
+        low_name, low = ordered[0]
+        high_name, high = ordered[-1]
+        return compare_group_proportions(
+            label_a=low_name,
+            successes_a=low[count_key],
+            total_a=low["total"],
+            label_b=high_name,
+            successes_b=high[count_key],
+            total_b=high["total"],
+        )
+
+    return {
+        "approval_rate": extreme_pair("approval_rate", "approved"),
+        "override_rate": extreme_pair("override_rate", "overrides"),
     }
 
 
@@ -557,6 +626,7 @@ def build_evidence_pack(
     reason_qa: dict[str, Any],
     fair_lending: dict[str, Any],
     lda: dict[str, Any] | None = None,
+    bisg: dict[str, Any] | None = None,
 ) -> Path:
     manifest = payloads["manifest"]
     evidence_dir = evidence_root / format_evidence_dir_name(
@@ -585,6 +655,8 @@ def build_evidence_pack(
     ]
     if lda is not None:
         output_files.insert(output_files.index("issue_register.json"), "lda_assessment_results.json")
+    if bisg is not None:
+        output_files.insert(output_files.index("issue_register.json"), "bisg_proxy_results.json")
 
     generated_manifest = {
         "record_type": "evidence_pack_manifest",
@@ -616,9 +688,11 @@ def build_evidence_pack(
     write_json(evidence_dir / "fair_lending_escalation_register.json", fair_lending["findings"])
     if lda is not None:
         write_json(evidence_dir / "lda_assessment_results.json", lda)
+    if bisg is not None:
+        write_json(evidence_dir / "bisg_proxy_results.json", bisg)
     write_json(evidence_dir / "issue_register.json", issues)
     (evidence_dir / "monitoring_report.md").write_text(
-        render_monitoring_report(metrics, breaches, issues, reason_qa, fair_lending, lda),
+        render_monitoring_report(metrics, breaches, issues, reason_qa, fair_lending, lda, bisg),
         encoding="utf-8",
     )
     (evidence_dir / "reviewer_notes.md").write_text(
@@ -637,6 +711,41 @@ def build_input_fingerprints(dataset_dir: Path) -> dict[str, str]:
     for path in sorted(dataset_dir.glob("*.json")):
         fingerprints[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
     return fingerprints
+
+
+def render_finding_significance(finding: dict[str, Any]) -> str:
+    significance = finding.get("statistical_significance")
+    if significance is None:
+        return ""
+    verdict = "significant" if significance["statistically_significant"] else "not significant"
+    return (
+        f"\n  Statistical test: {significance['test']} | p = {significance['p_value']} | "
+        f"{verdict} at alpha {significance['alpha']}"
+    )
+
+
+def render_bisg_section(bisg: dict[str, Any] | None) -> str:
+    if bisg is None:
+        return ""
+    finding_lines = (
+        "\n".join(
+            f"- {finding['proxy_group']} vs {finding['reference_group']}: "
+            f"proxy-weighted approval rate {finding['proxy_weighted_approval_rate']} vs "
+            f"{finding['reference_approval_rate']} (p = {finding['p_value']})"
+            for finding in bisg["findings"]
+        )
+        if bisg["findings"]
+        else "- No statistically significant proxy-group approval-rate gaps were identified."
+    )
+    return (
+        "## BISG Proxy Screening\n\n"
+        f"- Method: Bayesian Improved Surname Geocoding (`{bisg['config_id']}`)\n"
+        f"- Decisions matched to demographic inputs: {bisg['matched_decision_count']} of {bisg['decision_count']}\n"
+        f"- Reference group: {bisg['reference_group']} | alpha: {bisg['alpha']}\n"
+        f"- Significant finding count: {bisg['finding_count']}\n"
+        "- Result type: probabilistic proxy screening, not observed demographics or a legal conclusion\n\n"
+        f"{finding_lines}\n\n"
+    )
 
 
 def render_lda_section(lda: dict[str, Any] | None) -> str:
@@ -668,6 +777,7 @@ def render_monitoring_report(
     reason_qa: dict[str, Any],
     fair_lending: dict[str, Any],
     lda: dict[str, Any] | None = None,
+    bisg: dict[str, Any] | None = None,
 ) -> str:
     breach_lines = (
         "\n".join(
@@ -698,6 +808,7 @@ def render_monitoring_report(
         "\n".join(
             f"- {finding['comparison_group']}: {finding['metric_name']} observed {finding['observed_value']} "
             f"against threshold {finding['threshold_value']} ({finding['severity']}, owner: {finding['owner']})"
+            + render_finding_significance(finding)
             for finding in fair_lending["findings"]
         )
         if fair_lending["findings"]
@@ -726,6 +837,7 @@ def render_monitoring_report(
         f"- Screening finding count: {fair_lending['finding_count']}\n"
         "- Result type: screening only, not a legal conclusion\n\n"
         f"{fair_lending_lines}\n\n"
+        f"{render_bisg_section(bisg)}"
         f"{render_lda_section(lda)}"
         "## Threshold Breaches\n\n"
         f"{breach_lines}\n\n"

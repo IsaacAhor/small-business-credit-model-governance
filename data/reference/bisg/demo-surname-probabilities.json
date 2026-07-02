@@ -1,0 +1,20 @@
+{
+  "SMITH": {"white": 0.709, "black": 0.231, "hispanic": 0.024, "api": 0.005, "aian": 0.009, "multiracial": 0.022},
+  "JOHNSON": {"white": 0.589, "black": 0.346, "hispanic": 0.024, "api": 0.005, "aian": 0.009, "multiracial": 0.026},
+  "WILLIAMS": {"white": 0.458, "black": 0.477, "hispanic": 0.025, "api": 0.005, "aian": 0.008, "multiracial": 0.028},
+  "BROWN": {"white": 0.579, "black": 0.356, "hispanic": 0.026, "api": 0.005, "aian": 0.009, "multiracial": 0.026},
+  "MILLER": {"white": 0.841, "black": 0.108, "hispanic": 0.022, "api": 0.005, "aian": 0.007, "multiracial": 0.018},
+  "DAVIS": {"white": 0.622, "black": 0.316, "hispanic": 0.024, "api": 0.005, "aian": 0.008, "multiracial": 0.025},
+  "GARCIA": {"white": 0.054, "black": 0.005, "hispanic": 0.919, "api": 0.014, "aian": 0.001, "multiracial": 0.009},
+  "RODRIGUEZ": {"white": 0.048, "black": 0.005, "hispanic": 0.938, "api": 0.006, "aian": 0.001, "multiracial": 0.009},
+  "MARTINEZ": {"white": 0.053, "black": 0.005, "hispanic": 0.922, "api": 0.006, "aian": 0.004, "multiracial": 0.009},
+  "LOPEZ": {"white": 0.050, "black": 0.006, "hispanic": 0.922, "api": 0.010, "aian": 0.002, "multiracial": 0.010},
+  "NGUYEN": {"white": 0.013, "black": 0.003, "hispanic": 0.003, "api": 0.965, "aian": 0.001, "multiracial": 0.016},
+  "KIM": {"white": 0.039, "black": 0.003, "hispanic": 0.004, "api": 0.937, "aian": 0.001, "multiracial": 0.018},
+  "PATEL": {"white": 0.014, "black": 0.002, "hispanic": 0.007, "api": 0.960, "aian": 0.001, "multiracial": 0.015},
+  "CHEN": {"white": 0.016, "black": 0.002, "hispanic": 0.004, "api": 0.964, "aian": 0.001, "multiracial": 0.014},
+  "LEE": {"white": 0.401, "black": 0.174, "hispanic": 0.012, "api": 0.378, "aian": 0.010, "multiracial": 0.025},
+  "WASHINGTON": {"white": 0.052, "black": 0.875, "hispanic": 0.025, "api": 0.003, "aian": 0.007, "multiracial": 0.038},
+  "JEFFERSON": {"white": 0.187, "black": 0.752, "hispanic": 0.017, "api": 0.006, "aian": 0.009, "multiracial": 0.029},
+  "BEGAY": {"white": 0.039, "black": 0.003, "hispanic": 0.004, "api": 0.002, "aian": 0.934, "multiracial": 0.019}
+}

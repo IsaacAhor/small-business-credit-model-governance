@@ -54,3 +54,14 @@ institution-specific review.
   should be used carefully because they are not credit-specific legal authority.
 - Fair-lending and small business lending materials are relevant to monitoring
   design and screening triggers, not automatic legal conclusions.
+
+## Protected-Class Proxy Methodology
+
+- Elliott, M. N., et al. (2009). Using the Census Bureau's surname list to
+  improve estimates of race/ethnicity and associated disparities. Health
+  Services and Outcomes Research Methodology, 9(2), 69-83.
+- Consumer Financial Protection Bureau (2014). Using publicly available
+  information to proxy for unidentified race and ethnicity:
+  <https://www.consumerfinance.gov/data-research/research-reports/using-publicly-available-information-to-proxy-for-unidentified-race-and-ethnicity/>
+- U.S. Census Bureau, Frequently Occurring Surnames from the 2010 Census:
+  <https://www.census.gov/topics/population/genealogy/data/2010_surnames.html>

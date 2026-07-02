@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this governance workflow, methods, or code, please cite it as below."
+title: "Small Business Credit Model Governance"
+type: software
+authors:
+  - family-names: "Ahor"
+    given-names: "Isaac"
+repository-code: "https://github.com/IsaacAhor/small-business-credit-model-governance"
+url: "https://github.com/IsaacAhor/small-business-credit-model-governance"
+abstract: >-
+  A governance evidence engine for machine-learning-based small business
+  credit underwriting: synthetic monitoring, adverse-action reason generation
+  and QA, fair-lending screening with statistical significance testing,
+  BISG protected-class proxy estimation, less-discriminatory-alternative
+  assessment, and reviewer-ready evidence packs.
+keywords:
+  - model-governance
+  - model-risk-management
+  - fair-lending
+  - adverse-action
+  - credit-underwriting
+  - responsible-ai
+license: Apache-2.0
+version: 0.5.0
+date-released: "2026-07-01"

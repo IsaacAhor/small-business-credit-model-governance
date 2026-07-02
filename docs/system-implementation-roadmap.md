@@ -352,3 +352,34 @@ The first serious build target is:
 > A one-command monthly monitoring run that validates synthetic data, computes
 > configured monitoring metrics, identifies threshold breaches, and emits a
 > reviewer-ready evidence pack.
+
+## Phase 8: Analytical Rigor and External Corroboration
+
+Priority track ahead of the remaining Phase 5 to 7 items. Raises analytical
+rigor rather than building production infrastructure.
+
+Deliverables:
+
+- protected-class proxy estimation (e.g., BISG) for fair-lending screening
+- statistical significance testing and regression controlling for legitimate
+  credit factors
+- an LDA step that searches candidate models and documents the
+  performance-versus-disparity tradeoff
+- a run on a recognizable public dataset alongside the synthetic data
+
+Acceptance criteria:
+
+- fair-lending outputs report a proxy method, an effect size, and a significance
+  result, not only a raw approval-rate ratio
+- the LDA output shows more than one generated candidate and a documented
+  tradeoff, with explicit synthetic and non-legal-conclusion framing
+- the public-dataset run is reproducible and separated from the synthetic demo
+- framing stays state-law and risk-management oriented, not federal
+  disparate-impact compliance
+
+Status:
+
+- BISG proxy estimation and statistical significance testing shipped in
+  `src/credit_gov/bisg.py` and `src/credit_gov/stats.py`, wired into the
+  monitoring run and evidence pack (see `docs/fair-lending-statistics.md`)
+- LDA candidate search and the public-dataset run remain open

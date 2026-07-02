@@ -1,0 +1,1922 @@
+[
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0001",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0002",
+    "surname": "GARCIA",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0003",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0004",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0005",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0006",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0007",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0008",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0009",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0010",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0011",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0012",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0013",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0014",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0015",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0016",
+    "surname": "BROWN",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0017",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0018",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0019",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0020",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0021",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0022",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0023",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0024",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0025",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0026",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0027",
+    "surname": "KIM",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0028",
+    "surname": "BEGAY",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0029",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0030",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0031",
+    "surname": "LOPEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0032",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0033",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0034",
+    "surname": "BROWN",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0035",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0036",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0037",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0038",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0039",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0040",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0041",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0042",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0043",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0044",
+    "surname": "LEE",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0045",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0046",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0047",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0048",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0049",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0050",
+    "surname": "SMITH",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0051",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0052",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0053",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0054",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0055",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0056",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0057",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0058",
+    "surname": "LEE",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0059",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0060",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0061",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0062",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0063",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0064",
+    "surname": "CHEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0065",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0066",
+    "surname": "JEFFERSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0067",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0068",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0069",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0070",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0071",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0072",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0073",
+    "surname": "KIM",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0074",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0075",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0076",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0077",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0078",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0079",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0080",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0081",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0082",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0083",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0084",
+    "surname": "SMITH",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0085",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0086",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0087",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0088",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0089",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0090",
+    "surname": "BROWN",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0091",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0092",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0093",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0094",
+    "surname": "GARCIA",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0095",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0096",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0097",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0098",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0099",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0100",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0101",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0102",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0103",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0104",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0105",
+    "surname": "BROWN",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0106",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0107",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0108",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0109",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0110",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0111",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0112",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0113",
+    "surname": "GARCIA",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0114",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0115",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0116",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0117",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0118",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0119",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0120",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0121",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0122",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0123",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0124",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0125",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0126",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0127",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0128",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0129",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0130",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0131",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0132",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0133",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0134",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0135",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0136",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0137",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0138",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0139",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0140",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0141",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0142",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0143",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0144",
+    "surname": "SMITH",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0145",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0146",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0147",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0148",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0149",
+    "surname": "LOPEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0150",
+    "surname": "CHEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0151",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0152",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0153",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0154",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0155",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0156",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0157",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0158",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0159",
+    "surname": "KIM",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0160",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0161",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0162",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0163",
+    "surname": "LEE",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0164",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0165",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0166",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0167",
+    "surname": "CHEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0168",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0169",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0170",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0171",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0172",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0173",
+    "surname": "SMITH",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0174",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0175",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0176",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0177",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0178",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0179",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0180",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0181",
+    "surname": "BROWN",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0182",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0183",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0184",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0185",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0186",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0187",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0188",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0189",
+    "surname": "CHEN",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0190",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0191",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0192",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0193",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0194",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0195",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0196",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0197",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0198",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0199",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0200",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0201",
+    "surname": "SMITH",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0202",
+    "surname": "LOPEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0203",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0204",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0205",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0206",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0207",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0208",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0209",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0210",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0211",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0212",
+    "surname": "JEFFERSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0213",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0214",
+    "surname": "KIM",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0215",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0216",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0217",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0218",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0219",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0220",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0221",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0222",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0223",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0224",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0225",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0226",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0227",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0228",
+    "surname": "BROWN",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0229",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0230",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0231",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0232",
+    "surname": "SMITH",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0233",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0234",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0235",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0236",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0237",
+    "surname": "CHEN",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0238",
+    "surname": "BROWN",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0239",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0240",
+    "surname": "LEE",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0241",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0242",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0243",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0244",
+    "surname": "GARCIA",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0245",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0246",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0247",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0248",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0249",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0250",
+    "surname": "JEFFERSON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0251",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0252",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0253",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0254",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0255",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0256",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0257",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0258",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0259",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0260",
+    "surname": "SMITH",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0261",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0262",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0263",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0264",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0265",
+    "surname": "LOPEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0266",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0267",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0268",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0269",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0270",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0271",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0272",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0273",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0274",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0275",
+    "surname": "KIM",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0276",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0277",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0278",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0279",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0280",
+    "surname": "SMITH",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0281",
+    "surname": "BROWN",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0282",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0283",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0284",
+    "surname": "WILLIAMS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0285",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0286",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0287",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0288",
+    "surname": "GARCIA",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0289",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0290",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0291",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0292",
+    "surname": "CHEN",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0293",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0294",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0295",
+    "surname": "PATEL",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0296",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0297",
+    "surname": "JEFFERSON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0298",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0299",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0300",
+    "surname": "RODRIGUEZ",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0301",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0302",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0303",
+    "surname": "MILLER",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0304",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0305",
+    "surname": "CHEN",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0306",
+    "surname": "DAVIS",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0307",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0308",
+    "surname": "CHEN",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0309",
+    "surname": "SMITH",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0310",
+    "surname": "GARCIA",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0311",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0312",
+    "surname": "GARCIA",
+    "geography_id": "GEO-WEST-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0313",
+    "surname": "JOHNSON",
+    "geography_id": "GEO-NORTHEAST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0314",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0315",
+    "surname": "WASHINGTON",
+    "geography_id": "GEO-SOUTH-2"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0316",
+    "surname": "MILLER",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0317",
+    "surname": "SMITH",
+    "geography_id": "GEO-MIDWEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0318",
+    "surname": "DAVIS",
+    "geography_id": "GEO-SOUTH-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0319",
+    "surname": "MARTINEZ",
+    "geography_id": "GEO-WEST-1"
+  },
+  {
+    "record_type": "applicant_demographic_input",
+    "decision_id": "dec-0320",
+    "surname": "NGUYEN",
+    "geography_id": "GEO-WEST-2"
+  }
+]

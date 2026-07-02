@@ -64,6 +64,31 @@ DRIVERS = [driver for driver, _code, _text in DRIVER_TO_CODE]
 # exceptions (declined decision with no generated reason).
 MISSING_CONTRIB_EVERY = 90
 
+# Synthetic demographic inputs for BISG proxy estimation. Surname pools are
+# correlated with region so the proxied groups differ across regions -- which,
+# combined with the stricter west cutoff, gives the BISG screen a realistic
+# disparity signal to surface. Drawn from a SEPARATE seeded RNG so adding this
+# section leaves every previously generated file byte-identical.
+DEMOGRAPHIC_SEED = SEED + 1
+REGION_SURNAME_POOLS: dict[str, tuple[list[str], list[float]]] = {
+    "south": (
+        ["SMITH", "JOHNSON", "WILLIAMS", "WASHINGTON", "JEFFERSON", "DAVIS", "BROWN", "GARCIA"],
+        [0.20, 0.16, 0.14, 0.12, 0.08, 0.12, 0.12, 0.06],
+    ),
+    "midwest": (
+        ["SMITH", "MILLER", "JOHNSON", "DAVIS", "BROWN", "NGUYEN"],
+        [0.26, 0.24, 0.18, 0.14, 0.12, 0.06],
+    ),
+    "northeast": (
+        ["SMITH", "JOHNSON", "CHEN", "KIM", "PATEL", "MILLER", "RODRIGUEZ"],
+        [0.22, 0.16, 0.12, 0.10, 0.10, 0.16, 0.14],
+    ),
+    "west": (
+        ["GARCIA", "RODRIGUEZ", "MARTINEZ", "LOPEZ", "NGUYEN", "KIM", "CHEN", "LEE", "SMITH", "BEGAY"],
+        [0.16, 0.14, 0.12, 0.10, 0.10, 0.08, 0.08, 0.08, 0.10, 0.04],
+    ),
+}
+
 
 def write_json(path: Path, payload: object) -> None:
     path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
@@ -362,6 +387,32 @@ def build() -> None:
     write_json(DATASET_DIR / "alternative-model-decisions.json", alternative_decisions)
     write_json(DATASET_DIR / "lda-assessment-config.json", lda_config)
     write_json(DATASET_DIR / "evidence-pack-manifest.json", manifest)
+
+    demographic_rng = random.Random(DEMOGRAPHIC_SEED)
+    demographic_inputs = []
+    for decision in decisions:
+        region = decision["monitoring"]["region"]
+        surnames, weights = REGION_SURNAME_POOLS[region]
+        demographic_inputs.append(
+            {
+                "record_type": "applicant_demographic_input",
+                "decision_id": decision["decision_id"],
+                "surname": weighted_choice(demographic_rng, surnames, weights),
+                "geography_id": f"GEO-{region.upper()}-{demographic_rng.choice([1, 2])}",
+            }
+        )
+    bisg_config = {
+        "record_type": "bisg_config",
+        "config_id": "bisg-2026-06-monthly",
+        "surname_reference_path": "data/reference/bisg/demo-surname-probabilities.json",
+        "geography_reference_path": "data/reference/bisg/demo-geography-probabilities.json",
+        "national_marginals_path": "data/reference/bisg/national-marginals.json",
+        "reference_group": "white",
+        "alpha": 0.05,
+        "min_effective_count": 10,
+    }
+    write_json(DATASET_DIR / "applicant-demographic-inputs.json", demographic_inputs)
+    write_json(DATASET_DIR / "bisg-config.json", bisg_config)
 
     summary = summarize_generation(decisions, reason_outputs)
     declined = sum(1 for d in decisions if d["decision_outcome"] == "declined")
