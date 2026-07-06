@@ -29,7 +29,7 @@ Use `USE_CASES.md` if you are reviewing from a specific role:
 - fair-lending or compliance reviewer
 - credit policy or underwriting governance lead
 - fintech governance or product risk lead
-- researcher or independent reviewer
+- researcher or external reviewer
 
 ## What To Run
 

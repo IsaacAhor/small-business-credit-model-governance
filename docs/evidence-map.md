@@ -6,7 +6,7 @@ overclaiming from synthetic demonstrations.
 
 | Artifact | What it supports | What it does not prove |
 | --- | --- | --- |
-| `README.md` | Endeavor alignment, scope, intended users, and repository orientation | External adoption, regulatory approval, or production deployment |
+| `README.md` | Project objective, scope, intended users, and repository orientation | External adoption, regulatory approval, or production deployment |
 | `PROJECT_BRIEF.md` | Plain-language summary of the problem, contribution, limitations, and intended users | Independent validation or market acceptance |
 | `docs/framework-draft.md` | Method design for governance, monitoring, documentation, and oversight | Peer-reviewed publication status or field adoption |
 | `docs/system-charter.md` | System purpose, intended users, core capabilities, and non-objectives | Production readiness or institution-specific compliance |

@@ -6,7 +6,7 @@ This document defines the charter for the repository's next implementation stage
 
 The system is intended to support model-risk, validation, compliance, and governance review by turning structured inputs and monitoring logic into traceable, reviewer-ready outputs.
 
-This evidence engine is the implementation vehicle for the locked endeavor to
+This evidence engine is the implementation vehicle for the project's objective: to
 develop, validate, and disseminate practical methods, monitoring protocols,
 documentation standards, and tools for governance of machine-learning-based
 small business credit underwriting systems in the United States.

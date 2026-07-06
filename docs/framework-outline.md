@@ -105,14 +105,6 @@ Small business credit underwriting increasingly relies on analytical systems tha
 - implementation checklist in template form
 - notebook or prototype support artifact
 
-## Evidence Value
-
-This framework is intended to serve as:
-
-- direct evidence of governance-workflow execution
-- a foundation for future authorship and speaking
-- a reusable building block for a broader governance portfolio
-
 ## Draft Status
 
 The first substantive draft based on this outline is now in `docs/framework-draft.md`.

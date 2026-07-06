@@ -4,7 +4,7 @@
 
 This document presents a practical governance framework for
 machine-learning-based small business credit underwriting systems. It supports
-the locked endeavor to develop, validate, and disseminate practical methods,
+a single objective: to develop, validate, and disseminate practical methods,
 monitoring protocols, documentation standards, and tools for this domain.
 
 The framework is designed for environments where institutions need to balance

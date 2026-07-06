@@ -64,7 +64,7 @@ for:
 
 This repository should be readable and useful to:
 
-- reviewers evaluating the professional value of the work
+- legal and policy professionals reviewing the practical value of the work
 - non-technical reviewers who need a plain-language view of what the system does
 - policy, compliance, fair-lending, validation, and model-risk professionals
 - potential adopters evaluating how a governance workflow could be structured
@@ -97,9 +97,9 @@ The repository is licensed under the Apache License 2.0 (see `LICENSE`),
 which includes an explicit patent grant so institutions can evaluate and
 adapt the workflow. Citation metadata is provided in `CITATION.cff`.
 
-## Endeavor Alignment
+## Project Objective
 
-The locked endeavor is to develop, validate, and disseminate practical methods,
+The objective of this project is to develop, validate, and disseminate practical methods,
 monitoring protocols, documentation standards, and tools for governance of
 machine-learning-based small business credit underwriting systems in the United
 States, including adverse action reason generation, less discriminatory
@@ -107,7 +107,7 @@ alternative assessment, and ongoing model-risk oversight, to improve regulatory
 compliance, decision transparency, and responsible access to small business
 credit.
 
-The central objective of this repository is to execute that endeavor through
+The repository pursues that objective through
 public, reviewable artifacts: methods, monitoring protocols, documentation
 standards, templates, synthetic demonstrations, and a configuration-driven
 governance evidence engine.
@@ -167,7 +167,7 @@ It does not assume a fixed modeling stack at this stage.
 The first phase of this repository is structured around six deliverables:
 
 1. A flagship framework for model governance and fair-lending monitoring.
-2. A practitioner article aligned to the same endeavor.
+2. A practitioner article aligned to the same objective.
 3. Reusable governance and fair-lending monitoring checklists.
 4. A path toward executable tooling using synthetic or appropriately described
    demonstration data.

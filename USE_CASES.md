@@ -86,10 +86,10 @@ What to evaluate:
 - where institution-specific policy, legal review, and validation judgment are
   still required
 
-## Researcher or Independent Reviewer
+## Researcher or External Reviewer
 
 Use the repository to assess whether the work is concrete, reviewable, and
-portable beyond a single employer.
+adaptable across institutions.
 
 Start with:
 
