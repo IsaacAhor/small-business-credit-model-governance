@@ -40,9 +40,11 @@ If you are new to the repository, use these entry points:
 - `IMPLEMENTATION_GUIDE.md`
   A practical sequence for adapting the synthetic workflow into a governed
   monthly review pattern.
-- `examples/evidence-packs/monthly-demo/README.md`
-  A curated evidence-pack walkthrough that can be inspected without running
-  code.
+- `examples/evidence-packs/monthly-portfolio/README.md`
+  A curated portfolio-scale evidence-pack walkthrough (320 synthetic
+  decisions, with statistical significance results, BISG proxy screening, and
+  LDA assessment) that can be inspected without running code. A minimal
+  controlled-breach pack is under `examples/evidence-packs/monthly-demo/`.
 
 ## What This Repository Demonstrates
 
@@ -238,13 +240,14 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest release milestone is `v0.6.0`, which adds statistical significance
-testing for fair-lending screens and optional BISG proxy monitoring on the
-portfolio-scale synthetic dataset.
+The latest release is `v0.6.1`. The latest substantive milestone is
+`v0.6.0`, which adds statistical significance testing for fair-lending screens
+and optional BISG proxy monitoring on the portfolio-scale synthetic dataset;
+`v0.6.1` standardizes documentation wording with no functional changes.
 
 See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`, and
-`docs/releases/v0.6.0.md`.
+`docs/releases/v0.6.0.md`, and `docs/releases/v0.6.1.md`.
 
 ## Data Policy
 

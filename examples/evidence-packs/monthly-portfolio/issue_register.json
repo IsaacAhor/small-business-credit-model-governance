@@ -1,0 +1,47 @@
+[
+  {
+    "issue_id": "iss-0001",
+    "linked_breach_ids": [
+      "brc-0001"
+    ],
+    "summary": "override_rate breached its configured threshold (0.1375 vs 0.1).",
+    "status": "open",
+    "owner": "Credit Policy Review",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0002",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0090-missing_reason_code"
+    ],
+    "summary": "Reason QA exception for dec-0090: missing_reason_code.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0003",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [],
+    "linked_fair_lending_finding_ids": [
+      "flf-0001"
+    ],
+    "summary": "Fair-lending screening trigger for region: approval_rate_ratio observed 0.5105.",
+    "status": "open",
+    "owner": "Fair Lending Review",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0004",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [],
+    "linked_fair_lending_finding_ids": [
+      "flf-0002"
+    ],
+    "summary": "Fair-lending screening trigger for segment: approval_rate_ratio observed 0.767.",
+    "status": "open",
+    "owner": "Fair Lending Review",
+    "due_date": "2026-06-30"
+  }
+]

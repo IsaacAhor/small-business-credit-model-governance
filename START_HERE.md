@@ -14,10 +14,14 @@ Use this path if you have limited time and want the clearest view of the work:
    limitations.
 2. Read `docs/evidence-map.md` to see what each artifact supports and what it
    does not prove.
-3. Inspect `examples/evidence-packs/monthly-demo/README.md` for the curated
-   synthetic evidence-pack outputs.
-4. Review `examples/evidence-packs/monthly-demo/monitoring_report.md` for the
-   plain-language output of a synthetic monthly governance review.
+3. Inspect `examples/evidence-packs/monthly-portfolio/README.md` for the
+   curated portfolio-scale evidence-pack outputs (320 synthetic decisions,
+   including statistical significance results, BISG proxy screening, and the
+   LDA assessment).
+4. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
+   the plain-language output of a synthetic monthly governance review at
+   portfolio scale. A minimal controlled-breach scenario is also available
+   under `examples/evidence-packs/monthly-demo/`.
 5. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
    could adapt the workflow.
 
@@ -34,14 +38,16 @@ Use `USE_CASES.md` if you are reviewing from a specific role:
 ## What To Run
 
 The repository can be reviewed without running code by inspecting the curated
-example outputs under `examples/evidence-packs/monthly-demo/`.
+example outputs under `examples/evidence-packs/monthly-portfolio/` (portfolio
+scale) and `examples/evidence-packs/monthly-demo/` (minimal controlled
+scenario).
 
 If you want to reproduce the synthetic workflow locally, run:
 
 ```bash
 python scripts/validate_repository.py
 python scripts/validate_phase1.py
-python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root evidence
+python scripts/run_monthly_monitoring.py data/synthetic/monthly-portfolio --evidence-root evidence
 python -m unittest discover -s tests -p "test_*.py"
 ```
 

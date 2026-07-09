@@ -1,0 +1,349 @@
+{
+  "label": "fair_lending_screening_only_not_legal_conclusion",
+  "screening_config_id": "fls-2026-06-monthly",
+  "comparison_group_count": 2,
+  "screen_count": 3,
+  "finding_count": 2,
+  "group_results": {
+    "region": {
+      "source": "monitoring",
+      "field": "region",
+      "groups": {
+        "midwest": {
+          "total": 78,
+          "approved": 40,
+          "overrides": 7,
+          "reason_code_counts": {
+            "RC-102": 21,
+            "RC-105": 15,
+            "RC-106": 20,
+            "RC-104": 11,
+            "RC-103": 17,
+            "RC-101": 20
+          },
+          "approval_rate": 0.5128,
+          "override_rate": 0.0897,
+          "reason_code_concentration": 0.2019
+        },
+        "northeast": {
+          "total": 80,
+          "approved": 38,
+          "overrides": 19,
+          "reason_code_counts": {
+            "RC-106": 24,
+            "RC-101": 24,
+            "RC-105": 23,
+            "RC-103": 20,
+            "RC-102": 28,
+            "RC-104": 23
+          },
+          "approval_rate": 0.475,
+          "override_rate": 0.2375,
+          "reason_code_concentration": 0.1972
+        },
+        "south": {
+          "total": 98,
+          "approved": 57,
+          "overrides": 9,
+          "reason_code_counts": {
+            "RC-103": 28,
+            "RC-101": 23,
+            "RC-104": 18,
+            "RC-105": 26,
+            "RC-106": 18,
+            "RC-102": 16
+          },
+          "approval_rate": 0.5816,
+          "override_rate": 0.0918,
+          "reason_code_concentration": 0.2171
+        },
+        "west": {
+          "total": 64,
+          "approved": 19,
+          "overrides": 9,
+          "reason_code_counts": {
+            "RC-103": 19,
+            "RC-106": 23,
+            "RC-102": 18,
+            "RC-101": 25,
+            "RC-104": 25,
+            "RC-105": 21
+          },
+          "approval_rate": 0.2969,
+          "override_rate": 0.1406,
+          "reason_code_concentration": 0.1908
+        }
+      },
+      "summary": {
+        "approval_rate_ratio": 0.5105,
+        "override_rate_difference": 0.1478,
+        "reason_code_concentration": 0.2171
+      },
+      "significance": {
+        "approval_rate": {
+          "group_a": {
+            "label": "west",
+            "successes": 19,
+            "total": 64,
+            "rate": 0.2969
+          },
+          "group_b": {
+            "label": "south",
+            "successes": 57,
+            "total": 98,
+            "rate": 0.5816
+          },
+          "effect_size": {
+            "rate_difference": -0.2848,
+            "rate_ratio": 0.5104
+          },
+          "test": "two_proportion_z_test_pooled",
+          "p_value": 0.000385,
+          "alpha": 0.05,
+          "statistically_significant": true,
+          "sample_adequate_for_normal_approximation": true,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls)."
+          ],
+          "z_statistic": -3.5504
+        },
+        "override_rate": {
+          "group_a": {
+            "label": "midwest",
+            "successes": 7,
+            "total": 78,
+            "rate": 0.0897
+          },
+          "group_b": {
+            "label": "northeast",
+            "successes": 19,
+            "total": 80,
+            "rate": 0.2375
+          },
+          "effect_size": {
+            "rate_difference": -0.1478,
+            "rate_ratio": 0.3779
+          },
+          "test": "two_proportion_z_test_pooled",
+          "p_value": 0.012268,
+          "alpha": 0.05,
+          "statistically_significant": true,
+          "sample_adequate_for_normal_approximation": true,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls)."
+          ],
+          "z_statistic": -2.5043
+        }
+      }
+    },
+    "segment": {
+      "source": "decision",
+      "field": "segment",
+      "groups": {
+        "medium": {
+          "total": 35,
+          "approved": 21,
+          "overrides": 3,
+          "reason_code_counts": {
+            "RC-103": 8,
+            "RC-106": 6,
+            "RC-102": 8,
+            "RC-101": 8,
+            "RC-104": 5,
+            "RC-105": 6
+          },
+          "approval_rate": 0.6,
+          "override_rate": 0.0857,
+          "reason_code_concentration": 0.1951
+        },
+        "micro": {
+          "total": 176,
+          "approved": 81,
+          "overrides": 26,
+          "reason_code_counts": {
+            "RC-106": 49,
+            "RC-101": 50,
+            "RC-105": 51,
+            "RC-104": 44,
+            "RC-102": 46,
+            "RC-103": 46
+          },
+          "approval_rate": 0.4602,
+          "override_rate": 0.1477,
+          "reason_code_concentration": 0.1783
+        },
+        "small": {
+          "total": 109,
+          "approved": 52,
+          "overrides": 15,
+          "reason_code_counts": {
+            "RC-103": 30,
+            "RC-101": 34,
+            "RC-104": 28,
+            "RC-105": 28,
+            "RC-102": 29,
+            "RC-106": 30
+          },
+          "approval_rate": 0.4771,
+          "override_rate": 0.1376,
+          "reason_code_concentration": 0.1899
+        }
+      },
+      "summary": {
+        "approval_rate_ratio": 0.767,
+        "override_rate_difference": 0.062,
+        "reason_code_concentration": 0.1951
+      },
+      "significance": {
+        "approval_rate": {
+          "group_a": {
+            "label": "micro",
+            "successes": 81,
+            "total": 176,
+            "rate": 0.4602
+          },
+          "group_b": {
+            "label": "medium",
+            "successes": 21,
+            "total": 35,
+            "rate": 0.6
+          },
+          "effect_size": {
+            "rate_difference": -0.1398,
+            "rate_ratio": 0.767
+          },
+          "test": "two_proportion_z_test_pooled",
+          "p_value": 0.130721,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": true,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls)."
+          ],
+          "z_statistic": -1.5113
+        },
+        "override_rate": {
+          "group_a": {
+            "label": "medium",
+            "successes": 3,
+            "total": 35,
+            "rate": 0.0857
+          },
+          "group_b": {
+            "label": "micro",
+            "successes": 26,
+            "total": 176,
+            "rate": 0.1477
+          },
+          "effect_size": {
+            "rate_difference": -0.062,
+            "rate_ratio": 0.5802
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 0.427852,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        }
+      }
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "flf-0001",
+      "screen_name": "Regional approval-rate ratio",
+      "metric_name": "approval_rate_ratio",
+      "comparison_group": "region",
+      "observed_value": 0.5105,
+      "threshold_value": 0.8,
+      "comparison_rule": "less_than",
+      "severity": "medium",
+      "owner": "Fair Lending Review",
+      "review_trigger": "deeper_fair_lending_review",
+      "result_type": "screening_only_not_legal_conclusion",
+      "statistical_significance": {
+        "group_a": {
+          "label": "west",
+          "successes": 19,
+          "total": 64,
+          "rate": 0.2969
+        },
+        "group_b": {
+          "label": "south",
+          "successes": 57,
+          "total": 98,
+          "rate": 0.5816
+        },
+        "effect_size": {
+          "rate_difference": -0.2848,
+          "rate_ratio": 0.5104
+        },
+        "test": "two_proportion_z_test_pooled",
+        "p_value": 0.000385,
+        "alpha": 0.05,
+        "statistically_significant": true,
+        "sample_adequate_for_normal_approximation": true,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls)."
+        ],
+        "z_statistic": -3.5504
+      }
+    },
+    {
+      "finding_id": "flf-0002",
+      "screen_name": "Regional approval-rate ratio",
+      "metric_name": "approval_rate_ratio",
+      "comparison_group": "segment",
+      "observed_value": 0.767,
+      "threshold_value": 0.8,
+      "comparison_rule": "less_than",
+      "severity": "medium",
+      "owner": "Fair Lending Review",
+      "review_trigger": "deeper_fair_lending_review",
+      "result_type": "screening_only_not_legal_conclusion",
+      "statistical_significance": {
+        "group_a": {
+          "label": "micro",
+          "successes": 81,
+          "total": 176,
+          "rate": 0.4602
+        },
+        "group_b": {
+          "label": "medium",
+          "successes": 21,
+          "total": 35,
+          "rate": 0.6
+        },
+        "effect_size": {
+          "rate_difference": -0.1398,
+          "rate_ratio": 0.767
+        },
+        "test": "two_proportion_z_test_pooled",
+        "p_value": 0.130721,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": true,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls)."
+        ],
+        "z_statistic": -1.5113
+      }
+    }
+  ],
+  "limitations": [
+    "Synthetic data only.",
+    "No protected-class labels are used.",
+    "Screening findings are governance review triggers, not legal conclusions.",
+    "Significance tests are unadjusted comparisons; no regression controls for legitimate credit factors."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "label": "lda_assessment_synthetic_not_legal_conclusion",
+  "assessment_id": "lda-2026-06-monthly",
+  "group_source": "monitoring",
+  "group_field": "region",
+  "thresholds": {
+    "min_disparity_improvement": 0.05,
+    "performance_tolerance": 0.03
+  },
+  "baseline": {
+    "model_label": "baseline",
+    "separation": {
+      "good_count": 181,
+      "bad_count": 139,
+      "approval_rate_goods": 0.5801,
+      "approval_rate_bads": 0.3525,
+      "separation": 0.2276
+    },
+    "disparity": {
+      "approval_rate_by_group": {
+        "midwest": 0.5128,
+        "northeast": 0.475,
+        "south": 0.5816,
+        "west": 0.2969
+      },
+      "min_group_approval_rate": 0.2969,
+      "max_group_approval_rate": 0.5816,
+      "approval_rate_ratio": 0.5105
+    }
+  },
+  "alternative": {
+    "model_label": "alternative",
+    "alternative_model_id": "mdl-smb-credit-xgb-altcut",
+    "separation": {
+      "good_count": 181,
+      "bad_count": 139,
+      "approval_rate_goods": 0.6022,
+      "approval_rate_bads": 0.3309,
+      "separation": 0.2713
+    },
+    "disparity": {
+      "approval_rate_by_group": {
+        "midwest": 0.5,
+        "northeast": 0.4125,
+        "south": 0.5408,
+        "west": 0.4688
+      },
+      "min_group_approval_rate": 0.4125,
+      "max_group_approval_rate": 0.5408,
+      "approval_rate_ratio": 0.7628
+    }
+  },
+  "comparison": {
+    "disparity_improvement": 0.2523,
+    "separation_change": 0.0437,
+    "reduces_disparity": true,
+    "holds_performance": true
+  },
+  "qualifying_alternative_identified": true,
+  "review_trigger": "document_and_review_alternative",
+  "recommendation": "Candidate alternative reduces group approval-rate disparity while holding predictive separation within tolerance. Trigger a documented less-discriminatory-alternative review under the governance framework.",
+  "limitations": [
+    "Synthetic data only; no protected-class labels are used.",
+    "Predictive separation uses synthetic outcome labels; real declined applicants lack outcomes (reject inference).",
+    "A positive finding is a governance review trigger, not a legal conclusion or a mandate to adopt the alternative."
+  ]
+}

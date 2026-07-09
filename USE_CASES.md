@@ -14,8 +14,8 @@ Start with:
 - `docs/system-charter.md`
 - `docs/system-boundaries.md`
 - `docs/domain-object-model.md`
-- `examples/evidence-packs/monthly-demo/monitoring_report.md`
-- `examples/evidence-packs/monthly-demo/reviewer_signoff.md`
+- `examples/evidence-packs/monthly-portfolio/monitoring_report.md`
+- `examples/evidence-packs/monthly-portfolio/reviewer_signoff.md`
 
 What to evaluate:
 
@@ -33,9 +33,9 @@ Start with:
 
 - `templates/fair-lending-monitoring-checklist.md`
 - `schemas/fair-lending-screening-config.schema.json`
-- `examples/evidence-packs/monthly-demo/fair_lending_screening_results.json`
-- `examples/evidence-packs/monthly-demo/fair_lending_escalation_register.json`
-- `examples/evidence-packs/monthly-demo/reviewer_notes.md`
+- `examples/evidence-packs/monthly-portfolio/fair_lending_screening_results.json`
+- `examples/evidence-packs/monthly-portfolio/fair_lending_escalation_register.json`
+- `examples/evidence-packs/monthly-portfolio/reviewer_notes.md`
 
 What to evaluate:
 
@@ -55,8 +55,8 @@ Start with:
 - `governance/model-inventory-template.md`
 - `governance/control-matrix.md`
 - `templates/model-governance-checklist.md`
-- `examples/evidence-packs/monthly-demo/threshold_set.json`
-- `examples/evidence-packs/monthly-demo/issue_register.json`
+- `examples/evidence-packs/monthly-portfolio/threshold_set.json`
+- `examples/evidence-packs/monthly-portfolio/issue_register.json`
 
 What to evaluate:
 
@@ -76,7 +76,7 @@ Start with:
 - `docs/control-workflow.md`
 - `schemas/README.md`
 - `data/synthetic/monthly-demo/README.md`
-- `examples/evidence-packs/monthly-demo/README.md`
+- `examples/evidence-packs/monthly-portfolio/README.md`
 
 What to evaluate:
 

@@ -1,0 +1,31 @@
+{
+  "label": "qa_screening_only_not_legal_conclusion",
+  "declined_decision_count": 166,
+  "reason_output_count": 506,
+  "exception_count": 1,
+  "exceptions": [
+    {
+      "exception_id": "rex-dec-0090-missing_reason_code",
+      "decision_id": "dec-0090",
+      "reason_output_id": null,
+      "reason_code": null,
+      "exception_type": "missing_reason_code",
+      "message": "Declined decision has no generated adverse-action reason output."
+    }
+  ],
+  "stability": {
+    "mapping_versions": [
+      "mapver-2026-06"
+    ],
+    "reason_code_distribution": {
+      "RC-101": 0.1818,
+      "RC-102": 0.164,
+      "RC-103": 0.166,
+      "RC-104": 0.1522,
+      "RC-105": 0.168,
+      "RC-106": 0.168
+    },
+    "mapped_reason_code_count": 6,
+    "generated_reason_code_count": 6
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "label": "bisg_proxy_screening_only_not_legal_conclusion",
+  "method": "bayesian_improved_surname_geocoding",
+  "config_id": "bisg-2026-06-monthly",
+  "reference_group": "white",
+  "alpha": 0.05,
+  "decision_count": 320,
+  "matched_decision_count": 320,
+  "unmatched_decision_count": 0,
+  "posterior_basis_counts": {
+    "surname_and_geography": 320
+  },
+  "group_metrics": {
+    "white": {
+      "proxy_weighted_total": 113.04,
+      "proxy_weighted_approved": 55.93,
+      "proxy_weighted_approval_rate": 0.4948,
+      "adequate_effective_sample": true
+    },
+    "black": {
+      "proxy_weighted_total": 98.22,
+      "proxy_weighted_approved": 54.52,
+      "proxy_weighted_approval_rate": 0.5551,
+      "adequate_effective_sample": true
+    },
+    "hispanic": {
+      "proxy_weighted_total": 45.97,
+      "proxy_weighted_approved": 16.57,
+      "proxy_weighted_approval_rate": 0.3605,
+      "adequate_effective_sample": true
+    },
+    "api": {
+      "proxy_weighted_total": 54.68,
+      "proxy_weighted_approved": 23.56,
+      "proxy_weighted_approval_rate": 0.4308,
+      "adequate_effective_sample": true
+    },
+    "aian": {
+      "proxy_weighted_total": 2.26,
+      "proxy_weighted_approved": 0.57,
+      "proxy_weighted_approval_rate": 0.2547,
+      "adequate_effective_sample": false
+    },
+    "multiracial": {
+      "proxy_weighted_total": 5.83,
+      "proxy_weighted_approved": 2.84,
+      "proxy_weighted_approval_rate": 0.4873,
+      "adequate_effective_sample": false
+    }
+  },
+  "comparisons": {
+    "black": {
+      "group_a": {
+        "label": "black",
+        "successes": 55,
+        "total": 98,
+        "rate": 0.5612
+      },
+      "group_b": {
+        "label": "white",
+        "successes": 56,
+        "total": 113,
+        "rate": 0.4956
+      },
+      "effect_size": {
+        "rate_difference": 0.0656,
+        "rate_ratio": 1.1325
+      },
+      "test": "two_proportion_z_test_pooled",
+      "p_value": 0.340847,
+      "alpha": 0.05,
+      "statistically_significant": false,
+      "sample_adequate_for_normal_approximation": true,
+      "caveats": [
+        "Screening signal only; not a causal estimate or a legal conclusion.",
+        "No adjustment for legitimate credit factors (no regression controls).",
+        "Counts are rounded proxy-weighted (BISG posterior) totals, not observed group memberships."
+      ],
+      "z_statistic": 0.9525
+    },
+    "hispanic": {
+      "group_a": {
+        "label": "hispanic",
+        "successes": 17,
+        "total": 46,
+        "rate": 0.3696
+      },
+      "group_b": {
+        "label": "white",
+        "successes": 56,
+        "total": 113,
+        "rate": 0.4956
+      },
+      "effect_size": {
+        "rate_difference": -0.126,
+        "rate_ratio": 0.7457
+      },
+      "test": "two_proportion_z_test_pooled",
+      "p_value": 0.148231,
+      "alpha": 0.05,
+      "statistically_significant": false,
+      "sample_adequate_for_normal_approximation": true,
+      "caveats": [
+        "Screening signal only; not a causal estimate or a legal conclusion.",
+        "No adjustment for legitimate credit factors (no regression controls).",
+        "Counts are rounded proxy-weighted (BISG posterior) totals, not observed group memberships."
+      ],
+      "z_statistic": -1.4458
+    },
+    "api": {
+      "group_a": {
+        "label": "api",
+        "successes": 24,
+        "total": 55,
+        "rate": 0.4364
+      },
+      "group_b": {
+        "label": "white",
+        "successes": 56,
+        "total": 113,
+        "rate": 0.4956
+      },
+      "effect_size": {
+        "rate_difference": -0.0592,
+        "rate_ratio": 0.8805
+      },
+      "test": "two_proportion_z_test_pooled",
+      "p_value": 0.470848,
+      "alpha": 0.05,
+      "statistically_significant": false,
+      "sample_adequate_for_normal_approximation": true,
+      "caveats": [
+        "Screening signal only; not a causal estimate or a legal conclusion.",
+        "No adjustment for legitimate credit factors (no regression controls).",
+        "Counts are rounded proxy-weighted (BISG posterior) totals, not observed group memberships."
+      ],
+      "z_statistic": -0.7211
+    },
+    "aian": {
+      "skipped": true,
+      "reason": "effective_sample_below_minimum",
+      "proxy_weighted_total": 2.26,
+      "min_effective_count": 10.0
+    },
+    "multiracial": {
+      "skipped": true,
+      "reason": "effective_sample_below_minimum",
+      "proxy_weighted_total": 5.83,
+      "min_effective_count": 10.0
+    }
+  },
+  "finding_count": 0,
+  "findings": [],
+  "limitations": [
+    "BISG produces probabilistic proxies, not observed demographics.",
+    "Demonstration reference tables approximate public Census surname data; geography rows are synthetic.",
+    "Comparisons are unadjusted screening signals with rounded effective counts, not regression estimates or legal conclusions."
+  ]
+}

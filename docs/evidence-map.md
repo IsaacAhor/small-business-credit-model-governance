@@ -13,7 +13,7 @@ overclaiming from synthetic demonstrations.
 | `schemas/` | Structured data contracts for governed records and evidence-pack manifests | Completeness for every lender, model type, or legal requirement |
 | `src/credit_gov/` | Implementation ability and reusable workflow logic | Production hardening, security review, or deployment at a lender |
 | `data/synthetic/monthly-demo/` | Deterministic synthetic inputs for validation and monitoring demonstrations | Real applicant outcomes, real borrower data, or lender performance |
-| `examples/evidence-packs/monthly-demo/` | Reviewer-ready example outputs generated from synthetic data | Legal compliance, fair-lending conclusions, or production evidence |
+| `examples/evidence-packs/` (monthly-portfolio and monthly-demo) | Reviewer-ready example outputs generated from synthetic data | Legal compliance, fair-lending conclusions, or production evidence |
 | `tests/` | Technical discipline, regression coverage, and workflow reproducibility | Regulatory acceptance or independent audit approval |
 | `.github/workflows/ci.yml` | Automated validation and test execution on repository changes | Substantive correctness of every governance judgment |
 | `governance/` and `templates/` | Documentation standards, control structure, and reusable governance templates | Institution-specific policy approval or complete implementation |

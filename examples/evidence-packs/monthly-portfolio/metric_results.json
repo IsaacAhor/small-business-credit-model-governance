@@ -1,0 +1,103 @@
+{
+  "run_id": "run-2026-06",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-06",
+  "total_decisions": 320,
+  "approval_rate": 0.4813,
+  "decline_rate": 0.5188,
+  "override_rate": 0.1375,
+  "manual_review_rate": 0.1469,
+  "score_distribution": {
+    "count": 320,
+    "minimum": 300.0,
+    "maximum": 862.3,
+    "average": 569.1541,
+    "bands": {
+      "E": 111,
+      "D": 48,
+      "A": 74,
+      "C": 46,
+      "B": 41
+    }
+  },
+  "reason_code_distribution": {
+    "configured_reason_code_count": 6,
+    "generated_reason_output_count": 506,
+    "counts": {
+      "RC-106": 85,
+      "RC-101": 92,
+      "RC-105": 85,
+      "RC-103": 84,
+      "RC-104": 77,
+      "RC-102": 83
+    }
+  },
+  "population_drift_indicators": {
+    "baseline": "not_configured_for_demo",
+    "segment_mix": {
+      "medium": 0.1094,
+      "micro": 0.55,
+      "small": 0.3406
+    },
+    "region_mix": {
+      "midwest": 0.2437,
+      "northeast": 0.25,
+      "south": 0.3063,
+      "west": 0.2
+    },
+    "channel_mix": {
+      "branch": 0.3219,
+      "broker": 0.3469,
+      "digital": 0.3312
+    }
+  },
+  "fair_lending_screening": {
+    "label": "screening_only_not_legal_conclusion",
+    "approval_rate_by_region": {
+      "midwest": {
+        "total": 78,
+        "approved": 40,
+        "approval_rate": 0.5128
+      },
+      "northeast": {
+        "total": 80,
+        "approved": 38,
+        "approval_rate": 0.475
+      },
+      "south": {
+        "total": 98,
+        "approved": 57,
+        "approval_rate": 0.5816
+      },
+      "west": {
+        "total": 64,
+        "approved": 19,
+        "approval_rate": 0.2969
+      }
+    },
+    "approval_rate_by_segment": {
+      "medium": {
+        "total": 35,
+        "approved": 21,
+        "approval_rate": 0.6
+      },
+      "micro": {
+        "total": 176,
+        "approved": 81,
+        "approval_rate": 0.4602
+      },
+      "small": {
+        "total": 109,
+        "approved": 52,
+        "approval_rate": 0.4771
+      }
+    },
+    "minimum_region_approval_rate": 0.2969,
+    "maximum_region_approval_rate": 0.5816
+  },
+  "outcome_summary": {
+    "performing": 181,
+    "default": 60,
+    "delinquent": 79
+  }
+}

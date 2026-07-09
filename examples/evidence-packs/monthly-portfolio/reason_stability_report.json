@@ -1,0 +1,15 @@
+{
+  "mapping_versions": [
+    "mapver-2026-06"
+  ],
+  "reason_code_distribution": {
+    "RC-101": 0.1818,
+    "RC-102": 0.164,
+    "RC-103": 0.166,
+    "RC-104": 0.1522,
+    "RC-105": 0.168,
+    "RC-106": 0.168
+  },
+  "mapped_reason_code_count": 6,
+  "generated_reason_code_count": 6
+}

@@ -8,7 +8,7 @@ Machine-learning underwriting is usually sold as a speed story. In small busines
 
 Small business credit makes this harder because the operating environment is messy. Borrower profiles differ widely, data quality is uneven, overrides are common, and portfolio conditions can move fast. A model that looks fine in one period can still cause governance problems later if its explanation outputs drift, if disparity indicators start to appear, or if no single team clearly owns the monitoring.
 
-This is not only a technical concern. Regulation B requires that a creditor tell an applicant the specific reasons for an adverse action (12 CFR 1002.9). The Federal Reserve and OCC supervisory guidance on model risk management (SR 11-7 / OCC Bulletin 2011-12) expects models to be validated and monitored on an ongoing basis, not signed off once. When the model is a machine-learning system, meeting both of those expectations depends on whether the institution can still explain and monitor what the model is doing months after launch.
+This is not only a technical concern. Regulation B requires that a creditor tell an applicant the specific reasons for an adverse action (12 CFR 1002.9). The interagency supervisory guidance on model risk management issued in April 2026 (Federal Reserve SR 26-2, issued jointly with the OCC and FDIC, superseding SR 11-7 / OCC Bulletin 2011-12) is principles-based and proportionate, but it continues to expect that models be validated and monitored on an ongoing basis, not signed off once. When the model is a machine-learning system, meeting both of those expectations depends on whether the institution can still explain and monitor what the model is doing months after launch.
 
 ## The main governance gap
 
@@ -89,6 +89,6 @@ The framework in this article is implemented as an open-source governance eviden
 
 1. Consumer Financial Protection Bureau, Regulation B, 12 CFR Part 1002. <https://www.consumerfinance.gov/rules-policy/regulations/1002/>
 2. Electronic Code of Federal Regulations, 12 CFR 1002.9, Notifications. <https://www.ecfr.gov/current/title-12/chapter-X/part-1002/section-1002.9>
-3. Board of Governors of the Federal Reserve System, Supervisory Guidance on Model Risk Management (SR 11-7). <https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm>
+3. Board of Governors of the Federal Reserve System, Office of the Comptroller of the Currency, and Federal Deposit Insurance Corporation, Model Risk Management: Revised Interagency Guidance (SR 26-2 / OCC Bulletin 2026-13, April 17, 2026; supersedes SR 11-7 / OCC Bulletin 2011-12). <https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf>
 4. Consumer Financial Protection Bureau, Small Business Lending under the Equal Credit Opportunity Act (Regulation B), Section 1071 rule. <https://www.consumerfinance.gov/1071-rule/>
 5. National Institute of Standards and Technology, AI Risk Management Framework (AI RMF 1.0). <https://www.nist.gov/itl/ai-risk-management-framework>

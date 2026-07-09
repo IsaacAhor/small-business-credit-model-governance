@@ -92,7 +92,8 @@ The workflow generates reviewer-ready outputs such as:
 - `reviewer_signoff.md`
 
 Curated example outputs are available under
-`examples/evidence-packs/monthly-demo/`.
+`examples/evidence-packs/monthly-portfolio/` (portfolio scale) and
+`examples/evidence-packs/monthly-demo/` (minimal controlled scenario).
 
 ## 6. Review Findings And Escalations
 

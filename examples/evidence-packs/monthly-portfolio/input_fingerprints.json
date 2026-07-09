@@ -1,0 +1,19 @@
+{
+  "adverse-action-driver-contributions.json": "8c78e4e2e361a809e8d059ba869da505cda476d60bb5afc8a6ae2eed4c280e69",
+  "adverse-action-reason-outputs.json": "e5873d09fc09ee65044984aa8c78ec6c9d2ce2a2d965a6f544eef88f3d0760b3",
+  "alternative-model-decisions.json": "81cf525dc92ce570331c0f94d7d348471a0803746f17aeb3e6a1675f23e8e054",
+  "applicant-demographic-inputs.json": "7d0f31d3870322cc496b4ad8c38de1e3469da62e27b679b71360ff13aaa3397a",
+  "application-decision-records.json": "f34888d5e5f8f8263464f8741606a5ad775888d16286837aa27cc58a55469c16",
+  "bisg-config.json": "e9344288fa0908447ec20161f1bcab96604f3264a58c13ababf4feb7bca06af1",
+  "breach-records.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "evidence-pack-manifest.json": "6c56b8d5fb402d349f7d3219fc5b21dde8ad2d9e984983e1ce2aec39dfabc5d4",
+  "fair-lending-screening-config.json": "2f616114b7e5c4da78cd45c23ecb6b0bcac64dd13e7c43e819e27b92572f7277",
+  "lda-assessment-config.json": "e112b6e6f97e7f91a5cfcd14e51dcded65a434685b73d732c529d3cfb7445d82",
+  "model-registry-record.json": "26384f60545cf8ebe848643458fe70b90970c58ee434a4862e1d8227fcc8f42b",
+  "model-version-record.json": "1572ff7a38dc055bce3504a62854a3df273041dc4b25fc0a75578bf9154900da",
+  "outcome-records.json": "8f532808628754084a17fe33b40f10cd872f61dc6dbeed7b7b375e56d26f90d3",
+  "override-events.json": "9cf398c57f9557c597a74687f77b9fa7e1d1756ad9fdc1ab9c772133cb8d5b9e",
+  "reason-code-mappings.json": "3849b498b1b46ccbf6db04a57f02b7c669a3da0dbd3cb696fc3d2e51cb042953",
+  "score-outputs.json": "34dbda1b36ae939d66aecc5c760737d7fd22448fd726a12bd94a2efa17539aed",
+  "threshold-set.json": "22aa5a7ef0ae9d810afe7d0abe9190cd2d1292fca43297f00faddd8e1f67c30f"
+}

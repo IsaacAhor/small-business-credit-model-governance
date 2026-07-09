@@ -1,0 +1,84 @@
+[
+  {
+    "finding_id": "flf-0001",
+    "screen_name": "Regional approval-rate ratio",
+    "metric_name": "approval_rate_ratio",
+    "comparison_group": "region",
+    "observed_value": 0.5105,
+    "threshold_value": 0.8,
+    "comparison_rule": "less_than",
+    "severity": "medium",
+    "owner": "Fair Lending Review",
+    "review_trigger": "deeper_fair_lending_review",
+    "result_type": "screening_only_not_legal_conclusion",
+    "statistical_significance": {
+      "group_a": {
+        "label": "west",
+        "successes": 19,
+        "total": 64,
+        "rate": 0.2969
+      },
+      "group_b": {
+        "label": "south",
+        "successes": 57,
+        "total": 98,
+        "rate": 0.5816
+      },
+      "effect_size": {
+        "rate_difference": -0.2848,
+        "rate_ratio": 0.5104
+      },
+      "test": "two_proportion_z_test_pooled",
+      "p_value": 0.000385,
+      "alpha": 0.05,
+      "statistically_significant": true,
+      "sample_adequate_for_normal_approximation": true,
+      "caveats": [
+        "Screening signal only; not a causal estimate or a legal conclusion.",
+        "No adjustment for legitimate credit factors (no regression controls)."
+      ],
+      "z_statistic": -3.5504
+    }
+  },
+  {
+    "finding_id": "flf-0002",
+    "screen_name": "Regional approval-rate ratio",
+    "metric_name": "approval_rate_ratio",
+    "comparison_group": "segment",
+    "observed_value": 0.767,
+    "threshold_value": 0.8,
+    "comparison_rule": "less_than",
+    "severity": "medium",
+    "owner": "Fair Lending Review",
+    "review_trigger": "deeper_fair_lending_review",
+    "result_type": "screening_only_not_legal_conclusion",
+    "statistical_significance": {
+      "group_a": {
+        "label": "micro",
+        "successes": 81,
+        "total": 176,
+        "rate": 0.4602
+      },
+      "group_b": {
+        "label": "medium",
+        "successes": 21,
+        "total": 35,
+        "rate": 0.6
+      },
+      "effect_size": {
+        "rate_difference": -0.1398,
+        "rate_ratio": 0.767
+      },
+      "test": "two_proportion_z_test_pooled",
+      "p_value": 0.130721,
+      "alpha": 0.05,
+      "statistically_significant": false,
+      "sample_adequate_for_normal_approximation": true,
+      "caveats": [
+        "Screening signal only; not a causal estimate or a legal conclusion.",
+        "No adjustment for legitimate credit factors (no regression controls)."
+      ],
+      "z_statistic": -1.5113
+    }
+  }
+]
