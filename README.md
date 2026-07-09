@@ -240,14 +240,16 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest release is `v0.6.1`. The latest substantive milestone is
-`v0.6.0`, which adds statistical significance testing for fair-lending screens
-and optional BISG proxy monitoring on the portfolio-scale synthetic dataset;
-`v0.6.1` standardizes documentation wording with no functional changes.
+The latest release is `v0.6.2`, which adds the curated portfolio-scale
+example evidence pack and updates guidance references. The latest substantive
+milestone is `v0.6.0`, which adds statistical significance testing for
+fair-lending screens and optional BISG proxy monitoring on the
+portfolio-scale synthetic dataset.
 
 See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`, and
-`docs/releases/v0.6.0.md`, and `docs/releases/v0.6.1.md`.
+`docs/releases/v0.6.0.md`, `docs/releases/v0.6.1.md`, and
+`docs/releases/v0.6.2.md`.
 
 ## Data Policy
 
