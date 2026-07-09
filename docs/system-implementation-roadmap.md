@@ -360,14 +360,24 @@ The first serious build target is:
 Priority track ahead of the remaining Phase 5 to 7 items. Raises analytical
 rigor rather than building production infrastructure.
 
+The remaining deliverables converge on a single build: a reproducible run
+on recognizable public data that trains a simple, interpretable reference
+model. That one artifact simultaneously supplies a real model for the
+workflow to govern, real driver contributions for reason generation, real
+geography for full Census-derived BISG tables, a real basis for regression
+controls, and the candidate space for the LDA search.
+
 Deliverables:
 
 - protected-class proxy estimation (e.g., BISG) for fair-lending screening
-- statistical significance testing and regression controlling for legitimate
-  credit factors
+  (initial implementation shipped in v0.6.0; full Census-derived reference
+  tables arrive with the public-data run)
+- statistical significance testing (shipped in v0.6.0) and regression
+  controlling for legitimate credit factors
 - an LDA step that searches candidate models and documents the
   performance-versus-disparity tradeoff
-- a run on a recognizable public dataset alongside the synthetic data
+- a run on a recognizable public dataset alongside the synthetic data,
+  including a simple interpretable reference model trained on that data
 
 Acceptance criteria:
 

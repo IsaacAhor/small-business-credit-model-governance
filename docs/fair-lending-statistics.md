@@ -50,6 +50,13 @@ Limitations:
 - Multiple screens are evaluated without multiplicity correction; findings
   are review triggers, so sensitivity is preferred over strict familywise
   error control, and this choice is disclosed here.
+- The tested pair on each dimension is chosen post hoc: the lowest- and
+  highest-rate groups. Selecting the largest observed gap before testing it
+  inflates the false-positive rate beyond the nominal per-test alpha.
+  Combined with the absence of multiplicity correction, these p-values should
+  be read as sensitivity-oriented screening signals, not confirmatory
+  inference. A pre-registered comparison structure or simultaneous-inference
+  procedure would be the confirmatory upgrade.
 
 ## BISG Proxy Estimation
 
@@ -101,6 +108,23 @@ Limitations:
   composition data.
 - Proxy-weighted comparisons remain unadjusted screening signals and are
   labeled as such in every output.
+
+## Metric Limitations in Related Workflow Steps
+
+Two metrics used by the less-discriminatory-alternative assessment step
+(`src/credit_gov/lda.py`) deserve the same candor:
+
+- Predictive "separation" is the approval rate among good outcomes minus the
+  approval rate among bad outcomes, computed on final decisions. This is a
+  coarse, threshold-dependent proxy (a decision-level Youden's J), not a
+  score-based measure such as AUC. It is adequate for demonstrating the
+  assessment process; a score-based measure is the planned upgrade when the
+  workflow runs against a reference model on public data.
+- Group disparity uses the minimum-to-maximum approval-rate ratio across
+  groups. With many groups or small groups, the extreme pair is unstable,
+  and the disparity improvement reported for a candidate alternative
+  currently carries no significance test. Treat qualifying-alternative
+  findings as documentation triggers, not measured effects.
 
 ## References
 
