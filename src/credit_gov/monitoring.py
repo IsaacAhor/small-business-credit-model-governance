@@ -12,6 +12,7 @@ from credit_gov.bisg import run_bisg_proxy_analysis
 from credit_gov.lda import assess_less_discriminatory_alternative
 from credit_gov.schemas import validate_dataset
 from credit_gov.stats import compare_group_proportions
+from credit_gov.validation import assess_model_change, render_change_validation_report
 
 
 @dataclass(slots=True)
@@ -27,6 +28,7 @@ class MonitoringRunResult:
     fair_lending: dict[str, Any]
     lda: dict[str, Any] | None = None
     bisg: dict[str, Any] | None = None
+    change_validation: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -41,6 +43,7 @@ class MonitoringRunResult:
             "fair_lending": self.fair_lending,
             "lda": self.lda,
             "bisg": self.bisg,
+            "change_validation": self.change_validation,
         }
 
 
@@ -91,6 +94,37 @@ def compute_optional_bisg(dataset_dir: Path, payloads: dict[str, Any]) -> dict[s
     )
 
 
+def compute_optional_change_validation(
+    dataset_dir: Path, payloads: dict[str, Any]
+) -> dict[str, Any] | None:
+    """Run the Phase 5 model-change validation when its optional inputs exist.
+
+    Triggered by the presence of ``prior-model-version-record.json``. The prior
+    threshold set (``prior-threshold-set.json``) and prior reason-code mappings
+    (``prior-reason-code-mappings.json``) are each optional within the review;
+    a missing prior for one of them skips that sub-diff without failing. Returns
+    ``None`` when no prior model-version snapshot is present so existing datasets
+    are unaffected.
+    """
+    prior_version = load_optional_json(dataset_dir / "prior-model-version-record.json")
+    if prior_version is None:
+        return None
+    prior_thresholds = load_optional_json(dataset_dir / "prior-threshold-set.json")
+    prior_reason_mappings = load_optional_json(dataset_dir / "prior-reason-code-mappings.json")
+    config = load_optional_json(dataset_dir / "change-review-config.json")
+    return assess_model_change(
+        prior_version=prior_version,
+        current_version=payloads["model_version"],
+        current_thresholds=payloads["threshold_set"],
+        current_reason_mappings=payloads["reason_mappings"],
+        model_id=payloads["model_registry"]["model_id"],
+        run_id=payloads["manifest"]["run_id"],
+        prior_thresholds=prior_thresholds,
+        prior_reason_mappings=prior_reason_mappings,
+        config=config,
+    )
+
+
 def load_dataset_payloads(dataset_dir: Path) -> dict[str, Any]:
     return {
         "model_registry": load_json(dataset_dir / "model-registry-record.json"),
@@ -132,6 +166,7 @@ def run_monthly_monitoring(
     fair_lending = compute_fair_lending_screening(payloads)
     lda = compute_optional_lda(dataset_dir, payloads)
     bisg = compute_optional_bisg(dataset_dir, payloads)
+    change_validation = compute_optional_change_validation(dataset_dir, payloads)
     breaches = evaluate_thresholds(metrics, payloads["threshold_set"], payloads["manifest"]["run_id"])
     issues = build_issue_register(breaches, reason_qa["exceptions"], fair_lending["findings"])
 
@@ -147,6 +182,7 @@ def run_monthly_monitoring(
         fair_lending=fair_lending,
         lda=lda,
         bisg=bisg,
+        change_validation=change_validation,
     )
     return MonitoringRunResult(
         ok=True,
@@ -160,6 +196,7 @@ def run_monthly_monitoring(
         fair_lending=fair_lending,
         lda=lda,
         bisg=bisg,
+        change_validation=change_validation,
     )
 
 
@@ -627,6 +664,7 @@ def build_evidence_pack(
     fair_lending: dict[str, Any],
     lda: dict[str, Any] | None = None,
     bisg: dict[str, Any] | None = None,
+    change_validation: dict[str, Any] | None = None,
 ) -> Path:
     manifest = payloads["manifest"]
     evidence_dir = evidence_root / format_evidence_dir_name(
@@ -657,6 +695,10 @@ def build_evidence_pack(
         output_files.insert(output_files.index("issue_register.json"), "lda_assessment_results.json")
     if bisg is not None:
         output_files.insert(output_files.index("issue_register.json"), "bisg_proxy_results.json")
+    if change_validation is not None:
+        insert_at = output_files.index("issue_register.json")
+        output_files.insert(insert_at, "model_change_validation_results.json")
+        output_files.insert(insert_at + 1, "model_change_validation_report.md")
 
     generated_manifest = {
         "record_type": "evidence_pack_manifest",
@@ -690,9 +732,17 @@ def build_evidence_pack(
         write_json(evidence_dir / "lda_assessment_results.json", lda)
     if bisg is not None:
         write_json(evidence_dir / "bisg_proxy_results.json", bisg)
+    if change_validation is not None:
+        write_json(evidence_dir / "model_change_validation_results.json", change_validation)
+        (evidence_dir / "model_change_validation_report.md").write_text(
+            render_change_validation_report(change_validation),
+            encoding="utf-8",
+        )
     write_json(evidence_dir / "issue_register.json", issues)
     (evidence_dir / "monitoring_report.md").write_text(
-        render_monitoring_report(metrics, breaches, issues, reason_qa, fair_lending, lda, bisg),
+        render_monitoring_report(
+            metrics, breaches, issues, reason_qa, fair_lending, lda, bisg, change_validation
+        ),
         encoding="utf-8",
     )
     (evidence_dir / "reviewer_notes.md").write_text(
@@ -700,7 +750,13 @@ def build_evidence_pack(
         encoding="utf-8",
     )
     (evidence_dir / "reviewer_signoff.md").write_text(
-        render_reviewer_signoff(generated_manifest, breaches, reason_qa["exceptions"], fair_lending["findings"]),
+        render_reviewer_signoff(
+            generated_manifest,
+            breaches,
+            reason_qa["exceptions"],
+            fair_lending["findings"],
+            change_validation,
+        ),
         encoding="utf-8",
     )
     return evidence_dir
@@ -770,6 +826,25 @@ def render_lda_section(lda: dict[str, Any] | None) -> str:
     )
 
 
+def render_change_validation_section(change_validation: dict[str, Any] | None) -> str:
+    if change_validation is None:
+        return ""
+    summary = change_validation["summary"]
+    categories = ", ".join(summary["change_categories"]) or "none"
+    action_lines = "\n".join(f"- {action}" for action in summary["review_actions"])
+    return (
+        "## Model-Change Validation Review\n\n"
+        f"- Change review ID: `{change_validation['change_review_id']}`\n"
+        f"- Prior version: `{summary['prior_version_id']}` -> current version: `{summary['current_version_id']}`\n"
+        f"- Threshold changes: {summary['threshold_change_count']} | "
+        f"reason-code changes: {summary['reason_code_change_count']}\n"
+        f"- Material change: {summary['material_change']}\n"
+        f"- Change categories: {categories}\n"
+        "- Result type: change-governance review triggers, not a legal conclusion\n\n"
+        f"{action_lines}\n\n"
+    )
+
+
 def render_monitoring_report(
     metrics: dict[str, Any],
     breaches: list[dict[str, Any]],
@@ -778,6 +853,7 @@ def render_monitoring_report(
     fair_lending: dict[str, Any],
     lda: dict[str, Any] | None = None,
     bisg: dict[str, Any] | None = None,
+    change_validation: dict[str, Any] | None = None,
 ) -> str:
     breach_lines = (
         "\n".join(
@@ -839,6 +915,7 @@ def render_monitoring_report(
         f"{fair_lending_lines}\n\n"
         f"{render_bisg_section(bisg)}"
         f"{render_lda_section(lda)}"
+        f"{render_change_validation_section(change_validation)}"
         "## Threshold Breaches\n\n"
         f"{breach_lines}\n\n"
         "## Issue Register\n\n"
@@ -851,6 +928,7 @@ def render_reviewer_signoff(
     breaches: list[dict[str, Any]],
     reason_exceptions: list[dict[str, Any]],
     fair_lending_findings: list[dict[str, Any]],
+    change_validation: dict[str, Any] | None = None,
 ) -> str:
     review_state = (
         "Escalation recommended"
@@ -861,10 +939,35 @@ def render_reviewer_signoff(
         "# Reviewer Signoff\n\n"
         "This artifact supports governance workflow demonstration only.\n\n"
         f"- Run ID: `{manifest['run_id']}`\n"
+        f"- Model ID: `{manifest['model_id']}`\n"
+        f"- Version ID: `{manifest['version_id']}`\n"
         f"- Reviewer status: `{manifest['reviewer_status']}`\n"
         f"- Review summary: {review_state}\n\n"
+        f"{render_change_validation_signoff_block(change_validation)}"
         "Reviewer: ____________________\n\n"
         "Date: ____________________\n"
+    )
+
+
+def render_change_validation_signoff_block(change_validation: dict[str, Any] | None) -> str:
+    if change_validation is None:
+        return ""
+    signoff = change_validation["reviewer_signoff"]
+    requirement_lines = "\n".join(
+        f"- {item}" for item in signoff["required_before_promotion"]
+    )
+    return (
+        "## Model-Change Validation Signoff\n\n"
+        f"- Prior version: `{signoff['prior_version_id']}` -> current version: `{signoff['current_version_id']}`\n"
+        f"- Evidence pack run: `{signoff['evidence_pack_run_id']}`\n"
+        f"- Validation owner: {signoff['validation_owner']}\n"
+        f"- Promotion gate: `{signoff['promotion_gate']}`\n"
+        f"- Material change: {signoff['material_change']}\n"
+        f"- Validation status: `{signoff['validation_status']}`\n\n"
+        "Required before promotion to active:\n\n"
+        f"{requirement_lines}\n\n"
+        "Independent validation reviewer: ____________________\n\n"
+        "Validation signoff date: ____________________\n\n"
     )
 
 

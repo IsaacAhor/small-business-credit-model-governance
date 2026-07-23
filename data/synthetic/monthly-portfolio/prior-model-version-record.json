@@ -1,0 +1,15 @@
+{
+  "record_type": "model_version_record",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "effective_date": "2026-05-01",
+  "change_summary": "Initial portfolio-scale monitoring baseline version.",
+  "assumptions": [
+    "Synthetic records approximate reviewer-visible control artifacts.",
+    "Monitoring thresholds are illustrative and governance-oriented."
+  ],
+  "limitations": [
+    "No production lending decisions are represented."
+  ],
+  "linked_validation_record": "val-portfolio-baseline"
+}

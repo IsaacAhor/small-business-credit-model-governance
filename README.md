@@ -150,7 +150,8 @@ It does not assume a fixed modeling stack at this stage.
 - `notebooks/`
   Implementation notes and future analytical notebooks.
 - `src/`
-  Reusable validation, monitoring, reason-generation, and LDA assessment code.
+  Reusable validation, monitoring, reason-generation, LDA assessment, and
+  model-change validation code.
 - `data/synthetic/`
   Deterministic demonstration inputs for validation, monitoring, and portfolio-scale workflow runs.
 - `data/reference/bisg/`
@@ -158,7 +159,7 @@ It does not assume a fixed modeling stack at this stage.
 - `examples/`
   Curated synthetic example outputs that can be reviewed without running code.
 - `tests/`
-  Validation checks for schemas, typed models, synthetic-data integrity, monitoring, reason QA, fair-lending screening, reason generation, and LDA assessment.
+  Validation checks for schemas, typed models, synthetic-data integrity, monitoring, reason QA, fair-lending screening, reason generation, LDA assessment, and model-change validation.
 - `templates/`
   Checklists and governance templates.
 - `governance/`
@@ -219,6 +220,13 @@ Run the monthly monitoring workflow against the default synthetic dataset:
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root evidence
 ```
 
+Run the standalone Phase 5 model-change and validation review (the portfolio
+dataset ships the prior-version comparison inputs):
+
+```bash
+python scripts/run_change_validation.py data/synthetic/monthly-portfolio
+```
+
 Run the repository tests:
 
 ```bash
@@ -240,17 +248,20 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest release is `v0.6.3`, a documentation release. `v0.6.2` adds the
-curated portfolio-scale example evidence pack and updates guidance
-references. The latest substantive
-milestone is `v0.6.0`, which adds statistical significance testing for
-fair-lending screens and optional BISG proxy monitoring on the
-portfolio-scale synthetic dataset.
+The latest release is `v0.7.0`, which adds the Phase 5 model-change and
+validation-review workflow: model-version, threshold-set, and reason-code
+mapping comparison, a change-impact summary with derived review actions, and a
+reviewer signoff record tied to a specific version and evidence pack. It runs as
+an optional step in monthly monitoring and as a standalone CLI. The prior
+substantive milestone, `v0.6.0`, adds statistical significance testing for
+fair-lending screens and optional BISG proxy monitoring on the portfolio-scale
+synthetic dataset.
 
 See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
-`docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`, and
+`docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`,
 `docs/releases/v0.6.0.md`, `docs/releases/v0.6.1.md`,
-`docs/releases/v0.6.2.md`, and `docs/releases/v0.6.3.md`.
+`docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`, and
+`docs/releases/v0.7.0.md`.
 
 ## Data Policy
 
@@ -261,12 +272,15 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Implement Phase 5 model-change and validation-review workflow.
-2. Add model-version, threshold-set, and reason-code mapping comparison.
-3. Expand reviewer-facing validation summaries and signoff depth.
-4. Add targeted tests for drift logic, model-change impact, and validation-review behavior.
-5. Refine the framework and practitioner article after the portfolio-scale workflow produces report excerpts.
-6. Preserve public PR, commit, release, and validation history as implementation milestones land.
+1. Complete the Phase 8 analytical-rigor track: an LDA step that searches
+   candidate models and a reproducible run on a recognizable public dataset.
+2. Add drift logic and regression controls to strengthen the analytical layer.
+3. Refine the framework and practitioner article after the portfolio-scale workflow produces report excerpts.
+4. Preserve public PR, commit, release, and validation history as implementation milestones land.
+
+The core Phase 5 change-and-validation workflow is now implemented; the remaining
+gaps above are analytical-rigor and dissemination work, not change-governance
+plumbing.
 
 ## Current Status
 
@@ -285,12 +299,12 @@ This repository now contains:
 - a Phase 3B adverse-action reason-generation workflow with deterministic regeneration checks
 - a Phase 4B less-discriminatory-alternative assessment workflow integrated into optional monitoring evidence outputs
 - a portfolio-scale synthetic monthly dataset that exercises reason generation, reason QA, fair-lending screening, and LDA assessment
-- release strategy documentation and `v0.6.0` release notes for stable milestone preservation
+- a Phase 5 model-change and validation-review workflow that compares prior and current model-version, threshold-set, and reason-code mapping records, summarizes change impact, and emits a reviewer signoff record tied to a version and evidence pack
+- release strategy documentation and `v0.7.0` release notes for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
-The current priority is the Phase 8 analytical-rigor track (see
-`docs/system-implementation-roadmap.md`): an LDA step that searches candidate
-models and a reproducible run on a recognizable public dataset. Phase 5
-model-change review, validation summaries, drift logic, and stronger signoff
-controls follow.
+With Phase 5 implemented, the current priority is the Phase 8 analytical-rigor
+track (see `docs/system-implementation-roadmap.md`): an LDA step that searches
+candidate models and a reproducible run on a recognizable public dataset, plus
+drift logic and regression controls.

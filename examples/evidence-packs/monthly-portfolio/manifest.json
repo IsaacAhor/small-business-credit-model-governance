@@ -26,6 +26,8 @@
     "fair_lending_escalation_register.json",
     "lda_assessment_results.json",
     "bisg_proxy_results.json",
+    "model_change_validation_results.json",
+    "model_change_validation_report.md",
     "issue_register.json",
     "monitoring_report.md",
     "reviewer_notes.md",

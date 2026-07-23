@@ -266,11 +266,31 @@ Deliverables:
 - validation summary report
 - reviewer signoff artifact
 
+Status:
+
+- Phase 5 is implemented in `src/credit_gov/validation.py`,
+  `scripts/run_change_validation.py`, and an optional hook in the monitoring
+  workflow. When `prior-model-version-record.json` is present, the run compares
+  the prior model-version, threshold-set, and reason-code mapping records to the
+  current dataset records, emits `model_change_validation_results.json` and
+  `model_change_validation_report.md`, adds a report section, and writes a
+  reviewer signoff record tied to the current version and evidence-pack run. The
+  threshold diff reads value changes as tightened or loosened where the
+  comparison rule is unchanged; the reason-code diff separates a structural
+  text/driver change from a mapping-version bump. Prior threshold and reason-code
+  snapshots are each optional within the review. Datasets without Phase 5 inputs
+  run unchanged.
+
 Acceptance criteria:
 
 - changes produce a clear impact summary
 - validation reports reference assumptions, metrics, breaches, and limitations
 - signoff records are tied to a specific model version and evidence pack
+
+Open follow-ups (not blocking Phase 5):
+
+- drift logic and regression controls (tracked under the Phase 8 rigor track)
+- external practitioner review of the change-review outputs
 
 ## Phase 6: Vendor Model Oversight
 
@@ -325,7 +345,7 @@ repository workflow.
   assessment, and portfolio-scale synthetic dataset.
 - `v0.6.0`: Phase 8 statistical significance testing and BISG proxy
   monitoring on the portfolio-scale synthetic dataset.
-- `v0.7.0`: planned Phase 5 model-change and validation-review workflow.
+- `v0.7.0`: Phase 5 model-change and validation-review workflow.
 
 ## Evidence Pack Standard
 

@@ -1,0 +1,230 @@
+{
+  "label": "model_change_validation_synthetic_not_legal_conclusion",
+  "change_review_id": "chg-2026-06",
+  "model_id": "mdl-smb-credit-xgb",
+  "evidence_pack_run_id": "run-2026-06",
+  "model_version_diff": {
+    "status": "compared",
+    "version_id": {
+      "prior": "ver-2026-05",
+      "current": "ver-2026-06",
+      "changed": true
+    },
+    "effective_date": {
+      "prior": "2026-05-01",
+      "current": "2026-06-01",
+      "changed": true
+    },
+    "change_summary": {
+      "prior": "Initial portfolio-scale monitoring baseline version.",
+      "current": "Portfolio-scale monthly monitoring demonstration version with 320 synthetic decisions.",
+      "changed": true
+    },
+    "linked_validation_record": {
+      "prior": "val-portfolio-baseline",
+      "current": "val-portfolio-demo",
+      "changed": true
+    },
+    "assumptions": {
+      "added": [],
+      "removed": [],
+      "unchanged_count": 2,
+      "changed": false
+    },
+    "limitations": {
+      "added": [
+        "No protected-class labels or legal conclusions are embedded."
+      ],
+      "removed": [],
+      "unchanged_count": 1,
+      "changed": true
+    },
+    "changed": true
+  },
+  "threshold_set_diff": {
+    "status": "compared",
+    "threshold_set_id": {
+      "prior": "thr-2026-05-monthly",
+      "current": "thr-2026-06-monthly",
+      "changed": true
+    },
+    "added": [],
+    "removed": [
+      {
+        "metric_name": "manual_review_rate",
+        "comparison_rule": "greater_than",
+        "threshold_value": 0.5,
+        "severity": "low",
+        "escalation_owner": "Credit Operations"
+      }
+    ],
+    "changed": [
+      {
+        "metric_name": "approval_rate",
+        "direction": "tightened",
+        "field_changes": {
+          "threshold_value": {
+            "prior": 0.3,
+            "current": 0.35
+          }
+        }
+      },
+      {
+        "metric_name": "override_rate",
+        "direction": "tightened",
+        "field_changes": {
+          "threshold_value": {
+            "prior": 0.12,
+            "current": 0.1
+          },
+          "severity": {
+            "prior": "medium",
+            "current": "high"
+          }
+        }
+      }
+    ],
+    "unchanged": [],
+    "change_count": 3
+  },
+  "reason_code_mapping_diff": {
+    "status": "compared",
+    "added": [
+      {
+        "reason_code": "RC-106",
+        "driver_or_signal": "industry_risk",
+        "reason_text": "Elevated industry risk profile",
+        "mapping_version": "mapver-2026-06"
+      }
+    ],
+    "removed": [
+      {
+        "reason_code": "RC-199",
+        "driver_or_signal": "other",
+        "reason_text": "Other",
+        "mapping_version": "mapver-2026-05"
+      }
+    ],
+    "changed": [
+      {
+        "reason_code": "RC-101",
+        "structural_change": false,
+        "field_changes": {
+          "mapping_version": {
+            "prior": "mapver-2026-05",
+            "current": "mapver-2026-06"
+          }
+        }
+      },
+      {
+        "reason_code": "RC-102",
+        "structural_change": false,
+        "field_changes": {
+          "mapping_version": {
+            "prior": "mapver-2026-05",
+            "current": "mapver-2026-06"
+          }
+        }
+      },
+      {
+        "reason_code": "RC-103",
+        "structural_change": false,
+        "field_changes": {
+          "mapping_version": {
+            "prior": "mapver-2026-05",
+            "current": "mapver-2026-06"
+          }
+        }
+      },
+      {
+        "reason_code": "RC-104",
+        "structural_change": true,
+        "field_changes": {
+          "reason_text": {
+            "prior": "High credit utilization",
+            "current": "Elevated credit utilization"
+          },
+          "mapping_version": {
+            "prior": "mapver-2026-05",
+            "current": "mapver-2026-06"
+          }
+        }
+      },
+      {
+        "reason_code": "RC-105",
+        "structural_change": false,
+        "field_changes": {
+          "mapping_version": {
+            "prior": "mapver-2026-05",
+            "current": "mapver-2026-06"
+          }
+        }
+      }
+    ],
+    "unchanged": [],
+    "structural_change_count": 1,
+    "mapping_version": {
+      "prior_versions": [
+        "mapver-2026-05"
+      ],
+      "current_versions": [
+        "mapver-2026-06"
+      ],
+      "changed": true
+    },
+    "change_count": 7
+  },
+  "summary": {
+    "prior_version_id": "ver-2026-05",
+    "current_version_id": "ver-2026-06",
+    "model_version_changed": true,
+    "threshold_change_count": 3,
+    "reason_code_change_count": 7,
+    "material_change": true,
+    "change_categories": [
+      "model_limitations_expanded",
+      "model_change_summary_updated",
+      "threshold_removed",
+      "threshold_tightened",
+      "reason_code_added",
+      "reason_code_removed",
+      "reason_code_text_or_driver_changed",
+      "reason_code_mapping_version_bumped"
+    ],
+    "review_actions": [
+      "Document the rationale and expected monitoring impact for changed threshold(s) (approval_rate, override_rate) and re-baseline breach expectations for the new version.",
+      "Confirm that removing the manual_review_rate threshold(s) is an approved governance decision with a documented compensating control.",
+      "Verify adverse-action notices and reason-code mappings for added code(s) (RC-106) produce specific, accurate reasons consistent with Regulation B 12 CFR 1002.9.",
+      "Confirm no active adverse-action notice depends on removed reason code(s) (RC-199).",
+      "Review revised reason text or driver mapping for code(s) (RC-104) for continued specificity and accuracy.",
+      "Obtain independent validation signoff tying the current version to this evidence pack before promoting the version to active, consistent with principles-based model-risk change management."
+    ]
+  },
+  "reviewer_signoff": {
+    "record_type": "model_change_validation_signoff",
+    "model_id": "mdl-smb-credit-xgb",
+    "prior_version_id": "ver-2026-05",
+    "current_version_id": "ver-2026-06",
+    "evidence_pack_run_id": "run-2026-06",
+    "validation_owner": "Independent Model Validation",
+    "promotion_gate": "independent_validation_signoff",
+    "material_change": true,
+    "required_before_promotion": [
+      "Document the rationale and expected monitoring impact for changed threshold(s) (approval_rate, override_rate) and re-baseline breach expectations for the new version.",
+      "Confirm that removing the manual_review_rate threshold(s) is an approved governance decision with a documented compensating control.",
+      "Verify adverse-action notices and reason-code mappings for added code(s) (RC-106) produce specific, accurate reasons consistent with Regulation B 12 CFR 1002.9.",
+      "Confirm no active adverse-action notice depends on removed reason code(s) (RC-199).",
+      "Review revised reason text or driver mapping for code(s) (RC-104) for continued specificity and accuracy.",
+      "Obtain independent validation signoff tying the current version to this evidence pack before promoting the version to active, consistent with principles-based model-risk change management."
+    ],
+    "validation_status": "pending_review",
+    "reviewer": null,
+    "signoff_date": null
+  },
+  "limitations": [
+    "Synthetic data only; no production model change is represented.",
+    "Change materiality is a configurable governance heuristic, not a legal or regulatory determination.",
+    "Signoff fields are illustrative placeholders; no independent validation has occurred.",
+    "Regulatory references (Regulation B 12 CFR 1002.9 reason specificity; SR 26-2 principles-based model-risk oversight and change management) are design anchors, not evidence of compliance."
+  ]
+}

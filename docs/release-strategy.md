@@ -53,10 +53,14 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current milestone is `v0.6.0`, which adds statistical significance testing
-to fair-lending disparity screens and optional BISG protected-class proxy
-monitoring on the portfolio-scale synthetic dataset. It remains a synthetic
-demonstration milestone, not production deployment, adoption, legal conclusion,
+The current milestone is `v0.7.0`, which adds the Phase 5 model-change and
+validation-review workflow: model-version, threshold-set, and reason-code
+mapping comparison, a change-impact summary with derived review actions, and a
+reviewer signoff record tied to a specific version and evidence pack. The prior
+substantive milestone, `v0.6.0`, adds statistical significance testing to
+fair-lending disparity screens and optional BISG protected-class proxy
+monitoring on the portfolio-scale synthetic dataset. Both remain synthetic
+demonstration milestones, not production deployment, adoption, legal conclusion,
 or regulatory acceptance.
 
 ## Release Notes Location

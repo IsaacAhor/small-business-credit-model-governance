@@ -53,6 +53,22 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - Recommendation: Candidate alternative reduces group approval-rate disparity while holding predictive separation within tolerance. Trigger a documented less-discriminatory-alternative review under the governance framework.
 - Result type: synthetic assessment trigger, not a legal conclusion
 
+## Model-Change Validation Review
+
+- Change review ID: `chg-2026-06`
+- Prior version: `ver-2026-05` -> current version: `ver-2026-06`
+- Threshold changes: 3 | reason-code changes: 7
+- Material change: True
+- Change categories: model_limitations_expanded, model_change_summary_updated, threshold_removed, threshold_tightened, reason_code_added, reason_code_removed, reason_code_text_or_driver_changed, reason_code_mapping_version_bumped
+- Result type: change-governance review triggers, not a legal conclusion
+
+- Document the rationale and expected monitoring impact for changed threshold(s) (approval_rate, override_rate) and re-baseline breach expectations for the new version.
+- Confirm that removing the manual_review_rate threshold(s) is an approved governance decision with a documented compensating control.
+- Verify adverse-action notices and reason-code mappings for added code(s) (RC-106) produce specific, accurate reasons consistent with Regulation B 12 CFR 1002.9.
+- Confirm no active adverse-action notice depends on removed reason code(s) (RC-199).
+- Review revised reason text or driver mapping for code(s) (RC-104) for continued specificity and accuracy.
+- Obtain independent validation signoff tying the current version to this evidence pack before promoting the version to active, consistent with principles-based model-risk change management.
+
 ## Threshold Breaches
 
 - override_rate: observed 0.1375 vs threshold 0.1 (high, owner: Credit Policy Review)

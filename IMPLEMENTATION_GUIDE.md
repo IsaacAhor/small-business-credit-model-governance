@@ -111,12 +111,38 @@ Reviewers should ask:
   governance review trigger rather than a legal conclusion or adoption mandate?
 - Are limitations and synthetic-data assumptions clearly disclosed?
 
-## 7. Record Follow-Up
+## 7. Review Model Changes Before Promotion
 
-The current public workflow creates issue and signoff artifacts to demonstrate
-the control pattern. A production adaptation would need institution-specific
-owners, evidence retention rules, legal review, validation standards, and formal
-approval workflow.
+When a model version changes, compare the prior governed records against the new
+ones before promoting the new version. The Phase 5 change-validation workflow
+runs automatically inside monitoring when the dataset contains a
+`prior-model-version-record.json` snapshot, and it is also available standalone:
 
-The next planned milestone is Phase 5: model-change review, validation summaries,
-change-impact comparisons, and stronger reviewer signoff depth.
+```bash
+python scripts/run_change_validation.py data/synthetic/monthly-portfolio
+```
+
+It produces `model_change_validation_results.json` and
+`model_change_validation_report.md` covering:
+
+- model-version field changes, including expanded assumptions or limitations
+- threshold-set changes, read as tightened or loosened where the comparison rule
+  is unchanged, plus added and removed thresholds
+- reason-code mapping changes, separating a structural text or driver change from
+  a mapping-version bump
+- a change-impact summary and the review actions required before promotion
+- a reviewer signoff record tied to the specific version and evidence-pack run
+
+Treat a material change as a trigger to document rationale and obtain independent
+validation signoff, not as a determination that a change is compliant.
+
+## 8. Record Follow-Up
+
+The current public workflow creates issue, change-validation, and signoff
+artifacts to demonstrate the control pattern. A production adaptation would need
+institution-specific owners, evidence retention rules, legal review, validation
+standards, and a formal approval workflow.
+
+The next milestone is the Phase 8 analytical-rigor track: an LDA candidate search
+and a reproducible run on a recognizable public dataset, plus drift logic and
+regression controls.

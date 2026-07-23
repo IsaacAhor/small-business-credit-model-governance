@@ -1,0 +1,56 @@
+[
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-001",
+    "version_id": "ver-2026-05",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_code": "RC-101",
+    "reason_text": "Insufficient cash flow stability",
+    "mapping_version": "mapver-2026-05"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-002",
+    "version_id": "ver-2026-05",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_code": "RC-102",
+    "reason_text": "Debt service coverage below policy range",
+    "mapping_version": "mapver-2026-05"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-003",
+    "version_id": "ver-2026-05",
+    "driver_or_signal": "time_in_business",
+    "reason_code": "RC-103",
+    "reason_text": "Limited time in business",
+    "mapping_version": "mapver-2026-05"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-004",
+    "version_id": "ver-2026-05",
+    "driver_or_signal": "credit_utilization",
+    "reason_code": "RC-104",
+    "reason_text": "High credit utilization",
+    "mapping_version": "mapver-2026-05"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-005",
+    "version_id": "ver-2026-05",
+    "driver_or_signal": "collateral_coverage",
+    "reason_code": "RC-105",
+    "reason_text": "Insufficient collateral coverage",
+    "mapping_version": "mapver-2026-05"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-199",
+    "version_id": "ver-2026-05",
+    "driver_or_signal": "other",
+    "reason_code": "RC-199",
+    "reason_text": "Other",
+    "mapping_version": "mapver-2026-05"
+  }
+]

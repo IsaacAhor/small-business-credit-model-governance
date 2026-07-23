@@ -22,6 +22,12 @@ and do not contain real applicant, borrower, lender, or institution data.
 - An adverse-action reason QA exception (`dec-0090`, missing reason code)
   that is generated deliberately by the dataset so reviewers can see how an
   exception becomes a tracked, owned issue.
+- A model-change validation review (`model_change_validation_results.json` and
+  `model_change_validation_report.md`) comparing the prior model version
+  (`ver-2026-05`) to the current one (`ver-2026-06`): a tightened approval-rate
+  threshold, a removed manual-review threshold, an added and a removed reason
+  code, and a mapping-version bump, each turned into a required review action and
+  a reviewer signoff record.
 
 ## How To Review This Pack
 
@@ -31,10 +37,12 @@ and do not contain real applicant, borrower, lender, or institution data.
 3. Open `bisg_proxy_results.json` for the proxy-weighted group comparisons.
 4. Open `lda_assessment_results.json` for the baseline-versus-candidate
    assessment.
-5. Open `reason_qa_results.json` for the reason QA exception and
+5. Open `model_change_validation_report.md` for the plain-language model-change
+   review and `model_change_validation_results.json` for the structured diff.
+6. Open `reason_qa_results.json` for the reason QA exception and
    `issue_register.json` to see exceptions and breaches as tracked issues.
-6. Open `reviewer_notes.md` and `reviewer_signoff.md` to see the human review
-   step.
+7. Open `reviewer_notes.md` and `reviewer_signoff.md` to see the human review
+   step, including the model-change validation signoff block.
 
 ## Reproducing This Pack
 

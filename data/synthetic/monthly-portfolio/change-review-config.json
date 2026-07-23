@@ -1,0 +1,6 @@
+{
+  "change_review_id": "chg-2026-06",
+  "prior_version_id": "ver-2026-05",
+  "validation_owner": "Independent Model Validation",
+  "promotion_gate": "independent_validation_signoff"
+}
