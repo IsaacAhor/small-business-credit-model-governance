@@ -4,7 +4,7 @@
 
 This repository uses versioned releases to mark stable public milestones, not
 just development commits. A release identifies a coherent review point that can
-be inspected, cited, downloaded, or preserved as evidence of progress.
+be inspected, cited, downloaded, or compared as a stable project state.
 
 Commits remain useful for development history. Releases serve a different role:
 they package the state of the work at meaningful implementation milestones.
@@ -32,7 +32,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.4.1`: outsider packaging patch with reviewer and implementation guides
 - `v0.5.0`: adverse-action reason generation, LDA assessment, and portfolio-scale dataset
 - `v0.6.0`: statistical significance testing and BISG proxy monitoring
-- `v0.7.0`: SBA 7(a) public-data monitoring run kit
+- `v0.7.0`: model-risk oversight public-data run kit
 - `v0.8.0`: synthetic adverse-action reason accuracy benchmark
 
 The `0.x` version line signals that this is still a public demonstration and
@@ -63,7 +63,7 @@ is not proof of live small-business adverse-action notice accuracy, lender
 adoption, legal compliance, external validation, regulatory approval, or field
 recognition.
 
-The prior milestone, `v0.7.0`, adds the SBA 7(a) public-data monitoring run kit:
+The prior milestone, `v0.7.0`, adds the model-risk oversight public-data run kit:
 an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic schema
 fixture for pipeline validation, reproducibility documentation, and
 scope/limitations notes. The run kit is a model-risk monitoring and drift-

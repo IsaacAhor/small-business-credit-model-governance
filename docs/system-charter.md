@@ -2,18 +2,23 @@
 
 ## Purpose
 
-This document defines the charter for the repository's next implementation stage: a repeatable credit model governance evidence engine for machine-learning-based small business credit underwriting.
+This document defines the charter for the repository's next implementation
+stage: a repeatable credit model governance evidence engine for machine-
+learning-based small business credit underwriting.
 
-The system is intended to support model-risk, validation, compliance, and governance review by turning structured inputs and monitoring logic into traceable, reviewer-ready outputs.
+The system is intended to support model-risk, validation, compliance, and
+governance review by turning structured inputs and monitoring logic into
+traceable, reviewer-ready outputs.
 
-This evidence engine is the implementation vehicle for the project's objective: to
-develop, validate, and disseminate practical methods, monitoring protocols,
-documentation standards, and tools for governance of machine-learning-based
-small business credit underwriting systems in the United States.
+This evidence engine turns the repository's technical scope into executable
+workflow components: schemas, validation checks, monitoring logic, issue records,
+reason-review outputs, and evidence-pack artifacts.
 
 ## Problem Statement
 
-Governance discussions often remain document-heavy and difficult to operationalize. Teams may have a framework, checklist, or policy note, but still lack a repeatable way to:
+Governance discussions often remain document-heavy and difficult to
+operationalize. Teams may have a framework, checklist, or policy note, but
+still lack a repeatable way to:
 
 - validate input records
 - compute monitoring metrics

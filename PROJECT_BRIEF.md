@@ -7,7 +7,7 @@ machine-learning-assisted systems, but governance controls for explainability,
 adverse-action reason review, fair-lending monitoring, and model-risk oversight
 remain difficult to operationalize.
 
-## Proposed Contribution
+## Project Contribution
 
 This repository develops practical governance methods, schemas, workflows, and
 synthetic demonstrations for monitoring machine-learning-based small business

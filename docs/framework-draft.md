@@ -3,11 +3,9 @@
 ## 1. Introduction
 
 This document presents a practical governance framework for
-machine-learning-based small business credit underwriting systems. It supports
-a single objective: to develop, validate, and disseminate practical methods,
-monitoring protocols, documentation standards, and tools for this domain.
-
-The framework is designed for environments where institutions need to balance
+machine-learning-based small business credit underwriting systems. It supports a
+standalone technical goal: define and test practical methods, monitoring
+protocols, documentation standards, and workflow tools for this domain.The framework is designed for environments where institutions need to balance
 predictive performance with transparency, explanation quality, fair-lending
 oversight, and disciplined model-risk management.
 

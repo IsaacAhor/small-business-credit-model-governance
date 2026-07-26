@@ -1,15 +1,17 @@
-# SBA 7(a) Public-Data Monitoring Run Kit
+# Model-Risk Oversight Run Kit
+
+SBA 7(a) FOIA approved-loan public-data demonstration.
 
 Runs the public repo's monitoring workflow on **real federal small-business
 lending records** (SBA 7(a)/504 FOIA) instead of synthetic data. Built and
 proven end-to-end 2026-07-26 against the repo's Phase 2 workflow. After you have
-the real data file, the run is two commands.
+the real data file, the main run is one command.
 
 **Before you cite anything this produces, read `LIMITATIONS.md`.** In short: the
-default-risk model is a governed-model stand-in, not an underwriting model; SBA
-data is approved-only, so fairness/adverse-action work is NOT done here (that is
-the HMDA track); the meaningful signals are charge-off rate, score drift, and
-portfolio-mix drift across cohorts.
+default-risk model is a governed-model stand-in, not an underwriting model;
+SBA data is approved-only, so fairness/adverse-action work is not done here;
+the meaningful signals are charge-off rate, score drift, and portfolio-mix
+drift across cohorts.
 
 ---
 
@@ -38,7 +40,7 @@ portfolio-mix drift across cohorts.
 
 4. **Place the kit files into the repo:**
    - copy `scripts/sba_to_monitoring.py` and `scripts/make_sba_fixture.py` into the repo's `scripts/`
-   - copy `README.md` and `LIMITATIONS.md` into `docs/sba-run-kit/`
+   - copy `README.md` and `LIMITATIONS.md` into `docs/model-risk-oversight-run-kit/`
 
 ---
 
@@ -46,8 +48,8 @@ portfolio-mix drift across cohorts.
 
 1. Open [SBA 7(a) and 504 FOIA data](https://data.sba.gov/dataset/7-a-504-foia)
 2. In "Data and Resources", download the **7(a) loan-level FOIA file covering
-   FY2010–present** (CSV). If it is offered as separate era files, take the
-   FY2010–present one; ignore the FY1991–2009 file and the 504 file for this run.
+   FY2010-present** (CSV). If it is offered as separate era files, take the
+   FY2010-present one; ignore the FY1991-2009 file and the 504 file for this run.
 3. Save it into the repo as:
 
    ```text
@@ -55,7 +57,7 @@ portfolio-mix drift across cohorts.
    ```
 
    (create the `data/` folder if it does not exist)
-4. Optional sanity check — the adapter needs, at minimum, columns for loan
+4. Optional sanity check - the adapter needs, at minimum, columns for loan
    amount, term in months, and loan status. It auto-detects the documented names
    (`GrossApproval`, `TermInMonths`, `LoanStatus`, plus `ApprovalDate`/
    `ApprovalFiscalYear`, `BorrState`, `DeliveryMethod`, `BusinessType`,
@@ -67,7 +69,7 @@ portfolio-mix drift across cohorts.
 
 ---
 
-## 2. Run it (the two commands)
+## 2. Run it
 
 ```bash
 # a) build the monitoring datasets from the real file AND run the workflow
@@ -80,9 +82,10 @@ python scripts/sba_to_monitoring.py \
 
 That single command does everything: cleans the data (matured loans, FY2010+),
 trains the demonstration model, builds one cohort dataset per month, runs
-`credit_gov`'s monitoring workflow on each, and writes the drift summary. There
-is no separate second command needed for the basic run — the "two commands" are
-this run command plus the optional fixture check in section 4.
+`credit_gov`'s monitoring workflow on each, and writes the drift summary.
+There is no separate second command needed for the basic run. The optional
+fixture check in section 4 is only for pipeline validation before downloading
+the public file.
 
 ---
 
@@ -90,17 +93,17 @@ this run command plus the optional fixture check in section 4.
 
 Everything lands under `sba_run/`:
 
-- `sba_run/evidence/<cohort>/` — one reviewer-ready evidence pack per month
+- `sba_run/evidence/<cohort>/` - one reviewer-ready evidence pack per month
   (metric_results.json, breach_register.json, fair_lending_screening_results.json,
   monitoring_report.md, manifest.json, and more).
-- `sba_run/cross_cohort_drift_summary.csv` (and `.json`) — one row per cohort
+- `sba_run/cross_cohort_drift_summary.csv` (and `.json`) - one row per cohort
   with `n_loans`, `default_rate` (charge-off rate), and `score_avg`. **This is
   the headline governance signal: watch how default_rate and score_avg move
   across cohorts.** Rising default_rate with flat scores, for example, is the
   kind of drift a monitoring program is meant to catch.
 
 Ignore `approval_rate`, `decline_rate`, `override_rate`, and the fair-lending
-screening numbers in the per-cohort packs — they are not meaningful on
+screening numbers in the per-cohort packs - they are not meaningful on
 approved-only data (see `LIMITATIONS.md`).
 
 ---
@@ -115,12 +118,12 @@ python scripts/sba_to_monitoring.py --input data/sba-7a-FIXTURE-synthetic.csv --
 ```
 
 The fixture is SYNTHETIC. Its outputs are for pipeline validation only and are
-**not evidence** — do not cite them. Use a different `--out-root` so they never
+**not evidence** - do not cite them. Use a different `--out-root` so they never
 mix with the real run.
 
 ---
 
-## 5. Optional rigor upgrade — make default_rate thresholdable
+## 5. Optional rigor upgrade - make default_rate thresholdable
 
 The built-in thresholdable metrics aren't meaningful on approved-only data. To
 let the workflow raise a breach when the charge-off rate crosses a threshold,
@@ -155,7 +158,7 @@ and reproducible.
 ## 6. Reproducibility & provenance (after the real run)
 
 The raw input (`data/*.csv`) and the scratch output dir (`sba_run/`) are
-git-ignored — don't commit the large raw file or working outputs. To make a
+git-ignored - don't commit the large raw file or working outputs. To make a
 run reproducible:
 
 1. Commit the kit code and record the exact run command used.
