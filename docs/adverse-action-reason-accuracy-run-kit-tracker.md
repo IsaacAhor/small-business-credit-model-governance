@@ -22,7 +22,7 @@ versions, and reviewer labels.
 
 ## Current Status
 
-Status: implementation, focused validation, and scoped commit complete; public push pending.
+Status: implementation, focused validation, scoped commit, and public branch push complete.
 
 Branch: `adverse-action-reason-run-kit`
 
@@ -98,7 +98,7 @@ or review gate has passed.
 - [x] Add release note for the next milestone.
 - [x] Run focused tests and repository guardrails.
 - [x] Commit only scoped adverse-action files.
-- [ ] Push branch to the public remote.
+- [x] Push branch to the public remote.
 
 ## Synthetic Benchmark Requirements
 
