@@ -186,7 +186,7 @@ Two metrics used by the less-discriminatory-alternative assessment step
 - Kallus, N., Mao, X., and Zhou, A. (2019). Assessing algorithmic fairness
   with unobserved protected class using data combination.
   <https://arxiv.org/abs/1906.00285>
-- Wastvedt, S., Snoke, J., Agniel, D., Lai, R., Elliott, M. N., and Martino,
+- Wastvedt, S., Snoke, J., Agniel, D., Lai, J., Elliott, M. N., and Martino,
   S. C. (2024). De-Biasing the Bias: Methods for Improving Disparity
   Assessments with Noisy Group Measurements.
   <https://arxiv.org/abs/2402.13391>
