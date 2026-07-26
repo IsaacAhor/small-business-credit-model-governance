@@ -50,6 +50,9 @@ If you are new to the repository, use these entry points:
   A one-folder reviewer and operator entry point for the synthetic adverse-
   action reason accuracy benchmark, including run command, limitations,
   benchmark spec, private-data requirements, and evidence-pack review path.
+- `docs/model-risk-oversight-run-kit/README.md`
+  A model-risk oversight public-data run kit for SBA 7(a) FOIA approved-loan
+  monitoring and drift review.
 
 ## What This Repository Demonstrates
 
@@ -105,20 +108,17 @@ The repository is licensed under the Apache License 2.0 (see `LICENSE`),
 which includes an explicit patent grant so institutions can evaluate and
 adapt the workflow. Citation metadata is provided in `CITATION.cff`.
 
-## Project Objective
+## Project Scope
 
-The objective of this project is to develop, validate, and disseminate practical methods,
-monitoring protocols, documentation standards, and tools for governance of
-machine-learning-based small business credit underwriting systems in the United
-States, including adverse action reason generation, less discriminatory
-alternative assessment, and ongoing model-risk oversight, to improve regulatory
-compliance, decision transparency, and responsible access to small business
-credit.
+This project provides a reproducible governance evidence engine for
+machine-learning-based small business credit underwriting systems. It focuses on
+structured model records, monitoring workflows, adverse-action reason review,
+fair-lending screening triggers, model-change review, and reviewer-ready output
+packages.
 
-The repository pursues that objective through public, reviewable artifacts:
-methods, monitoring protocols, documentation standards, templates, synthetic
-fixtures, public-data run kits, and a configuration-driven governance evidence
-engine.
+The repository is organized as a standalone technical project with public,
+reviewable artifacts: schemas, templates, synthetic fixtures, public-data run
+kits, tests, and configuration-driven workflow code.
 
 ## Core Use Cases
 
@@ -176,7 +176,7 @@ It does not assume a fixed modeling stack at this stage.
 The first phase of this repository is structured around six deliverables:
 
 1. A flagship framework for model governance and fair-lending monitoring.
-2. A practitioner article aligned to the same objective.
+2. A practitioner-facing article aligned to the repository scope.
 3. Reusable governance and fair-lending monitoring checklists.
 4. A path toward executable tooling using synthetic or appropriately described
    demonstration data.
@@ -269,7 +269,7 @@ reason QA, and evidence-pack review under Regulation B 12 CFR 1002.9. It is not
 public proof of live small-business notice accuracy, lender adoption,
 deployment, legal compliance, or regulatory approval.
 
-The prior release, `v0.7.0`, adds the SBA 7(a) public-data monitoring run kit:
+The prior release, `v0.7.0`, adds the model-risk oversight public-data run kit:
 an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic schema
 fixture for pipeline validation, reproducibility documentation, and
 scope/limitations notes. The run kit is designed to exercise model-risk
@@ -297,11 +297,11 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 1. Complete the Phase 8 analytical-rigor track: an LDA step that searches
    candidate models and a reproducible run on a recognizable public dataset.
 2. Add drift logic and regression controls to strengthen the analytical layer.
-3. Refine the framework and practitioner article after the portfolio-scale workflow produces report excerpts.
-4. Preserve public PR, commit, release, and validation history as implementation milestones land.
+3. Refine the framework and practitioner-facing article after the portfolio-scale workflow produces report excerpts.
+4. Keep public PR, commit, release, and validation history current as implementation milestones land.
 
 The core Phase 5 change-and-validation workflow is now implemented; the remaining
-gaps above are analytical-rigor and dissemination work, not change-governance
+gaps above are analytical-rigor and documentation work, not change-governance
 plumbing.
 
 ## Current Status
@@ -309,7 +309,7 @@ plumbing.
 This repository now contains:
 
 - a first full framework draft
-- a publish-ready practitioner article and archived working drafts
+- practitioner-facing article drafts and archived working drafts
 - synthetic monitoring demonstration assets
 - reusable monitoring and governance templates
 - Phase 0 system design documents for a governance evidence engine
@@ -322,7 +322,7 @@ This repository now contains:
 - a Phase 4B less-discriminatory-alternative assessment workflow integrated into optional monitoring evidence outputs
 - a portfolio-scale synthetic monthly dataset that exercises reason generation, reason QA, fair-lending screening, and LDA assessment
 - a Phase 5 model-change and validation-review workflow that compares prior and current model-version, threshold-set, and reason-code mapping records, summarizes change impact, and emits a reviewer signoff record tied to a version and evidence pack
-- an SBA 7(a) public-data monitoring run kit that adapts real approved-loan
+- a model-risk oversight public-data run kit that adapts real approved-loan
   FOIA data into model-risk monitoring cohorts while excluding fairness and
   adverse-action interpretations that the data cannot support
 - a synthetic adverse-action reason accuracy benchmark that demonstrates reason

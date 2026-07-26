@@ -2,17 +2,15 @@
 
 ## Project Anchor
 
-The objective of this project is to develop, validate, and disseminate practical methods,
-monitoring protocols, documentation standards, and tools for governance of
-machine-learning-based small business credit underwriting systems in the United
-States, including adverse action reason generation, less discriminatory
-alternative assessment, and ongoing model-risk oversight, to improve regulatory
-compliance, decision transparency, and responsible access to small business
-credit.
+This repository is a standalone technical project for model governance in
+machine-learning-based small business credit underwriting. It provides schemas,
+workflow code, synthetic fixtures, public-data run kits, and reviewer-ready
+outputs for model-risk monitoring, adverse-action reason review, fair-lending
+screening triggers, and model-change review.
 
-All roadmap phases should support that objective. The evidence engine is the
-implementation vehicle for the "tools" and "monitoring protocols" portions of
-this objective.
+All roadmap phases should support that technical scope. The evidence engine is
+the implementation vehicle for the repository's workflow and documentation
+components.
 
 This roadmap is now paired with `docs/system-implementation-roadmap.md`, which
 defines the next technical implementation stage.

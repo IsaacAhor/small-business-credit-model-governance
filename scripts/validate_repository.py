@@ -67,7 +67,7 @@ REQUIRED_TERMS = {
     ],
     "PROJECT_BRIEF.md": [
         "Problem",
-        "Proposed Contribution",
+        "Project Contribution",
         "Current Limitations",
     ],
     "docs/evidence-map.md": [
