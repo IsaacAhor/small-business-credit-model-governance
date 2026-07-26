@@ -15,3 +15,9 @@ evidence/
 
 # Notebooks
 .ipynb_checkpoints/
+
+# SBA run kit: raw inputs and scratch outputs (do not commit)
+data/*.csv
+data/*FIXTURE*
+sba_run/
+sba_run_fixture/
