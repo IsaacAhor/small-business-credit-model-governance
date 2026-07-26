@@ -100,7 +100,8 @@ Status:
 - Fair-lending screening now reports statistical significance (two-proportion
   z-test with Fisher's exact fallback) on every disparity screen, and BISG
   protected-class proxy estimation runs as an optional monitoring step with
-  posterior-predictive bootstrap disparity screening (see `docs/fair-lending-statistics.md`).
+  posterior-predictive bootstrap and measurement-error sensitivity disparity
+  screening (see `docs/fair-lending-statistics.md`).
 - The remaining priorities are the analytical-rigor track in
   `docs/system-implementation-roadmap.md` (LDA candidate search, public-dataset
   run, regression controls), then model-change review and vendor oversight.

@@ -413,6 +413,16 @@ def build() -> None:
         "bootstrap_draws": 2000,
         "bootstrap_seed": 20260726,
         "bootstrap_ci_level": 0.95,
+        "measurement_error_sensitivity": {
+            "enabled": True,
+            "method": "per_applicant_absolute_posterior_error_sensitivity",
+            "probability_error_margins": [0.0, 0.025, 0.05, 0.1],
+            "finding_probability_error_margin": 0.05,
+            "assumption": (
+                "Each applicant's group-specific BISG posterior may vary independently "
+                "within +/- the configured probability-error margin, clipped to [0, 1]."
+            ),
+        },
     }
     write_json(DATASET_DIR / "applicant-demographic-inputs.json", demographic_inputs)
     write_json(DATASET_DIR / "bisg-config.json", bisg_config)

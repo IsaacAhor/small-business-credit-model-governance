@@ -16,8 +16,10 @@ if str(SRC) not in sys.path:
 from credit_gov.bisg import (  # noqa: E402
     bisg_posterior,
     bootstrap_proxy_distributions,
+    build_measurement_error_sensitivity,
     confidence_interval,
     load_reference_table,
+    parse_measurement_error_sensitivity_config,
     proxy_weighted_counts,
     run_bisg_proxy_analysis,
 )
@@ -79,6 +81,13 @@ class BisgAnalysisTests(unittest.TestCase):
         self.assertEqual(results["label"], "bisg_proxy_screening_only_not_legal_conclusion")
         self.assertEqual(results["inference_method"], "applicant_level_posterior_predictive_bootstrap")
         self.assertEqual(results["bootstrap"]["draws"], 2000)
+        sensitivity_config = results["measurement_error_sensitivity"]
+        self.assertTrue(sensitivity_config["enabled"])
+        self.assertEqual(
+            sensitivity_config["method"],
+            "per_applicant_absolute_posterior_error_sensitivity",
+        )
+        self.assertEqual(sensitivity_config["finding_probability_error_margin"], 0.05)
         self.assertEqual(results["matched_decision_count"], len(decisions))
         self.assertEqual(results["unmatched_decision_count"], 0)
         for category in ("white", "black", "hispanic", "api"):
@@ -100,6 +109,12 @@ class BisgAnalysisTests(unittest.TestCase):
             self.assertEqual(comparison["test"], "applicant_level_posterior_predictive_bootstrap", category)
             self.assertIn("bootstrap", comparison, category)
             self.assertIn("legacy_rounded_count_comparison", comparison, category)
+            self.assertIn("measurement_error_sensitivity", comparison, category)
+            self.assertIn("finding_gate", comparison, category)
+            self.assertEqual(
+                comparison["finding_gate"]["method"],
+                "bootstrap_ci_plus_measurement_error_sensitivity",
+            )
             self.assertTrue(comparison["caveats"], category)
 
         hispanic = results["comparisons"]["hispanic"]
@@ -107,6 +122,80 @@ class BisgAnalysisTests(unittest.TestCase):
         self.assertLessEqual(bootstrap_ci["lower"], 0.0)
         self.assertGreaterEqual(bootstrap_ci["upper"], 0.0)
         self.assertFalse(hispanic["statistically_significant"])
+
+    def test_measurement_error_sensitivity_contains_proxy_estimate_and_widens(self) -> None:
+        decisions = json.loads((PORTFOLIO / "application-decision-records.json").read_text(encoding="utf-8"))
+        demographic_inputs = json.loads((PORTFOLIO / "applicant-demographic-inputs.json").read_text(encoding="utf-8"))
+        config = json.loads((PORTFOLIO / "bisg-config.json").read_text(encoding="utf-8"))
+        results = run_bisg_proxy_analysis(decisions, demographic_inputs, config, PORTFOLIO)
+
+        comparison = results["comparisons"]["hispanic"]
+        point_estimate = comparison["effect_size"]["rate_difference"]
+        sensitivity = comparison["measurement_error_sensitivity"]
+        widths = []
+        for entry in sensitivity["grid"]:
+            interval = entry["rate_difference_interval"]
+            self.assertLessEqual(interval["lower"], point_estimate)
+            self.assertGreaterEqual(interval["upper"], point_estimate)
+            widths.append(interval["upper"] - interval["lower"])
+        self.assertEqual(widths, sorted(widths))
+        self.assertEqual(sensitivity["grid"][0]["probability_error_margin"], 0.0)
+        self.assertEqual(
+            sensitivity["grid"][0]["rate_difference_interval"],
+            {"lower": point_estimate, "upper": point_estimate},
+        )
+
+    def test_measurement_error_sensitivity_blocks_overconfident_finding(self) -> None:
+        records = []
+        for index in range(100):
+            records.append(
+                {
+                    "approved": index < 55,
+                    "posterior": {
+                        "white": 0.0,
+                        "black": 0.0,
+                        "hispanic": 1.0,
+                        "api": 0.0,
+                        "aian": 0.0,
+                        "multiracial": 0.0,
+                    },
+                }
+            )
+        for index in range(100):
+            records.append(
+                {
+                    "approved": index < 60,
+                    "posterior": {
+                        "white": 1.0,
+                        "black": 0.0,
+                        "hispanic": 0.0,
+                        "api": 0.0,
+                        "aian": 0.0,
+                        "multiracial": 0.0,
+                    },
+                }
+            )
+        sensitivity_config = parse_measurement_error_sensitivity_config(
+            {
+                "measurement_error_sensitivity": {
+                    "probability_error_margins": [0.0, 0.1],
+                    "finding_probability_error_margin": 0.1,
+                }
+            }
+        )
+        sensitivity = build_measurement_error_sensitivity(
+            records=records,
+            category="hispanic",
+            reference_group="white",
+            point_rate_difference=-0.05,
+            bootstrap_ci={"level": 0.95, "lower": -0.06, "upper": -0.04},
+            sensitivity_config=sensitivity_config,
+        )
+
+        gate = sensitivity["finding_gate"]
+        self.assertFalse(gate["excludes_zero_in_adverse_direction"])
+        self.assertEqual(gate["rate_difference_interval"]["direction"], "includes_zero")
+
 
     def test_posterior_predictive_bootstrap_widens_ambiguous_proxy_interval(self) -> None:
         records = [

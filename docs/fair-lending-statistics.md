@@ -1,9 +1,9 @@
 # Fair-Lending Statistical Methodology
 
 This note documents the statistical methods added to the fair-lending
-screening workflow: significance testing on group disparities and BISG
-protected-class proxy estimation. It is written for model-risk, fair-lending,
-and validation reviewers.
+screening workflow: significance testing on group disparities, BISG
+protected-class proxy estimation, and BISG measurement-error sensitivity
+bounds. It is written for model-risk, fair-lending, and validation reviewers.
 
 ## Why These Methods
 
@@ -91,6 +91,30 @@ as a concentration diagnostic. The sample gate requires both enough expected
 proxy-weighted group mass and enough effective sample size; groups failing the
 gate are skipped rather than silently tested.
 
+The measurement-error sensitivity layer addresses the next problem: proxy
+posterior error can bias the disparity point estimate even when the sampling
+interval is honestly estimated. The configuration supplies absolute posterior
+probability error margins, such as 0.05 for plus or minus five probability
+points per applicant and group. For each group-specific posterior `p_i`, the
+sensitivity check allows true group probability to fall in
+`[max(0, p_i - epsilon), min(1, p_i + epsilon)]`. The lower group approval
+rate assigns the smallest allowed group mass to approved applicants and the
+largest allowed mass to declined applicants; the upper rate does the reverse.
+A rate-difference interval is then formed as:
+
+- lower bound: lower approval rate for the proxy group minus upper approval
+  rate for the reference group
+- upper bound: upper approval rate for the proxy group minus lower approval
+  rate for the reference group
+
+The reported finding gate uses the configured sensitivity margin and widens
+the bootstrap confidence interval by the sensitivity envelope. A BISG finding
+fires only when that widened interval excludes zero in the adverse direction.
+This is a bounded-error sensitivity analysis for noisy group probabilities,
+not a corrected point estimate. It is also not a sharp Kallus-Mao-Zhou
+partial-identification implementation, because it does not solve the joint
+optimization problem or enforce a full cross-category probability simplex.
+
 Running it:
 
 - as part of the monitoring run, when the dataset contains
@@ -122,9 +146,13 @@ Limitations:
   production use requires the full Census surname file and real geographic
   composition data.
 - Proxy-weighted comparisons remain unadjusted screening signals and are
-  labeled as such in every output. A future partial-identification or
-  sensitivity-bounds layer would be the right next upgrade for proxy
-  measurement bias.
+  labeled as such in every output.
+- Measurement-error sensitivity margins are reviewer assumptions, not facts
+  estimated from the synthetic data. The shipped default gate uses a 0.05
+  absolute posterior-probability error margin only for demonstration.
+- The sensitivity layer is conservative and transparent, but not sharp: it
+  does not enforce joint probability constraints across every race/ethnicity
+  category and should not be described as a full partial-identification bound.
 
 ## Metric Limitations in Related Workflow Steps
 
@@ -152,11 +180,15 @@ Two metrics used by the less-discriminatory-alternative assessment step
 - Consumer Financial Protection Bureau (2014). Using publicly available
   information to proxy for unidentified race and ethnicity.
   <https://www.consumerfinance.gov/data-research/research-reports/using-publicly-available-information-to-proxy-for-unidentified-race-and-ethnicity/>
-- Chen, J., Johansson, F. D., and Sontag, D. (2018). Fairness under
-  unawareness: assessing disparity when protected class is unobserved.
+- Chen, J., Kallus, N., Mao, X., Svacha, G., and Udell, M. (2018). Fairness
+  under unawareness: assessing disparity when protected class is unobserved.
   <https://arxiv.org/abs/1811.11154>
 - Kallus, N., Mao, X., and Zhou, A. (2019). Assessing algorithmic fairness
   with unobserved protected class using data combination.
   <https://arxiv.org/abs/1906.00285>
+- Wastvedt, S., Snoke, J., Agniel, D., Lai, R., Elliott, M. N., and Martino,
+  S. C. (2024). De-Biasing the Bias: Methods for Improving Disparity
+  Assessments with Noisy Group Measurements.
+  <https://arxiv.org/abs/2402.13391>
 - U.S. Census Bureau. Frequently Occurring Surnames from the 2010 Census.
   <https://www.census.gov/topics/population/genealogy/data/2010_surnames.html>

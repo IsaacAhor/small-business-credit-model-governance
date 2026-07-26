@@ -38,10 +38,11 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - Decisions matched to demographic inputs: 320 of 320
 - Reference group: white | alpha: 0.05
 - Inference: applicant_level_posterior_predictive_bootstrap (2000 draws, seed 20260726, CI level 0.95)
-- Significant finding count: 0
+- Measurement-error sensitivity: per_applicant_absolute_posterior_error_sensitivity (gate margin 0.05, grid [0.0, 0.025, 0.05, 0.1])
+- Sensitivity-robust finding count: 0
 - Result type: probabilistic proxy screening, not observed demographics or a legal conclusion
 
-- No statistically significant proxy-group approval-rate gaps were identified.
+- No sensitivity-robust adverse proxy-group approval-rate gaps were identified.
 
 ## Less-Discriminatory-Alternative Assessment
 

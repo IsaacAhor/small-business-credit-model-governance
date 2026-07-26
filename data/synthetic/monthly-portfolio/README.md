@@ -24,7 +24,8 @@ monitoring run produces non-trivial, believable governance signals:
 - statistical significance results attached to every fair-lending screen
   (see `docs/fair-lending-statistics.md`);
 - a BISG proxy screening run over synthetic surname/geography inputs, with
-  proxy-weighted approval rates, effective-sample diagnostics, and bootstrap intervals;
+  proxy-weighted approval rates, effective-sample diagnostics, bootstrap
+  intervals, and measurement-error sensitivity intervals;
 - a less-discriminatory-alternative (LDA) assessment that flags a region-neutral
   candidate cutoff as a qualifying alternative to review.
 
@@ -42,8 +43,9 @@ monitoring validator:
   assessment.
 - `applicant-demographic-inputs.json` — synthetic surname and geography
   identifiers per decision, consumed by the BISG proxy step.
-- `bisg-config.json` — reference-table paths, reference group, alpha, and
-  minimum expected/effective sample gates and bootstrap settings for the BISG proxy step.
+- `bisg-config.json` - reference-table paths, reference group, alpha, minimum
+  expected/effective sample gates, bootstrap settings, and measurement-error
+  sensitivity settings for the BISG proxy step.
 
 ## Regenerate
 

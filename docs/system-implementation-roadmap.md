@@ -369,7 +369,8 @@ repository workflow.
 - `v0.5.0`: Phase 3B adverse-action reason generation, Phase 4B LDA
   assessment, and portfolio-scale synthetic dataset.
 - `v0.6.0`: Phase 8 statistical significance testing and BISG proxy
-  monitoring on the portfolio-scale synthetic dataset.
+  monitoring on the portfolio-scale synthetic dataset; current main extends
+  that path with measurement-error sensitivity gates.
 - `v0.7.0`: model-risk oversight public-data run kit for model-risk monitoring
   and drift reporting on real approved-loan FOIA data.
 - `v0.8.0`: synthetic adverse-action reason accuracy benchmark and evidence pack.
@@ -417,8 +418,9 @@ controls, and the candidate space for the LDA search.
 Deliverables:
 
 - protected-class proxy estimation (e.g., BISG) for fair-lending screening
-  (initial implementation shipped in v0.6.0; full Census-derived reference
-  tables arrive with the public-data run)
+  (initial implementation shipped in v0.6.0; measurement-error sensitivity
+  gates now ship on main; full Census-derived reference tables arrive with the
+  public-data run)
 - statistical significance testing (shipped in v0.6.0) and regression
   controlling for legitimate credit factors
 - an LDA step that searches candidate models and documents the
@@ -438,7 +440,8 @@ Acceptance criteria:
 
 Status:
 
-- BISG proxy estimation and posterior-predictive bootstrap inference shipped in
-  `src/credit_gov/bisg.py` and `src/credit_gov/stats.py`, wired into the
-  monitoring run and evidence pack (see `docs/fair-lending-statistics.md`)
+- BISG proxy estimation, posterior-predictive bootstrap inference, and
+  measurement-error sensitivity gates shipped in `src/credit_gov/bisg.py` and
+  `src/credit_gov/stats.py`, wired into the monitoring run and evidence pack
+  (see `docs/fair-lending-statistics.md`)
 - LDA candidate search and the public-dataset run remain open

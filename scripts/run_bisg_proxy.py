@@ -55,6 +55,13 @@ def main() -> int:
         f"draws={results['bootstrap']['draws']} seed={results['bootstrap']['seed']} "
         f"ci_level={results['bootstrap']['ci_level']}"
     )
+    sensitivity = results.get("measurement_error_sensitivity", {})
+    if sensitivity.get("enabled"):
+        print(
+            f"sensitivity={sensitivity['method']} "
+            f"gate_margin={sensitivity['finding_probability_error_margin']} "
+            f"grid={sensitivity['probability_error_margins']}"
+        )
     for category, metrics in results["group_metrics"].items():
         rate = metrics["proxy_weighted_approval_rate"]
         ci = metrics["bootstrap_approval_rate_ci"]
@@ -64,12 +71,14 @@ def main() -> int:
             f"approval_rate={rate if rate is not None else 'n/a'} "
             f"ci=[{ci['lower']}, {ci['upper']}]"
         )
-    print(f"significant_findings={results['finding_count']}")
+    print(f"sensitivity_robust_findings={results['finding_count']}")
     for finding in results["findings"]:
+        sensitivity_interval = finding.get("measurement_error_rate_difference_interval") or {}
         print(
             f"  {finding['proxy_group']} vs {finding['reference_group']}: "
             f"{finding['proxy_weighted_approval_rate']} vs {finding['reference_approval_rate']} "
-            f"(p={finding['p_value']})"
+            f"(p={finding['p_value']}, sensitivity_ci=[{sensitivity_interval.get('lower')}, "
+            f"{sensitivity_interval.get('upper')}])"
         )
 
     if args.output is not None:

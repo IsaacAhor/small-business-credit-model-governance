@@ -21,7 +21,8 @@ The workflow generates adverse-action reasons from ranked decision drivers
 (then reviews them via reason QA), reports statistical significance on every
 fair-lending disparity screen (two-proportion z-test with Fisher's exact
 fallback), estimates protected-class proxies via BISG (Bayesian Improved
-Surname Geocoding) with posterior-predictive bootstrap disparity screening, and ships a
+Surname Geocoding) with posterior-predictive bootstrap and measurement-error
+sensitivity disparity screening, and ships a
 portfolio-scale synthetic dataset (`data/synthetic/monthly-portfolio`, 320
 decisions) so screens and exceptions fire on realistic distributions. As a
 supporting risk-management component, it also includes a
@@ -65,8 +66,8 @@ for:
 - adverse-action reason generation and reason accuracy QA
 - fair-lending screening with statistical significance testing and
   escalation triggers
-- BISG protected-class proxy estimation with posterior-predictive bootstrap disparity
-  screening
+- BISG protected-class proxy estimation with posterior-predictive bootstrap and
+  measurement-error sensitivity disparity screening
 - issue tracking and evidence-pack assembly
 - ongoing model-risk oversight using deterministic demonstration inputs
 
@@ -277,7 +278,9 @@ monitoring and drift reporting on real approved-loan public data; it is not an
 underwriting model, fairness analysis, adverse-action analysis, deployment
 claim, or legal conclusion. The prior substantive analytical milestone,
 `v0.6.0`, adds statistical significance testing for fair-lending screens and
-optional BISG proxy monitoring on the portfolio-scale synthetic dataset.
+optional BISG proxy monitoring on the portfolio-scale synthetic dataset. The
+current main branch extends that BISG path with a bounded measurement-error
+sensitivity gate for proxy-bias review.
 
 See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`,

@@ -787,12 +787,23 @@ def render_bisg_section(bisg: dict[str, Any] | None) -> str:
         "\n".join(
             f"- {finding['proxy_group']} vs {finding['reference_group']}: "
             f"proxy-weighted approval rate {finding['proxy_weighted_approval_rate']} vs "
-            f"{finding['reference_approval_rate']} (p = {finding['p_value']})"
+            f"{finding['reference_approval_rate']} (p = {finding['p_value']}, "
+            f"sensitivity interval = "
+            f"{finding.get('measurement_error_rate_difference_interval', {}).get('lower')} to "
+            f"{finding.get('measurement_error_rate_difference_interval', {}).get('upper')})"
             for finding in bisg["findings"]
         )
         if bisg["findings"]
-        else "- No statistically significant proxy-group approval-rate gaps were identified."
+        else "- No sensitivity-robust adverse proxy-group approval-rate gaps were identified."
     )
+    sensitivity = bisg.get("measurement_error_sensitivity", {})
+    sensitivity_line = "- Measurement-error sensitivity: disabled\n"
+    if sensitivity.get("enabled"):
+        sensitivity_line = (
+            f"- Measurement-error sensitivity: {sensitivity['method']} "
+            f"(gate margin {sensitivity['finding_probability_error_margin']}, "
+            f"grid {sensitivity['probability_error_margins']})\n"
+        )
     return (
         "## BISG Proxy Screening\n\n"
         f"- Method: Bayesian Improved Surname Geocoding (`{bisg['config_id']}`)\n"
@@ -801,7 +812,8 @@ def render_bisg_section(bisg: dict[str, Any] | None) -> str:
         f"- Inference: {bisg['inference_method']} "
         f"({bisg['bootstrap']['draws']} draws, seed {bisg['bootstrap']['seed']}, "
         f"CI level {bisg['bootstrap']['ci_level']})\n"
-        f"- Significant finding count: {bisg['finding_count']}\n"
+        f"{sensitivity_line}"
+        f"- Sensitivity-robust finding count: {bisg['finding_count']}\n"
         "- Result type: probabilistic proxy screening, not observed demographics or a legal conclusion\n\n"
         f"{finding_lines}\n\n"
     )

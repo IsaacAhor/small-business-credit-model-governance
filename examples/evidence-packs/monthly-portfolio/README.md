@@ -15,7 +15,9 @@ and do not contain real applicant, borrower, lender, or institution data.
   fires with significance; one segment screen fires without it — the contrast
   is deliberate and shows the screens distinguishing signal from noise.
 - BISG proxy screening results (`bisg_proxy_results.json`), with
-  probability-weighted point estimates and posterior-predictive bootstrap comparisons against a configured reference group.
+  probability-weighted point estimates, posterior-predictive bootstrap
+  comparisons, and measurement-error sensitivity gates against a configured
+  reference group.
 - A less-discriminatory-alternative assessment
   (`lda_assessment_results.json`) comparing a baseline model to a supplied
   candidate on disparity and predictive separation.
@@ -34,7 +36,8 @@ and do not contain real applicant, borrower, lender, or institution data.
 1. Read `monitoring_report.md` for the plain-language summary.
 2. Open `fair_lending_screening_results.json` for the screening findings with
    their significance blocks.
-3. Open `bisg_proxy_results.json` for the proxy-weighted group comparisons.
+3. Open `bisg_proxy_results.json` for the proxy-weighted group comparisons,
+   bootstrap intervals, and measurement-error sensitivity gates.
 4. Open `lda_assessment_results.json` for the baseline-versus-candidate
    assessment.
 5. Open `model_change_validation_report.md` for the plain-language model-change
