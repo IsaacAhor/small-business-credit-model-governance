@@ -16,8 +16,10 @@ evidence/
 # Notebooks
 .ipynb_checkpoints/
 
-# SBA run kit: raw inputs and scratch outputs (do not commit)
+# Model-risk oversight SBA run kit: raw inputs and scratch outputs (do not commit)
 data/*.csv
 data/*FIXTURE*
+model_risk_oversight_sba_run/
+model_risk_oversight_sba_fixture/
 sba_run/
 sba_run_fixture/

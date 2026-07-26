@@ -1,4 +1,4 @@
-"""Generate a SYNTHETIC fixture CSV that mirrors the SBA 7(a) FOIA schema.
+"""Generate a SYNTHETIC fixture CSV that mirrors the SBA 7(a)/504 FOIA schema.
 
 PURPOSE: prove the SBA->monitoring adapter and the governance workflow run
 end-to-end BEFORE the real FOIA file is downloaded. The output of this script
@@ -24,7 +24,7 @@ NAICS2 = ["23", "44", "45", "54", "72", "62", "81", "31", "42", "56"]
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--rows", type=int, default=4000)
-    ap.add_argument("--out", default="data/sba-7a-FIXTURE-synthetic.csv")
+    ap.add_argument("--out", default="data/sba-7a-504-FIXTURE-synthetic.csv")
     ap.add_argument("--seed", type=int, default=7)
     args = ap.parse_args()
     rng = np.random.default_rng(args.seed)
@@ -63,14 +63,14 @@ def main() -> None:
     df = pd.DataFrame(
         {
             "AsOfDate": "20250930",
-            "Program": "7A",
             "BorrName": [f"FIXTURE BORROWER {i}" for i in range(n)],
             "BorrState": state,
             "GrossApproval": gross,
             "SBAGuaranteedApproval": np.round(gross * 0.75, 2),
             "ApprovalDate": approval_date,
             "ApprovalFiscalYear": fy,
-            "DeliveryMethod": delivery,
+            "ProcessingMethod": delivery,
+            "Program": rng.choice(["7A", "504"], size=n, p=[0.82, 0.18]),
             "TermInMonths": term,
             "NaicsCode": naics,
             "BusinessType": biztype,

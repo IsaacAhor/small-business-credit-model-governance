@@ -51,7 +51,7 @@ If you are new to the repository, use these entry points:
   action reason accuracy benchmark, including run command, limitations,
   benchmark spec, private-data requirements, and evidence-pack review path.
 - `docs/model-risk-oversight-run-kit/README.md`
-  A model-risk oversight public-data run kit for SBA 7(a) FOIA approved-loan
+  A model-risk oversight public-data run kit for SBA 7(a)/504 FOIA approved-loan
   monitoring and drift review.
 
 ## What This Repository Demonstrates

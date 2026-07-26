@@ -1,4 +1,4 @@
-"""Adapter: SBA 7(a) FOIA loan-level CSV -> credit_gov monitoring datasets.
+"""Adapter: SBA 7(a)/504 FOIA approved-loan CSV -> credit_gov monitoring datasets.
 
 Reads a real SBA 7(a)/504 FOIA extract, trains a transparent DEMONSTRATION
 default-risk model (logistic regression on non-protected loan features),
@@ -16,13 +16,16 @@ SCOPE & LIMITATIONS (read before reusing these outputs):
   schema-required placeholders and their derived metrics must be excluded from
   interpretation. The MEANINGFUL SBA signals are: score distribution & drift,
   charge-off (outcome) mix, and portfolio-composition drift across cohorts.
-- Fairness / adverse-action work belongs to the HMDA track, not here.
+- Do not use this adapter for fairness, adverse-action, protected-class, or
+  applicant-demographics claims. Those claims require the relevant application,
+  decision, demographic/proxy, driver, notice, or review fields.
 
 Usage:
   python scripts/sba_to_monitoring.py \
-      --input data/sba-7a.csv \
+      --input data/sba-7a-504.csv \
       --repo-root . \
-      --out-root sba_run \
+      --out-root model_risk_oversight_sba_run \
+      --program all \
       --cohort month --max-cohorts 6 --sample-per-cohort 500
 """
 from __future__ import annotations
@@ -66,7 +69,8 @@ def load_and_prepare(path: Path) -> pd.DataFrame:
         "date": pick(df, "ApprovalDate", "approval_date"),
         "fy": pick(df, "ApprovalFiscalYear", "FiscalYear"),
         "state": pick(df, "BorrState", "ProjectState", "state"),
-        "delivery": pick(df, "DeliveryMethod", "delivery"),
+        "delivery": pick(df, "ProcessingMethod", "DeliveryMethod", "delivery"),
+        "program": pick(df, "Program"),
         "biztype": pick(df, "BusinessType", "business_type"),
         "jobs": pick(df, "JobsSupported", "jobs"),
         "naics": pick(df, "NaicsCode", "NAICSCode", "naics"),
@@ -82,6 +86,7 @@ def load_and_prepare(path: Path) -> pd.DataFrame:
     out["term"] = pd.to_numeric(df[cols["term"]], errors="coerce")
     out["state"] = df[cols["state"]].astype(str).str.strip().str.upper() if cols["state"] else "NA"
     out["delivery"] = df[cols["delivery"]].astype(str).str.strip() if cols["delivery"] else "unknown"
+    out["program"] = df[cols["program"]].astype(str).str.strip().str.upper() if cols["program"] else "NA"
     out["biztype"] = df[cols["biztype"]].astype(str).str.strip().str.upper() if cols["biztype"] else "NA"
     out["jobs"] = pd.to_numeric(df[cols["jobs"]], errors="coerce").fillna(0) if cols["jobs"] else 0
     out["naics2"] = df[cols["naics"]].astype(str).str[:2] if cols["naics"] else "00"
@@ -154,12 +159,20 @@ def score_band(score: float) -> str:
     return "E"
 
 
-MODEL_ID = "mdl-sba-7a-demo"
-VERSION_ID = "ver-sba-demo-1"
-MAP_VERSION = "mapver-sba-demo-1"
+MODEL_ID = "mdl-sba-public-monitoring-demo"
+VERSION_ID = "ver-sba-public-monitoring-1"
+MAP_VERSION = "mapver-sba-public-monitoring-1"
 
 
-def write_cohort(cohort_id: str, sub: pd.DataFrame, scores: np.ndarray, out_dir: Path) -> dict:
+def program_scope_label(program: str) -> str:
+    if program == "7a":
+        return "SBA 7(a)"
+    if program == "504":
+        return "SBA 504"
+    return "SBA 7(a)/504"
+
+
+def write_cohort(cohort_id: str, sub: pd.DataFrame, scores: np.ndarray, out_dir: Path, program_label: str) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     c = cohort_id[4:] if cohort_id.startswith("sba-") else cohort_id
     run_token = f"run-{c}"
@@ -209,11 +222,11 @@ def write_cohort(cohort_id: str, sub: pd.DataFrame, scores: np.ndarray, out_dir:
     dump("model-registry-record.json", {
         "record_type": "model_registry_record",
         "model_id": MODEL_ID,
-        "model_name": "SBA 7(a) Demonstration Default-Risk Model (governance stand-in)",
+        "model_name": f"{program_label} Public-Data Monitoring Demonstration Model (governance stand-in)",
         "business_owner": "Small Business Credit Risk (demonstration)",
         "technical_owner": "Model Risk Governance (demonstration)",
-        "intended_use": "Governance demonstration only. Risk-ranks matured SBA 7(a) loans so the monitoring workflow has a governed model to monitor. Not an underwriting recommendation.",
-        "target_population": "Matured U.S. SBA 7(a) small business loans (approved-only public FOIA data)",
+        "intended_use": f"Governance demonstration only. Risk-ranks matured {program_label} approved loans so the monitoring workflow has a governed model to monitor. Not an underwriting recommendation.",
+        "target_population": f"Matured U.S. {program_label} small-business loans (approved-only public FOIA data)",
         "status": "active",
         "monitoring_only_fields": ["region", "channel", "review_batch_id"],
         "underwriting_fields": ["score", "requested_amount", "decision_timestamp"],
@@ -223,9 +236,9 @@ def write_cohort(cohort_id: str, sub: pd.DataFrame, scores: np.ndarray, out_dir:
         "model_id": MODEL_ID,
         "version_id": VERSION_ID,
         "effective_date": "2026-01-01",
-        "change_summary": "Demonstration default-risk model trained on real SBA 7(a) FOIA matured loans.",
+        "change_summary": f"Demonstration default-risk model trained on real {program_label} FOIA matured loans.",
         "assumptions": [
-            "SBA 7(a) FOIA is approved-only; no declines or applicant demographics are present.",
+            f"{program_label} FOIA is approved-only; no declines or applicant demographics are present.",
             "Default label = charge-off among matured (PIF/CHGOFF) loans.",
         ],
         "limitations": [
@@ -300,6 +313,7 @@ def write_cohort(cohort_id: str, sub: pd.DataFrame, scores: np.ndarray, out_dir:
         "n_loans": len(sub),
         "default_rate": round(float(sub["default"].mean()), 4),
         "mean_score": round(float(np.mean(scores)), 1),
+        "program_scope": program_label,
     }
 
 
@@ -307,10 +321,11 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True)
     ap.add_argument("--repo-root", default=".")
-    ap.add_argument("--out-root", default="sba_run")
+    ap.add_argument("--out-root", default="model_risk_oversight_sba_run")
     ap.add_argument("--cohort", choices=["month", "year"], default="month")
     ap.add_argument("--max-cohorts", type=int, default=6)
     ap.add_argument("--sample-per-cohort", type=int, default=500)
+    ap.add_argument("--program", choices=["all", "7a", "504"], default="all", help="Filter a combined SBA 7(a)/504 file by program.")
     ap.add_argument("--seed", type=int, default=7)
     args = ap.parse_args()
 
@@ -319,6 +334,14 @@ def main() -> None:
     from credit_gov.monitoring import run_monthly_monitoring  # noqa: E402
 
     df = load_and_prepare(Path(args.input))
+    program_label = program_scope_label(args.program)
+    if args.program != "all":
+        if df["program"].eq("NA").all():
+            raise SystemExit("--program filtering requires a Program column; rerun with --program all for a single-program file.")
+        is504 = df["program"].str.contains("504")
+        df = df[is504 if args.program == "504" else ~is504].reset_index(drop=True)
+        if df.empty:
+            raise SystemExit(f"No rows for program={args.program}")
     df["score"] = train_demo_model(df)
 
     key = df["date"].dt.strftime("%Y-%m" if args.cohort == "month" else "%Y")
@@ -344,7 +367,7 @@ def main() -> None:
         sub = sub.reset_index(drop=True)
         cohort_id = f"sba-{c}"
         ds_dir = out_root / "datasets" / cohort_id
-        stats = write_cohort(cohort_id, sub, sub["score"].to_numpy(), ds_dir)
+        stats = write_cohort(cohort_id, sub, sub["score"].to_numpy(), ds_dir, program_label)
         result = run_monthly_monitoring(dataset_dir=ds_dir, evidence_root=out_root / "evidence")
         stats["workflow_ok"] = result.ok
         stats["evidence_dir"] = result.output_dir
