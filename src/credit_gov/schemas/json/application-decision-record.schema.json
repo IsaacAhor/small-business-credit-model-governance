@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/application-decision-record.schema.json",
+  "title": "Application Decision Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "decision_id",
+    "application_date",
+    "segment",
+    "decision_outcome",
+    "manual_review_flag",
+    "override_flag",
+    "underwriting",
+    "monitoring"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "application_decision_record"
+    },
+    "decision_id": {
+      "type": "string",
+      "pattern": "^dec-[a-z0-9-]+$"
+    },
+    "application_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "segment": {
+      "type": "string",
+      "minLength": 3
+    },
+    "decision_outcome": {
+      "enum": [
+        "approved",
+        "declined",
+        "manual_review"
+      ]
+    },
+    "manual_review_flag": {
+      "type": "boolean"
+    },
+    "override_flag": {
+      "type": "boolean"
+    },
+    "underwriting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score",
+        "requested_amount",
+        "decision_timestamp"
+      ],
+      "properties": {
+        "score": {
+          "type": "number"
+        },
+        "requested_amount": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "decision_timestamp": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    },
+    "monitoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "region",
+        "channel",
+        "review_batch_id"
+      ],
+      "properties": {
+        "region": {
+          "type": "string",
+          "minLength": 2
+        },
+        "channel": {
+          "type": "string",
+          "minLength": 2
+        },
+        "review_batch_id": {
+          "type": "string",
+          "pattern": "^run-[a-z0-9-]+$"
+        }
+      }
+    }
+  }
+}

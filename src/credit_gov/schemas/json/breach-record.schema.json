@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/breach-record.schema.json",
+  "title": "Breach Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "breach_id",
+    "run_id",
+    "metric_name",
+    "observed_value",
+    "threshold_value",
+    "severity",
+    "owner"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "breach_record"
+    },
+    "breach_id": {
+      "type": "string",
+      "pattern": "^brc-[a-z0-9-]+$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-[a-z0-9-]+$"
+    },
+    "metric_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "observed_value": {
+      "type": "number"
+    },
+    "threshold_value": {
+      "type": "number"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 3
+    }
+  }
+}

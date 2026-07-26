@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/fair-lending-screening-config.schema.json",
+  "title": "Fair Lending Screening Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "screening_config_id",
+    "model_id",
+    "version_id",
+    "comparison_groups",
+    "screens"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "fair_lending_screening_config"
+    },
+    "screening_config_id": {
+      "type": "string",
+      "pattern": "^fls-[a-z0-9-]+$"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^mdl-[a-z0-9-]+$"
+    },
+    "version_id": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "comparison_groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "group_name",
+          "source",
+          "field"
+        ],
+        "properties": {
+          "group_name": {
+            "type": "string",
+            "minLength": 3
+          },
+          "source": {
+            "enum": [
+              "decision",
+              "monitoring"
+            ]
+          },
+          "field": {
+            "type": "string",
+            "minLength": 3
+          }
+        }
+      }
+    },
+    "screens": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "screen_name",
+          "metric_name",
+          "comparison_rule",
+          "threshold_value",
+          "severity",
+          "escalation_owner"
+        ],
+        "properties": {
+          "screen_name": {
+            "type": "string",
+            "minLength": 3
+          },
+          "metric_name": {
+            "enum": [
+              "approval_rate_ratio",
+              "override_rate_difference",
+              "reason_code_concentration"
+            ]
+          },
+          "comparison_rule": {
+            "enum": [
+              "greater_than",
+              "less_than"
+            ]
+          },
+          "threshold_value": {
+            "type": "number"
+          },
+          "severity": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "escalation_owner": {
+            "type": "string",
+            "minLength": 3
+          }
+        }
+      }
+    }
+  }
+}

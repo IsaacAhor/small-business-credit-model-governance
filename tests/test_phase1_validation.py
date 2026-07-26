@@ -8,9 +8,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tests.temp_utils import LocalTemporaryDirectory
+
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
-TEMP_ROOT = Path("C:/tmp") if Path("C:/tmp").exists() else Path(tempfile.gettempdir())
+TEMP_ROOT = ROOT / "tmp" / "test-runs"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
@@ -26,7 +28,7 @@ class mutated_dataset:
 
     def __enter__(self) -> Path:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-        self._temp_dir = tempfile.TemporaryDirectory(dir=TEMP_ROOT)
+        self._temp_dir = LocalTemporaryDirectory(TEMP_ROOT)
         self.path = Path(self._temp_dir.name) / "dataset"
         shutil.copytree(ROOT / "data" / "synthetic" / "monthly-demo", self.path)
         target = self.path / self.filename

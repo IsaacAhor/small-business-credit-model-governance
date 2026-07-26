@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/model-version-record.schema.json",
+  "title": "Model Version Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "model_id",
+    "version_id",
+    "effective_date",
+    "change_summary",
+    "assumptions",
+    "limitations",
+    "linked_validation_record"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "model_version_record"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^mdl-[a-z0-9-]+$"
+    },
+    "version_id": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "change_summary": {
+      "type": "string",
+      "minLength": 10
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      },
+      "minItems": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      },
+      "minItems": 1
+    },
+    "linked_validation_record": {
+      "type": "string",
+      "pattern": "^val-[a-z0-9-]+$"
+    }
+  }
+}

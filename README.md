@@ -213,6 +213,41 @@ Repository artifacts should distinguish between:
 Do not present a synthetic notebook, draft framework, or checklist as evidence
 of production deployment. If an artifact is illustrative, label it that way.
 
+## Installation
+
+Install from source while working in this repository:
+
+```bash
+python -m pip install -e .
+```
+
+After PyPI publication, install the released package:
+
+```bash
+python -m pip install credit-gov
+```
+
+The installed package exposes console commands for the core workflows:
+
+```bash
+credit-gov-validate data/synthetic/monthly-demo
+credit-gov monitor data/synthetic/monthly-demo --evidence-root evidence
+credit-gov change-review data/synthetic/monthly-portfolio
+```
+
+For the SBA public-data run kit, install the optional public-data stack:
+
+```bash
+python -m pip install -e ".[public-data]"
+credit-gov-make-sba-fixture --rows 4000 --out data/sba-7a-504-FIXTURE-synthetic.csv
+credit-gov-sba-to-monitoring --input data/sba-7a-504-FIXTURE-synthetic.csv --program all
+```
+
+See `docs/packaging-and-pypi-release.md` for TestPyPI, PyPI, and preservation
+steps. Package distribution is a reproducibility and dissemination artifact;
+it is not evidence of adoption, deployment, legal compliance, regulatory
+approval, or independent validation by itself.
+
 ## Reproducibility
 
 Run Phase 1 data-contract validation:
@@ -263,14 +298,20 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.8.0`, which adds the synthetic adverse-
-action reason accuracy and transparency benchmark. The benchmark is a public,
-on-domain synthetic run kit for reason generation, driver-to-reason mapping,
-reason QA, and evidence-pack review under Regulation B 12 CFR 1002.9. It is not
-public proof of live small-business notice accuracy, lender adoption,
-deployment, legal compliance, or regulatory approval.
+The latest documented milestone is `v0.9.0`, which makes the project a modern
+installable Python package with `pyproject.toml`, packaged schema/reference
+resources, console entry points, wheel-build CI checks, and a PyPI release
+guide. It is a distribution and reproducibility milestone, not proof of
+adoption, deployment, legal compliance, regulatory approval, field recognition,
+or external validation.
 
-The prior release, `v0.7.0`, adds the model-risk oversight public-data run kit:
+The prior release, `v0.8.0`, adds the synthetic adverse-action reason accuracy
+and transparency benchmark. The benchmark is a public, on-domain synthetic run
+kit for reason generation, driver-to-reason mapping, reason QA, and
+evidence-pack review under Regulation B 12 CFR 1002.9. It is not public proof
+of live small-business notice accuracy, lender adoption, deployment, legal
+compliance, or regulatory approval. The prior release, `v0.7.0`, adds the
+model-risk oversight public-data run kit:
 an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic schema
 fixture for pipeline validation, reproducibility documentation, and
 scope/limitations notes. The run kit is designed to exercise model-risk
@@ -285,8 +326,9 @@ sensitivity gate for proxy-bias review.
 See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`,
 `docs/releases/v0.6.0.md`, `docs/releases/v0.6.1.md`,
-`docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`, and
-`docs/releases/v0.7.0.md`.
+`docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`,
+`docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`, and
+`docs/releases/v0.9.0.md`.
 
 ## Data Policy
 

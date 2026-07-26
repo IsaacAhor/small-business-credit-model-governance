@@ -6,9 +6,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tests.temp_utils import LocalTemporaryDirectory
+
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
-TEMP_ROOT = Path("C:/tmp") if Path("C:/tmp").exists() else Path(tempfile.gettempdir())
+TEMP_ROOT = ROOT / "tmp" / "test-runs"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
@@ -215,7 +217,7 @@ class ChangeSummaryAndReportTests(unittest.TestCase):
 class ChangeValidationMonitoringIntegrationTests(unittest.TestCase):
     def test_monitoring_run_emits_change_validation_evidence(self) -> None:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=TEMP_ROOT) as tmp:
+        with LocalTemporaryDirectory(TEMP_ROOT) as tmp:
             result = run_monthly_monitoring(DATASET, evidence_root=Path(tmp))
             self.assertTrue(result.ok, result.errors)
             self.assertIsNotNone(result.change_validation)
@@ -232,7 +234,7 @@ class ChangeValidationMonitoringIntegrationTests(unittest.TestCase):
 
     def test_monitoring_run_without_change_inputs_is_unaffected(self) -> None:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=TEMP_ROOT) as tmp:
+        with LocalTemporaryDirectory(TEMP_ROOT) as tmp:
             result = run_monthly_monitoring(
                 ROOT / "data" / "synthetic" / "monthly-demo",
                 evidence_root=Path(tmp),

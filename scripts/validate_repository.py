@@ -1,7 +1,7 @@
 """Repository guardrails for governance artifacts.
 
 The checks are intentionally lightweight and stdlib-only so they can run in
-GitHub Actions before the repository has a formal Python package.
+GitHub Actions before publishing distribution artifacts.
 """
 
 from __future__ import annotations
@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
     "README.md",
+    "pyproject.toml",
     "START_HERE.md",
     "USE_CASES.md",
     "IMPLEMENTATION_GUIDE.md",
@@ -214,12 +215,31 @@ def check_data_files() -> None:
             )
 
 
+def check_packaged_resources() -> None:
+    schema_resource_dir = ROOT / "src" / "credit_gov" / "schemas" / "json"
+    for schema_path in sorted((ROOT / "schemas").glob("*.json")):
+        packaged_path = schema_resource_dir / schema_path.name
+        if not packaged_path.is_file():
+            fail(f"Packaged schema resource is missing: {packaged_path.relative_to(ROOT)}")
+        if schema_path.read_text(encoding="utf-8") != packaged_path.read_text(encoding="utf-8"):
+            fail(f"Packaged schema resource is stale: {packaged_path.relative_to(ROOT)}")
+
+    reference_resource_dir = ROOT / "src" / "credit_gov" / "reference" / "bisg"
+    for reference_path in sorted((ROOT / "data" / "reference" / "bisg").glob("*.json")):
+        packaged_path = reference_resource_dir / reference_path.name
+        if not packaged_path.is_file():
+            fail(f"Packaged BISG reference resource is missing: {packaged_path.relative_to(ROOT)}")
+        if reference_path.read_text(encoding="utf-8") != packaged_path.read_text(encoding="utf-8"):
+            fail(f"Packaged BISG reference resource is stale: {packaged_path.relative_to(ROOT)}")
+
+
 def main() -> None:
     check_required_files()
     check_required_terms()
     check_local_markdown_links()
     check_notebooks()
     check_data_files()
+    check_packaged_resources()
     print("Repository guardrails passed.")
 
 

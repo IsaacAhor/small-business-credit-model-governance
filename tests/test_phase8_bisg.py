@@ -7,9 +7,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tests.temp_utils import LocalTemporaryDirectory
+
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
-TEMP_ROOT = Path("C:/tmp") if Path("C:/tmp").exists() else Path(tempfile.gettempdir())
+TEMP_ROOT = ROOT / "tmp" / "test-runs"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
@@ -240,7 +242,7 @@ class BisgAnalysisTests(unittest.TestCase):
 
     def test_monitoring_run_emits_bisg_evidence(self) -> None:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=TEMP_ROOT) as temp_dir:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temp_dir:
             evidence_root = Path(temp_dir) / "evidence"
             evidence_root.mkdir(parents=True, exist_ok=True)
             result = run_monthly_monitoring(PORTFOLIO, evidence_root=evidence_root)
@@ -257,7 +259,7 @@ class BisgAnalysisTests(unittest.TestCase):
 
     def test_datasets_without_bisg_inputs_are_unaffected(self) -> None:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=TEMP_ROOT) as temp_dir:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temp_dir:
             evidence_root = Path(temp_dir) / "evidence"
             evidence_root.mkdir(parents=True, exist_ok=True)
             result = run_monthly_monitoring(
@@ -273,7 +275,7 @@ class BisgAnalysisTests(unittest.TestCase):
 class SignificanceIntegrationTests(unittest.TestCase):
     def test_fair_lending_findings_carry_significance(self) -> None:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=TEMP_ROOT) as temp_dir:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temp_dir:
             evidence_root = Path(temp_dir) / "evidence"
             evidence_root.mkdir(parents=True, exist_ok=True)
             result = run_monthly_monitoring(PORTFOLIO, evidence_root=evidence_root)

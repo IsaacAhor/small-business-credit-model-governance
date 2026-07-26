@@ -7,17 +7,37 @@ on:
       - main
 
 jobs:
-  markdown-and-structure:
+  package-and-validate:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
       - name: Lint Markdown
         uses: DavidAnson/markdownlint-cli2-action@v18
         with:
           globs: |
             **/*.md
+
+      - name: Install build backend
+        run: python -m pip install --upgrade pip build
+
+      - name: Build distribution artifacts
+        run: python -m build
+
+      - name: Install built wheel
+        run: python -m pip install --force-reinstall dist/*.whl
+
+      - name: Smoke test installed commands
+        run: |
+          credit-gov-validate data/synthetic/monthly-demo
+          credit-gov monitor data/synthetic/monthly-demo --evidence-root .tmp-ci-evidence
+          credit-gov change-review data/synthetic/monthly-portfolio
 
       - name: Verify expected starter files exist
         run: python scripts/validate_repository.py
@@ -26,7 +46,7 @@ jobs:
         run: python scripts/validate_phase1.py
 
       - name: Run monthly monitoring smoke test
-        run: python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root .tmp-ci-evidence
+        run: python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root .tmp-ci-evidence-script
 
       - name: Run tests
         run: python -m unittest discover -s tests -p "test_*.py"

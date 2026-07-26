@@ -6,6 +6,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from datetime import date
+from importlib.resources import files
 from pathlib import Path
 from typing import Any, Callable
 
@@ -88,6 +89,18 @@ SCHEMA_SPECS: tuple[SchemaSpec, ...] = (
 
 def load_json(path: Path) -> Any:
     with path.open(encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def load_schema(schema_file: str) -> dict[str, Any]:
+    schema_path = SCHEMA_DIR / schema_file
+    if schema_path.is_file():
+        return load_json(schema_path)
+
+    resource = files("credit_gov.schemas").joinpath("json", schema_file)
+    if not resource.is_file():
+        raise FileNotFoundError(f"Missing schema file: {schema_file}")
+    with resource.open(encoding="utf-8") as handle:
         return json.load(handle)
 
 
@@ -199,17 +212,13 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
     payloads: dict[str, Any] = {}
     for spec in SCHEMA_SPECS:
         data_path = dataset_dir / spec.filename
-        schema_path = SCHEMA_DIR / spec.schema_file
         if not data_path.is_file():
             errors.append(f"Missing dataset file: {spec.filename}")
-            continue
-        if not schema_path.is_file():
-            errors.append(f"Missing schema file: {spec.schema_file}")
             continue
         try:
             payload = load_json(data_path)
             payloads[spec.filename] = payload
-            schema = load_json(schema_path)
+            schema = load_schema(spec.schema_file)
             records = payload if isinstance(payload, list) else [payload]
             optional_empty_lists = {
                 "adverse-action-reason-outputs.json",

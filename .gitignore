@@ -23,3 +23,13 @@ model_risk_oversight_sba_run/
 model_risk_oversight_sba_fixture/
 sba_run/
 sba_run_fixture/
+
+# Local test/build outputs
+.tmp-tests/
+build/
+dist/
+*.egg-info/
+tmp/test-runs/
+.tmp-*/
+tmp/build-temp/
+.pytest_cache/

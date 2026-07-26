@@ -41,6 +41,7 @@ from __future__ import annotations
 import json
 import math
 import random
+from importlib.resources import files
 from pathlib import Path
 from typing import Any
 
@@ -67,10 +68,49 @@ def load_reference_table(path: Path) -> dict[str, dict[str, float]]:
     """Load a reference table mapping a key to race-probability rows."""
     with path.open(encoding="utf-8") as handle:
         payload = json.load(handle)
+    return normalize_reference_table(payload)
+
+
+def normalize_reference_table(payload: dict[str, Any]) -> dict[str, dict[str, float]]:
     table: dict[str, dict[str, float]] = {}
     for key, row in payload.items():
         table[key.strip().upper()] = {category: float(row.get(category, 0.0)) for category in RACE_CATEGORIES}
     return table
+
+
+def resolve_configured_reference_path(dataset_dir: Path, configured_path: str) -> Path | None:
+    configured = Path(configured_path)
+    candidates: list[Path] = []
+    if configured.is_absolute():
+        candidates.append(configured)
+    else:
+        candidates.append((Path.cwd() / configured).resolve())
+        candidates.append((dataset_dir.resolve() / configured).resolve())
+        parents = dataset_dir.resolve().parents
+        if len(parents) >= 3:
+            candidates.append((parents[2] / configured).resolve())
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+    return None
+
+
+def load_reference_json(dataset_dir: Path, configured_path: str) -> Any:
+    resolved = resolve_configured_reference_path(dataset_dir, configured_path)
+    if resolved is not None:
+        with resolved.open(encoding="utf-8") as handle:
+            return json.load(handle)
+
+    name = Path(configured_path).name
+    resource = files("credit_gov.reference.bisg").joinpath(name)
+    if resource.is_file():
+        with resource.open(encoding="utf-8") as handle:
+            return json.load(handle)
+    raise FileNotFoundError(f"Missing BISG reference file: {configured_path}")
+
+
+def load_reference_table_from_config(dataset_dir: Path, configured_path: str) -> dict[str, dict[str, float]]:
+    return normalize_reference_table(load_reference_json(dataset_dir, configured_path))
 
 
 def normalize_distribution(weights: dict[str, float]) -> dict[str, float]:
@@ -526,11 +566,12 @@ def run_bisg_proxy_analysis(
     reference-group comparisons. Rounded-count proportion tests are retained
     only as legacy diagnostics.
     """
-    repo_root = dataset_dir.resolve().parents[2]
-    surname_table = load_reference_table(repo_root / config["surname_reference_path"])
-    geography_table = load_reference_table(repo_root / config["geography_reference_path"])
-    with (repo_root / config["national_marginals_path"]).open(encoding="utf-8") as handle:
-        national_marginals = {key: float(value) for key, value in json.load(handle).items()}
+    surname_table = load_reference_table_from_config(dataset_dir, config["surname_reference_path"])
+    geography_table = load_reference_table_from_config(dataset_dir, config["geography_reference_path"])
+    national_marginals = {
+        key: float(value)
+        for key, value in load_reference_json(dataset_dir, config["national_marginals_path"]).items()
+    }
 
     reference_group = config.get("reference_group", "white")
     alpha = float(config.get("alpha", 0.05))

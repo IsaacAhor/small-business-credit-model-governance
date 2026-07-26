@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "credit-gov"
+version = "0.9.0"
+description = "Governance evidence engine for machine-learning-based small business credit underwriting workflows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Isaac Ahor" }
+]
+keywords = [
+  "credit-risk",
+  "model-governance",
+  "model-risk-management",
+  "fair-lending",
+  "adverse-action",
+  "small-business-credit"
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Office/Business :: Financial",
+  "Topic :: Scientific/Engineering :: Information Analysis"
+]
+dependencies = []
+
+[project.optional-dependencies]
+public-data = [
+  "numpy >= 1.26",
+  "pandas >= 2.1",
+  "scikit-learn >= 1.4"
+]
+dev = [
+  "build >= 1.2",
+  "twine >= 5.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/IsaacAhor/small-business-credit-model-governance"
+Repository = "https://github.com/IsaacAhor/small-business-credit-model-governance"
+Issues = "https://github.com/IsaacAhor/small-business-credit-model-governance/issues"
+
+[project.scripts]
+credit-gov = "credit_gov.commands:main"
+credit-gov-validate = "credit_gov.cli:main"
+credit-gov-monitor = "credit_gov.commands:monitor_main"
+credit-gov-generate-reasons = "credit_gov.commands:generate_reasons_main"
+credit-gov-lda = "credit_gov.commands:lda_main"
+credit-gov-bisg = "credit_gov.commands:bisg_main"
+credit-gov-change-review = "credit_gov.commands:change_review_main"
+credit-gov-sba-to-monitoring = "credit_gov.sba_to_monitoring:main"
+credit-gov-make-sba-fixture = "credit_gov.make_sba_fixture:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"credit_gov.schemas" = ["json/*.json"]
+"credit_gov.reference.bisg" = ["*.json"]

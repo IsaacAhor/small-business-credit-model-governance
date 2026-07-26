@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/adverse-action-reason-output.schema.json",
+  "title": "Adverse Action Reason Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "reason_output_id",
+    "decision_id",
+    "version_id",
+    "reason_code",
+    "driver_or_signal",
+    "reason_rank",
+    "mapping_version"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "adverse_action_reason_output"
+    },
+    "reason_output_id": {
+      "type": "string",
+      "pattern": "^rso-[a-z0-9-]+$"
+    },
+    "decision_id": {
+      "type": "string",
+      "pattern": "^dec-[0-9]{4}$"
+    },
+    "version_id": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "reason_code": {
+      "type": "string",
+      "pattern": "^RC-[0-9]{3}$"
+    },
+    "driver_or_signal": {
+      "type": "string",
+      "minLength": 3
+    },
+    "reason_rank": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "mapping_version": {
+      "type": "string",
+      "pattern": "^mapver-[a-z0-9-]+$"
+    }
+  }
+}

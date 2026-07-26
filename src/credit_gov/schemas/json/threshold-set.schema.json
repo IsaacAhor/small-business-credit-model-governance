@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/threshold-set.schema.json",
+  "title": "Threshold Set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "threshold_set_id",
+    "model_id",
+    "version_id",
+    "review_cadence",
+    "thresholds"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "threshold_set"
+    },
+    "threshold_set_id": {
+      "type": "string",
+      "pattern": "^thr-[a-z0-9-]+$"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^mdl-[a-z0-9-]+$"
+    },
+    "version_id": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "review_cadence": {
+      "enum": [
+        "monthly",
+        "quarterly",
+        "event_driven"
+      ]
+    },
+    "thresholds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metric_name",
+          "comparison_rule",
+          "threshold_value",
+          "severity",
+          "escalation_owner"
+        ],
+        "properties": {
+          "metric_name": {
+            "type": "string",
+            "minLength": 3
+          },
+          "comparison_rule": {
+            "enum": [
+              "greater_than",
+              "greater_than_or_equal",
+              "less_than",
+              "less_than_or_equal"
+            ]
+          },
+          "threshold_value": {
+            "type": "number"
+          },
+          "severity": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "escalation_owner": {
+            "type": "string",
+            "minLength": 3
+          }
+        }
+      }
+    }
+  }
+}
