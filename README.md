@@ -2,19 +2,20 @@
 
 [![CI](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml/badge.svg)](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml)
 
-This repository contains a practical body of work focused on model governance,
-fair-lending monitoring, and reviewer-ready documentation for
-machine-learning-based small business credit underwriting systems.
+This repository contains reproducible governance methods, documentation
+standards, and public-data run kits for model-risk monitoring, fair-lending
+review, and reviewer-ready documentation for machine-learning-based small
+business credit underwriting systems.
 
 ## For Reviewers
 
-This repository demonstrates a repeatable governance workflow for
+This repository demonstrates repeatable governance methods for
 machine-learning-based small business credit underwriting systems. It shows how
 a lender, validator, auditor, regulator-facing reviewer, or
 policy/compliance professional could organize model records, threshold
 reviews, adverse-action reason QA, fair-lending screening triggers, issue
-registers, and reviewer-ready evidence packs using synthetic demonstration
-data.
+registers, and reviewer-ready evidence packs using synthetic fixtures and
+clearly scoped public-data run kits.
 
 The workflow generates adverse-action reasons from ranked decision drivers
 (then reviews them via reason QA), reports statistical significance on every
@@ -80,12 +81,13 @@ The repository is designed to support several connected outputs:
 - monitoring checklists for explainability, fair lending, and model-risk oversight
 - implementation-oriented system designs, workflows, and templates
 - practitioner-facing written work that translates the framework into usable methods
-- a configuration-driven governance evidence engine built around synthetic data
+- a configuration-driven governance evidence engine supported by synthetic
+  fixtures and clearly scoped public-data run kits
 
 ## What It Does Not Claim
 
-This repository uses synthetic demonstration data and public documentation
-artifacts. It does not claim:
+This repository uses synthetic demonstration data, clearly scoped public
+datasets, and public documentation artifacts. It does not claim:
 
 - confidential production deployment
 - institution-specific legal conclusions
@@ -109,10 +111,10 @@ alternative assessment, and ongoing model-risk oversight, to improve regulatory
 compliance, decision transparency, and responsible access to small business
 credit.
 
-The repository pursues that objective through
-public, reviewable artifacts: methods, monitoring protocols, documentation
-standards, templates, synthetic demonstrations, and a configuration-driven
-governance evidence engine.
+The repository pursues that objective through public, reviewable artifacts:
+methods, monitoring protocols, documentation standards, templates, synthetic
+fixtures, public-data run kits, and a configuration-driven governance evidence
+engine.
 
 ## Core Use Cases
 
@@ -248,14 +250,15 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest release is `v0.7.0`, which adds the Phase 5 model-change and
-validation-review workflow: model-version, threshold-set, and reason-code
-mapping comparison, a change-impact summary with derived review actions, and a
-reviewer signoff record tied to a specific version and evidence pack. It runs as
-an optional step in monthly monitoring and as a standalone CLI. The prior
-substantive milestone, `v0.6.0`, adds statistical significance testing for
-fair-lending screens and optional BISG proxy monitoring on the portfolio-scale
-synthetic dataset.
+The latest release is `v0.7.0`, which adds the SBA 7(a) public-data monitoring
+run kit: an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic
+schema fixture for pipeline validation, reproducibility documentation, and
+scope/limitations notes. The run kit is designed to exercise model-risk
+monitoring and drift reporting on real approved-loan public data; it is not an
+underwriting model, fairness analysis, adverse-action analysis, deployment
+claim, or legal conclusion. The prior substantive analytical milestone,
+`v0.6.0`, adds statistical significance testing for fair-lending screens and
+optional BISG proxy monitoring on the portfolio-scale synthetic dataset.
 
 See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`,
@@ -300,7 +303,10 @@ This repository now contains:
 - a Phase 4B less-discriminatory-alternative assessment workflow integrated into optional monitoring evidence outputs
 - a portfolio-scale synthetic monthly dataset that exercises reason generation, reason QA, fair-lending screening, and LDA assessment
 - a Phase 5 model-change and validation-review workflow that compares prior and current model-version, threshold-set, and reason-code mapping records, summarizes change impact, and emits a reviewer signoff record tied to a version and evidence pack
-- release strategy documentation and `v0.7.0` release notes for stable milestone preservation
+- an SBA 7(a) public-data monitoring run kit that adapts real approved-loan
+  FOIA data into model-risk monitoring cohorts while excluding fairness and
+  adverse-action interpretations that the data cannot support
+- release strategy documentation and `v0.7.0` SBA run-kit release notes for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

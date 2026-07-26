@@ -32,7 +32,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.4.1`: outsider packaging patch with reviewer and implementation guides
 - `v0.5.0`: adverse-action reason generation, LDA assessment, and portfolio-scale dataset
 - `v0.6.0`: statistical significance testing and BISG proxy monitoring
-- `v0.7.0`: model-change and validation-review workflow
+- `v0.7.0`: SBA 7(a) public-data monitoring run kit
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -53,15 +53,20 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current milestone is `v0.7.0`, which adds the Phase 5 model-change and
-validation-review workflow: model-version, threshold-set, and reason-code
-mapping comparison, a change-impact summary with derived review actions, and a
-reviewer signoff record tied to a specific version and evidence pack. The prior
-substantive milestone, `v0.6.0`, adds statistical significance testing to
-fair-lending disparity screens and optional BISG protected-class proxy
-monitoring on the portfolio-scale synthetic dataset. Both remain synthetic
-demonstration milestones, not production deployment, adoption, legal conclusion,
-or regulatory acceptance.
+The current milestone is `v0.7.0`, which adds the SBA 7(a) public-data
+monitoring run kit: an adapter for real SBA 7(a)/504 FOIA loan-level data, a
+synthetic schema fixture for pipeline validation, reproducibility
+documentation, and scope/limitations notes. The run kit is a model-risk
+monitoring and drift-reporting exercise on real approved-loan public data; it is
+not an underwriting model, fairness analysis, adverse-action analysis, lender
+adoption, legal conclusion, or regulatory acceptance.
+
+The prior substantive analytical milestone, `v0.6.0`, adds statistical
+significance testing to fair-lending disparity screens and optional BISG
+protected-class proxy monitoring on the portfolio-scale synthetic dataset. The
+repository also contains a Phase 5 model-change and validation-review workflow,
+but that workflow should not be described as the `v0.7.0` GitHub release
+milestone.
 
 ## Release Notes Location
 

@@ -345,7 +345,8 @@ repository workflow.
   assessment, and portfolio-scale synthetic dataset.
 - `v0.6.0`: Phase 8 statistical significance testing and BISG proxy
   monitoring on the portfolio-scale synthetic dataset.
-- `v0.7.0`: Phase 5 model-change and validation-review workflow.
+- `v0.7.0`: SBA 7(a) public-data monitoring run kit for model-risk monitoring
+  and drift reporting on real approved-loan FOIA data.
 
 ## Evidence Pack Standard
 
