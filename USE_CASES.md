@@ -32,8 +32,8 @@ governed review trigger rather than an unsupported legal conclusion.
 Start with:
 
 - `docs/adverse-action-reason-run-kit/README.md`
-- `docs/adverse-action-reason-accuracy-method.md`
-- `docs/adverse-action-public-data-limitations.md`
+- `docs/adverse-action-reason-run-kit/METHOD.md`
+- `docs/adverse-action-reason-run-kit/PUBLIC_DATA_LIMITS.md`
 - `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
 - `templates/fair-lending-monitoring-checklist.md`
 - `schemas/fair-lending-screening-config.schema.json`

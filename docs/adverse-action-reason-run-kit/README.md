@@ -47,9 +47,9 @@ law for this workstream.
 | Run command | `scripts/run_adverse_action_reason_benchmark.py` |
 | Synthetic benchmark inputs | `data/synthetic/adverse-action-reason-benchmark/` |
 | Generated reviewer pack | `examples/evidence-packs/adverse-action-reason-benchmark/` |
-| Method note | `docs/adverse-action-reason-accuracy-method.md` |
-| Public-data limitation note | `docs/adverse-action-public-data-limitations.md` |
-| Private-data field spec | `docs/private-data-spec-adverse-action-reasons.md` |
+| Method note | `docs/adverse-action-reason-run-kit/METHOD.md` |
+| Public-data limitation note | `docs/adverse-action-reason-run-kit/PUBLIC_DATA_LIMITS.md` |
+| Private-data field spec | `docs/adverse-action-reason-run-kit/PRIVATE_DATA_SPEC.md` |
 | Regression test | `tests/test_adverse_action_reason_benchmark.py` |
 | Release note | `docs/releases/v0.8.0.md` |
 
@@ -88,13 +88,16 @@ python scripts/validate_repository.py
 
 Read these files in order:
 
-1. `BENCHMARK_SPEC.md`
-2. `EVIDENCE_PACK_REVIEW.md`
-3. `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
-4. `examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_report.md`
-5. `examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_results.json`
-6. `examples/evidence-packs/adverse-action-reason-benchmark/reason_qa_results.json`
-7. `LIMITATIONS.md`
+1. `METHOD.md`
+2. `PUBLIC_DATA_LIMITS.md`
+3. `PRIVATE_DATA_SPEC.md`
+4. `BENCHMARK_SPEC.md`
+5. `EVIDENCE_PACK_REVIEW.md`
+6. `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
+7. `examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_report.md`
+8. `examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_results.json`
+9. `examples/evidence-packs/adverse-action-reason-benchmark/reason_qa_results.json`
+10. `LIMITATIONS.md`
 
 ## Expected Result
 

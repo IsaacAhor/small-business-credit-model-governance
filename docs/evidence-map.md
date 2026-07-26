@@ -10,9 +10,9 @@ overclaiming from synthetic demonstrations.
 | `PROJECT_BRIEF.md` | Plain-language summary of the problem, contribution, limitations, and intended users | Independent validation or market acceptance |
 | `docs/framework-draft.md` | Method design for governance, monitoring, documentation, and oversight | Peer-reviewed publication status or field adoption |
 | `docs/adverse-action-reason-run-kit/` | One-folder reviewer and operator landing path for the adverse-action reason benchmark | Real-world validation, legal compliance, lender adoption, or production notice accuracy |
-| `docs/adverse-action-reason-accuracy-method.md` | Method design for reason generation, mapping, QA, and evidence packaging under Regulation B section 1002.9 | Legal sufficiency of any actual notice or current lender compliance |
-| `docs/adverse-action-public-data-limitations.md` | Public-data boundary for SBA, PPP, CRA, HMDA, and 1071 use | That public data proves small-business adverse-action reason accuracy |
-| `docs/private-data-spec-adverse-action-reasons.md` | Field specification for a future private deidentified validation run | That private data has been obtained or reviewed |
+| `docs/adverse-action-reason-run-kit/METHOD.md` | Method design for reason generation, mapping, QA, and evidence packaging under Regulation B section 1002.9 | Legal sufficiency of any actual notice or current lender compliance |
+| `docs/adverse-action-reason-run-kit/PUBLIC_DATA_LIMITS.md` | Public-data boundary for SBA, PPP, CRA, HMDA, and 1071 use | That public data proves small-business adverse-action reason accuracy |
+| `docs/adverse-action-reason-run-kit/PRIVATE_DATA_SPEC.md` | Field specification for a future private deidentified validation run | That private data has been obtained or reviewed |
 | `docs/system-charter.md` | System purpose, intended users, core capabilities, and non-objectives | Production readiness or institution-specific compliance |
 | `schemas/` | Structured data contracts for governed records and evidence-pack manifests | Completeness for every lender, model type, or legal requirement |
 | `src/credit_gov/` | Implementation ability and reusable workflow logic | Production hardening, security review, or deployment at a lender |

@@ -3,7 +3,7 @@
 The canonical field specification is:
 
 ```text
-docs/private-data-spec-adverse-action-reasons.md
+docs/adverse-action-reason-run-kit/PRIVATE_DATA_SPEC.md
 ```
 
 This landing note summarizes the minimum dataset needed to move beyond a
