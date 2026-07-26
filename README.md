@@ -21,7 +21,7 @@ The workflow generates adverse-action reasons from ranked decision drivers
 (then reviews them via reason QA), reports statistical significance on every
 fair-lending disparity screen (two-proportion z-test with Fisher's exact
 fallback), estimates protected-class proxies via BISG (Bayesian Improved
-Surname Geocoding) with proxy-weighted disparity testing, and ships a
+Surname Geocoding) with posterior-predictive bootstrap disparity screening, and ships a
 portfolio-scale synthetic dataset (`data/synthetic/monthly-portfolio`, 320
 decisions) so screens and exceptions fire on realistic distributions. As a
 supporting risk-management component, it also includes a
@@ -65,7 +65,7 @@ for:
 - adverse-action reason generation and reason accuracy QA
 - fair-lending screening with statistical significance testing and
   escalation triggers
-- BISG protected-class proxy estimation with proxy-weighted disparity
+- BISG protected-class proxy estimation with posterior-predictive bootstrap disparity
   screening
 - issue tracking and evidence-pack assembly
 - ongoing model-risk oversight using deterministic demonstration inputs

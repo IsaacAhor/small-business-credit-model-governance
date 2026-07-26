@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import sys
 import tempfile
 import unittest
@@ -12,7 +13,14 @@ TEMP_ROOT = Path("C:/tmp") if Path("C:/tmp").exists() else Path(tempfile.gettemp
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from credit_gov.bisg import bisg_posterior, load_reference_table, run_bisg_proxy_analysis  # noqa: E402
+from credit_gov.bisg import (  # noqa: E402
+    bisg_posterior,
+    bootstrap_proxy_distributions,
+    confidence_interval,
+    load_reference_table,
+    proxy_weighted_counts,
+    run_bisg_proxy_analysis,
+)
 from credit_gov.monitoring import run_monthly_monitoring  # noqa: E402
 
 PORTFOLIO = ROOT / "data" / "synthetic" / "monthly-portfolio"
@@ -20,6 +28,19 @@ SURNAMES = load_reference_table(ROOT / "data" / "reference" / "bisg" / "demo-sur
 GEOGRAPHIES = load_reference_table(ROOT / "data" / "reference" / "bisg" / "demo-geography-probabilities.json")
 with (ROOT / "data" / "reference" / "bisg" / "national-marginals.json").open(encoding="utf-8") as handle:
     MARGINALS = {key: float(value) for key, value in json.load(handle).items()}
+
+
+def legacy_rate_difference_ci_width(comparison: dict[str, object]) -> float:
+    legacy = comparison["legacy_rounded_count_comparison"]
+    group_a = legacy["group_a"]
+    group_b = legacy["group_b"]
+    rate_a = group_a["successes"] / group_a["total"]
+    rate_b = group_b["successes"] / group_b["total"]
+    standard_error = math.sqrt(
+        rate_a * (1.0 - rate_a) / group_a["total"]
+        + rate_b * (1.0 - rate_b) / group_b["total"]
+    )
+    return 2.0 * 1.959963984540054 * standard_error
 
 
 class BisgPosteriorTests(unittest.TestCase):
@@ -56,19 +77,77 @@ class BisgAnalysisTests(unittest.TestCase):
         results = run_bisg_proxy_analysis(decisions, demographic_inputs, config, PORTFOLIO)
 
         self.assertEqual(results["label"], "bisg_proxy_screening_only_not_legal_conclusion")
+        self.assertEqual(results["inference_method"], "applicant_level_posterior_predictive_bootstrap")
+        self.assertEqual(results["bootstrap"]["draws"], 2000)
         self.assertEqual(results["matched_decision_count"], len(decisions))
         self.assertEqual(results["unmatched_decision_count"], 0)
         for category in ("white", "black", "hispanic", "api"):
-            self.assertTrue(results["group_metrics"][category]["adequate_effective_sample"], category)
-        # Small effective groups must be excluded from comparisons, not silently tested.
+            metrics = results["group_metrics"][category]
+            self.assertTrue(metrics["adequate_effective_sample"], category)
+            self.assertGreater(metrics["effective_sample_size"], 0.0, category)
+            self.assertIsNotNone(metrics["bootstrap_approval_rate_ci"]["lower"], category)
+            self.assertIsNotNone(metrics["bootstrap_approval_rate_ci"]["upper"], category)
+        # Small expected proxy-weighted groups must be excluded from comparisons, not silently tested.
         self.assertTrue(results["comparisons"]["aian"].get("skipped"))
-        # Every executed comparison carries a test, a p-value, and caveats.
+        self.assertFalse(
+            results["comparisons"]["aian"]["sample_gate"]["proxy_weighted_total_meets_minimum"]
+        )
+        # Every executed comparison carries bootstrap inference plus the legacy rounded-count diagnostic.
         for category, comparison in results["comparisons"].items():
             if comparison.get("skipped"):
                 continue
             self.assertIn("p_value", comparison, category)
-            self.assertIn("test", comparison, category)
+            self.assertEqual(comparison["test"], "applicant_level_posterior_predictive_bootstrap", category)
+            self.assertIn("bootstrap", comparison, category)
+            self.assertIn("legacy_rounded_count_comparison", comparison, category)
             self.assertTrue(comparison["caveats"], category)
+
+        hispanic = results["comparisons"]["hispanic"]
+        bootstrap_ci = hispanic["bootstrap"]["rate_difference_ci"]
+        self.assertLessEqual(bootstrap_ci["lower"], 0.0)
+        self.assertGreaterEqual(bootstrap_ci["upper"], 0.0)
+        self.assertFalse(hispanic["statistically_significant"])
+
+    def test_posterior_predictive_bootstrap_widens_ambiguous_proxy_interval(self) -> None:
+        records = [
+            {
+                "approved": index < 40,
+                "posterior": {
+                    "white": 0.5,
+                    "black": 0.0,
+                    "hispanic": 0.5,
+                    "api": 0.0,
+                    "aian": 0.0,
+                    "multiracial": 0.0,
+                },
+            }
+            for index in range(80)
+        ]
+        weighted = proxy_weighted_counts(records)
+        bootstrap = bootstrap_proxy_distributions(
+            records=records,
+            reference_group="white",
+            draws=2000,
+            seed=20260726,
+        )
+        bootstrap_ci = confidence_interval(
+            bootstrap["comparison_draws"]["hispanic"]["rate_difference"],
+            0.95,
+        )
+        bootstrap_width = bootstrap_ci["upper"] - bootstrap_ci["lower"]
+        legacy_comparison = {
+            "legacy_rounded_count_comparison": {
+                "group_a": {
+                    "successes": int(round(weighted["hispanic"]["approved"])),
+                    "total": int(round(weighted["hispanic"]["total"])),
+                },
+                "group_b": {
+                    "successes": int(round(weighted["white"]["approved"])),
+                    "total": int(round(weighted["white"]["total"])),
+                },
+            }
+        }
+        self.assertGreater(bootstrap_width, legacy_rate_difference_ci_width(legacy_comparison))
 
     def test_monitoring_run_emits_bisg_evidence(self) -> None:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)

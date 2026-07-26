@@ -34,7 +34,8 @@ Verified against primary CFPB materials on 2026-07-26:
   internal-policy explanations are insufficient, and more than four reasons is
   generally not likely to be helpful.
 - [CFPB Circular 2022-03](https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/)
-  is useful background for complex algorithms, but this run kit relies on the
+  is withdrawn CFPB guidance as of May 12, 2025. It may be useful historical
+  background for complex-algorithm concerns, but this run kit relies on the
   current regulation and official interpretation as its primary anchor.
 
 Do not cite federal ECOA disparate-impact or effects-test liability as current

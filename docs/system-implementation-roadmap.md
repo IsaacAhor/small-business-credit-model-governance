@@ -438,7 +438,7 @@ Acceptance criteria:
 
 Status:
 
-- BISG proxy estimation and statistical significance testing shipped in
+- BISG proxy estimation and posterior-predictive bootstrap inference shipped in
   `src/credit_gov/bisg.py` and `src/credit_gov/stats.py`, wired into the
   monitoring run and evidence pack (see `docs/fair-lending-statistics.md`)
 - LDA candidate search and the public-dataset run remain open

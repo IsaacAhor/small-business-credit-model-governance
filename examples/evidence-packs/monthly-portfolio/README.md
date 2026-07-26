@@ -15,7 +15,7 @@ and do not contain real applicant, borrower, lender, or institution data.
   fires with significance; one segment screen fires without it — the contrast
   is deliberate and shows the screens distinguishing signal from noise.
 - BISG proxy screening results (`bisg_proxy_results.json`), with
-  probability-weighted group comparisons against a configured reference group.
+  probability-weighted point estimates and posterior-predictive bootstrap comparisons against a configured reference group.
 - A less-discriminatory-alternative assessment
   (`lda_assessment_results.json`) comparing a baseline model to a supplied
   candidate on disparity and predictive separation.

@@ -50,11 +50,19 @@ def main() -> int:
     )
 
     print(f"method={results['method']} matched={results['matched_decision_count']}/{results['decision_count']}")
+    print(
+        f"inference={results['inference_method']} "
+        f"draws={results['bootstrap']['draws']} seed={results['bootstrap']['seed']} "
+        f"ci_level={results['bootstrap']['ci_level']}"
+    )
     for category, metrics in results["group_metrics"].items():
         rate = metrics["proxy_weighted_approval_rate"]
+        ci = metrics["bootstrap_approval_rate_ci"]
         print(
             f"  {category}: weighted_total={metrics['proxy_weighted_total']} "
-            f"approval_rate={rate if rate is not None else 'n/a'}"
+            f"n_eff={metrics['effective_sample_size']} "
+            f"approval_rate={rate if rate is not None else 'n/a'} "
+            f"ci=[{ci['lower']}, {ci['upper']}]"
         )
     print(f"significant_findings={results['finding_count']}")
     for finding in results["findings"]:

@@ -4,6 +4,12 @@
   "config_id": "bisg-2026-06-monthly",
   "reference_group": "white",
   "alpha": 0.05,
+  "inference_method": "applicant_level_posterior_predictive_bootstrap",
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 20260726,
+    "ci_level": 0.95
+  },
   "decision_count": 320,
   "matched_decision_count": 320,
   "unmatched_decision_count": 0,
@@ -15,137 +21,362 @@
       "proxy_weighted_total": 113.04,
       "proxy_weighted_approved": 55.93,
       "proxy_weighted_approval_rate": 0.4948,
-      "adequate_effective_sample": true
+      "effective_sample_size": 185.95,
+      "bootstrap_approval_rate_ci": {
+        "level": 0.95,
+        "lower": 0.4,
+        "upper": 0.5862
+      },
+      "adequate_effective_sample": true,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": true,
+        "effective_sample_size_meets_minimum": true
+      }
     },
     "black": {
       "proxy_weighted_total": 98.22,
       "proxy_weighted_approved": 54.52,
       "proxy_weighted_approval_rate": 0.5551,
-      "adequate_effective_sample": true
+      "effective_sample_size": 168.73,
+      "bootstrap_approval_rate_ci": {
+        "level": 0.95,
+        "lower": 0.4545,
+        "upper": 0.6518
+      },
+      "adequate_effective_sample": true,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": true,
+        "effective_sample_size_meets_minimum": true
+      }
     },
     "hispanic": {
       "proxy_weighted_total": 45.97,
       "proxy_weighted_approved": 16.57,
       "proxy_weighted_approval_rate": 0.3605,
-      "adequate_effective_sample": true
+      "effective_sample_size": 52.42,
+      "bootstrap_approval_rate_ci": {
+        "level": 0.95,
+        "lower": 0.2245,
+        "upper": 0.5
+      },
+      "adequate_effective_sample": true,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": true,
+        "effective_sample_size_meets_minimum": true
+      }
     },
     "api": {
       "proxy_weighted_total": 54.68,
       "proxy_weighted_approved": 23.56,
       "proxy_weighted_approval_rate": 0.4308,
-      "adequate_effective_sample": true
+      "effective_sample_size": 58.71,
+      "bootstrap_approval_rate_ci": {
+        "level": 0.95,
+        "lower": 0.3035,
+        "upper": 0.5593
+      },
+      "adequate_effective_sample": true,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": true,
+        "effective_sample_size_meets_minimum": true
+      }
     },
     "aian": {
       "proxy_weighted_total": 2.26,
       "proxy_weighted_approved": 0.57,
       "proxy_weighted_approval_rate": 0.2547,
-      "adequate_effective_sample": false
+      "effective_sample_size": 5.54,
+      "bootstrap_approval_rate_ci": {
+        "level": 0.95,
+        "lower": 0.0,
+        "upper": 1.0
+      },
+      "adequate_effective_sample": false,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": false,
+        "effective_sample_size_meets_minimum": false
+      }
     },
     "multiracial": {
       "proxy_weighted_total": 5.83,
       "proxy_weighted_approved": 2.84,
       "proxy_weighted_approval_rate": 0.4873,
-      "adequate_effective_sample": false
+      "effective_sample_size": 274.14,
+      "bootstrap_approval_rate_ci": {
+        "level": 0.95,
+        "lower": 0.0,
+        "upper": 1.0
+      },
+      "adequate_effective_sample": false,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": false,
+        "effective_sample_size_meets_minimum": true
+      }
     }
   },
   "comparisons": {
     "black": {
       "group_a": {
         "label": "black",
-        "successes": 55,
-        "total": 98,
-        "rate": 0.5612
+        "proxy_weighted_approved": 54.52,
+        "proxy_weighted_total": 98.22,
+        "effective_sample_size": 168.73,
+        "rate": 0.5551
       },
       "group_b": {
         "label": "white",
-        "successes": 56,
-        "total": 113,
-        "rate": 0.4956
+        "proxy_weighted_approved": 55.93,
+        "proxy_weighted_total": 113.04,
+        "effective_sample_size": 185.95,
+        "rate": 0.4948
       },
       "effect_size": {
-        "rate_difference": 0.0656,
-        "rate_ratio": 1.1325
+        "rate_difference": 0.0603,
+        "rate_ratio": 1.1219
       },
-      "test": "two_proportion_z_test_pooled",
-      "p_value": 0.340847,
+      "test": "applicant_level_posterior_predictive_bootstrap",
+      "p_value": 0.381809,
       "alpha": 0.05,
       "statistically_significant": false,
-      "sample_adequate_for_normal_approximation": true,
+      "sample_adequate_for_bootstrap": true,
+      "bootstrap": {
+        "draws": 2000,
+        "seed": 20260726,
+        "ci_level": 0.95,
+        "rate_difference_ci": {
+          "level": 0.95,
+          "lower": -0.0768,
+          "upper": 0.1915
+        },
+        "rate_ratio_ci": {
+          "level": 0.95,
+          "lower": 0.8608,
+          "upper": 1.4467
+        },
+        "tail_probability": 0.381809,
+        "tail_probability_note": "Two-sided bootstrap tail probability for the rate difference crossing zero; screening only."
+      },
+      "legacy_rounded_count_comparison": {
+        "group_a": {
+          "label": "black",
+          "successes": 55,
+          "total": 98,
+          "rate": 0.5612
+        },
+        "group_b": {
+          "label": "white",
+          "successes": 56,
+          "total": 113,
+          "rate": 0.4956
+        },
+        "effect_size": {
+          "rate_difference": 0.0656,
+          "rate_ratio": 1.1325
+        },
+        "test": "two_proportion_z_test_pooled",
+        "p_value": 0.340847,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": true,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls).",
+          "Legacy diagnostic only; rounded proxy-weighted counts are not treated as observed group memberships."
+        ],
+        "z_statistic": 0.9525
+      },
       "caveats": [
         "Screening signal only; not a causal estimate or a legal conclusion.",
         "No adjustment for legitimate credit factors (no regression controls).",
-        "Counts are rounded proxy-weighted (BISG posterior) totals, not observed group memberships."
-      ],
-      "z_statistic": 0.9525
+        "Bootstrap resamples applicants and samples latent group membership from BISG posteriors.",
+        "Bootstrap uncertainty does not correct BISG proxy measurement bias or identify true protected-class membership.",
+        "Legacy rounded-count tests are retained only as diagnostics and are not used for BISG findings."
+      ]
     },
     "hispanic": {
       "group_a": {
         "label": "hispanic",
-        "successes": 17,
-        "total": 46,
-        "rate": 0.3696
+        "proxy_weighted_approved": 16.57,
+        "proxy_weighted_total": 45.97,
+        "effective_sample_size": 52.42,
+        "rate": 0.3605
       },
       "group_b": {
         "label": "white",
-        "successes": 56,
-        "total": 113,
-        "rate": 0.4956
+        "proxy_weighted_approved": 55.93,
+        "proxy_weighted_total": 113.04,
+        "effective_sample_size": 185.95,
+        "rate": 0.4948
       },
       "effect_size": {
-        "rate_difference": -0.126,
-        "rate_ratio": 0.7457
+        "rate_difference": -0.1343,
+        "rate_ratio": 0.7286
       },
-      "test": "two_proportion_z_test_pooled",
-      "p_value": 0.148231,
+      "test": "applicant_level_posterior_predictive_bootstrap",
+      "p_value": 0.106947,
       "alpha": 0.05,
       "statistically_significant": false,
-      "sample_adequate_for_normal_approximation": true,
+      "sample_adequate_for_bootstrap": true,
+      "bootstrap": {
+        "draws": 2000,
+        "seed": 20260726,
+        "ci_level": 0.95,
+        "rate_difference_ci": {
+          "level": 0.95,
+          "lower": -0.2947,
+          "upper": 0.0353
+        },
+        "rate_ratio_ci": {
+          "level": 0.95,
+          "lower": 0.4435,
+          "upper": 1.0812
+        },
+        "tail_probability": 0.106947,
+        "tail_probability_note": "Two-sided bootstrap tail probability for the rate difference crossing zero; screening only."
+      },
+      "legacy_rounded_count_comparison": {
+        "group_a": {
+          "label": "hispanic",
+          "successes": 17,
+          "total": 46,
+          "rate": 0.3696
+        },
+        "group_b": {
+          "label": "white",
+          "successes": 56,
+          "total": 113,
+          "rate": 0.4956
+        },
+        "effect_size": {
+          "rate_difference": -0.126,
+          "rate_ratio": 0.7457
+        },
+        "test": "two_proportion_z_test_pooled",
+        "p_value": 0.148231,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": true,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls).",
+          "Legacy diagnostic only; rounded proxy-weighted counts are not treated as observed group memberships."
+        ],
+        "z_statistic": -1.4458
+      },
       "caveats": [
         "Screening signal only; not a causal estimate or a legal conclusion.",
         "No adjustment for legitimate credit factors (no regression controls).",
-        "Counts are rounded proxy-weighted (BISG posterior) totals, not observed group memberships."
-      ],
-      "z_statistic": -1.4458
+        "Bootstrap resamples applicants and samples latent group membership from BISG posteriors.",
+        "Bootstrap uncertainty does not correct BISG proxy measurement bias or identify true protected-class membership.",
+        "Legacy rounded-count tests are retained only as diagnostics and are not used for BISG findings."
+      ]
     },
     "api": {
       "group_a": {
         "label": "api",
-        "successes": 24,
-        "total": 55,
-        "rate": 0.4364
+        "proxy_weighted_approved": 23.56,
+        "proxy_weighted_total": 54.68,
+        "effective_sample_size": 58.71,
+        "rate": 0.4308
       },
       "group_b": {
         "label": "white",
-        "successes": 56,
-        "total": 113,
-        "rate": 0.4956
+        "proxy_weighted_approved": 55.93,
+        "proxy_weighted_total": 113.04,
+        "effective_sample_size": 185.95,
+        "rate": 0.4948
       },
       "effect_size": {
-        "rate_difference": -0.0592,
-        "rate_ratio": 0.8805
+        "rate_difference": -0.064,
+        "rate_ratio": 0.8707
       },
-      "test": "two_proportion_z_test_pooled",
-      "p_value": 0.470848,
+      "test": "applicant_level_posterior_predictive_bootstrap",
+      "p_value": 0.452774,
       "alpha": 0.05,
       "statistically_significant": false,
-      "sample_adequate_for_normal_approximation": true,
+      "sample_adequate_for_bootstrap": true,
+      "bootstrap": {
+        "draws": 2000,
+        "seed": 20260726,
+        "ci_level": 0.95,
+        "rate_difference_ci": {
+          "level": 0.95,
+          "lower": -0.2245,
+          "upper": 0.0926
+        },
+        "rate_ratio_ci": {
+          "level": 0.95,
+          "lower": 0.5925,
+          "upper": 1.209
+        },
+        "tail_probability": 0.452774,
+        "tail_probability_note": "Two-sided bootstrap tail probability for the rate difference crossing zero; screening only."
+      },
+      "legacy_rounded_count_comparison": {
+        "group_a": {
+          "label": "api",
+          "successes": 24,
+          "total": 55,
+          "rate": 0.4364
+        },
+        "group_b": {
+          "label": "white",
+          "successes": 56,
+          "total": 113,
+          "rate": 0.4956
+        },
+        "effect_size": {
+          "rate_difference": -0.0592,
+          "rate_ratio": 0.8805
+        },
+        "test": "two_proportion_z_test_pooled",
+        "p_value": 0.470848,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": true,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls).",
+          "Legacy diagnostic only; rounded proxy-weighted counts are not treated as observed group memberships."
+        ],
+        "z_statistic": -0.7211
+      },
       "caveats": [
         "Screening signal only; not a causal estimate or a legal conclusion.",
         "No adjustment for legitimate credit factors (no regression controls).",
-        "Counts are rounded proxy-weighted (BISG posterior) totals, not observed group memberships."
-      ],
-      "z_statistic": -0.7211
+        "Bootstrap resamples applicants and samples latent group membership from BISG posteriors.",
+        "Bootstrap uncertainty does not correct BISG proxy measurement bias or identify true protected-class membership.",
+        "Legacy rounded-count tests are retained only as diagnostics and are not used for BISG findings."
+      ]
     },
     "aian": {
       "skipped": true,
       "reason": "effective_sample_below_minimum",
       "proxy_weighted_total": 2.26,
+      "effective_sample_size": 5.54,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": false,
+        "effective_sample_size_meets_minimum": false
+      },
       "min_effective_count": 10.0
     },
     "multiracial": {
       "skipped": true,
       "reason": "effective_sample_below_minimum",
       "proxy_weighted_total": 5.83,
+      "effective_sample_size": 274.14,
+      "sample_gate": {
+        "min_effective_count": 10.0,
+        "proxy_weighted_total_meets_minimum": false,
+        "effective_sample_size_meets_minimum": true
+      },
       "min_effective_count": 10.0
     }
   },
@@ -154,6 +385,8 @@
   "limitations": [
     "BISG produces probabilistic proxies, not observed demographics.",
     "Demonstration reference tables approximate public Census surname data; geography rows are synthetic.",
-    "Comparisons are unadjusted screening signals with rounded effective counts, not regression estimates or legal conclusions."
+    "Bootstrap comparisons are unadjusted screening signals, not regression estimates or legal conclusions.",
+    "Posterior-predictive bootstrap intervals quantify applicant sampling and BISG posterior membership uncertainty under the proxy model; they still do not prove true protected-class membership.",
+    "Legacy rounded-count proportion tests are diagnostics only and are not used for BISG findings."
   ]
 }

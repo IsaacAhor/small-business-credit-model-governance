@@ -37,6 +37,7 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - Method: Bayesian Improved Surname Geocoding (`bisg-2026-06-monthly`)
 - Decisions matched to demographic inputs: 320 of 320
 - Reference group: white | alpha: 0.05
+- Inference: applicant_level_posterior_predictive_bootstrap (2000 draws, seed 20260726, CI level 0.95)
 - Significant finding count: 0
 - Result type: probabilistic proxy screening, not observed demographics or a legal conclusion
 

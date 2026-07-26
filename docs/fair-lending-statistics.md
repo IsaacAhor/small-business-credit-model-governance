@@ -73,12 +73,23 @@ normalized per applicant. Applicants matching only one reference table fall
 back to that single prior, and the basis of every posterior is counted and
 reported.
 
-Group metrics use probability-weighted counts: an applicant with a 0.7
-posterior for one category contributes 0.7 of a decision to that category's
-totals. Proxy-weighted approval rates are compared against a configured
-reference group using the significance machinery above, with rounded
-effective counts and a minimum-effective-sample floor below which groups are
-excluded from testing rather than silently tested.
+Group metrics use probability-weighted counts for point estimates: an
+applicant with a 0.7 posterior for one category contributes 0.7 of a decision
+to that category's expected totals. Reference-group comparisons no longer turn
+those fractional totals into observed integer counts. Instead, BISG inference
+uses a posterior-predictive applicant bootstrap:
+
+1. resample matched applicants with replacement using a fixed seed;
+2. draw one latent group membership from each resampled applicant's BISG
+   posterior;
+3. recompute group approval rates and reference-group gaps; and
+4. report percentile confidence intervals and a two-sided bootstrap tail
+   probability for the rate difference crossing zero.
+
+Each group also reports Kish effective sample size, `(sum p_i)^2 / sum p_i^2`,
+as a concentration diagnostic. The sample gate requires both enough expected
+proxy-weighted group mass and enough effective sample size; groups failing the
+gate are skipped rather than silently tested.
 
 Running it:
 
@@ -93,21 +104,27 @@ demonstration extracts; the loader accepts full Census-derived tables in the
 same format (see the README in that folder).
 
 An honest demonstration note: on the current 320-decision portfolio dataset,
-the proxied Hispanic-to-White approval-rate gap is directionally negative but
-does not reach significance at alpha 0.05 at these effective sample sizes,
-while the raw regional screens do fire with significance. That contrast is
-the point of adding inference: screens should distinguish gaps the data can
-support from gaps it cannot.
+the proxied Hispanic-to-White approval-rate gap is directionally negative, but
+the posterior-predictive bootstrap confidence interval crosses zero and does
+not produce a significant proxy-screening finding, while the raw regional
+screens do fire with significance. That contrast is the point of adding
+inference: screens should distinguish gaps the data can support from gaps it
+cannot.
 
 Limitations:
 
 - BISG output is a probabilistic proxy, never an observed demographic, and
   proxy error is itself a studied source of bias in disparity estimates.
+- The posterior-predictive bootstrap propagates applicant sampling and BISG
+  posterior membership uncertainty under the proxy model, but it does not
+  identify true protected-class membership or remove measurement bias.
 - The shipped surname table is a small approximate extract for demonstration;
   production use requires the full Census surname file and real geographic
   composition data.
 - Proxy-weighted comparisons remain unadjusted screening signals and are
-  labeled as such in every output.
+  labeled as such in every output. A future partial-identification or
+  sensitivity-bounds layer would be the right next upgrade for proxy
+  measurement bias.
 
 ## Metric Limitations in Related Workflow Steps
 
@@ -135,5 +152,11 @@ Two metrics used by the less-discriminatory-alternative assessment step
 - Consumer Financial Protection Bureau (2014). Using publicly available
   information to proxy for unidentified race and ethnicity.
   <https://www.consumerfinance.gov/data-research/research-reports/using-publicly-available-information-to-proxy-for-unidentified-race-and-ethnicity/>
+- Chen, J., Johansson, F. D., and Sontag, D. (2018). Fairness under
+  unawareness: assessing disparity when protected class is unobserved.
+  <https://arxiv.org/abs/1811.11154>
+- Kallus, N., Mao, X., and Zhou, A. (2019). Assessing algorithmic fairness
+  with unobserved protected class using data combination.
+  <https://arxiv.org/abs/1906.00285>
 - U.S. Census Bureau. Frequently Occurring Surnames from the 2010 Census.
   <https://www.census.gov/topics/population/genealogy/data/2010_surnames.html>

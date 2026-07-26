@@ -410,6 +410,9 @@ def build() -> None:
         "reference_group": "white",
         "alpha": 0.05,
         "min_effective_count": 10,
+        "bootstrap_draws": 2000,
+        "bootstrap_seed": 20260726,
+        "bootstrap_ci_level": 0.95,
     }
     write_json(DATASET_DIR / "applicant-demographic-inputs.json", demographic_inputs)
     write_json(DATASET_DIR / "bisg-config.json", bisg_config)
