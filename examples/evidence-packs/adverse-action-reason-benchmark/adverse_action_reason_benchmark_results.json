@@ -1,0 +1,174 @@
+{
+  "label": "synthetic_adverse_action_reason_accuracy_benchmark_not_legal_conclusion",
+  "workstream": "Adverse-action reason accuracy and transparency under Regulation B 12 CFR 1002.9",
+  "dataset": "data/synthetic/adverse-action-reason-benchmark",
+  "regulatory_anchor": "Regulation B 12 CFR 1002.9 specific principal reasons tied to actual factors considered or scored.",
+  "public_data_status": "No current public small-business dataset provides declined applications, disclosed reasons or notices, actual decision drivers, mapping versions, and reviewer labels.",
+  "decision_count": 10,
+  "declined_decision_count": 9,
+  "recorded_reason_output_count": 13,
+  "generated_reason_output_count": 12,
+  "max_expected_reasons_per_declined_decision": 4,
+  "generation_summary": {
+    "label": "synthetic_reason_generation_not_a_notice_process",
+    "declined_decision_count": 9,
+    "declined_with_generated_reasons": 8,
+    "declined_without_generated_reasons": [
+      "dec-0010"
+    ],
+    "reason_output_count": 12
+  },
+  "monitoring_reason_qa": {
+    "label": "qa_screening_only_not_legal_conclusion",
+    "exception_count": 6,
+    "exception_types": [
+      "driver_mapping_mismatch",
+      "generic_reason_text",
+      "mapping_version_mismatch",
+      "missing_reason_code",
+      "unmapped_reason_code"
+    ],
+    "exceptions": [
+      {
+        "exception_id": "rex-dec-0003-missing_reason_code",
+        "decision_id": "dec-0003",
+        "reason_output_id": null,
+        "reason_code": null,
+        "exception_type": "missing_reason_code",
+        "message": "Declined decision has no generated adverse-action reason output."
+      },
+      {
+        "exception_id": "rex-dec-0004-unmapped_reason_code",
+        "decision_id": "dec-0004",
+        "reason_output_id": "rso-0004-1",
+        "reason_code": "RC-999",
+        "exception_type": "unmapped_reason_code",
+        "message": "Generated reason code is not present in the governed reason-code mapping."
+      },
+      {
+        "exception_id": "rex-dec-0005-generic_reason_text",
+        "decision_id": "dec-0005",
+        "reason_output_id": "rso-0005-1",
+        "reason_code": "RC-104",
+        "exception_type": "generic_reason_text",
+        "message": "Mapped reason text is too generic for governance review."
+      },
+      {
+        "exception_id": "rex-dec-0006-driver_mapping_mismatch",
+        "decision_id": "dec-0006",
+        "reason_output_id": "rso-0006-1",
+        "reason_code": "RC-105",
+        "exception_type": "driver_mapping_mismatch",
+        "message": "Generated reason driver does not match the governed mapping."
+      },
+      {
+        "exception_id": "rex-dec-0007-mapping_version_mismatch",
+        "decision_id": "dec-0007",
+        "reason_output_id": "rso-0007-1",
+        "reason_code": "RC-106",
+        "exception_type": "mapping_version_mismatch",
+        "message": "Generated reason mapping version does not match the governed mapping."
+      },
+      {
+        "exception_id": "rex-dec-0010-missing_reason_code",
+        "decision_id": "dec-0010",
+        "reason_output_id": null,
+        "reason_code": null,
+        "exception_type": "missing_reason_code",
+        "message": "Declined decision has no generated adverse-action reason output."
+      }
+    ]
+  },
+  "supplemental_benchmark_checks": {
+    "exception_count": 5,
+    "exception_types": [
+      "credit_report_only_placeholder",
+      "excessive_reason_count",
+      "no_mapped_adverse_driver",
+      "non_declined_reason_output",
+      "recorded_output_differs_from_regeneration"
+    ],
+    "exceptions": [
+      {
+        "exception_id": "bench-rso-0001-1-non_declined_reason_output",
+        "exception_type": "non_declined_reason_output",
+        "decision_id": "dec-0001",
+        "reason_output_id": "rso-0001-1",
+        "message": "Reason output is attached to a decision that was not declined.",
+        "result_type": "benchmark_review_trigger_not_legal_conclusion"
+      },
+      {
+        "exception_id": "bench-rso-0009-1-credit_report_only_placeholder",
+        "exception_type": "credit_report_only_placeholder",
+        "decision_id": "dec-0009",
+        "reason_output_id": "rso-0009-1",
+        "message": "Mapped reason text is a credit-report-only placeholder and requires review for a specific principal reason.",
+        "result_type": "benchmark_review_trigger_not_legal_conclusion"
+      },
+      {
+        "exception_id": "bench-dec-0008-excessive_reason_count",
+        "exception_type": "excessive_reason_count",
+        "decision_id": "dec-0008",
+        "reason_output_id": null,
+        "message": "Decision has 5 recorded reason outputs; benchmark maximum is 4.",
+        "result_type": "benchmark_review_trigger_not_legal_conclusion"
+      },
+      {
+        "exception_id": "bench-dec-0010-no_mapped_adverse_driver",
+        "exception_type": "no_mapped_adverse_driver",
+        "decision_id": "dec-0010",
+        "reason_output_id": null,
+        "message": "Declined decision has no adverse driver that resolves to a governed reason-code mapping.",
+        "result_type": "benchmark_review_trigger_not_legal_conclusion"
+      },
+      {
+        "exception_id": "bench-global-recorded_output_differs_from_regeneration",
+        "exception_type": "recorded_output_differs_from_regeneration",
+        "decision_id": null,
+        "reason_output_id": null,
+        "message": "Recorded reason outputs differ from deterministic regeneration. This is expected in the synthetic benchmark because seeded QA failures are intentionally present.",
+        "result_type": "benchmark_review_trigger_not_legal_conclusion"
+      }
+    ]
+  },
+  "expected_exception_types": [
+    "credit_report_only_placeholder",
+    "driver_mapping_mismatch",
+    "excessive_reason_count",
+    "generic_reason_text",
+    "mapping_version_mismatch",
+    "missing_reason_code",
+    "no_mapped_adverse_driver",
+    "non_declined_reason_output",
+    "recorded_output_differs_from_regeneration",
+    "unmapped_reason_code"
+  ],
+  "observed_exception_types": [
+    "credit_report_only_placeholder",
+    "driver_mapping_mismatch",
+    "excessive_reason_count",
+    "generic_reason_text",
+    "mapping_version_mismatch",
+    "missing_reason_code",
+    "no_mapped_adverse_driver",
+    "non_declined_reason_output",
+    "recorded_output_differs_from_regeneration",
+    "unmapped_reason_code"
+  ],
+  "missing_expected_exception_types": [],
+  "acceptance": {
+    "expected_seeded_failures_observed": true,
+    "result_type": "benchmark_integrity_check_not_legal_conclusion"
+  },
+  "limitations": [
+    "Synthetic small-business credit benchmark only.",
+    "No production applicant records, lender notices, or legal conclusions are represented.",
+    "Benchmark exceptions are governance review triggers.",
+    "Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.",
+    "HMDA can support only off-domain denial-reason mechanics, not small-business proof."
+  ],
+  "primary_source_urls": [
+    "https://www.consumerfinance.gov/rules-policy/regulations/1002/9/",
+    "https://www.consumerfinance.gov/rules-policy/regulations/1002/"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "label": "qa_screening_only_not_legal_conclusion",
+  "declined_decision_count": 9,
+  "reason_output_count": 13,
+  "exception_count": 6,
+  "exceptions": [
+    {
+      "exception_id": "rex-dec-0003-missing_reason_code",
+      "decision_id": "dec-0003",
+      "reason_output_id": null,
+      "reason_code": null,
+      "exception_type": "missing_reason_code",
+      "message": "Declined decision has no generated adverse-action reason output."
+    },
+    {
+      "exception_id": "rex-dec-0004-unmapped_reason_code",
+      "decision_id": "dec-0004",
+      "reason_output_id": "rso-0004-1",
+      "reason_code": "RC-999",
+      "exception_type": "unmapped_reason_code",
+      "message": "Generated reason code is not present in the governed reason-code mapping."
+    },
+    {
+      "exception_id": "rex-dec-0005-generic_reason_text",
+      "decision_id": "dec-0005",
+      "reason_output_id": "rso-0005-1",
+      "reason_code": "RC-104",
+      "exception_type": "generic_reason_text",
+      "message": "Mapped reason text is too generic for governance review."
+    },
+    {
+      "exception_id": "rex-dec-0006-driver_mapping_mismatch",
+      "decision_id": "dec-0006",
+      "reason_output_id": "rso-0006-1",
+      "reason_code": "RC-105",
+      "exception_type": "driver_mapping_mismatch",
+      "message": "Generated reason driver does not match the governed mapping."
+    },
+    {
+      "exception_id": "rex-dec-0007-mapping_version_mismatch",
+      "decision_id": "dec-0007",
+      "reason_output_id": "rso-0007-1",
+      "reason_code": "RC-106",
+      "exception_type": "mapping_version_mismatch",
+      "message": "Generated reason mapping version does not match the governed mapping."
+    },
+    {
+      "exception_id": "rex-dec-0010-missing_reason_code",
+      "decision_id": "dec-0010",
+      "reason_output_id": null,
+      "reason_code": null,
+      "exception_type": "missing_reason_code",
+      "message": "Declined decision has no generated adverse-action reason output."
+    }
+  ],
+  "stability": {
+    "mapping_versions": [
+      "mapver-2026-07"
+    ],
+    "reason_code_distribution": {
+      "RC-101": 0.2308,
+      "RC-102": 0.1538,
+      "RC-103": 0.0769,
+      "RC-104": 0.0769,
+      "RC-105": 0.1538,
+      "RC-106": 0.0769,
+      "RC-107": 0.0769,
+      "RC-108": 0.0769,
+      "RC-999": 0.0769
+    },
+    "mapped_reason_code_count": 8,
+    "generated_reason_code_count": 9
+  }
+}

@@ -33,6 +33,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.5.0`: adverse-action reason generation, LDA assessment, and portfolio-scale dataset
 - `v0.6.0`: statistical significance testing and BISG proxy monitoring
 - `v0.7.0`: SBA 7(a) public-data monitoring run kit
+- `v0.8.0`: synthetic adverse-action reason accuracy benchmark
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -53,13 +54,22 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current milestone is `v0.7.0`, which adds the SBA 7(a) public-data
-monitoring run kit: an adapter for real SBA 7(a)/504 FOIA loan-level data, a
-synthetic schema fixture for pipeline validation, reproducibility
-documentation, and scope/limitations notes. The run kit is a model-risk
-monitoring and drift-reporting exercise on real approved-loan public data; it is
-not an underwriting model, fairness analysis, adverse-action analysis, lender
-adoption, legal conclusion, or regulatory acceptance.
+The current documented milestone is `v0.8.0`, which adds the synthetic adverse-
+action reason accuracy benchmark: a public, on-domain run kit for reason
+generation, driver-to-reason mapping, reason QA, benchmark-specific exception
+checks, and reviewer-ready evidence packaging under Regulation B 12 CFR 1002.9.
+The milestone demonstrates a reproducible method and public-data boundary; it
+is not proof of live small-business adverse-action notice accuracy, lender
+adoption, legal compliance, external validation, regulatory approval, or field
+recognition.
+
+The prior milestone, `v0.7.0`, adds the SBA 7(a) public-data monitoring run kit:
+an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic schema
+fixture for pipeline validation, reproducibility documentation, and
+scope/limitations notes. The run kit is a model-risk monitoring and drift-
+reporting exercise on real approved-loan public data; it is not an underwriting
+model, fairness analysis, adverse-action analysis, lender adoption, legal
+conclusion, or regulatory acceptance.
 
 The prior substantive analytical milestone, `v0.6.0`, adds statistical
 significance testing to fair-lending disparity screens and optional BISG

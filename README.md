@@ -46,6 +46,9 @@ If you are new to the repository, use these entry points:
   decisions, with statistical significance results, BISG proxy screening, and
   LDA assessment) that can be inspected without running code. A minimal
   controlled-breach pack is under `examples/evidence-packs/monthly-demo/`.
+- `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
+  A synthetic adverse-action reason accuracy benchmark with controlled reason
+  generation, mapping, QA, and evidence-pack failures.
 
 ## What This Repository Demonstrates
 
@@ -55,7 +58,7 @@ for:
 
 - model records and documentation standards
 - threshold configuration and monitoring review
-- adverse-action reason generation QA
+- adverse-action reason generation and reason accuracy QA
 - fair-lending screening with statistical significance testing and
   escalation triggers
 - BISG protected-class proxy estimation with proxy-weighted disparity
@@ -222,6 +225,12 @@ Run the monthly monitoring workflow against the default synthetic dataset:
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root evidence
 ```
 
+Run the adverse-action reason accuracy benchmark:
+
+```bash
+python scripts/run_adverse_action_reason_benchmark.py --overwrite
+```
+
 Run the standalone Phase 5 model-change and validation review (the portfolio
 dataset ships the prior-version comparison inputs):
 
@@ -250,9 +259,16 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest release is `v0.7.0`, which adds the SBA 7(a) public-data monitoring
-run kit: an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic
-schema fixture for pipeline validation, reproducibility documentation, and
+The latest documented milestone is `v0.8.0`, which adds the synthetic adverse-
+action reason accuracy and transparency benchmark. The benchmark is a public,
+on-domain synthetic run kit for reason generation, driver-to-reason mapping,
+reason QA, and evidence-pack review under Regulation B 12 CFR 1002.9. It is not
+public proof of live small-business notice accuracy, lender adoption,
+deployment, legal compliance, or regulatory approval.
+
+The prior release, `v0.7.0`, adds the SBA 7(a) public-data monitoring run kit:
+an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic schema
+fixture for pipeline validation, reproducibility documentation, and
 scope/limitations notes. The run kit is designed to exercise model-risk
 monitoring and drift reporting on real approved-loan public data; it is not an
 underwriting model, fairness analysis, adverse-action analysis, deployment
@@ -306,7 +322,10 @@ This repository now contains:
 - an SBA 7(a) public-data monitoring run kit that adapts real approved-loan
   FOIA data into model-risk monitoring cohorts while excluding fairness and
   adverse-action interpretations that the data cannot support
-- release strategy documentation and `v0.7.0` SBA run-kit release notes for stable milestone preservation
+- a synthetic adverse-action reason accuracy benchmark that demonstrates reason
+  generation, driver-to-reason mapping, reason QA, and public-data limitations
+  without claiming real-world notice accuracy
+- release strategy documentation and versioned release notes through `v0.8.0` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

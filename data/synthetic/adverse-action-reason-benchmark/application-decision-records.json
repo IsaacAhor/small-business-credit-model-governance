@@ -1,0 +1,192 @@
+[
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0001",
+    "application_date": "2026-07-01",
+    "segment": "micro",
+    "decision_outcome": "approved",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 724.0,
+      "requested_amount": 35000.0,
+      "decision_timestamp": "2026-07-01T10:00:00Z"
+    },
+    "monitoring": {
+      "region": "south",
+      "channel": "digital",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0002",
+    "application_date": "2026-07-02",
+    "segment": "small",
+    "decision_outcome": "declined",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 612.0,
+      "requested_amount": 85000.0,
+      "decision_timestamp": "2026-07-02T11:00:00Z"
+    },
+    "monitoring": {
+      "region": "midwest",
+      "channel": "digital",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0003",
+    "application_date": "2026-07-03",
+    "segment": "small",
+    "decision_outcome": "declined",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 598.0,
+      "requested_amount": 92000.0,
+      "decision_timestamp": "2026-07-03T12:00:00Z"
+    },
+    "monitoring": {
+      "region": "midwest",
+      "channel": "branch",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0004",
+    "application_date": "2026-07-04",
+    "segment": "micro",
+    "decision_outcome": "declined",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 585.0,
+      "requested_amount": 42000.0,
+      "decision_timestamp": "2026-07-04T13:00:00Z"
+    },
+    "monitoring": {
+      "region": "south",
+      "channel": "digital",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0005",
+    "application_date": "2026-07-05",
+    "segment": "growth",
+    "decision_outcome": "declined",
+    "manual_review_flag": true,
+    "override_flag": false,
+    "underwriting": {
+      "score": 604.0,
+      "requested_amount": 160000.0,
+      "decision_timestamp": "2026-07-05T14:00:00Z"
+    },
+    "monitoring": {
+      "region": "west",
+      "channel": "partner",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0006",
+    "application_date": "2026-07-06",
+    "segment": "growth",
+    "decision_outcome": "declined",
+    "manual_review_flag": true,
+    "override_flag": true,
+    "underwriting": {
+      "score": 590.0,
+      "requested_amount": 180000.0,
+      "decision_timestamp": "2026-07-06T15:00:00Z"
+    },
+    "monitoring": {
+      "region": "west",
+      "channel": "partner",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0007",
+    "application_date": "2026-07-07",
+    "segment": "micro",
+    "decision_outcome": "declined",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 577.0,
+      "requested_amount": 30000.0,
+      "decision_timestamp": "2026-07-07T16:00:00Z"
+    },
+    "monitoring": {
+      "region": "south",
+      "channel": "branch",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0008",
+    "application_date": "2026-07-08",
+    "segment": "small",
+    "decision_outcome": "declined",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 568.0,
+      "requested_amount": 110000.0,
+      "decision_timestamp": "2026-07-08T17:00:00Z"
+    },
+    "monitoring": {
+      "region": "midwest",
+      "channel": "digital",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0009",
+    "application_date": "2026-07-09",
+    "segment": "small",
+    "decision_outcome": "declined",
+    "manual_review_flag": true,
+    "override_flag": false,
+    "underwriting": {
+      "score": 582.0,
+      "requested_amount": 125000.0,
+      "decision_timestamp": "2026-07-09T18:00:00Z"
+    },
+    "monitoring": {
+      "region": "northeast",
+      "channel": "branch",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  },
+  {
+    "record_type": "application_decision_record",
+    "decision_id": "dec-0010",
+    "application_date": "2026-07-10",
+    "segment": "micro",
+    "decision_outcome": "declined",
+    "manual_review_flag": false,
+    "override_flag": false,
+    "underwriting": {
+      "score": 563.0,
+      "requested_amount": 27000.0,
+      "decision_timestamp": "2026-07-10T19:00:00Z"
+    },
+    "monitoring": {
+      "region": "northeast",
+      "channel": "digital",
+      "review_batch_id": "run-2026-07-adverse-action"
+    }
+  }
+]

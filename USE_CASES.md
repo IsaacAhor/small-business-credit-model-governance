@@ -31,6 +31,9 @@ governed review trigger rather than an unsupported legal conclusion.
 
 Start with:
 
+- `docs/adverse-action-reason-accuracy-method.md`
+- `docs/adverse-action-public-data-limitations.md`
+- `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
 - `templates/fair-lending-monitoring-checklist.md`
 - `schemas/fair-lending-screening-config.schema.json`
 - `examples/evidence-packs/monthly-portfolio/fair_lending_screening_results.json`
@@ -40,6 +43,8 @@ Start with:
 What to evaluate:
 
 - whether comparison groups and thresholds are configured before review
+- whether adverse-action reason outputs are traceable to governed mappings
+- whether public-data limits are stated without overclaiming
 - whether outputs distinguish screening findings from legal conclusions
 - whether escalations are assigned an owner, severity, status, and due date
 - whether recurring findings could be routed to deeper review
@@ -57,6 +62,7 @@ Start with:
 - `templates/model-governance-checklist.md`
 - `examples/evidence-packs/monthly-portfolio/threshold_set.json`
 - `examples/evidence-packs/monthly-portfolio/issue_register.json`
+- `examples/evidence-packs/adverse-action-reason-benchmark/reason_qa_results.json`
 
 What to evaluate:
 
@@ -97,6 +103,7 @@ Start with:
 - `docs/evidence-map.md`
 - `docs/release-strategy.md`
 - `docs/releases/v0.4.0.md`
+- `docs/releases/v0.8.0.md`
 - `docs/framework-draft.md`
 
 What to evaluate:
@@ -104,6 +111,7 @@ What to evaluate:
 - whether the contribution is more than a concept note
 - whether the artifacts are public and reproducible
 - whether the limitations are stated honestly
+- whether the adverse-action benchmark is presented as synthetic proof of method, not real-world validation
 - whether future milestones are specific enough to support continued work
 
 ## Common Misuses To Avoid

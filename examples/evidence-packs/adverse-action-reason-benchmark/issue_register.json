@@ -1,0 +1,68 @@
+[
+  {
+    "issue_id": "iss-0001",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0003-missing_reason_code"
+    ],
+    "summary": "Reason QA exception for dec-0003: missing_reason_code.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0002",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0004-unmapped_reason_code"
+    ],
+    "summary": "Reason QA exception for dec-0004: unmapped_reason_code.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0003",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0005-generic_reason_text"
+    ],
+    "summary": "Reason QA exception for dec-0005: generic_reason_text.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0004",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0006-driver_mapping_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0006: driver_mapping_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0005",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0007-mapping_version_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0007: mapping_version_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0006",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0010-missing_reason_code"
+    ],
+    "summary": "Reason QA exception for dec-0010: missing_reason_code.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  }
+]

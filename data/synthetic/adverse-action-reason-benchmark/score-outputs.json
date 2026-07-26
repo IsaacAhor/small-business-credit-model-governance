@@ -1,0 +1,72 @@
+[
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0001",
+    "score_value": 724.0,
+    "score_band": "A",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0002",
+    "score_value": 612.0,
+    "score_band": "C",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0003",
+    "score_value": 598.0,
+    "score_band": "D",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0004",
+    "score_value": 585.0,
+    "score_band": "D",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0005",
+    "score_value": 604.0,
+    "score_band": "C",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0006",
+    "score_value": 590.0,
+    "score_band": "D",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0007",
+    "score_value": 577.0,
+    "score_band": "D",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0008",
+    "score_value": 568.0,
+    "score_band": "D",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0009",
+    "score_value": 582.0,
+    "score_band": "D",
+    "score_version": "ver-2026-07-adverse-action"
+  },
+  {
+    "record_type": "score_output",
+    "decision_id": "dec-0010",
+    "score_value": 563.0,
+    "score_band": "D",
+    "score_version": "ver-2026-07-adverse-action"
+  }
+]

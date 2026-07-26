@@ -1,0 +1,23 @@
+{
+  "record_type": "threshold_set",
+  "threshold_set_id": "thr-2026-07-adverse-action",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "version_id": "ver-2026-07-adverse-action",
+  "review_cadence": "event_driven",
+  "thresholds": [
+    {
+      "metric_name": "approval_rate",
+      "comparison_rule": "less_than",
+      "threshold_value": 0.01,
+      "severity": "low",
+      "escalation_owner": "Model Risk Governance"
+    },
+    {
+      "metric_name": "override_rate",
+      "comparison_rule": "greater_than",
+      "threshold_value": 0.5,
+      "severity": "medium",
+      "escalation_owner": "Credit Policy Review"
+    }
+  ]
+}

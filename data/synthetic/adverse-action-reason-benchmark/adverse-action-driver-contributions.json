@@ -1,0 +1,127 @@
+[
+  {
+    "decision_id": "dec-0001",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.18,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0002",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.42,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.31,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0003",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.44,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0004",
+    "contributions": [
+      {
+        "driver_or_signal": "revenue_volatility",
+        "contribution": 0.39,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0005",
+    "contributions": [
+      {
+        "driver_or_signal": "thin_file_or_missing_information",
+        "contribution": 0.36,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0006",
+    "contributions": [
+      {
+        "driver_or_signal": "industry_concentration",
+        "contribution": 0.34,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0007",
+    "contributions": [
+      {
+        "driver_or_signal": "time_in_business",
+        "contribution": 0.41,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0008",
+    "contributions": [
+      {
+        "driver_or_signal": "cash_flow_stability",
+        "contribution": 0.50,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "debt_service_coverage",
+        "contribution": 0.47,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "revenue_volatility",
+        "contribution": 0.43,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "industry_concentration",
+        "contribution": 0.38,
+        "direction": "adverse"
+      },
+      {
+        "driver_or_signal": "bank_balance_trend",
+        "contribution": 0.32,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0009",
+    "contributions": [
+      {
+        "driver_or_signal": "credit_report_dependency",
+        "contribution": 0.37,
+        "direction": "adverse"
+      }
+    ]
+  },
+  {
+    "decision_id": "dec-0010",
+    "contributions": [
+      {
+        "driver_or_signal": "external_vendor_watchlist_signal",
+        "contribution": 0.46,
+        "direction": "adverse"
+      }
+    ]
+  }
+]

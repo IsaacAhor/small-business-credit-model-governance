@@ -1,0 +1,20 @@
+{
+  "record_type": "model_registry_record",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "model_name": "Synthetic Adverse-Action Reason Benchmark Model",
+  "business_owner": "Small Business Credit Risk",
+  "technical_owner": "Model Risk Governance",
+  "intended_use": "Synthetic reviewer-facing benchmark for adverse-action reason generation and QA controls.",
+  "target_population": "Synthetic U.S. small business credit applicants",
+  "status": "development",
+  "monitoring_only_fields": [
+    "region",
+    "channel",
+    "review_batch_id"
+  ],
+  "underwriting_fields": [
+    "score",
+    "requested_amount",
+    "decision_timestamp"
+  ]
+}

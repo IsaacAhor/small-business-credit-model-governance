@@ -1,0 +1,74 @@
+[
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-101",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "cash_flow_stability",
+    "reason_code": "RC-101",
+    "reason_text": "Insufficient cash flow stability",
+    "mapping_version": "mapver-2026-07"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-102",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "debt_service_coverage",
+    "reason_code": "RC-102",
+    "reason_text": "Debt service coverage below policy range",
+    "mapping_version": "mapver-2026-07"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-103",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "revenue_volatility",
+    "reason_code": "RC-103",
+    "reason_text": "Revenue volatility above policy range",
+    "mapping_version": "mapver-2026-07"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-104",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "thin_file_or_missing_information",
+    "reason_code": "RC-104",
+    "reason_text": "Other",
+    "mapping_version": "mapver-2026-07"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-105",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "industry_concentration",
+    "reason_code": "RC-105",
+    "reason_text": "Industry concentration above policy range",
+    "mapping_version": "mapver-2026-07"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-106",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "time_in_business",
+    "reason_code": "RC-106",
+    "reason_text": "Time in business below policy minimum",
+    "mapping_version": "mapver-2026-07"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-107",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "credit_report_dependency",
+    "reason_code": "RC-107",
+    "reason_text": "Information from credit report",
+    "mapping_version": "mapver-2026-07"
+  },
+  {
+    "record_type": "reason_code_mapping",
+    "mapping_id": "map-108",
+    "version_id": "ver-2026-07-adverse-action",
+    "driver_or_signal": "bank_balance_trend",
+    "reason_code": "RC-108",
+    "reason_text": "Bank balance trend below policy range",
+    "mapping_version": "mapver-2026-07"
+  }
+]

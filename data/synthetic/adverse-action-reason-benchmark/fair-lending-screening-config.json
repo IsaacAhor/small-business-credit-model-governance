@@ -1,0 +1,44 @@
+{
+  "record_type": "fair_lending_screening_config",
+  "screening_config_id": "fls-2026-07-adverse-action",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "version_id": "ver-2026-07-adverse-action",
+  "comparison_groups": [
+    {
+      "group_name": "region",
+      "source": "monitoring",
+      "field": "region"
+    },
+    {
+      "group_name": "segment",
+      "source": "decision",
+      "field": "segment"
+    }
+  ],
+  "screens": [
+    {
+      "screen_name": "Reason-benchmark approval-rate ratio placeholder",
+      "metric_name": "approval_rate_ratio",
+      "comparison_rule": "less_than",
+      "threshold_value": 0.0,
+      "severity": "low",
+      "escalation_owner": "Model Risk Governance"
+    },
+    {
+      "screen_name": "Reason-benchmark override-rate placeholder",
+      "metric_name": "override_rate_difference",
+      "comparison_rule": "greater_than",
+      "threshold_value": 1.0,
+      "severity": "low",
+      "escalation_owner": "Model Risk Governance"
+    },
+    {
+      "screen_name": "Reason-benchmark concentration placeholder",
+      "metric_name": "reason_code_concentration",
+      "comparison_rule": "greater_than",
+      "threshold_value": 1.0,
+      "severity": "low",
+      "escalation_owner": "Model Risk Governance"
+    }
+  ]
+}
