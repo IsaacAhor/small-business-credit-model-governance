@@ -18,9 +18,9 @@ Use this path if you have limited time and want the clearest view of the work:
    curated portfolio-scale evidence-pack outputs (320 synthetic decisions,
    including statistical significance results, BISG proxy screening, and the
    LDA assessment).
-4. Inspect `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
-   for the synthetic adverse-action reason accuracy benchmark and its public-
-   data limits.
+4. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
+   adverse-action reason accuracy benchmark, run command, evidence-pack review
+   path, and public-data limits.
 5. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
    the plain-language output of a synthetic monthly governance review at
    portfolio scale. A minimal controlled-breach scenario is also available
@@ -43,8 +43,8 @@ Use `USE_CASES.md` if you are reviewing from a specific role:
 The repository can be reviewed without running code by inspecting the curated
 example outputs under `examples/evidence-packs/monthly-portfolio/` (portfolio
 scale) and `examples/evidence-packs/monthly-demo/` (minimal controlled
-scenario) and `examples/evidence-packs/adverse-action-reason-benchmark/`
-(adverse-action reason accuracy benchmark).
+scenario) and `docs/adverse-action-reason-run-kit/README.md`
+(adverse-action reason accuracy benchmark landing path).
 
 If you want to reproduce the synthetic workflow locally, run:
 

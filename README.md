@@ -46,9 +46,10 @@ If you are new to the repository, use these entry points:
   decisions, with statistical significance results, BISG proxy screening, and
   LDA assessment) that can be inspected without running code. A minimal
   controlled-breach pack is under `examples/evidence-packs/monthly-demo/`.
-- `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
-  A synthetic adverse-action reason accuracy benchmark with controlled reason
-  generation, mapping, QA, and evidence-pack failures.
+- `docs/adverse-action-reason-run-kit/README.md`
+  A one-folder reviewer and operator entry point for the synthetic adverse-
+  action reason accuracy benchmark, including run command, limitations,
+  benchmark spec, private-data requirements, and evidence-pack review path.
 
 ## What This Repository Demonstrates
 
@@ -225,7 +226,9 @@ Run the monthly monitoring workflow against the default synthetic dataset:
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root evidence
 ```
 
-Run the adverse-action reason accuracy benchmark:
+Run the adverse-action reason accuracy benchmark after reviewing the landing run kit:
+
+`docs/adverse-action-reason-run-kit/README.md`
 
 ```bash
 python scripts/run_adverse_action_reason_benchmark.py --overwrite
@@ -325,6 +328,8 @@ This repository now contains:
 - a synthetic adverse-action reason accuracy benchmark that demonstrates reason
   generation, driver-to-reason mapping, reason QA, and public-data limitations
   without claiming real-world notice accuracy
+- a one-folder adverse-action reason run-kit landing path that explains how to
+  run, review, limit, and extend the benchmark
 - release strategy documentation and versioned release notes through `v0.8.0` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
