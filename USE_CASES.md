@@ -31,6 +31,7 @@ governed review trigger rather than an unsupported legal conclusion.
 
 Start with:
 
+- `docs/adverse-action-reason-run-kit/README.md`
 - `docs/adverse-action-reason-accuracy-method.md`
 - `docs/adverse-action-public-data-limitations.md`
 - `examples/evidence-packs/adverse-action-reason-benchmark/README.md`

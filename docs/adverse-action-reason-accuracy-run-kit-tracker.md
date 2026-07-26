@@ -131,7 +131,7 @@ proxy. It should not be described as small-business credit proof.
 ## Release Sequence
 
 - `v0.8.0`: synthetic adverse-action reason benchmark and evidence pack
-- `v0.8.1`: method note, limitation note, and reviewer packaging updates
+- post-`v0.8.0` packaging: adverse-action reason run-kit landing folder
 - `v0.9.0`: optional HMDA off-domain mechanics proxy
 - `v0.9.1`: private-data specification and deidentification checklist
 - `v1.0.0`: only after external practitioner/counsel review or private-data
