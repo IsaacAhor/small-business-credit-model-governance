@@ -1,0 +1,42 @@
+{
+  "record_type": "evidence_pack_manifest",
+  "run_id": "run-2026-07-adverse-action",
+  "created_at": "2026-07-26T15:00:00Z",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "version_id": "ver-2026-07-adverse-action",
+  "input_references": [
+    "model-registry-record.json",
+    "model-version-record.json",
+    "threshold-set.json",
+    "fair-lending-screening-config.json",
+    "application-decision-records.json",
+    "score-outputs.json",
+    "reason-code-mappings.json",
+    "adverse-action-driver-contributions.json",
+    "adverse-action-reason-outputs.json",
+    "override-events.json",
+    "outcome-records.json",
+    "breach-records.json"
+  ],
+  "output_files": [
+    "manifest.json",
+    "config_snapshot.json",
+    "input_fingerprints.json",
+    "model_record.json",
+    "threshold_set.json",
+    "metric_results.json",
+    "breach_register.json",
+    "reason_qa_results.json",
+    "reason_stability_report.json",
+    "fair_lending_screening_results.json",
+    "fair_lending_escalation_register.json",
+    "issue_register.json",
+    "monitoring_report.md",
+    "reviewer_notes.md",
+    "reviewer_signoff.md",
+    "adverse_action_reason_benchmark_results.json",
+    "adverse_action_reason_benchmark_report.md",
+    "README.md"
+  ],
+  "reviewer_status": "pending_review"
+}

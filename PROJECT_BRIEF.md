@@ -17,15 +17,15 @@ credit underwriting systems.
 
 - model registry and version-control records
 - threshold-based monitoring
-- adverse-action reason QA
+- adverse-action reason QA and synthetic reason-accuracy benchmarking
 - fair-lending screening triggers
 - issue and escalation records
 - reviewer-ready evidence packs
 
 ## Current Limitations
 
-- synthetic data only
-- no production lender deployment claimed
+- synthetic data only for adverse-action reason accuracy benchmarking
+- no production lender deployment or adverse-action notice accuracy claimed
 - screening outputs are not legal conclusions
 - implementation is under active development
 

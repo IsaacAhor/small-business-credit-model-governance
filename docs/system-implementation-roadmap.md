@@ -205,6 +205,31 @@ Acceptance criteria:
 - a declined decision with no mapped driver produces no reason, which reason QA
   surfaces as a missing-reason exception
 
+## Phase 3C: Adverse-Action Reason Accuracy Benchmark
+
+Deliverables:
+
+- synthetic adverse-action reason benchmark dataset
+- benchmark runner that reuses monthly monitoring and adds benchmark-specific
+  reason accuracy checks
+- curated example evidence pack
+- method, public-data limitation, and private-data specification notes
+
+Status:
+
+- Phase 3C is implemented as the `v0.8.0` synthetic adverse-action reason
+  accuracy milestone. It demonstrates public, on-domain reason generation,
+  driver-to-reason mapping, reason QA, supplemental benchmark exception checks,
+  and evidence-pack review without claiming real-world notice accuracy or legal
+  compliance.
+
+Acceptance criteria:
+
+- expected seeded reason QA failures are observed
+- benchmark outputs remain synthetic and non-legal-conclusion labeled
+- public-data limitations are documented before any public proxy is introduced
+- private-data requirements are explicit for future real-world validation
+
 ## Phase 4: Fair-Lending Screening and Escalation
 
 Deliverables:
@@ -347,6 +372,7 @@ repository workflow.
   monitoring on the portfolio-scale synthetic dataset.
 - `v0.7.0`: SBA 7(a) public-data monitoring run kit for model-risk monitoring
   and drift reporting on real approved-loan FOIA data.
+- `v0.8.0`: synthetic adverse-action reason accuracy benchmark and evidence pack.
 
 ## Evidence Pack Standard
 

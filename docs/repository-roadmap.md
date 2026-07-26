@@ -94,9 +94,11 @@ Status:
 
 Status:
 
-- Adverse-action reason QA, adverse-action reason generation, fair-lending
-  screening/escalation, and LDA assessment are implemented for synthetic
-  demonstration inputs.
+- Adverse-action reason QA, adverse-action reason generation, and the synthetic
+  adverse-action reason accuracy benchmark are implemented for demonstration
+  inputs.
+- Fair-lending screening/escalation and LDA assessment remain implemented as
+  separate supporting synthetic demonstration tracks.
 - Fair-lending screening now reports statistical significance (two-proportion
   z-test with Fisher's exact fallback) on every disparity screen, and BISG
   protected-class proxy estimation runs as an optional monitoring step with

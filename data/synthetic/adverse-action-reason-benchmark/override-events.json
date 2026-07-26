@@ -1,0 +1,11 @@
+[
+  {
+    "record_type": "override_event",
+    "override_id": "ovr-0006",
+    "decision_id": "dec-0006",
+    "override_type": "manual_decline",
+    "override_reason": "Analyst confirmed policy risk after manual review.",
+    "reviewer": "Credit Policy Analyst",
+    "override_date": "2026-07-06"
+  }
+]

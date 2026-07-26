@@ -18,11 +18,14 @@ Use this path if you have limited time and want the clearest view of the work:
    curated portfolio-scale evidence-pack outputs (320 synthetic decisions,
    including statistical significance results, BISG proxy screening, and the
    LDA assessment).
-4. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
+4. Inspect `examples/evidence-packs/adverse-action-reason-benchmark/README.md`
+   for the synthetic adverse-action reason accuracy benchmark and its public-
+   data limits.
+5. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
    the plain-language output of a synthetic monthly governance review at
    portfolio scale. A minimal controlled-breach scenario is also available
    under `examples/evidence-packs/monthly-demo/`.
-5. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
+6. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
    could adapt the workflow.
 
 ## Role-Based Paths
@@ -40,7 +43,8 @@ Use `USE_CASES.md` if you are reviewing from a specific role:
 The repository can be reviewed without running code by inspecting the curated
 example outputs under `examples/evidence-packs/monthly-portfolio/` (portfolio
 scale) and `examples/evidence-packs/monthly-demo/` (minimal controlled
-scenario).
+scenario) and `examples/evidence-packs/adverse-action-reason-benchmark/`
+(adverse-action reason accuracy benchmark).
 
 If you want to reproduce the synthetic workflow locally, run:
 
@@ -48,6 +52,7 @@ If you want to reproduce the synthetic workflow locally, run:
 python scripts/validate_repository.py
 python scripts/validate_phase1.py
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-portfolio --evidence-root evidence
+python scripts/run_adverse_action_reason_benchmark.py --overwrite
 python -m unittest discover -s tests -p "test_*.py"
 ```
 

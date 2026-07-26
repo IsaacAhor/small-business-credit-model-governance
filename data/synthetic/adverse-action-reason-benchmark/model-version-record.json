@@ -1,0 +1,18 @@
+{
+  "record_type": "model_version_record",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "version_id": "ver-2026-07-adverse-action",
+  "effective_date": "2026-07-26",
+  "change_summary": "Synthetic adverse-action reason accuracy benchmark version with controlled QA failures.",
+  "assumptions": [
+    "Records are synthetic and constructed for benchmark coverage.",
+    "Reason outputs are review artifacts, not customer notices.",
+    "Benchmark failures are intentionally seeded."
+  ],
+  "limitations": [
+    "No production lending decisions are represented.",
+    "No real adverse-action notices are represented.",
+    "No legal compliance conclusion is embedded."
+  ],
+  "linked_validation_record": "val-adverse-action-reason-benchmark"
+}

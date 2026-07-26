@@ -1,0 +1,246 @@
+{
+  "label": "fair_lending_screening_only_not_legal_conclusion",
+  "screening_config_id": "fls-2026-07-adverse-action",
+  "comparison_group_count": 2,
+  "screen_count": 3,
+  "finding_count": 0,
+  "group_results": {
+    "region": {
+      "source": "monitoring",
+      "field": "region",
+      "groups": {
+        "midwest": {
+          "total": 3,
+          "approved": 0,
+          "overrides": 0,
+          "reason_code_counts": {
+            "RC-101": 2,
+            "RC-102": 2,
+            "RC-103": 1,
+            "RC-105": 1,
+            "RC-108": 1
+          },
+          "approval_rate": 0.0,
+          "override_rate": 0.0,
+          "reason_code_concentration": 0.2857
+        },
+        "northeast": {
+          "total": 2,
+          "approved": 0,
+          "overrides": 0,
+          "reason_code_counts": {
+            "RC-107": 1
+          },
+          "approval_rate": 0.0,
+          "override_rate": 0.0,
+          "reason_code_concentration": 1.0
+        },
+        "south": {
+          "total": 3,
+          "approved": 1,
+          "overrides": 0,
+          "reason_code_counts": {
+            "RC-101": 1,
+            "RC-999": 1,
+            "RC-106": 1
+          },
+          "approval_rate": 0.3333,
+          "override_rate": 0.0,
+          "reason_code_concentration": 0.3333
+        },
+        "west": {
+          "total": 2,
+          "approved": 0,
+          "overrides": 1,
+          "reason_code_counts": {
+            "RC-104": 1,
+            "RC-105": 1
+          },
+          "approval_rate": 0.0,
+          "override_rate": 0.5,
+          "reason_code_concentration": 0.5
+        }
+      },
+      "summary": {
+        "approval_rate_ratio": 0.0,
+        "override_rate_difference": 0.5,
+        "reason_code_concentration": 1.0
+      },
+      "significance": {
+        "approval_rate": {
+          "group_a": {
+            "label": "midwest",
+            "successes": 0,
+            "total": 3,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "south",
+            "successes": 1,
+            "total": 3,
+            "rate": 0.3333
+          },
+          "effect_size": {
+            "rate_difference": -0.3333,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 1.0,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        },
+        "override_rate": {
+          "group_a": {
+            "label": "midwest",
+            "successes": 0,
+            "total": 3,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "west",
+            "successes": 1,
+            "total": 2,
+            "rate": 0.5
+          },
+          "effect_size": {
+            "rate_difference": -0.5,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 0.4,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        }
+      }
+    },
+    "segment": {
+      "source": "decision",
+      "field": "segment",
+      "groups": {
+        "growth": {
+          "total": 2,
+          "approved": 0,
+          "overrides": 1,
+          "reason_code_counts": {
+            "RC-104": 1,
+            "RC-105": 1
+          },
+          "approval_rate": 0.0,
+          "override_rate": 0.5,
+          "reason_code_concentration": 0.5
+        },
+        "micro": {
+          "total": 4,
+          "approved": 1,
+          "overrides": 0,
+          "reason_code_counts": {
+            "RC-101": 1,
+            "RC-999": 1,
+            "RC-106": 1
+          },
+          "approval_rate": 0.25,
+          "override_rate": 0.0,
+          "reason_code_concentration": 0.3333
+        },
+        "small": {
+          "total": 4,
+          "approved": 0,
+          "overrides": 0,
+          "reason_code_counts": {
+            "RC-101": 2,
+            "RC-102": 2,
+            "RC-103": 1,
+            "RC-105": 1,
+            "RC-108": 1,
+            "RC-107": 1
+          },
+          "approval_rate": 0.0,
+          "override_rate": 0.0,
+          "reason_code_concentration": 0.25
+        }
+      },
+      "summary": {
+        "approval_rate_ratio": 0.0,
+        "override_rate_difference": 0.5,
+        "reason_code_concentration": 0.5
+      },
+      "significance": {
+        "approval_rate": {
+          "group_a": {
+            "label": "growth",
+            "successes": 0,
+            "total": 2,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "micro",
+            "successes": 1,
+            "total": 4,
+            "rate": 0.25
+          },
+          "effect_size": {
+            "rate_difference": -0.25,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 1.0,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        },
+        "override_rate": {
+          "group_a": {
+            "label": "micro",
+            "successes": 0,
+            "total": 4,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "growth",
+            "successes": 1,
+            "total": 2,
+            "rate": 0.5
+          },
+          "effect_size": {
+            "rate_difference": -0.5,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 0.333333,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        }
+      }
+    }
+  },
+  "findings": [],
+  "limitations": [
+    "Synthetic data only.",
+    "No protected-class labels are used.",
+    "Screening findings are governance review triggers, not legal conclusions.",
+    "Significance tests are unadjusted comparisons; no regression controls for legitimate credit factors."
+  ]
+}

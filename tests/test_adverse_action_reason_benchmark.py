@@ -1,0 +1,64 @@
+from __future__ import annotations
+
+import json
+import sys
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from scripts.run_adverse_action_reason_benchmark import (  # noqa: E402
+    EXPECTED_EXCEPTION_TYPES,
+    run_benchmark,
+)
+
+DATASET = ROOT / "data" / "synthetic" / "adverse-action-reason-benchmark"
+EXAMPLE_PACK = ROOT / "examples" / "evidence-packs" / "adverse-action-reason-benchmark"
+TEST_OUTPUT = ROOT / "evidence" / "_test_adverse_action_reason_benchmark_pack"
+
+
+class AdverseActionReasonBenchmarkTests(unittest.TestCase):
+    def test_curated_results_cover_expected_seeded_failures(self) -> None:
+        results = json.loads(
+            (EXAMPLE_PACK / "adverse_action_reason_benchmark_results.json").read_text(
+                encoding="utf-8"
+            )
+        )
+
+        self.assertEqual(
+            "data/synthetic/adverse-action-reason-benchmark",
+            results["dataset"],
+        )
+        self.assertTrue(results["acceptance"]["expected_seeded_failures_observed"])
+        self.assertEqual([], results["missing_expected_exception_types"])
+        self.assertEqual(EXPECTED_EXCEPTION_TYPES, set(results["observed_exception_types"]))
+        self.assertIn("not_legal_conclusion", results["label"])
+
+    def test_runner_regenerates_benchmark_pack(self) -> None:
+        result = run_benchmark(
+            dataset_dir=DATASET,
+            output_dir=TEST_OUTPUT,
+            overwrite=True,
+        )
+
+        self.assertTrue(result.ok, result.errors)
+        self.assertTrue((TEST_OUTPUT / "adverse_action_reason_benchmark_results.json").is_file())
+        self.assertTrue((TEST_OUTPUT / "adverse_action_reason_benchmark_report.md").is_file())
+        manifest = json.loads((TEST_OUTPUT / "manifest.json").read_text(encoding="utf-8"))
+        self.assertIn(
+            "adverse_action_reason_benchmark_results.json",
+            manifest["output_files"],
+        )
+        self.assertIn(
+            "adverse_action_reason_benchmark_report.md",
+            manifest["output_files"],
+        )
+
+
+if __name__ == "__main__":
+    unittest.main()
