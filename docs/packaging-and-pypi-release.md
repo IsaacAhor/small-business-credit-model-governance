@@ -7,6 +7,17 @@ The package distribution is a reproducibility and dissemination artifact. It
 does not show production deployment, legal compliance, lender adoption,
 regulatory approval, or independent validation by itself.
 
+## Current Release Status
+
+As of 2026-07-26, `v0.9.0` has been built locally, checked with Twine,
+installed from the generated wheel, smoke-tested through installed console
+commands, tagged, pushed, and published as a GitHub Release:
+
+https://github.com/IsaacAhor/small-business-credit-model-governance/releases/tag/v0.9.0
+
+TestPyPI and PyPI upload have not been performed. The steps below are the
+controlled process for a future package-index upload.
+
 ## Package Shape
 
 - Distribution name: `credit-gov`

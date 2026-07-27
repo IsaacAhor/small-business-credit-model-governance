@@ -375,7 +375,7 @@ This repository now contains:
   without claiming real-world notice accuracy
 - a one-folder adverse-action reason run-kit landing path that explains how to
   run, review, limit, and extend the benchmark
-- release strategy documentation and versioned release notes through `v0.8.0` for stable milestone preservation
+- release strategy documentation and versioned release notes through `v0.9.0` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
