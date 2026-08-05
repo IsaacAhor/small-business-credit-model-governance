@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -27,6 +28,13 @@ REQUIRED_FILES = [
     ".github/ISSUE_TEMPLATE/validation-finding.md",
     ".github/ISSUE_TEMPLATE/monitoring-breach.md",
     "docs/evidence-map.md",
+    "docs/ai-rmf-alignment.md",
+    "docs/credit-union-ai-vendor-risk-run-kit/README.md",
+    "docs/credit-union-ai-vendor-risk-run-kit/SOURCE_MAP.md",
+    "docs/credit-union-ai-vendor-risk-run-kit/DUE_DILIGENCE.md",
+    "docs/credit-union-ai-vendor-risk-run-kit/MONITORING_PROTOCOL.md",
+    "docs/credit-union-ai-vendor-risk-run-kit/ADVERSE_ACTION_REVIEW.md",
+    "docs/credit-union-ai-vendor-risk-run-kit/LIMITATIONS.md",
     "docs/release-strategy.md",
     "docs/releases/v0.4.0.md",
     "docs/releases/v0.4.1.md",
@@ -75,6 +83,21 @@ REQUIRED_TERMS = {
         "What it supports",
         "What it does not prove",
         "Synthetic data should be described as demonstration data.",
+    ],
+    "docs/ai-rmf-alignment.md": [
+        "Govern, Map, Measure, and Manage",
+        "not a NIST profile",
+        "not as a NIST-recognized or NIST-approved implementation",
+    ],
+    "docs/credit-union-ai-vendor-risk-run-kit/README.md": [
+        "Credit Union AI Vendor-Risk Run Kit",
+        "NCUA",
+        "not a legal opinion, NCUA approval",
+    ],
+    "docs/credit-union-ai-vendor-risk-run-kit/LIMITATIONS.md": [
+        "What It Is Not",
+        "NCUA approval, recognition, endorsement, or validation",
+        "External Validation Gap",
     ],
     "docs/release-strategy.md": [
         "versioned releases",
@@ -191,6 +214,22 @@ def check_notebooks() -> None:
             )
 
 
+def is_git_ignored(path: Path) -> bool:
+    """Return True for local scratch files excluded by the repository."""
+
+    try:
+        result = subprocess.run(
+            ["git", "check-ignore", "--quiet", "--", str(path.relative_to(ROOT))],
+            cwd=ROOT,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+    except OSError:
+        return False
+    return result.returncode == 0
+
+
 def check_data_files() -> None:
     data_files = [
         path
@@ -198,6 +237,7 @@ def check_data_files() -> None:
         if path.is_file()
         and ".git" not in path.parts
         and path.suffix.lower() in DATA_EXTENSIONS
+        and not is_git_ignored(path)
     ]
     for path in data_files:
         relative = path.relative_to(ROOT)

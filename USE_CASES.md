@@ -93,6 +93,37 @@ What to evaluate:
 - where institution-specific policy, legal review, and validation judgment are
   still required
 
+## Credit-Union Vendor-Management or CUSO Reviewer
+
+Use the repository to inspect how a credit union could organize due diligence,
+monitoring, adverse-action review, model-change review, and issue escalation
+for an AI-enabled third-party small-business or member-business underwriting
+tool.
+
+Start with:
+
+- `docs/credit-union-ai-vendor-risk-run-kit/README.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/DUE_DILIGENCE.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/MONITORING_PROTOCOL.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/ADVERSE_ACTION_REVIEW.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/LIMITATIONS.md`
+- `governance/control-matrix.md`
+- `examples/evidence-packs/monthly-portfolio/reviewer_signoff.md`
+
+What to evaluate:
+
+- whether the due-diligence questions would surface product function, model
+  transparency, introduced risks, business-model fit, vendor safeguards,
+  reliability, and controls
+- whether the monitoring protocol is realistic for smaller or mid-sized credit
+  unions
+- whether adverse-action reason support is reviewed separately from broad
+  vendor claims
+- whether fair-lending and bias-risk prompts are treated as governance review
+  triggers, not automatic legal conclusions
+- whether the run kit makes clear that third-party outsourcing does not remove
+  the credit union's need for oversight
+
 ## Researcher or External Reviewer
 
 Use the repository to assess whether the work is concrete, reviewable, and
@@ -102,6 +133,7 @@ Start with:
 
 - `PROJECT_BRIEF.md`
 - `docs/evidence-map.md`
+- `docs/ai-rmf-alignment.md`
 - `docs/release-strategy.md`
 - `docs/releases/v0.4.0.md`
 - `docs/releases/v0.8.0.md`
@@ -111,6 +143,8 @@ What to evaluate:
 
 - whether the contribution is more than a concept note
 - whether the artifacts are public and reproducible
+- whether the AI RMF mapping is concrete enough to guide review without
+  implying NIST endorsement or compliance certification
 - whether the limitations are stated honestly
 - whether the adverse-action benchmark is presented as synthetic proof of method, not real-world validation
 - whether future milestones are specific enough to support continued work
@@ -124,3 +158,4 @@ Do not use this repository as:
 - a regulatory compliance certification
 - a substitute for institution-specific model validation
 - evidence of external adoption unless separate adoption evidence exists
+- evidence of NCUA approval, endorsement, or acceptance

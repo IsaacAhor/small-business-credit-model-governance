@@ -136,7 +136,24 @@ It produces `model_change_validation_results.json` and
 Treat a material change as a trigger to document rationale and obtain independent
 validation signoff, not as a determination that a change is compliant.
 
-## 8. Record Follow-Up
+## 8. Apply The Credit-Union Vendor-Risk Profile When Relevant
+
+When the governed model or decision system is provided by an AI vendor to a
+credit union for small-business or member-business underwriting, review the
+credit-union-specific profile:
+
+- `docs/credit-union-ai-vendor-risk-run-kit/README.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/DUE_DILIGENCE.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/MONITORING_PROTOCOL.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/ADVERSE_ACTION_REVIEW.md`
+- `docs/credit-union-ai-vendor-risk-run-kit/LIMITATIONS.md`
+
+That profile does not add a new compliance claim. It shows how the existing
+records, monitoring outputs, adverse-action review, model-change review, issue
+registers, and signoff artifacts can be packaged for third-party underwriting
+tool due diligence and ongoing vendor oversight.
+
+## 9. Record Follow-Up
 
 The current public workflow creates issue, change-validation, and signoff
 artifacts to demonstrate the control pattern. A production adaptation would need

@@ -38,7 +38,7 @@ If you are new to the repository, use these entry points:
   A short review path for understanding the repository quickly.
 - `USE_CASES.md`
   Role-based paths for model-risk, fair-lending, compliance, credit policy,
-  fintech governance, and research reviewers.
+  credit-union vendor-risk, fintech governance, and research reviewers.
 - `IMPLEMENTATION_GUIDE.md`
   A practical sequence for adapting the synthetic workflow into a governed
   monthly review pattern.
@@ -54,6 +54,13 @@ If you are new to the repository, use these entry points:
 - `docs/model-risk-oversight-run-kit/README.md`
   A model-risk oversight public-data run kit for SBA 7(a)/504 FOIA approved-loan
   monitoring and drift review.
+- `docs/credit-union-ai-vendor-risk-run-kit/README.md`
+  A credit-union AI underwriting vendor-risk profile that maps public NCUA
+  risk-management themes to due diligence, monitoring, adverse-action review,
+  model-change review, issue tracking, and reviewer signoff.
+- `docs/ai-rmf-alignment.md`
+  A practical mapping from the repository workflow to the NIST AI RMF Govern,
+  Map, Measure, and Manage functions.
 
 ## What This Repository Demonstrates
 
@@ -70,6 +77,8 @@ for:
   measurement-error sensitivity disparity screening
 - issue tracking and evidence-pack assembly
 - ongoing model-risk oversight using deterministic demonstration inputs
+- credit-union AI underwriting vendor-risk review, using public NCUA resources
+  as source grounding for due diligence, controls, monitoring, and oversight
 
 ## Who This Repository Is For
 
@@ -78,6 +87,7 @@ This repository should be readable and useful to:
 - legal and policy professionals reviewing the practical value of the work
 - non-technical reviewers who need a plain-language view of what the system does
 - policy, compliance, fair-lending, validation, and model-risk professionals
+- credit-union vendor-management and member-business lending reviewers
 - potential adopters evaluating how a governance workflow could be structured
 - researchers or practitioners assessing governance methods using synthetic data
 
@@ -89,6 +99,8 @@ The repository is designed to support several connected outputs:
 - monitoring checklists for explainability, fair lending, and model-risk oversight
 - implementation-oriented system designs, workflows, and templates
 - practitioner-facing written work that translates the framework into usable methods
+- a credit-union AI vendor-risk run kit that adapts the workflow to
+  third-party underwriting-tool review
 - a configuration-driven governance evidence engine supported by synthetic
   fixtures and clearly scoped public-data run kits
 
@@ -130,6 +142,8 @@ kits, tests, and configuration-driven workflow code.
 - fair-lending screening that flags disparity indicators for governance review
 - change-review workflows for model versions, thresholds, and reason-code
   mappings
+- AI vendor due-diligence and monitoring review for credit-union
+  small-business or member-business underwriting workflows
 - independent validation review supported by reviewer-facing summary artifacts
 
 ## Scope
@@ -147,7 +161,7 @@ It does not assume a fixed modeling stack at this stage.
 ## Repository Structure
 
 - `docs/`
-  Framework and article planning documents.
+  Framework, run-kit, source-mapping, and article planning documents.
 - `docs/releases/`
   Release notes for stable public milestones.
 - `START_HERE.md`, `USE_CASES.md`, and `IMPLEMENTATION_GUIDE.md`
@@ -298,16 +312,23 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.9.0`, which makes the project a modern
-installable Python package with `pyproject.toml`, packaged schema/reference
-resources, console entry points, wheel-build CI checks, and a PyPI release
-guide. It is a distribution and reproducibility milestone, not proof of
-adoption, deployment, legal compliance, regulatory approval, field recognition,
-or external validation.
+The latest documented milestone is `v0.9.1`, which adds a credit-union AI
+underwriting vendor-risk run kit. The profile maps public NCUA AI,
+third-party-risk, compliance-management, CUSO, and Regulation B resource themes
+to due diligence, monitoring, adverse-action reason review, model-change review,
+issue tracking, and reviewer signoff. It is a reviewer-facing documentation
+milestone, not proof of NCUA approval, adoption, deployment, legal compliance,
+regulatory approval, field recognition, or external validation.
 
-The prior release, `v0.8.0`, adds the synthetic adverse-action reason accuracy
-and transparency benchmark. The benchmark is a public, on-domain synthetic run
-kit for reason generation, driver-to-reason mapping, reason QA, and
+The prior release, `v0.9.0`, makes the project a modern installable Python
+package with `pyproject.toml`, packaged schema/reference resources, console
+entry points, wheel-build CI checks, and a PyPI release guide. It is a
+distribution and reproducibility milestone, not proof of adoption, deployment,
+legal compliance, regulatory approval, field recognition, or external
+validation. The prior release, `v0.8.0`, adds the synthetic adverse-action
+reason accuracy and transparency benchmark. The benchmark is a public,
+on-domain synthetic run kit for reason generation, driver-to-reason mapping,
+reason QA, and
 evidence-pack review under Regulation B 12 CFR 1002.9. It is not public proof
 of live small-business notice accuracy, lender adoption, deployment, legal
 compliance, or regulatory approval. The prior release, `v0.7.0`, adds the
@@ -327,8 +348,8 @@ See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.4.1.md`, `docs/releases/v0.5.0.md`,
 `docs/releases/v0.6.0.md`, `docs/releases/v0.6.1.md`,
 `docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`,
-`docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`, and
-`docs/releases/v0.9.0.md`.
+`docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`,
+`docs/releases/v0.9.0.md`, and `docs/releases/v0.9.1.md`.
 
 ## Data Policy
 
@@ -342,8 +363,10 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 1. Complete the Phase 8 analytical-rigor track: an LDA step that searches
    candidate models and a reproducible run on a recognizable public dataset.
 2. Add drift logic and regression controls to strengthen the analytical layer.
-3. Refine the framework and practitioner-facing article after the portfolio-scale workflow produces report excerpts.
-4. Keep public PR, commit, release, and validation history current as implementation milestones land.
+3. Obtain external practitioner review of the credit-union AI vendor-risk run kit
+   from credit-union, vendor-risk, model-risk, compliance, or counsel reviewers.
+4. Refine the framework and practitioner-facing article after the portfolio-scale workflow produces report excerpts.
+5. Keep public PR, commit, release, and validation history current as implementation milestones land.
 
 The core Phase 5 change-and-validation workflow is now implemented; the remaining
 gaps above are analytical-rigor and documentation work, not change-governance
@@ -375,7 +398,10 @@ This repository now contains:
   without claiming real-world notice accuracy
 - a one-folder adverse-action reason run-kit landing path that explains how to
   run, review, limit, and extend the benchmark
-- release strategy documentation and versioned release notes through `v0.9.0` for stable milestone preservation
+- a credit-union AI vendor-risk run kit that maps public NCUA resource themes to
+  underwriting vendor due diligence, monitoring, adverse-action reason review,
+  model-change review, issue tracking, and reviewer signoff
+- release strategy documentation and versioned release notes through `v0.9.1` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

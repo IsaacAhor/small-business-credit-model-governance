@@ -38,6 +38,47 @@ institution-specific review.
   <https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10>
 - National Institute of Standards and Technology, AI Resource Center:
   <https://airc.nist.gov/>
+- National Institute of Standards and Technology, NIST AI Risk Management
+  Framework Playbook:
+  <https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook>
+- National Institute of Standards and Technology, AIRC Example of Use Cases:
+  <https://airc.nist.gov/airmf-resources/usecases/>
+- National Cybersecurity Center of Excellence, Mitigating AI/ML Bias in
+  Context: Final Project Description Released:
+  <https://csrc.nist.gov/news/2022/mitigating-aiml-bias-in-context-final-pd>
+
+## Credit Union AI and Third-Party Vendor Oversight
+
+- National Credit Union Administration, Artificial Intelligence (AI):
+  <https://ncua.gov/regulation-supervision/regulatory-compliance-resources/artificial-intelligence-ai>
+- National Credit Union Administration, Financial Technology and Digital Assets:
+  <https://ncua.gov/regulation-supervision/regulatory-compliance-resources/financial-technology-and-digital-assets>
+- National Credit Union Administration, Evaluating Third Party Relationships:
+  <https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/evaluating-third-party-relationships-0>
+- National Credit Union Administration, Due Diligence Over Third Party Service
+  Providers:
+  <https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/due-diligence-over-third-party-service-providers>
+- National Credit Union Administration, Compliance Management Systems and
+  Compliance Risk:
+  <https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/compliance-management-systems-and-compliance-risk>
+- National Credit Union Administration, Equal Credit Opportunity Act
+  (Regulation B):
+  <https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/lending-regulations/equal-credit-opportunity-act-regulation-b>
+- National Credit Union Administration, Guidance Statement - Expansion of
+  Permissible CUSO Activities and Associated Risks:
+  <https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/expansion-permissible-cuso-activities-and-associated-risks/guidance-statement>
+
+## AI Security and Financial-Services AI Resources
+
+- CISA, NSA, FBI, and international partners, AI Data Security:
+  <https://media.defense.gov/2025/May/22/2003720601/-1/-1/0/CSI_AI_DATA_SECURITY.PDF>
+- CISA, NSA, FBI, and international partners, Deploying AI Systems Securely:
+  <https://media.defense.gov/2024/Apr/15/2003439257/-1/-1/0/CSI-DEPLOYING-AI-SYSTEMS-SECURELY.PDF>
+- U.S. Department of the Treasury, Artificial Intelligence in Financial Services:
+  <https://home.treasury.gov/system/files/136/Artificial-Intelligence-in-Financial-Services.pdf>
+- Financial Crimes Enforcement Network, Fraud Schemes Involving Deepfake Media
+  Targeting Financial Institutions:
+  <https://www.fincen.gov/sites/default/files/shared/FinCEN-Alert-DeepFakes-Alert508FINAL.pdf>
 
 ## Fair-Lending and Small Business Credit Context
 
@@ -58,6 +99,10 @@ institution-specific review.
   documentation, governance, and controls.
 - NIST AI RMF materials are relevant as general AI risk-management context and
   should be used carefully because they are not credit-specific legal authority.
+- NCUA AI and third-party-risk resources are relevant to credit-union vendor due
+  diligence, internal controls, ongoing monitoring, board and management
+  oversight, and risk-management framing. They are not approval of this
+  repository.
 - Fair-lending and small business lending materials are relevant to monitoring
   design and screening triggers, not automatic legal conclusions.
 

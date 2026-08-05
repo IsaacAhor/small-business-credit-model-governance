@@ -14,27 +14,34 @@ Use this path if you have limited time and want the clearest view of the work:
    limitations.
 2. Read `docs/evidence-map.md` to see what each artifact supports and what it
    does not prove.
-3. Inspect `examples/evidence-packs/monthly-portfolio/README.md` for the
+3. Read `docs/ai-rmf-alignment.md` for a NIST AI RMF-oriented view of how
+   the workflow maps to Govern, Map, Measure, and Manage.
+4. Inspect `examples/evidence-packs/monthly-portfolio/README.md` for the
    curated portfolio-scale evidence-pack outputs (320 synthetic decisions,
    including statistical significance results, BISG proxy screening, and the
    LDA assessment).
-4. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
+5. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
    adverse-action reason accuracy benchmark, run command, evidence-pack review
    path, and public-data limits.
-5. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
+6. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
+   reviewing an AI-enabled credit-union underwriting vendor, CUSO relationship,
+   or third-party small-business/member-business lending tool.
+7. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
    the plain-language output of a synthetic monthly governance review at
    portfolio scale. A minimal controlled-breach scenario is also available
    under `examples/evidence-packs/monthly-demo/`.
-6. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
+8. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
    could adapt the workflow.
 
 ## Role-Based Paths
 
-Use `USE_CASES.md` if you are reviewing from a specific role:
+Use `USE_CASES.md` if you are reviewing from a specific role, including a
+credit-union vendor-risk review role:
 
 - model-risk or validation reviewer
 - fair-lending or compliance reviewer
 - credit policy or underwriting governance lead
+- credit-union vendor-management or CUSO reviewer
 - fintech governance or product risk lead
 - researcher or external reviewer
 
@@ -44,7 +51,9 @@ The repository can be reviewed without running code by inspecting the curated
 example outputs under `examples/evidence-packs/monthly-portfolio/` (portfolio
 scale) and `examples/evidence-packs/monthly-demo/` (minimal controlled
 scenario) and `docs/adverse-action-reason-run-kit/README.md`
-(adverse-action reason accuracy benchmark landing path).
+(adverse-action reason accuracy benchmark landing path). For a credit-union
+third-party underwriting-tool review, also inspect
+`docs/credit-union-ai-vendor-risk-run-kit/README.md`.
 
 If you want to reproduce the synthetic workflow locally, run:
 

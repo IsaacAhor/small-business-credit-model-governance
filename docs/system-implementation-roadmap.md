@@ -327,11 +327,26 @@ Deliverables:
 - heightened monitoring configuration
 - vendor oversight report section
 
+Documentation profile added:
+
+- `docs/credit-union-ai-vendor-risk-run-kit/` maps public NCUA AI,
+  third-party-risk, compliance-management, CUSO, and Regulation B resource themes
+  to due diligence, monitoring, adverse-action reason review, model-change
+  review, issue tracking, and reviewer signoff for credit-union AI underwriting
+  vendors.
+
 Acceptance criteria:
 
 - third-party model components can be recorded without overstating transparency
 - limitations are documented separately from internal validation gaps
 - vendor oversight outputs map to model risk governance concepts
+
+Remaining implementation work:
+
+- add structured vendor model metadata fields
+- add opaque-score limitation fields to governed records
+- add heightened monitoring configuration
+- emit a vendor oversight section in generated monitoring reports
 
 ## Target Repository Shape
 
