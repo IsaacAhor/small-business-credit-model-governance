@@ -34,5 +34,6 @@ credit underwriting systems.
 - model-risk teams
 - fair-lending monitoring teams
 - credit policy teams
+- credit-union vendor-management and member-business lending reviewers
 - fintech governance teams
 - researchers and practitioners

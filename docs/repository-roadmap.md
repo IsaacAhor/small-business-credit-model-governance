@@ -102,6 +102,12 @@ Status:
   protected-class proxy estimation runs as an optional monitoring step with
   posterior-predictive bootstrap and measurement-error sensitivity disparity
   screening (see `docs/fair-lending-statistics.md`).
+- A credit-union AI vendor-risk documentation profile is now available under
+  `docs/credit-union-ai-vendor-risk-run-kit/`. It maps public NCUA AI,
+  third-party-risk, compliance, CUSO, and Regulation B resource themes to due
+  diligence, monitoring, adverse-action reason review, model-change review,
+  issue tracking, and reviewer signoff.
 - The remaining priorities are the analytical-rigor track in
   `docs/system-implementation-roadmap.md` (LDA candidate search, public-dataset
-  run, regression controls), then model-change review and vendor oversight.
+  run, regression controls), then executable vendor model oversight metadata and
+  heightened monitoring mode.

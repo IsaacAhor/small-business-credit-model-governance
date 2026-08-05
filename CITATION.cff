@@ -12,7 +12,8 @@ abstract: >-
   credit underwriting: synthetic monitoring, adverse-action reason generation
   and QA, fair-lending screening with statistical significance testing,
   BISG protected-class proxy estimation, less-discriminatory-alternative
-  assessment, and reviewer-ready evidence packs.
+  assessment, credit-union AI underwriting vendor-risk review, and
+  reviewer-ready evidence packs.
 keywords:
   - model-governance
   - model-risk-management
@@ -21,5 +22,5 @@ keywords:
   - credit-underwriting
   - responsible-ai
 license: Apache-2.0
-version: 0.9.0
-date-released: "2026-07-26"
+version: 0.9.1
+date-released: "2026-08-05"

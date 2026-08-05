@@ -35,6 +35,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.7.0`: model-risk oversight public-data run kit
 - `v0.8.0`: synthetic adverse-action reason accuracy benchmark
 - `v0.9.0`: installable package readiness and GitHub Release
+- `v0.9.1`: credit-union AI underwriting vendor-risk run kit
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -55,14 +56,25 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current documented milestone is `v0.9.0`, which makes the repository a
-modern installable Python package: `pyproject.toml` metadata, `src/` package
-layout, packaged schema/reference resources, console entry points, wheel-build
-checks, installed-command smoke tests, and a GitHub Release. The tag
-`v0.9.0` dereferences to commit
-`ae947d76ce3c42bd8ede79b8e650a28ab75a4cae`.
+The current documented milestone is `v0.9.1`, which adds a credit-union AI
+underwriting vendor-risk run kit under
+`docs/credit-union-ai-vendor-risk-run-kit/`. The run kit maps public NCUA AI,
+third-party-risk, compliance-management, CUSO, and Regulation B resource themes
+to due diligence, monitoring, adverse-action reason review, model-change review,
+issue tracking, and reviewer signoff.
 
-This milestone demonstrates distribution readiness and reproducibility. It is
+This milestone demonstrates a reviewer-facing documentation profile over the
+existing governance evidence engine. It is not proof of NCUA approval,
+credit-union adoption, production deployment, legal compliance, external
+validation, regulatory approval, field recognition, or examiner acceptance.
+
+The prior milestone, `v0.9.0`, makes the repository a modern installable Python
+package: `pyproject.toml` metadata, `src/` package layout, packaged
+schema/reference resources, console entry points, wheel-build checks,
+installed-command smoke tests, and a GitHub Release. The tag `v0.9.0`
+dereferences to commit `ae947d76ce3c42bd8ede79b8e650a28ab75a4cae`.
+
+That milestone demonstrates distribution readiness and reproducibility. It is
 not a TestPyPI or PyPI upload, and it is not proof of live small-business
 adverse-action notice accuracy, lender adoption, production deployment, legal
 compliance, external validation, regulatory approval, field recognition, or
