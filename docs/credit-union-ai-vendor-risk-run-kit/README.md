@@ -35,6 +35,12 @@ directly affect a covered credit underwriting decision or its documentation.
 This profile is informed by public NCUA and federal resources. The source map is
 in [SOURCE_MAP.md](SOURCE_MAP.md).
 
+The planned documentation corrections and executable vendor-oversight build are
+defined in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Until that build is
+released, this run kit remains a documentation and reviewer-profile artifact;
+the existing repository workflow does not yet validate vendor-risk records or
+generate a vendor-oversight report.
+
 Key public themes:
 
 - NCUA says credit unions may use AI when implemented in a safe, sound, and
