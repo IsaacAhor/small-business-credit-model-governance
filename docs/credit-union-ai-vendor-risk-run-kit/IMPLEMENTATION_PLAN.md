@@ -94,6 +94,25 @@ The v0.9.2 source map must classify and qualify, at a minimum:
 - NIST AI RMF and SR 26-2 only as voluntary or analogous model-risk references,
   not credit-union mandates.
 
+## Authoritative References
+
+The sources below were rechecked on 2026-08-08. They let reviewers inspect
+the basis for this plan without converting a source into a universal
+requirement. SOURCE_MAP.md remains the detailed source-to-control crosswalk.
+
+| Source | Class | Build relevance |
+| --- | --- | --- |
+| [NCUA Artificial Intelligence resources](https://ncua.gov/regulation-supervision/regulatory-compliance-resources/artificial-intelligence-ai) | NCUA guidance | AI risk management, third-party due diligence, monitoring, board/management oversight, and the technology-neutral supervisory context. |
+| [07-CU-13: Evaluating Third-Party Relationships](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/evaluating-third-party-relationships-0) and [01-CU-20: Due Diligence Over Third-Party Service Providers](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/due-diligence-over-third-party-service-providers) | NCUA guidance | Risk tiering, due diligence, contracts, ongoing controls, reporting, and continuing institution responsibility. |
+| [NCUA Compliance Management Systems](https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/compliance-management-systems-and-compliance-risk) and [NCUA Regulation B guide](https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/lending-regulations/equal-credit-opportunity-act-regulation-b) | NCUA guidance | Governance ownership, monitoring, corrective action, and business-credit review prompts. |
+| [12 CFR Part 723](https://www.ecfr.gov/current/title-12/chapter-VII/subchapter-A/part-723) | Binding regulation when applicable | Commercial-lending policy, risk management, and third-party lending-personnel decision authority. |
+| [12 CFR 1002.9](https://www.consumerfinance.gov/rules-policy/regulations/1002/9/) and [12 CFR 1002.12](https://www.consumerfinance.gov/rules-policy/regulations/1002/12/) | Binding regulation when applicable | Business-credit adverse-action notice paths, specific-reason controls, and record-retention prompts. |
+| [CFPB Section 1071 resources](https://www.consumerfinance.gov/1071-rule/) | Binding regulation when applicable | Conditional small-business lending-data, firewall, and retention controls. |
+| [FCRA Regulation V](https://www.consumerfinance.gov/rules-policy/regulations/1022/) and [NCUA E-SIGN Act guide](https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/deposit-regulations/electronic-signatures-global-and-national-commerce-act-e-sign-act) | Binding law/regulation when applicable | Consumer-report and electronic-disclosure flags within a notice-control record. |
+| [12 CFR 748.0](https://www.ecfr.gov/current/title-12/chapter-VII/subchapter-A/part-748/section-748.0) and [NCUA cyber-incident notification guidance](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/cyber-incident-notification-requirements) | Binding regulation and NCUA guidance when applicable | Security controls, contractual event notice, and institution-led escalation assessment. |
+| [NCUA CUSO guidance](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/expansion-permissible-cuso-activities-and-associated-risks/guidance-statement) | NCUA guidance | CUSO/fintech relationship inventory and third-party lending-risk prompts; historical fair-lending language requires current-status qualification. |
+| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) and [SR 26-2](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) | Voluntary or analogous reference | Optional risk-management vocabulary and model-risk design benchmark; neither is an NCUA mandate for this run kit. |
+
 Recheck source assertions before every release that changes regulatory-language
 claims. The source map is a navigation aid, not a substitute for
 institution-specific counsel or compliance review.
