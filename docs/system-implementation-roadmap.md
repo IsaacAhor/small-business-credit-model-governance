@@ -334,6 +334,9 @@ Documentation profile added:
   to due diligence, monitoring, adverse-action reason review, model-change
   review, issue tracking, and reviewer signoff for credit-union AI underwriting
   vendors.
+- `docs/credit-union-ai-vendor-risk-run-kit/IMPLEMENTATION_PLAN.md` is the
+  execution authority for the documentation correction patch and the
+  subsequent executable vendor-oversight build.
 
 Acceptance criteria:
 
