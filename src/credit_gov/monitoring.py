@@ -1220,22 +1220,23 @@ def build_evidence_pack(
         write_json(evidence_dir / "bisg_proxy_results.json", bisg)
     if change_validation is not None:
         write_json(evidence_dir / "model_change_validation_results.json", change_validation)
-        (evidence_dir / "model_change_validation_report.md").write_text(
+        write_text(
+            evidence_dir / "model_change_validation_report.md",
             render_change_validation_report(change_validation),
-            encoding="utf-8",
         )
     write_json(evidence_dir / "issue_register.json", issues)
-    (evidence_dir / "monitoring_report.md").write_text(
+    write_text(
+        evidence_dir / "monitoring_report.md",
         render_monitoring_report(
             metrics, breaches, issues, reason_qa, fair_lending, lda, bisg, change_validation
         ),
-        encoding="utf-8",
     )
-    (evidence_dir / "reviewer_notes.md").write_text(
+    write_text(
+        evidence_dir / "reviewer_notes.md",
         render_reviewer_notes(fair_lending),
-        encoding="utf-8",
     )
-    (evidence_dir / "reviewer_signoff.md").write_text(
+    write_text(
+        evidence_dir / "reviewer_signoff.md",
         render_reviewer_signoff(
             generated_manifest,
             breaches,
@@ -1243,7 +1244,6 @@ def build_evidence_pack(
             fair_lending["findings"],
             change_validation,
         ),
-        encoding="utf-8",
     )
     return evidence_dir
 
@@ -1500,7 +1500,12 @@ def render_reviewer_notes(fair_lending: dict[str, Any]) -> str:
 
 
 def write_json(path: Path, payload: Any) -> None:
-    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_text(path, json.dumps(payload, indent=2) + "\n")
+
+
+def write_text(path: Path, contents: str) -> None:
+    """Write UTF-8 artifacts with LF endings on every operating system."""
+    path.write_bytes(contents.encode("utf-8"))
 
 
 def format_evidence_dir_name(dataset_name: str, run_id: str, created_at: str) -> str:

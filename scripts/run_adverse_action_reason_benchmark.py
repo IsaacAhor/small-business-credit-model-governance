@@ -84,7 +84,12 @@ def load_json(path: Path) -> Any:
 
 
 def write_json(path: Path, payload: Any) -> None:
-    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    write_text(path, json.dumps(payload, indent=2) + "\n")
+
+
+def write_text(path: Path, contents: str) -> None:
+    """Write UTF-8 benchmark artifacts with LF endings on every platform."""
+    path.write_bytes(contents.encode("utf-8"))
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -162,13 +167,13 @@ def run_benchmark(
         max_reasons=max_reasons,
     )
     write_json(output_dir / "adverse_action_reason_benchmark_results.json", benchmark_results)
-    (output_dir / "adverse_action_reason_benchmark_report.md").write_text(
+    write_text(
+        output_dir / "adverse_action_reason_benchmark_report.md",
         render_benchmark_report(benchmark_results),
-        encoding="utf-8",
     )
-    (output_dir / "README.md").write_text(
+    write_text(
+        output_dir / "README.md",
         render_example_readme(benchmark_results),
-        encoding="utf-8",
     )
     update_manifest(output_dir)
 

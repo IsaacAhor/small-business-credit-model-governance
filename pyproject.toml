@@ -70,3 +70,8 @@ where = ["src"]
 [tool.setuptools.package-data]
 "credit_gov.schemas" = ["json/*.json"]
 "credit_gov.reference.bisg" = ["*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["evidence", "tmp", "build", "dist", ".pytest_cache"]
+addopts = "-p no:cacheprovider"
