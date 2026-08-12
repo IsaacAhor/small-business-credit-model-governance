@@ -21,9 +21,14 @@ Assign named owners before launch:
 For smaller credit unions, one person may cover multiple roles, but the review
 record should still state who performed each review function.
 
-## Cadence
+## Risk-Based Cadence
 
-| Event | Minimum monitoring action |
+Set the cadence only after recording the product, decision authority, volume,
+materiality, vendor dependencies, contract terms, applicable requirements, and
+known limitations. The following are illustrative review points, not a minimum
+legal or supervisory schedule.
+
+| Event | Illustrative risk-based review action |
 | --- | --- |
 | Pre-launch | Complete due diligence, legal review, control setup, adverse-action review, and monitoring thresholds. |
 | First 30 to 90 days | Run heightened monitoring for volume, overrides, errors, reason mix, complaints, and vendor service issues. |
@@ -31,6 +36,16 @@ record should still state who performed each review function.
 | Material model or rule change | Run model-change review before promotion or renewed reliance. |
 | Incident or complaint spike | Escalate outside normal cadence and document corrective action. |
 | Annual review | Reassess business fit, vendor financial/operational condition, controls, validation, contract terms, and exit plan. |
+
+## Cadence Rationale And Heightened Monitoring
+
+For each review period, preserve the cadence selected, the reason it fits the
+actual relationship, the data reviewed, and the accountable owner. Identify
+heightened-monitoring triggers before relying on the vendor, such as a material
+model or data-source change, unresolved control finding, rapid volume growth,
+unexplained reason-QA failure, service degradation, complaint pattern, or
+security event. A trigger prompts an institution-led assessment; it does not
+itself decide legal, regulatory, or reportability consequences.
 
 ## Metrics
 
@@ -108,6 +123,15 @@ For each breach or material finding, record:
 Do not close a finding only because a metric returned to normal. Close it when
 the owner has documented cause, action taken or accepted risk, and reviewer
 signoff.
+
+## Contractual Event Notices And Escalation
+
+Record the vendor's contractual notice, the event facts supplied, the affected
+product and data, the internal recipients, the assessment performed, and the
+resulting action. Route security, privacy, compliance, operational, and
+member-impact questions to the credit union's responsible owners. This record
+is not a suspicious-activity, breach-reporting, or regulator-notification
+determination; those decisions remain institution-specific.
 
 ## Model-Change Review
 

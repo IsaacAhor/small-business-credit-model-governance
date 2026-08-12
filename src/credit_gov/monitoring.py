@@ -1249,9 +1249,16 @@ def build_evidence_pack(
 
 
 def build_input_fingerprints(dataset_dir: Path) -> dict[str, str]:
+    """Hash JSON inputs after canonicalizing newline bytes.
+
+    Git can materialize text files with CRLF on Windows and LF in Linux CI.
+    The JSON content is unchanged, so evidence-pack provenance should not drift
+    solely because of that checkout representation.
+    """
     fingerprints: dict[str, str] = {}
     for path in sorted(dataset_dir.glob("*.json")):
-        fingerprints[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+        canonical_bytes = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        fingerprints[path.name] = hashlib.sha256(canonical_bytes).hexdigest()
     return fingerprints
 
 

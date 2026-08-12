@@ -96,3 +96,7 @@ improving trustworthy AI practices. The AIRC use-case page also states that
 NIST does not validate or endorse individual use cases. This repository should
 therefore be read as an independent, public technical demonstration that uses
 AI RMF vocabulary, not as a NIST-recognized or NIST-approved implementation.
+
+For the credit-union vendor-risk profile, AI RMF and SR 26-2 are voluntary or
+analogous design references only. They do not create an NCUA AI requirement or
+determine a credit union's legal or supervisory obligations.

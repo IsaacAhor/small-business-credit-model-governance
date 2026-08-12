@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import subprocess
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -16,7 +16,7 @@ TEMP_ROOT = ROOT / "tmp" / "test-runs"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from credit_gov.monitoring import run_monthly_monitoring  # noqa: E402
+from credit_gov.monitoring import build_input_fingerprints, run_monthly_monitoring  # noqa: E402
 
 
 class temp_evidence_root:
@@ -37,6 +37,20 @@ class temp_evidence_root:
 
 
 class Phase2MonitoringTests(unittest.TestCase):
+    def test_input_fingerprints_normalize_checkout_newlines(self) -> None:
+        canonical = b'{"run_id":"demo"}\n'
+        with LocalTemporaryDirectory(TEMP_ROOT) as temp_dir:
+            dataset_dir = Path(temp_dir)
+            input_path = dataset_dir / "evidence-pack-manifest.json"
+            input_path.write_bytes(canonical.replace(b"\n", b"\r\n"))
+
+            fingerprints = build_input_fingerprints(dataset_dir)
+
+        self.assertEqual(
+            hashlib.sha256(canonical).hexdigest(),
+            fingerprints["evidence-pack-manifest.json"],
+        )
+
     def test_controlled_breach_scenario_generates_expected_outputs(self) -> None:
         dataset = ROOT / "data" / "synthetic" / "monthly-demo"
         expected_breaches = json.loads((dataset / "breach-records.json").read_text(encoding="utf-8"))

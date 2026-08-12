@@ -16,8 +16,9 @@ be supported by evidence, not by a sales statement alone.
 | Is the product used for small-business, member-business, consumer, or mixed-purpose credit? | Product taxonomy, policy owner confirmation |
 | What stage does the tool affect: marketing, application intake, underwriting, pricing, fraud/KYC, manual review, adverse action, servicing, or collections? | Process map, workflow diagram, API documentation |
 | Does the tool recommend, score, rank, route, approve, decline, price, or generate reasons? | Output specification, decision-role description |
+| Who has final decision authority, and which vendor output may staff override, reject, or rely on? | Decision-authority matrix, credit policy, approval limits, override workflow |
 | Can credit-union staff override the output? | Override policy, user permissions, override-event logs |
-| Does the vendor use subcontractors, affiliates, data brokers, model providers, cloud providers, or CUSO relationships? | Subprocessor list, affiliate list, data-flow map |
+| Does the vendor use material subcontractors, affiliates, data brokers, model providers, cloud providers, or CUSO relationships? | Current subprocessor list, materiality criteria, affiliate list, data-flow map, change-notice terms |
 
 ## 2. Business Fit and Risk Tolerance
 
@@ -65,7 +66,7 @@ be supported by evidence, not by a sales statement alone.
 | Who has access to data and model outputs? | Access-control matrix, role list |
 | What deidentification, masking, minimization, or retention controls apply? | Data retention schedule, deidentification method |
 | How are data drift, input anomalies, and upstream data changes monitored? | Drift reports, alert thresholds |
-| What breach, incident, or suspicious-activity notification commitments apply? | Incident response plan, contractual notice clause |
+| What contractual security-event, incident, outage, or data-compromise notice must the vendor provide, and who assesses the credit union's next steps? | Contractual notice clause, incident-response plan, internal ownership and escalation record |
 
 ## 6. Adverse-Action Reason Support
 
@@ -104,7 +105,7 @@ should not be treated as an automatic legal conclusion.
 | What logging is available for decisions, user actions, overrides, errors, and model outputs? | Log schema, sample logs |
 | Can the credit union verify vendor reports against internal records? | Reconciliation procedure |
 | What quality-control process reviews vendor performance periodically? | QC schedule, report template |
-| What material events require notice to the credit union? | Contract notice provisions |
+| What material events require contractual notice to the credit union, including model, data-source, subprocessor, security, or service changes? | Contract notice provisions, materiality criteria, event log |
 
 ## 9. Contract and Legal Review
 
@@ -114,7 +115,7 @@ should not be treated as an automatic legal conclusion.
 | Does the credit union retain rights to audit, inspect records, or receive independent control reports? | Audit-rights clause |
 | Are model changes, data-source changes, subcontractor changes, and threshold changes subject to notice? | Change-notification clause |
 | Does the vendor support adverse-action, complaint, audit, and examiner-review requests? | Cooperation clause, report samples |
-| Are data ownership, permitted use, retention, deletion, and return clearly defined? | Data terms |
+| Are data ownership, permitted use, retention, deletion, return, and accessible record preservation clearly defined? | Data terms, retention schedule, retrieval and transition procedures |
 | Are security, privacy, incident response, business continuity, and insurance requirements defined? | Security schedule, insurance certificates |
 | Are indemnity, limitation of liability, termination, transition assistance, and dispute provisions reviewed by counsel? | Legal review memo |
 
@@ -130,6 +131,7 @@ Create a dated review record with:
 - unanswered questions
 - accepted limitations
 - required controls before launch
+- applicability and records-retention basis confirmed by the appropriate owner
 - ongoing monitoring cadence
 - next review date
 - reviewer signoff

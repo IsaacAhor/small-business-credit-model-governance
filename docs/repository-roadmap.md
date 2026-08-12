@@ -107,6 +107,9 @@ Status:
   third-party-risk, compliance, CUSO, and Regulation B resource themes to due
   diligence, monitoring, adverse-action reason review, model-change review,
   issue tracking, and reviewer signoff.
+  The v0.9.2 documentation patch qualifies its public sources and preserves the
+  distinction between this reviewer profile and the later executable vendor-
+  oversight build defined in `IMPLEMENTATION_PLAN.md`.
 - The remaining priorities are the analytical-rigor track in
   `docs/system-implementation-roadmap.md` (LDA candidate search, public-dataset
   run, regression controls), then executable vendor model oversight metadata and
