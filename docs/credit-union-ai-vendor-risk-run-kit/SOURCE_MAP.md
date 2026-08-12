@@ -3,6 +3,25 @@
 This file maps public source themes to the controls in the credit-union AI
 vendor-risk run kit. The mapping is informational and is not legal advice.
 
+## Source Classification And Applicability
+
+Sources were rechecked on 2026-08-12. The table records why a source is useful
+to a reviewer; it does not turn any source into a universal requirement or
+determine whether a particular credit union, product, applicant, or contract is
+covered. Institution-specific counsel or compliance staff must make that
+determination and record the basis.
+
+| Source | Source class | Applicability and review use | Checked on |
+| --- | --- | --- | --- |
+| [NCUA AI resources](https://ncua.gov/regulation-supervision/regulatory-compliance-resources/artificial-intelligence-ai) | NCUA supervisory resource | NCUA states it has no AI-specific rules. Use it as a technology-neutral AI risk-management and third-party-diligence reference, not as a standalone rule. | 2026-08-12 |
+| [07-CU-13](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/evaluating-third-party-relationships-0) and [01-CU-20](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/due-diligence-over-third-party-service-providers) | NCUA guidance | Use for risk assessment, due diligence, contract, and ongoing-oversight questions. The credit union retains responsibility for its own relationship. | 2026-08-12 |
+| [12 CFR Part 723](https://www.ecfr.gov/current/title-12/chapter-VII/subchapter-A/part-723) | Binding regulation when applicable | Consider only after the institution determines whether its commercial-lending provisions and charter/product facts apply. | 2026-08-12 |
+| [12 CFR 1002.9](https://www.consumerfinance.gov/rules-policy/regulations/1002/9/) and [12 CFR 1002.12](https://www.consumerfinance.gov/rules-policy/regulations/1002/12/) | Binding regulation when applicable | Use for conditional adverse-action notice-path, specific-reason, timing, and record-retention review. Business-credit categories and retention exceptions require case-specific analysis. | 2026-08-12 |
+| [Regulation B Subpart B](https://www.consumerfinance.gov/rules-policy/regulations/1002/101/) | Binding regulation when applicable | Consider data collection, firewall, and recordkeeping only for a covered financial institution, covered application, and covered credit transaction. | 2026-08-12 |
+| [Regulation V](https://www.consumerfinance.gov/rules-policy/regulations/1022/) and [NCUA E-SIGN guide](https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/deposit-regulations/electronic-signatures-global-and-national-commerce-act-e-sign-act) | Binding law or regulation when applicable | Ask whether consumer reports, risk-based-pricing notices, or electronic records and disclosures are implicated; do not assume they are. | 2026-08-12 |
+| [12 CFR 748.0](https://www.ecfr.gov/current/title-12/chapter-VII/subchapter-A/part-748/section-748.0) and [NCUA cyber-incident guidance](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/cyber-incident-notification-requirements) | Binding regulation and NCUA guidance when applicable | Use for security-program, contractual event-notice, and institution-led escalation-assessment prompts. A vendor event record is not a reportability determination. | 2026-08-12 |
+| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) and [SR 26-2](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) | Voluntary or analogous reference | Use only as optional AI/model-risk vocabulary and design benchmarks; neither is an NCUA AI rule or a credit-union mandate. | 2026-08-12 |
+
 ## NCUA Artificial Intelligence Resources
 
 Source:
@@ -67,6 +86,11 @@ Source:
 | Third parties often use AI and ML to make lending decisions. | Explicit third-party AI underwriting scope. |
 | Prudent credit unions understand models and risks, explain how models work, evaluate algorithm/data bias risk, and collaborate with model-risk experts. | Model transparency review, adverse-action reason review, fair-lending risk screening, and independent review prompts. |
 | CUSO relationships can raise UDAAP, operational, privacy, and member-confusion risks. | Marketing/role clarity, privacy/data controls, complaint monitoring, and member-facing responsibility review. |
+
+Historical fair-lending language in this guidance must be checked against the
+current Regulation B text and institution-specific legal analysis before it is
+used in a review. The run kit treats bias screening only as a risk-management
+prompt, not as a federal disparate-impact conclusion.
 
 ## Federal AI Security and Financial-Services Resources Linked by NCUA
 

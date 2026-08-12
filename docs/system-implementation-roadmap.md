@@ -337,6 +337,9 @@ Documentation profile added:
 - `docs/credit-union-ai-vendor-risk-run-kit/IMPLEMENTATION_PLAN.md` is the
   execution authority for the documentation correction patch and the
   subsequent executable vendor-oversight build.
+  The v0.9.2 patch improves source-qualified reviewer documentation only; it
+  does not add the structured vendor metadata, heightened monitoring, or
+  vendor-report generation reserved for the later executable build.
 
 Acceptance criteria:
 

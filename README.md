@@ -312,13 +312,13 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.9.1`, which adds a credit-union AI
-underwriting vendor-risk run kit. The profile maps public NCUA AI,
-third-party-risk, compliance-management, CUSO, and Regulation B resource themes
-to due diligence, monitoring, adverse-action reason review, model-change review,
-issue tracking, and reviewer signoff. It is a reviewer-facing documentation
-milestone, not proof of NCUA approval, adoption, deployment, legal compliance,
-regulatory approval, field recognition, or external validation.
+The latest documented milestone is `v0.9.2`. It adds a source-classification
+and applicability reviewability patch to the credit-union AI vendor-risk run
+kit, source-to-rendered-notice fidelity controls for the synthetic
+adverse-action benchmark, and cross-platform-stable input fingerprints. It is
+a public technical and documentation milestone, not proof of NCUA approval,
+adoption, deployment, legal compliance, regulatory approval, field recognition,
+or external validation.
 
 The prior release, `v0.9.0`, makes the project a modern installable Python
 package with `pyproject.toml`, packaged schema/reference resources, console
@@ -349,7 +349,8 @@ See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.6.0.md`, `docs/releases/v0.6.1.md`,
 `docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`,
 `docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`,
-`docs/releases/v0.9.0.md`, and `docs/releases/v0.9.1.md`.
+`docs/releases/v0.9.0.md`, `docs/releases/v0.9.1.md`, and
+`docs/releases/v0.9.2.md`.
 
 ## Data Policy
 
@@ -401,7 +402,7 @@ This repository now contains:
 - a credit-union AI vendor-risk run kit that maps public NCUA resource themes to
   underwriting vendor due diligence, monitoring, adverse-action reason review,
   model-change review, issue tracking, and reviewer signoff
-- release strategy documentation and versioned release notes through `v0.9.1` for stable milestone preservation
+- release strategy documentation and versioned release notes through `v0.9.2` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

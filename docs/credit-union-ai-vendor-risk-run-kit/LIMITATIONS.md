@@ -29,6 +29,9 @@ AI-enabled underwriting vendors. It should be cited carefully.
 The profile is limited to AI or ML-enabled third-party tools used in
 small-business or member-business credit underwriting and related
 documentation. It does not attempt to cover every credit-union AI use case.
+Applicability depends on the charter, asset size, product, applicant and
+business category, state law, contract, and institution-specific policy. The
+source map is a navigation aid, not an applicability determination.
 
 Out-of-scope or adjacent areas include:
 
@@ -70,6 +73,10 @@ The data-security and secure-deployment questions in this run kit are
 high-level review prompts. They do not replace a security architecture review,
 penetration test, SOC report review, incident-response tabletop, privacy review,
 or vendor cybersecurity assessment.
+
+A contractual event record may help the credit union preserve facts and route
+an internal review. It is not a determination that an event is reportable to a
+regulator, law enforcement, or any other party.
 
 ## External Validation Gap
 

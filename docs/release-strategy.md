@@ -36,6 +36,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.8.0`: synthetic adverse-action reason accuracy benchmark
 - `v0.9.0`: installable package readiness and GitHub Release
 - `v0.9.1`: credit-union AI underwriting vendor-risk run kit
+- `v0.9.2`: source-qualified credit-union reviewability patch, source-to-rendered-notice controls, and cross-platform fingerprint stability
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -56,17 +57,24 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current documented milestone is `v0.9.1`, which adds a credit-union AI
-underwriting vendor-risk run kit under
-`docs/credit-union-ai-vendor-risk-run-kit/`. The run kit maps public NCUA AI,
-third-party-risk, compliance-management, CUSO, and Regulation B resource themes
-to due diligence, monitoring, adverse-action reason review, model-change review,
-issue tracking, and reviewer signoff.
+The current documented milestone is `v0.9.2`. It corrects the credit-union
+vendor-risk run kit's public reviewability baseline: source class,
+applicability, records-retention, contractual-event, and cadence qualifiers;
+current metadata; and a release note. It also packages the synthetic
+source-to-rendered-notice fidelity controls and fixes evidence-pack input
+fingerprints so they are stable across Windows CRLF and Linux LF checkouts.
 
-This milestone demonstrates a reviewer-facing documentation profile over the
-existing governance evidence engine. It is not proof of NCUA approval,
-credit-union adoption, production deployment, legal compliance, external
-validation, regulatory approval, field recognition, or examiner acceptance.
+This milestone demonstrates a reviewer-facing documentation and synthetic
+technical-control update over the existing governance evidence engine. It is
+not proof of NCUA approval, credit-union adoption, production deployment, legal
+compliance, external validation, regulatory approval, field recognition, or
+examiner acceptance.
+
+The prior milestone, `v0.9.1`, added the initial credit-union AI underwriting
+vendor-risk run kit under `docs/credit-union-ai-vendor-risk-run-kit/`. It maps
+public NCUA AI, third-party-risk, compliance-management, CUSO, and Regulation B
+resource themes to due diligence, monitoring, adverse-action reason review,
+model-change review, issue tracking, and reviewer signoff.
 
 The prior milestone, `v0.9.0`, makes the repository a modern installable Python
 package: `pyproject.toml` metadata, `src/` package layout, packaged
