@@ -2,11 +2,11 @@
   "run_id": "run-2026-07-adverse-action",
   "model_id": "mdl-adverse-reason-benchmark",
   "version_id": "ver-2026-07-adverse-action",
-  "total_decisions": 10,
-  "approval_rate": 0.1,
-  "decline_rate": 0.9,
-  "override_rate": 0.1,
-  "manual_review_rate": 0.3,
+  "total_decisions": 11,
+  "approval_rate": 0.0909,
+  "decline_rate": 0.9091,
+  "override_rate": 0.0909,
+  "manual_review_rate": 0.3636,
   "score_distribution": {
     "count": 10,
     "minimum": 563.0,
@@ -20,13 +20,13 @@
   },
   "reason_code_distribution": {
     "configured_reason_code_count": 8,
-    "generated_reason_output_count": 13,
+    "generated_reason_output_count": 15,
     "counts": {
-      "RC-101": 3,
+      "RC-101": 4,
       "RC-102": 2,
       "RC-999": 1,
       "RC-104": 1,
-      "RC-105": 2,
+      "RC-105": 3,
       "RC-106": 1,
       "RC-103": 1,
       "RC-108": 1,
@@ -36,20 +36,20 @@
   "population_drift_indicators": {
     "baseline": "not_configured_for_demo",
     "segment_mix": {
-      "growth": 0.2,
-      "micro": 0.4,
-      "small": 0.4
+      "growth": 0.2727,
+      "micro": 0.3636,
+      "small": 0.3636
     },
     "region_mix": {
-      "midwest": 0.3,
-      "northeast": 0.2,
-      "south": 0.3,
-      "west": 0.2
+      "midwest": 0.2727,
+      "northeast": 0.2727,
+      "south": 0.2727,
+      "west": 0.1818
     },
     "channel_mix": {
-      "branch": 0.3,
-      "digital": 0.5,
-      "partner": 0.2
+      "branch": 0.3636,
+      "digital": 0.4545,
+      "partner": 0.1818
     }
   },
   "fair_lending_screening": {
@@ -61,7 +61,7 @@
         "approval_rate": 0.0
       },
       "northeast": {
-        "total": 2,
+        "total": 3,
         "approved": 0,
         "approval_rate": 0.0
       },
@@ -78,7 +78,7 @@
     },
     "approval_rate_by_segment": {
       "growth": {
-        "total": 2,
+        "total": 3,
         "approved": 0,
         "approval_rate": 0.0
       },

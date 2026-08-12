@@ -138,5 +138,22 @@
                                   "decision_component":  "scoring"
                               }
                           ]
+    },
+    {
+        "decision_id": "dec-0011",
+        "contributions": [
+            {
+                "driver_or_signal": "cash_flow_stability",
+                "contribution": 0.48,
+                "direction": "adverse",
+                "decision_component": "scoring"
+            },
+            {
+                "driver_or_signal": "industry_concentration",
+                "contribution": 0.45,
+                "direction": "adverse",
+                "decision_component": "judgmental"
+            }
+        ]
     }
 ]

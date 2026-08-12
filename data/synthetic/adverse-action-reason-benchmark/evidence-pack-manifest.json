@@ -19,7 +19,8 @@
                              "breach-records.json",
                              "reason-fidelity-policy.json",
                              "adverse-action-notice-template.json",
-                             "reason-selection-methods.json"
+                             "reason-selection-methods.json",
+                             "rendered-adverse-action-notices.json"
                          ],
     "output_files":  [
                          "metric_results.json",

@@ -238,6 +238,14 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
             validate_dataset_relationships(dataset_dir, payloads)
         except Exception as exc:  # noqa: BLE001
             errors.append(f"dataset relationships: {exc}")
+    if not errors:
+        rendered_notice_path = dataset_dir / "rendered-adverse-action-notices.json"
+        if rendered_notice_path.is_file():
+            try:
+                validate_rendered_notice_records(rendered_notice_path, payloads)
+                validated_files.append(rendered_notice_path.name)
+            except Exception as exc:  # noqa: BLE001
+                errors.append(f"{rendered_notice_path.name}: {exc}")
     return ValidationResult(
         ok=not errors,
         dataset_dir=str(dataset_dir),
@@ -371,3 +379,57 @@ def validate_application_decision_business_rules(record: dict[str, Any], index: 
             f"application_decision_records[{index}] mixes underwriting and monitoring fields: "
             + ", ".join(overlap)
         )
+    decision_component = record.get("decision_component")
+    failed_components = record.get("failed_components")
+    if decision_component == "combined" and not failed_components:
+        raise ValueError(
+            f"application_decision_records[{index}] combined decision requires failed_components"
+        )
+    if decision_component != "combined" and failed_components is not None:
+        raise ValueError(
+            f"application_decision_records[{index}] failed_components is only valid for combined decisions"
+        )
+
+
+def validate_rendered_notice_records(dataset_path: Path, payloads: dict[str, Any]) -> None:
+    """Validate the optional synthetic rendered-notice input and its links."""
+    payload = load_json(dataset_path)
+    if not isinstance(payload, list) or not payload:
+        raise ValueError("must contain a non-empty array")
+    schema = load_schema("rendered-adverse-action-notice.schema.json")
+    decisions_by_id = {
+        record["decision_id"]
+        for record in require_list_payload(payloads, "application-decision-records.json")
+    }
+    outputs_by_id = {
+        record["reason_output_id"]: record
+        for record in require_list_payload(payloads, "adverse-action-reason-outputs.json")
+    }
+    notice_decision_ids: set[str] = set()
+    for index, record in enumerate(payload):
+        validate_object(record, schema, f"rendered_adverse_action_notices[{index}]")
+        decision_id = record["decision_id"]
+        if decision_id not in decisions_by_id:
+            raise ValueError(f"rendered_adverse_action_notices[{index}].decision_id references unknown value: {decision_id}")
+        if decision_id in notice_decision_ids:
+            raise ValueError(
+                f"rendered_adverse_action_notices[{index}].decision_id has more than one rendered notice"
+            )
+        notice_decision_ids.add(decision_id)
+        segment_ids: set[str] = set()
+        for segment_index, segment in enumerate(record["rendered_reason_segments"]):
+            reason_output_id = segment["reason_output_id"]
+            if reason_output_id in segment_ids:
+                raise ValueError(
+                    f"rendered_adverse_action_notices[{index}].rendered_reason_segments[{segment_index}].reason_output_id is duplicated"
+                )
+            segment_ids.add(reason_output_id)
+            output = outputs_by_id.get(reason_output_id)
+            if output is None:
+                raise ValueError(
+                    f"rendered_adverse_action_notices[{index}].rendered_reason_segments[{segment_index}].reason_output_id references unknown value: {reason_output_id}"
+                )
+            if output["decision_id"] != decision_id:
+                raise ValueError(
+                    f"rendered_adverse_action_notices[{index}].rendered_reason_segments[{segment_index}] belongs to a different decision"
+                )

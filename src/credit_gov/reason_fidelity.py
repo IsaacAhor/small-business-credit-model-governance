@@ -20,9 +20,12 @@ REQUIRED_REASON_FIDELITY_FIELDS = (
     "selection_method_id",
     "selection_method_version",
     "decision_component",
+    "source_decision_component",
     "source_driver_rank",
     "policy_version",
 )
+
+COMBINED_SOURCE_COMPONENTS = ("scoring", "judgmental")
 
 
 @dataclass(frozen=True, slots=True)
@@ -138,4 +141,59 @@ def rank_component_contributions(
     return sorted(
         adverse,
         key=lambda item: (-float(item["contribution"]), str(item["driver_or_signal"])),
+    )
+
+
+def source_components_for_decision(decision: dict[str, Any]) -> tuple[str, ...]:
+    """Return the source components that may supply reasons for a decision.
+
+    A combined decision records the components that actually produced adverse
+    factors.  This avoids treating the synthetic ``combined`` label as a
+    nonexistent source component and keeps the provenance chain reviewable.
+    """
+    decision_component = decision.get("decision_component")
+    if not isinstance(decision_component, str) or not decision_component:
+        return ()
+    if decision_component != "combined":
+        return (decision_component,)
+
+    failed_components = decision.get("failed_components")
+    if not isinstance(failed_components, list) or not failed_components:
+        return ()
+    if (
+        len(failed_components) != len(set(failed_components))
+        or any(component not in COMBINED_SOURCE_COMPONENTS for component in failed_components)
+    ):
+        return ()
+    return tuple(failed_components)
+
+
+def rank_decision_contributions(
+    contributions: list[dict[str, Any]],
+    decision: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Rank adverse contributions across the recorded source decision path.
+
+    For a combined decision, contributors from each recorded failed component
+    are ranked together.  The resulting ``source_driver_rank`` is therefore a
+    deterministic selection rank across the components that could have caused
+    the final decision, while each output separately records its source
+    component.
+    """
+    source_components = set(source_components_for_decision(decision))
+    if not source_components:
+        return []
+    eligible = [
+        contribution
+        for contribution in contributions
+        if contribution.get("direction", "adverse") == "adverse"
+        and contribution.get("decision_component") in source_components
+    ]
+    return sorted(
+        eligible,
+        key=lambda item: (
+            -float(item["contribution"]),
+            str(item["decision_component"]),
+            str(item["driver_or_signal"]),
+        ),
     )

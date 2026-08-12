@@ -185,5 +185,16 @@
     "status": "open",
     "owner": "Model Risk Governance",
     "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0018",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0002-rendered_notice_text_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0002: rendered_notice_text_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
   }
 ]

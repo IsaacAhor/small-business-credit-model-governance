@@ -6,7 +6,7 @@ This evidence pack is generated from a synthetic small-business credit benchmark
 
 1. Read `adverse_action_reason_benchmark_report.md` for the benchmark summary.
 2. Read `adverse_action_reason_benchmark_results.json` for machine-readable expected and observed exception types.
-3. Read `reason_qa_results.json` for the standard monitoring reason-QA output.
+3. Read `reason_qa_results.json` and `rendered_notice_qa_results.json` for source and visible-notice reconciliation.
 4. Read `monitoring_report.md` for the broader evidence-pack output.
 
 ## Regeneration Command

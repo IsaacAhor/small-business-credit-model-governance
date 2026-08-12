@@ -26,6 +26,7 @@ examples/evidence-packs/adverse-action-reason-benchmark/
 | `adverse-action-reason-outputs.json` | Generated or recorded reason outputs to test |
 | `reason-fidelity-policy.json` | Synthetic source-to-notice review threshold and policy version |
 | `adverse-action-notice-template.json` | Controlled rendered-reason template and version |
+| `rendered-adverse-action-notices.json` | Synthetic rendered notice records linked to recorded reason outputs |
 | `reason-selection-methods.json` | Component-specific reason-selection methods and versions |
 | `model-registry-record.json` | Model record used by the evidence pack |
 | `model-version-record.json` | Model version context |
@@ -51,8 +52,9 @@ The dataset contains clean declined-decision examples and controlled defects:
 - recorded output that differs from regenerated output
 - principal source driver omitted from recorded reason outputs
 - output driver absent from the recorded final decision component
+- combined final decision with recorded scoring and judgmental failed components
 - source-rank, decision-component, policy, mapping-effective-date, template,
-  selection-method, and rendered-text provenance drift
+  selection-method, output-to-rendered-segment, and rendered-text provenance drift
 
 ## Benchmark Checks
 
@@ -68,8 +70,11 @@ The run script checks:
 - credit-report-only placeholders are not treated as sufficient explanations
 - every declined decision has a mapped adverse driver
 - regenerated reason outputs match recorded benchmark expectations
-- source drivers and ranks reconcile to the recorded final decision component
-- rendered reason text matches the governed mapping and pins a notice template
+- source drivers and ranks reconcile to the actual scoring, judgmental, or
+  automatic-decline component; combined decisions identify their recorded failed
+  source components separately from the final decision label
+- each rendered-notice reason segment reconciles to a recorded reason output,
+  its code, its text, and the governed notice template
 - mapping, policy, and selection-method versions are pinned to the decision
 
 These checks are review controls, not legal conclusions.

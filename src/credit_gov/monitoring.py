@@ -15,7 +15,8 @@ from credit_gov.reason_fidelity import (
     build_reason_fidelity_context,
     is_active_on_date,
     normalize_reason_text,
-    rank_component_contributions,
+    rank_decision_contributions,
+    source_components_for_decision,
 )
 from credit_gov.schemas import validate_dataset
 from credit_gov.stats import compare_group_proportions
@@ -149,6 +150,9 @@ def load_dataset_payloads(dataset_dir: Path) -> dict[str, Any]:
         "notice_template": load_optional_json(dataset_dir / "adverse-action-notice-template.json"),
         "reason_selection_methods": load_optional_json(
             dataset_dir / "reason-selection-methods.json"
+        ),
+        "rendered_notices": load_optional_json(
+            dataset_dir / "rendered-adverse-action-notices.json"
         ),
         "overrides": load_json(dataset_dir / "override-events.json"),
         "outcomes": load_json(dataset_dir / "outcome-records.json"),
@@ -376,6 +380,12 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
             "missing_inputs": missing_inputs,
             "exception_count": 0,
             "exception_types": [],
+            "rendered_notice_fidelity": {
+                "status": "not_run_missing_source_to_notice_inputs",
+                "missing_inputs": ["source-to-reason provenance inputs"],
+                "exception_count": 0,
+                "exception_types": [],
+            },
         }
     else:
         fidelity_exceptions = compute_reason_fidelity_exceptions(
@@ -386,17 +396,48 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
             fidelity_context=fidelity_context,
         )
         exceptions.extend(fidelity_exceptions)
+        rendered_notices = payloads.get("rendered_notices")
+        if rendered_notices is None:
+            rendered_notice_fidelity = {
+                "status": "not_run_missing_rendered_notice_input",
+                "missing_inputs": ["rendered-adverse-action-notices.json"],
+                "exception_count": 0,
+                "exception_types": [],
+            }
+        else:
+            rendered_notice_exceptions = compute_rendered_notice_fidelity_exceptions(
+                decisions=decisions,
+                reason_outputs=reason_outputs,
+                rendered_notices=rendered_notices,
+                fidelity_context=fidelity_context,
+            )
+            exceptions.extend(rendered_notice_exceptions)
+            rendered_notice_fidelity = {
+                "status": "ran_synthetic_rendered_notice_controls",
+                "exception_count": len(rendered_notice_exceptions),
+                "exception_types": sorted(
+                    {exception["exception_type"] for exception in rendered_notice_exceptions}
+                ),
+            }
+        all_fidelity_exceptions = fidelity_exceptions + (
+            rendered_notice_exceptions if rendered_notices is not None else []
+        )
         fidelity = {
-            "status": "ran_synthetic_source_to_notice_controls",
+            "status": (
+                "ran_synthetic_source_to_rendered_notice_controls"
+                if rendered_notices is not None
+                else "ran_synthetic_source_to_reason_controls"
+            ),
             "policy_id": fidelity_context.policy["policy_id"],
             "policy_version": fidelity_context.policy["policy_version"],
             "notice_template_id": fidelity_context.notice_template["template_id"],
             "notice_template_version": fidelity_context.notice_template["template_version"],
             "selection_method_components": sorted(fidelity_context.methods_by_component),
-            "exception_count": len(fidelity_exceptions),
+            "exception_count": len(all_fidelity_exceptions),
             "exception_types": sorted(
-                {exception["exception_type"] for exception in fidelity_exceptions}
+                {exception["exception_type"] for exception in all_fidelity_exceptions}
             ),
+            "rendered_notice_fidelity": rendered_notice_fidelity,
         }
 
     reason_code_counts = count_by_key(reason_outputs, "reason_code") if reason_outputs else {}
@@ -487,20 +528,38 @@ def compute_reason_fidelity_exceptions(
             )
             continue
 
-        ranked = rank_component_contributions(contributions, decision_component)
-        source_rank_by_driver = {
-            contribution["driver_or_signal"]: rank
+        source_components = source_components_for_decision(decision)
+        if not source_components:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "missing_combined_failed_components",
+                    "Combined decision has no valid recorded failed source components for reason QA.",
+                )
+            )
+            continue
+
+        ranked = rank_decision_contributions(contributions, decision)
+        source_rank_by_identity = {
+            (contribution["decision_component"], contribution["driver_or_signal"]): rank
             for rank, contribution in enumerate(ranked, start=1)
         }
         method = fidelity_context.methods_by_component[decision_component]
-        output_drivers = {output.get("driver_or_signal") for output in outputs}
-        principal_drivers = [
-            contribution["driver_or_signal"]
+        output_sources = {
+            (
+                output.get("source_decision_component", decision_component),
+                output.get("driver_or_signal"),
+            )
+            for output in outputs
+        }
+        principal_sources = [
+            (contribution["decision_component"], contribution["driver_or_signal"])
             for contribution in ranked[: fidelity_context.principal_driver_rank_limit]
             if contribution["driver_or_signal"]
             in {mapping["driver_or_signal"] for mapping in reason_mappings}
         ]
-        omitted = [driver for driver in principal_drivers if driver not in output_drivers]
+        omitted = [source for source in principal_sources if source not in output_sources]
         if omitted:
             exceptions.append(
                 build_reason_exception(
@@ -508,14 +567,19 @@ def compute_reason_fidelity_exceptions(
                     None,
                     "principal_driver_omitted",
                     "A governed principal source driver is absent from the recorded reason outputs: "
-                    + ", ".join(omitted),
+                    + ", ".join(f"{component}:{driver}" for component, driver in omitted),
                 )
             )
 
         for output in outputs:
+            required_fields = REQUIRED_REASON_FIDELITY_FIELDS
+            if decision_component != "combined":
+                required_fields = tuple(
+                    field for field in required_fields if field != "source_decision_component"
+                )
             missing_fields = [
                 field
-                for field in REQUIRED_REASON_FIDELITY_FIELDS
+                for field in required_fields
                 if output.get(field) in (None, "")
             ]
             if missing_fields:
@@ -628,14 +692,27 @@ def compute_reason_fidelity_exceptions(
                     )
                 )
 
-            actual_source_rank = source_rank_by_driver.get(output["driver_or_signal"])
+            source_component = output.get("source_decision_component", decision_component)
+            if source_component not in source_components:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "source_decision_component_mismatch",
+                        "Reason output source component is not a recorded failed component for the decision.",
+                    )
+                )
+                continue
+            actual_source_rank = source_rank_by_identity.get(
+                (source_component, output["driver_or_signal"])
+            )
             if actual_source_rank is None:
                 exceptions.append(
                     build_reason_exception(
                         decision_id,
                         output,
                         "reason_not_in_actual_contributors",
-                        "Reason output driver is not an adverse source driver for the recorded final decision component.",
+                        "Reason output driver is not an adverse source driver for the recorded source component.",
                     )
                 )
             elif output["source_driver_rank"] != actual_source_rank:
@@ -647,6 +724,102 @@ def compute_reason_fidelity_exceptions(
                         "Reason output source-driver rank does not match deterministic source contribution ranking.",
                     )
                 )
+    return exceptions
+
+
+def compute_rendered_notice_fidelity_exceptions(
+    decisions: list[dict[str, Any]],
+    reason_outputs: list[dict[str, Any]],
+    rendered_notices: list[dict[str, Any]],
+    fidelity_context: Any,
+) -> list[dict[str, Any]]:
+    """Reconcile synthetic rendered reason segments to recorded reason outputs.
+
+    The check verifies the visible synthetic notice record, not merely the
+    stored reason-text field.  It remains a deterministic review trigger and
+    does not assess readability or legal sufficiency in a real notice.
+    """
+    notices_by_decision = {notice["decision_id"]: notice for notice in rendered_notices}
+    outputs_by_decision = group_reason_outputs_by_decision(reason_outputs)
+    template = fidelity_context.notice_template
+    exceptions: list[dict[str, Any]] = []
+    for decision in decisions:
+        if decision["decision_outcome"] != "declined":
+            continue
+        decision_id = decision["decision_id"]
+        outputs = outputs_by_decision.get(decision_id, [])
+        if not outputs:
+            continue
+        notice = notices_by_decision.get(decision_id)
+        if notice is None:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "missing_rendered_notice",
+                    "Declined decision with recorded reasons has no synthetic rendered notice record.",
+                )
+            )
+            continue
+        if (
+            notice["notice_template_id"] != template["template_id"]
+            or notice["notice_template_version"] != template["template_version"]
+        ):
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "rendered_notice_template_version_mismatch",
+                    "Rendered notice does not use the governed notice-template identifier and version.",
+                )
+            )
+        segments = {
+            segment["reason_output_id"]: segment
+            for segment in notice["rendered_reason_segments"]
+        }
+        output_ids = {output["reason_output_id"] for output in outputs}
+        for output in outputs:
+            segment = segments.get(output["reason_output_id"])
+            if segment is None:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "missing_rendered_reason_segment",
+                        "Recorded reason output is absent from the synthetic rendered notice.",
+                    )
+                )
+                continue
+            if segment["reason_code"] != output["reason_code"]:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "rendered_notice_reason_code_mismatch",
+                        "Rendered notice reason-code segment does not match its recorded reason output.",
+                    )
+                )
+            if normalize_reason_text(segment["rendered_reason_text"]) != normalize_reason_text(
+                output["disclosed_reason_text"]
+            ):
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "rendered_notice_text_mismatch",
+                        "Rendered notice reason text does not match the recorded reason output.",
+                    )
+                )
+        for reason_output_id in sorted(set(segments) - output_ids):
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "rendered_notice_unmatched_reason_segment",
+                    "Rendered notice contains a reason segment without a recorded reason output: "
+                    + reason_output_id,
+                )
+            )
     return exceptions
 
 
@@ -1005,6 +1178,11 @@ def build_evidence_pack(
         insert_at = output_files.index("issue_register.json")
         output_files.insert(insert_at, "model_change_validation_results.json")
         output_files.insert(insert_at + 1, "model_change_validation_report.md")
+    rendered_notice_fidelity = reason_qa["source_to_notice_fidelity"].get(
+        "rendered_notice_fidelity", {}
+    )
+    if rendered_notice_fidelity.get("status") == "ran_synthetic_rendered_notice_controls":
+        output_files.insert(output_files.index("issue_register.json"), "rendered_notice_qa_results.json")
 
     generated_manifest = {
         "record_type": "evidence_pack_manifest",
@@ -1031,6 +1209,8 @@ def build_evidence_pack(
     write_json(evidence_dir / "metric_results.json", metrics)
     write_json(evidence_dir / "breach_register.json", breaches)
     write_json(evidence_dir / "reason_qa_results.json", reason_qa)
+    if rendered_notice_fidelity.get("status") == "ran_synthetic_rendered_notice_controls":
+        write_json(evidence_dir / "rendered_notice_qa_results.json", rendered_notice_fidelity)
     write_json(evidence_dir / "reason_stability_report.json", reason_qa["stability"])
     write_json(evidence_dir / "fair_lending_screening_results.json", fair_lending)
     write_json(evidence_dir / "fair_lending_escalation_register.json", fair_lending["findings"])
@@ -1201,6 +1381,10 @@ def render_monitoring_report(
         if reason_qa["exceptions"]
         else "- No reason QA exceptions were generated for this run."
     )
+    fidelity = reason_qa["source_to_notice_fidelity"]
+    rendered_notice_fidelity = fidelity.get("rendered_notice_fidelity", {})
+    rendered_notice_status = rendered_notice_fidelity.get("status", "not_run")
+    rendered_notice_exception_count = rendered_notice_fidelity.get("exception_count", 0)
     fair_lending_lines = (
         "\n".join(
             f"- {finding['comparison_group']}: {finding['metric_name']} observed {finding['observed_value']} "
@@ -1226,6 +1410,9 @@ def render_monitoring_report(
         f"- Declined decisions reviewed: {reason_qa['declined_decision_count']}\n"
         f"- Generated reason outputs reviewed: {reason_qa['reason_output_count']}\n"
         f"- QA exception count: {reason_qa['exception_count']}\n"
+        f"- Source-to-notice control status: `{fidelity['status']}`\n"
+        f"- Rendered-notice control status: `{rendered_notice_status}` "
+        f"({rendered_notice_exception_count} exception(s))\n"
         "- Result type: screening only, not a legal conclusion\n\n"
         f"{reason_exception_lines}\n\n"
         "## Fair-Lending Screening\n\n"

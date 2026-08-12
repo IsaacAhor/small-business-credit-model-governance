@@ -39,10 +39,15 @@ class AdverseActionReasonBenchmarkTests(unittest.TestCase):
         self.assertEqual(EXPECTED_EXCEPTION_TYPES, set(results["observed_exception_types"]))
         self.assertIn("not_legal_conclusion", results["label"])
         fidelity = results["monitoring_reason_qa"]["source_to_notice_fidelity"]
-        self.assertEqual("ran_synthetic_source_to_notice_controls", fidelity["status"])
+        self.assertEqual("ran_synthetic_source_to_rendered_notice_controls", fidelity["status"])
         self.assertIn("notice_text_mapping_mismatch", fidelity["exception_types"])
         self.assertIn("reason_not_in_actual_contributors", fidelity["exception_types"])
         self.assertIn("decision_component_mismatch", fidelity["exception_types"])
+        self.assertIn("rendered_notice_text_mismatch", fidelity["exception_types"])
+        self.assertEqual(
+            "ran_synthetic_rendered_notice_controls",
+            fidelity["rendered_notice_fidelity"]["status"],
+        )
 
     def test_runner_regenerates_benchmark_pack(self) -> None:
         result = run_benchmark(
@@ -63,6 +68,16 @@ class AdverseActionReasonBenchmarkTests(unittest.TestCase):
             "adverse_action_reason_benchmark_report.md",
             manifest["output_files"],
         )
+        self.assertIn("rendered_notice_qa_results.json", manifest["output_files"])
+        curated_files = sorted(path.name for path in EXAMPLE_PACK.iterdir() if path.is_file())
+        regenerated_files = sorted(path.name for path in TEST_OUTPUT.iterdir() if path.is_file())
+        self.assertEqual(curated_files, regenerated_files)
+        for filename in curated_files:
+            self.assertEqual(
+                (EXAMPLE_PACK / filename).read_bytes(),
+                (TEST_OUTPUT / filename).read_bytes(),
+                f"Curated evidence-pack artifact is stale: {filename}",
+            )
 
 
 if __name__ == "__main__":

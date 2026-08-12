@@ -1,0 +1,88 @@
+[
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0002",
+    "decision_id": "dec-0002",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0002-1", "reason_code": "RC-101", "rendered_reason_text": "Insufficient cash flow stability"},
+      {"reason_output_id": "rso-0002-2", "reason_code": "RC-102", "rendered_reason_text": "Debt service coverage below policy range"}
+    ]
+  },
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0004",
+    "decision_id": "dec-0004",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0004-1", "reason_code": "RC-999", "rendered_reason_text": "Revenue volatility above policy range"}
+    ]
+  },
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0005",
+    "decision_id": "dec-0005",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0005-1", "reason_code": "RC-104", "rendered_reason_text": "Other"}
+    ]
+  },
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0006",
+    "decision_id": "dec-0006",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0006-1", "reason_code": "RC-105", "rendered_reason_text": "Industry concentration above policy range"}
+    ]
+  },
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0007",
+    "decision_id": "dec-0007",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0007-1", "reason_code": "RC-106", "rendered_reason_text": "Time in business below policy minimum"}
+    ]
+  },
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0008",
+    "decision_id": "dec-0008",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0008-1", "reason_code": "RC-101", "rendered_reason_text": "Insufficient cash flow stability"},
+      {"reason_output_id": "rso-0008-2", "reason_code": "RC-102", "rendered_reason_text": "Debt service coverage below policy range"},
+      {"reason_output_id": "rso-0008-3", "reason_code": "RC-103", "rendered_reason_text": "Revenue volatility above policy range"},
+      {"reason_output_id": "rso-0008-4", "reason_code": "RC-105", "rendered_reason_text": "Industry concentration above policy range"},
+      {"reason_output_id": "rso-0008-5", "reason_code": "RC-108", "rendered_reason_text": "Bank balance trend below policy range"}
+    ]
+  },
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0009",
+    "decision_id": "dec-0009",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0009-1", "reason_code": "RC-107", "rendered_reason_text": "Information from credit report"}
+    ]
+  },
+  {
+    "record_type": "rendered_adverse_action_notice",
+    "notice_id": "aan-0011",
+    "decision_id": "dec-0011",
+    "notice_template_id": "aat-small-business-reason",
+    "notice_template_version": "tplver-2026-07",
+    "rendered_reason_segments": [
+      {"reason_output_id": "rso-0011-1", "reason_code": "RC-101", "rendered_reason_text": "Insufficient cash flow stability"},
+      {"reason_output_id": "rso-0011-2", "reason_code": "RC-105", "rendered_reason_text": "Industry concentration above policy range"}
+    ]
+  }
+]
