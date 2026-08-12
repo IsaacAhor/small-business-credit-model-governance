@@ -23,10 +23,10 @@ mapping version, and reviewer label.
 | Application | deidentified application ID, product type, channel, application date, business revenue band, requested amount, geography at a safe aggregation level |
 | Action | action taken, action date, declined/counteroffer/withdrawn/incomplete flag, business-credit notice path if applicable |
 | Model output | model ID, model version, score, cutoff or policy threshold, decision band |
-| Decision drivers | ranked driver names, driver values or bins, driver direction, driver contribution or reason-selection rank |
-| Reason output | reason codes, reason text, reason order, notice or output timestamp, delivery channel if available |
+| Decision drivers | ranked driver names, driver values or bins, driver direction, driver contribution or reason-selection rank, and final decision component |
+| Reason output | reason codes, reason text, reason order, notice or output timestamp, delivery channel if available, and selection-method ID/version |
 | Mapping | mapping ID, mapping version, driver-to-code mapping, effective date, retirement date if any |
-| Policy context | underwriting policy version, rule overrides, manual-review flags, exception reason |
+| Policy context | underwriting policy version, rule overrides, manual-review flags, exception reason, and notice-template ID/version |
 | QA labels | reviewer label, reviewer rationale, defect category, remediation status, review date |
 | Provenance | extract date, source systems, deidentification method, data owner, permitted-use note |
 

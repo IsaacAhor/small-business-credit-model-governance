@@ -44,6 +44,14 @@
     "override_flag": {
       "type": "boolean"
     },
+    "decision_component": {
+      "enum": [
+        "scoring",
+        "judgmental",
+        "combined",
+        "automatic_denial"
+      ]
+    },
     "underwriting": {
       "type": "object",
       "additionalProperties": false,
@@ -63,6 +71,10 @@
         "decision_timestamp": {
           "type": "string",
           "minLength": 10
+        },
+        "policy_version": {
+          "type": "string",
+          "minLength": 3
         }
       }
     },

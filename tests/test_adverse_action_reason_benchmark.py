@@ -38,6 +38,11 @@ class AdverseActionReasonBenchmarkTests(unittest.TestCase):
         self.assertEqual([], results["missing_expected_exception_types"])
         self.assertEqual(EXPECTED_EXCEPTION_TYPES, set(results["observed_exception_types"]))
         self.assertIn("not_legal_conclusion", results["label"])
+        fidelity = results["monitoring_reason_qa"]["source_to_notice_fidelity"]
+        self.assertEqual("ran_synthetic_source_to_notice_controls", fidelity["status"])
+        self.assertIn("notice_text_mapping_mismatch", fidelity["exception_types"])
+        self.assertIn("reason_not_in_actual_contributors", fidelity["exception_types"])
+        self.assertIn("decision_component_mismatch", fidelity["exception_types"])
 
     def test_runner_regenerates_benchmark_pack(self) -> None:
         result = run_benchmark(

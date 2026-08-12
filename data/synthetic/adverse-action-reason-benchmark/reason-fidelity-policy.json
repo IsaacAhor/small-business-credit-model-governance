@@ -1,0 +1,8 @@
+{
+  "record_type": "reason_fidelity_policy",
+  "policy_id": "rfp-adverse-action-source-notice",
+  "policy_version": "polver-2026-08",
+  "principal_driver_rank_limit": 4,
+  "scope": "synthetic source-to-notice reason fidelity review",
+  "result_type": "governance_review_trigger_not_legal_conclusion"
+}

@@ -13,8 +13,8 @@ Before citing this work, read `LIMITATIONS.md`.
 
 This run kit demonstrates a repeatable method for checking whether declined
 small-business credit decisions have adverse-action reason outputs that are
-specific, mapped, traceable to decision drivers, version-controlled, and
-reviewable in an evidence pack.
+specific, mapped, source-reconciled to recorded decision drivers,
+version-controlled, and reviewable in an evidence pack.
 
 It is a synthetic benchmark. It is not a production notice process, legal
 advice, a compliance certification, lender adoption evidence, or proof of real
@@ -22,7 +22,7 @@ small-business adverse-action notice accuracy.
 
 ## Regulatory Anchor
 
-Verified against primary CFPB materials on 2026-07-26:
+Verified against current primary CFPB and eCFR materials on 2026-08-12:
 
 - [Current Regulation B 12 CFR 1002.9](https://www.consumerfinance.gov/rules-policy/regulations/1002/9/)
   requires adverse-action notifications to include either specific reasons or
@@ -33,6 +33,8 @@ Verified against primary CFPB materials on 2026-07-26:
   considered or scored, principal reasons may not be omitted, generic score or
   internal-policy explanations are insufficient, and more than four reasons is
   generally not likely to be helpful.
+- [Current eCFR text for 12 CFR 1002.9](https://www.ecfr.gov/current/title-12/chapter-X/part-1002/subpart-A/section-1002.9)
+  provides a current regulatory-text cross-check.
 - [CFPB Circular 2022-03](https://www.consumerfinance.gov/compliance/circulars/circular-2022-03-adverse-action-notification-requirements-in-connection-with-credit-decisions-based-on-complex-algorithms/)
   is withdrawn CFPB guidance as of May 12, 2025. It may be useful historical
   background for complex-algorithm concerns, but this run kit relies on the
@@ -113,3 +115,20 @@ small-business lender, CDFI, or fintech dataset containing declined
 applications, actual decision drivers, reason outputs or notice text, mapping
 versions, policy thresholds, and reviewer labels. See
 `PRIVATE_DATA_REQUIREMENTS.md`.
+
+## Source-To-Notice Fidelity Controls
+
+The synthetic benchmark now exercises a separate source-to-notice control
+chain. For each declined decision in the benchmark, it records and checks:
+
+1. the final decision component and underwriting policy version;
+2. the adverse source drivers and their deterministic synthetic rank;
+3. the selected reason's governed mapping identifier, version, and effective date;
+4. the rendered reason text and governed notice-template version; and
+5. the reason-selection method identifier and version.
+
+The checks flag missing principal source drivers, output drivers not found in
+the recorded final component, rank drift, template or mapping version drift,
+and source-to-text mismatches. These are reproducible governance review
+triggers, not a semantic readability review, a legal conclusion, or a claim
+that the synthetic method is a permitted reason-selection method for a lender.

@@ -15,7 +15,7 @@ This report is deterministic, synthetic, and intended only for governance workfl
 
 - Declined decisions reviewed: 9
 - Generated reason outputs reviewed: 13
-- QA exception count: 6
+- QA exception count: 17
 - Result type: screening only, not a legal conclusion
 
 - dec-0003: missing_reason_code (Declined decision has no generated adverse-action reason output.)
@@ -24,6 +24,17 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - dec-0006: driver_mapping_mismatch (Generated reason driver does not match the governed mapping.)
 - dec-0007: mapping_version_mismatch (Generated reason mapping version does not match the governed mapping.)
 - dec-0010: missing_reason_code (Declined decision has no generated adverse-action reason output.)
+- dec-0002: notice_text_mapping_mismatch (Recorded notice text does not match the governed reason text for its mapped driver.)
+- dec-0003: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: cash_flow_stability)
+- dec-0004: policy_version_mismatch (Reason output does not pin the underwriting policy version used for the decision.)
+- dec-0005: decision_component_mismatch (Reason output component does not match the recorded final decision component.)
+- dec-0005: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
+- dec-0006: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: industry_concentration)
+- dec-0006: reason_not_in_actual_contributors (Reason output driver is not an adverse source driver for the recorded final decision component.)
+- dec-0007: mapping_effective_date_mismatch (Reason output does not pin the effective date of its governed mapping.)
+- dec-0008: source_driver_rank_mismatch (Reason output source-driver rank does not match deterministic source contribution ranking.)
+- dec-0008: notice_template_version_mismatch (Reason output does not pin the governed notice-template identifier and version.)
+- dec-0009: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
 
 ## Fair-Lending Screening
 
@@ -46,3 +57,14 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - iss-0004: Reason QA exception for dec-0006: driver_mapping_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
 - iss-0005: Reason QA exception for dec-0007: mapping_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
 - iss-0006: Reason QA exception for dec-0010: missing_reason_code. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0007: Reason QA exception for dec-0002: notice_text_mapping_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0008: Reason QA exception for dec-0003: principal_driver_omitted. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0009: Reason QA exception for dec-0004: policy_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0010: Reason QA exception for dec-0005: decision_component_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0011: Reason QA exception for dec-0005: selection_method_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0012: Reason QA exception for dec-0006: principal_driver_omitted. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0013: Reason QA exception for dec-0006: reason_not_in_actual_contributors. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0014: Reason QA exception for dec-0007: mapping_effective_date_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0015: Reason QA exception for dec-0008: source_driver_rank_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0016: Reason QA exception for dec-0008: notice_template_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0017: Reason QA exception for dec-0009: selection_method_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.

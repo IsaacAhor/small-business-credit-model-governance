@@ -40,6 +40,17 @@
     "mapping_version": {
       "type": "string",
       "pattern": "^mapver-[a-z0-9-]+$"
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "retired_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
     }
   }
 }

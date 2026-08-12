@@ -45,6 +45,50 @@
     "mapping_version": {
       "type": "string",
       "pattern": "^mapver-[a-z0-9-]+$"
+    },
+    "mapping_id": {
+      "type": "string",
+      "pattern": "^map-[a-z0-9-]+$"
+    },
+    "mapping_effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "disclosed_reason_text": {
+      "type": "string",
+      "minLength": 5
+    },
+    "notice_template_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "notice_template_version": {
+      "type": "string",
+      "minLength": 3
+    },
+    "selection_method_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "selection_method_version": {
+      "type": "string",
+      "minLength": 3
+    },
+    "decision_component": {
+      "enum": [
+        "scoring",
+        "judgmental",
+        "combined",
+        "automatic_denial"
+      ]
+    },
+    "source_driver_rank": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "policy_version": {
+      "type": "string",
+      "minLength": 3
     }
   }
 }

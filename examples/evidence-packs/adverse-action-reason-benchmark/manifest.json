@@ -16,7 +16,10 @@
     "adverse-action-reason-outputs.json",
     "override-events.json",
     "outcome-records.json",
-    "breach-records.json"
+    "breach-records.json",
+    "reason-fidelity-policy.json",
+    "adverse-action-notice-template.json",
+    "reason-selection-methods.json"
   ],
   "output_files": [
     "manifest.json",

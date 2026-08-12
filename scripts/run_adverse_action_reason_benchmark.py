@@ -31,6 +31,7 @@ from credit_gov.generation import (  # noqa: E402
     summarize_generation,
 )
 from credit_gov.monitoring import run_monthly_monitoring  # noqa: E402
+from credit_gov.reason_fidelity import build_reason_fidelity_context  # noqa: E402
 
 
 WORKSTREAM_NAME = "Adverse-action reason accuracy and transparency under Regulation B 12 CFR 1002.9"
@@ -46,6 +47,15 @@ EXPECTED_EXCEPTION_TYPES = {
     "credit_report_only_placeholder",
     "no_mapped_adverse_driver",
     "recorded_output_differs_from_regeneration",
+    "principal_driver_omitted",
+    "notice_text_mapping_mismatch",
+    "notice_template_version_mismatch",
+    "mapping_effective_date_mismatch",
+    "decision_component_mismatch",
+    "selection_method_version_mismatch",
+    "source_driver_rank_mismatch",
+    "policy_version_mismatch",
+    "reason_not_in_actual_contributors",
 }
 
 
@@ -181,6 +191,11 @@ def build_benchmark_results(
     reason_mappings = load_json(dataset_dir / "reason-code-mappings.json")
     model_version = load_json(dataset_dir / "model-version-record.json")
     driver_contributions = load_json(dataset_dir / "adverse-action-driver-contributions.json")
+    fidelity_context = build_reason_fidelity_context(
+        load_json(dataset_dir / "reason-fidelity-policy.json"),
+        load_json(dataset_dir / "adverse-action-notice-template.json"),
+        load_json(dataset_dir / "reason-selection-methods.json"),
+    )
 
     generated = generate_adverse_action_reasons(
         decisions=decisions,
@@ -188,6 +203,7 @@ def build_benchmark_results(
         reason_mappings=reason_mappings,
         version_id=model_version["version_id"],
         max_reasons=max_reasons,
+        fidelity_context=fidelity_context,
     )
     generation_summary = summarize_generation(decisions, generated)
     supplemental_exceptions = build_supplemental_exceptions(
@@ -231,6 +247,7 @@ def build_benchmark_results(
             "exception_count": monitoring_reason_qa["exception_count"],
             "exception_types": sorted(monitoring_exception_types),
             "exceptions": monitoring_reason_qa["exceptions"],
+            "source_to_notice_fidelity": monitoring_reason_qa["source_to_notice_fidelity"],
         },
         "supplemental_benchmark_checks": {
             "exception_count": len(supplemental_exceptions),
@@ -248,6 +265,8 @@ def build_benchmark_results(
             "Synthetic small-business credit benchmark only.",
             "No production applicant records, lender notices, or legal conclusions are represented.",
             "Benchmark exceptions are governance review triggers.",
+            "Synthetic source-to-notice checks use exact controlled mapping text; they do not assess real-world notice readability or legal sufficiency.",
+            "The synthetic selection-method check verifies recorded method provenance and deterministic behavior, not a real creditor's selection-method sufficiency.",
             "Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.",
             "HMDA can support only off-domain denial-reason mechanics, not small-business proof.",
         ],

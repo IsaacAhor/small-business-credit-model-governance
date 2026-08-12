@@ -20,12 +20,21 @@
   },
   "monitoring_reason_qa": {
     "label": "qa_screening_only_not_legal_conclusion",
-    "exception_count": 6,
+    "exception_count": 17,
     "exception_types": [
+      "decision_component_mismatch",
       "driver_mapping_mismatch",
       "generic_reason_text",
+      "mapping_effective_date_mismatch",
       "mapping_version_mismatch",
       "missing_reason_code",
+      "notice_template_version_mismatch",
+      "notice_text_mapping_mismatch",
+      "policy_version_mismatch",
+      "principal_driver_omitted",
+      "reason_not_in_actual_contributors",
+      "selection_method_version_mismatch",
+      "source_driver_rank_mismatch",
       "unmapped_reason_code"
     ],
     "exceptions": [
@@ -76,8 +85,121 @@
         "reason_code": null,
         "exception_type": "missing_reason_code",
         "message": "Declined decision has no generated adverse-action reason output."
+      },
+      {
+        "exception_id": "rex-dec-0002-notice_text_mapping_mismatch",
+        "decision_id": "dec-0002",
+        "reason_output_id": "rso-0002-2",
+        "reason_code": "RC-102",
+        "exception_type": "notice_text_mapping_mismatch",
+        "message": "Recorded notice text does not match the governed reason text for its mapped driver."
+      },
+      {
+        "exception_id": "rex-dec-0003-principal_driver_omitted",
+        "decision_id": "dec-0003",
+        "reason_output_id": null,
+        "reason_code": null,
+        "exception_type": "principal_driver_omitted",
+        "message": "A governed principal source driver is absent from the recorded reason outputs: cash_flow_stability"
+      },
+      {
+        "exception_id": "rex-dec-0004-policy_version_mismatch",
+        "decision_id": "dec-0004",
+        "reason_output_id": "rso-0004-1",
+        "reason_code": "RC-999",
+        "exception_type": "policy_version_mismatch",
+        "message": "Reason output does not pin the underwriting policy version used for the decision."
+      },
+      {
+        "exception_id": "rex-dec-0005-decision_component_mismatch",
+        "decision_id": "dec-0005",
+        "reason_output_id": "rso-0005-1",
+        "reason_code": "RC-104",
+        "exception_type": "decision_component_mismatch",
+        "message": "Reason output component does not match the recorded final decision component."
+      },
+      {
+        "exception_id": "rex-dec-0005-selection_method_version_mismatch",
+        "decision_id": "dec-0005",
+        "reason_output_id": "rso-0005-1",
+        "reason_code": "RC-104",
+        "exception_type": "selection_method_version_mismatch",
+        "message": "Reason output selection-method identifier or version does not match its decision component."
+      },
+      {
+        "exception_id": "rex-dec-0006-principal_driver_omitted",
+        "decision_id": "dec-0006",
+        "reason_output_id": null,
+        "reason_code": null,
+        "exception_type": "principal_driver_omitted",
+        "message": "A governed principal source driver is absent from the recorded reason outputs: industry_concentration"
+      },
+      {
+        "exception_id": "rex-dec-0006-reason_not_in_actual_contributors",
+        "decision_id": "dec-0006",
+        "reason_output_id": "rso-0006-1",
+        "reason_code": "RC-105",
+        "exception_type": "reason_not_in_actual_contributors",
+        "message": "Reason output driver is not an adverse source driver for the recorded final decision component."
+      },
+      {
+        "exception_id": "rex-dec-0007-mapping_effective_date_mismatch",
+        "decision_id": "dec-0007",
+        "reason_output_id": "rso-0007-1",
+        "reason_code": "RC-106",
+        "exception_type": "mapping_effective_date_mismatch",
+        "message": "Reason output does not pin the effective date of its governed mapping."
+      },
+      {
+        "exception_id": "rex-dec-0008-source_driver_rank_mismatch",
+        "decision_id": "dec-0008",
+        "reason_output_id": "rso-0008-2",
+        "reason_code": "RC-102",
+        "exception_type": "source_driver_rank_mismatch",
+        "message": "Reason output source-driver rank does not match deterministic source contribution ranking."
+      },
+      {
+        "exception_id": "rex-dec-0008-notice_template_version_mismatch",
+        "decision_id": "dec-0008",
+        "reason_output_id": "rso-0008-3",
+        "reason_code": "RC-103",
+        "exception_type": "notice_template_version_mismatch",
+        "message": "Reason output does not pin the governed notice-template identifier and version."
+      },
+      {
+        "exception_id": "rex-dec-0009-selection_method_version_mismatch",
+        "decision_id": "dec-0009",
+        "reason_output_id": "rso-0009-1",
+        "reason_code": "RC-107",
+        "exception_type": "selection_method_version_mismatch",
+        "message": "Reason output selection-method identifier or version does not match its decision component."
       }
-    ]
+    ],
+    "source_to_notice_fidelity": {
+      "status": "ran_synthetic_source_to_notice_controls",
+      "policy_id": "rfp-adverse-action-source-notice",
+      "policy_version": "polver-2026-08",
+      "notice_template_id": "aat-small-business-reason",
+      "notice_template_version": "tplver-2026-07",
+      "selection_method_components": [
+        "automatic_denial",
+        "combined",
+        "judgmental",
+        "scoring"
+      ],
+      "exception_count": 11,
+      "exception_types": [
+        "decision_component_mismatch",
+        "mapping_effective_date_mismatch",
+        "notice_template_version_mismatch",
+        "notice_text_mapping_mismatch",
+        "policy_version_mismatch",
+        "principal_driver_omitted",
+        "reason_not_in_actual_contributors",
+        "selection_method_version_mismatch",
+        "source_driver_rank_mismatch"
+      ]
+    }
   },
   "supplemental_benchmark_checks": {
     "exception_count": 5,
@@ -133,26 +255,44 @@
   },
   "expected_exception_types": [
     "credit_report_only_placeholder",
+    "decision_component_mismatch",
     "driver_mapping_mismatch",
     "excessive_reason_count",
     "generic_reason_text",
+    "mapping_effective_date_mismatch",
     "mapping_version_mismatch",
     "missing_reason_code",
     "no_mapped_adverse_driver",
     "non_declined_reason_output",
+    "notice_template_version_mismatch",
+    "notice_text_mapping_mismatch",
+    "policy_version_mismatch",
+    "principal_driver_omitted",
+    "reason_not_in_actual_contributors",
     "recorded_output_differs_from_regeneration",
+    "selection_method_version_mismatch",
+    "source_driver_rank_mismatch",
     "unmapped_reason_code"
   ],
   "observed_exception_types": [
     "credit_report_only_placeholder",
+    "decision_component_mismatch",
     "driver_mapping_mismatch",
     "excessive_reason_count",
     "generic_reason_text",
+    "mapping_effective_date_mismatch",
     "mapping_version_mismatch",
     "missing_reason_code",
     "no_mapped_adverse_driver",
     "non_declined_reason_output",
+    "notice_template_version_mismatch",
+    "notice_text_mapping_mismatch",
+    "policy_version_mismatch",
+    "principal_driver_omitted",
+    "reason_not_in_actual_contributors",
     "recorded_output_differs_from_regeneration",
+    "selection_method_version_mismatch",
+    "source_driver_rank_mismatch",
     "unmapped_reason_code"
   ],
   "missing_expected_exception_types": [],
@@ -164,6 +304,8 @@
     "Synthetic small-business credit benchmark only.",
     "No production applicant records, lender notices, or legal conclusions are represented.",
     "Benchmark exceptions are governance review triggers.",
+    "Synthetic source-to-notice checks use exact controlled mapping text; they do not assess real-world notice readability or legal sufficiency.",
+    "The synthetic selection-method check verifies recorded method provenance and deterministic behavior, not a real creditor's selection-method sufficiency.",
     "Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.",
     "HMDA can support only off-domain denial-reason mechanics, not small-business proof."
   ],

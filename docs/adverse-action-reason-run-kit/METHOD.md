@@ -21,7 +21,8 @@ otherwise adverse credit decision can be traced from:
 3. to governed reason codes and specific reason text,
 4. to reason QA checks for missing, generic, unmapped, stale, or mismatched
    reasons,
-5. to a reviewer-ready evidence pack.
+5. to a versioned rendered-text/template record and reason-selection method,
+6. to source-to-notice reconciliation and a reviewer-ready evidence pack.
 
 For this repository, the public demonstration uses synthetic small-business
 credit data because no current public small-business dataset contains the full
@@ -29,7 +30,7 @@ chain needed to test real adverse-action reason accuracy.
 
 ## Regulatory Anchor
 
-As of July 26, 2026, Regulation B 12 CFR 1002.9 remains the anchor for
+As of August 12, 2026, Regulation B 12 CFR 1002.9 remains the anchor for
 adverse-action notification and specific-reason review. Current CFPB text states
 that an adverse-action notification must include either specific reasons for the
 action taken or disclosure of the applicant's right to receive the reasons.
@@ -58,6 +59,8 @@ Primary sources:
   <https://www.consumerfinance.gov/rules-policy/regulations/1002/9/>
 - CFPB Regulation B current amendments page:
   <https://www.consumerfinance.gov/rules-policy/regulations/1002/>
+- Current eCFR text for 12 CFR 1002.9:
+  <https://www.ecfr.gov/current/title-12/chapter-X/part-1002/subpart-A/section-1002.9>
 
 ## What The Run Kit Tests
 
@@ -76,6 +79,29 @@ accuracy and transparency:
   principal reason should be reviewed.
 
 These checks are review triggers. They do not determine legal sufficiency.
+
+## Source-To-Notice Fidelity Controls
+
+Where the required synthetic provenance inputs are present, the run kit also
+checks the exact governed chain from the recorded final decision component to
+the text record:
+
+- the reason driver is an adverse contributor in the recorded final component;
+- the recorded source-driver rank matches deterministic source ranking;
+- governed principal mapped drivers within the configured review limit are not
+  absent from recorded outputs;
+- the reason output pins the mapping ID, mapping version, mapping effective
+  date, and underwriting policy version used for the decision;
+- the recorded reason text matches the controlled mapped reason text and pins
+  a versioned notice template; and
+- the output identifies the governed method and version configured for the
+  recorded decision component.
+
+The synthetic ranking is a reproducibility control. It does not establish that
+the method would produce results substantially similar to a creditor's
+production score-distance or other selection method, and it does not make a
+legal-sufficiency finding. That determination requires a creditor's actual
+system, data, and appropriate legal review.
 
 ## Public Demonstration Boundary
 

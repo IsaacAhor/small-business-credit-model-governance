@@ -64,5 +64,126 @@
     "status": "open",
     "owner": "Model Risk Governance",
     "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0007",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0002-notice_text_mapping_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0002: notice_text_mapping_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0008",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0003-principal_driver_omitted"
+    ],
+    "summary": "Reason QA exception for dec-0003: principal_driver_omitted.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0009",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0004-policy_version_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0004: policy_version_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0010",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0005-decision_component_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0005: decision_component_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0011",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0005-selection_method_version_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0005: selection_method_version_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0012",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0006-principal_driver_omitted"
+    ],
+    "summary": "Reason QA exception for dec-0006: principal_driver_omitted.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0013",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0006-reason_not_in_actual_contributors"
+    ],
+    "summary": "Reason QA exception for dec-0006: reason_not_in_actual_contributors.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0014",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0007-mapping_effective_date_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0007: mapping_effective_date_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0015",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0008-source_driver_rank_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0008: source_driver_rank_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0016",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0008-notice_template_version_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0008: notice_template_version_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
+  },
+  {
+    "issue_id": "iss-0017",
+    "linked_breach_ids": [],
+    "linked_reason_exception_ids": [
+      "rex-dec-0009-selection_method_version_mismatch"
+    ],
+    "summary": "Reason QA exception for dec-0009: selection_method_version_mismatch.",
+    "status": "open",
+    "owner": "Model Risk Governance",
+    "due_date": "2026-06-30"
   }
 ]
