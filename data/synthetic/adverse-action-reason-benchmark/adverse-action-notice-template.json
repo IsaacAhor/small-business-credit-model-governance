@@ -1,0 +1,9 @@
+{
+  "record_type": "adverse_action_notice_template",
+  "template_id": "aat-small-business-reason",
+  "template_version": "tplver-2026-07",
+  "effective_date": "2026-07-01",
+  "retired_date": null,
+  "rendering_rule": "display the governed mapped reason text without semantic substitution",
+  "result_type": "synthetic_template_control_not_legal_conclusion"
+}

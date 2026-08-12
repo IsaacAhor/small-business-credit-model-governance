@@ -28,6 +28,13 @@ reason accuracy and transparency under Regulation B 12 CFR 1002.9.
 - It does not contain real applicant data, real notices, real credit decisions,
   or real reviewer labels.
 - It does not show a live production notice workflow.
+- Its source-to-notice check compares exact controlled synthetic reason text;
+  it does not determine whether real applicant-facing language is clear,
+  accurate in context, or legally sufficient.
+- Its deterministic contribution ranking verifies method provenance and test
+  behavior only. It does not establish that a real creditor's selection method
+  is permitted or substantially similar to the methods described in the
+  official interpretation.
 
 ## Public Data Boundary
 

@@ -18,6 +18,17 @@ This report is synthetic governance evidence only. It does not provide legal adv
 - dec-0006: driver_mapping_mismatch (Generated reason driver does not match the governed mapping.)
 - dec-0007: mapping_version_mismatch (Generated reason mapping version does not match the governed mapping.)
 - dec-0010: missing_reason_code (Declined decision has no generated adverse-action reason output.)
+- dec-0002: notice_text_mapping_mismatch (Recorded notice text does not match the governed reason text for its mapped driver.)
+- dec-0003: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: cash_flow_stability)
+- dec-0004: policy_version_mismatch (Reason output does not pin the underwriting policy version used for the decision.)
+- dec-0005: decision_component_mismatch (Reason output component does not match the recorded final decision component.)
+- dec-0005: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
+- dec-0006: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: industry_concentration)
+- dec-0006: reason_not_in_actual_contributors (Reason output driver is not an adverse source driver for the recorded final decision component.)
+- dec-0007: mapping_effective_date_mismatch (Reason output does not pin the effective date of its governed mapping.)
+- dec-0008: source_driver_rank_mismatch (Reason output source-driver rank does not match deterministic source contribution ranking.)
+- dec-0008: notice_template_version_mismatch (Reason output does not pin the governed notice-template identifier and version.)
+- dec-0009: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
 
 ## Supplemental Benchmark Exceptions
 
@@ -38,5 +49,7 @@ HMDA can be used only as an off-domain mortgage-denial reason-code mechanics pro
 - Synthetic small-business credit benchmark only.
 - No production applicant records, lender notices, or legal conclusions are represented.
 - Benchmark exceptions are governance review triggers.
+- Synthetic source-to-notice checks use exact controlled mapping text; they do not assess real-world notice readability or legal sufficiency.
+- The synthetic selection-method check verifies recorded method provenance and deterministic behavior, not a real creditor's selection-method sufficiency.
 - Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.
 - HMDA can support only off-domain denial-reason mechanics, not small-business proof.

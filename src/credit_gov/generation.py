@@ -15,6 +15,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from .reason_fidelity import ReasonFidelityContext
+
 DEFAULT_MAX_REASONS = 4
 
 
@@ -45,6 +47,8 @@ def generate_reasons_for_decision(
     mapping_index: dict[str, dict[str, Any]],
     version_id: str,
     max_reasons: int = DEFAULT_MAX_REASONS,
+    decision_context: dict[str, Any] | None = None,
+    fidelity_context: ReasonFidelityContext | None = None,
 ) -> list[dict[str, Any]]:
     """Generate governed adverse-action reason outputs for a single decision.
 
@@ -52,27 +56,57 @@ def generate_reasons_for_decision(
     The absence of any mapped adverse driver yields no outputs, which the
     downstream reason QA step surfaces as a ``missing_reason_code`` exception.
     """
-    ranked = rank_adverse_contributions(contributions)
+    decision_context = decision_context or {}
+    decision_component = decision_context.get("decision_component", "scoring")
+    if fidelity_context is not None:
+        ranked = [
+            item
+            for item in rank_adverse_contributions(contributions)
+            if item.get("decision_component", decision_component) == decision_component
+        ]
+    else:
+        ranked = rank_adverse_contributions(contributions)
     outputs: list[dict[str, Any]] = []
     numeric_id = decision_id.split("-")[-1]
     rank = 0
-    for item in ranked:
+    for source_driver_rank, item in enumerate(ranked, start=1):
         mapping = mapping_index.get(item["driver_or_signal"])
         if mapping is None:
             continue
         rank += 1
-        outputs.append(
-            {
-                "record_type": "adverse_action_reason_output",
-                "reason_output_id": f"rso-{numeric_id}-{rank}",
-                "decision_id": decision_id,
-                "version_id": version_id,
-                "reason_code": mapping["reason_code"],
-                "driver_or_signal": mapping["driver_or_signal"],
-                "reason_rank": rank,
-                "mapping_version": mapping["mapping_version"],
-            }
-        )
+        output = {
+            "record_type": "adverse_action_reason_output",
+            "reason_output_id": f"rso-{numeric_id}-{rank}",
+            "decision_id": decision_id,
+            "version_id": version_id,
+            "reason_code": mapping["reason_code"],
+            "driver_or_signal": mapping["driver_or_signal"],
+            "reason_rank": rank,
+            "mapping_version": mapping["mapping_version"],
+        }
+        if fidelity_context is not None:
+            method = fidelity_context.methods_by_component.get(decision_component)
+            if method is None:
+                raise ValueError(
+                    f"No reason-selection method is configured for decision component "
+                    f"{decision_component!r}"
+                )
+            notice_template = fidelity_context.notice_template
+            output.update(
+                {
+                    "mapping_id": mapping["mapping_id"],
+                    "mapping_effective_date": mapping["effective_date"],
+                    "disclosed_reason_text": mapping["reason_text"],
+                    "notice_template_id": notice_template["template_id"],
+                    "notice_template_version": notice_template["template_version"],
+                    "selection_method_id": method["selection_method_id"],
+                    "selection_method_version": method["selection_method_version"],
+                    "decision_component": decision_component,
+                    "source_driver_rank": source_driver_rank,
+                    "policy_version": decision_context["underwriting"]["policy_version"],
+                }
+            )
+        outputs.append(output)
         if rank >= max_reasons:
             break
     return outputs
@@ -84,6 +118,7 @@ def generate_adverse_action_reasons(
     reason_mappings: list[dict[str, Any]],
     version_id: str,
     max_reasons: int = DEFAULT_MAX_REASONS,
+    fidelity_context: ReasonFidelityContext | None = None,
 ) -> list[dict[str, Any]]:
     """Generate adverse-action reason outputs for all declined decisions.
 
@@ -96,14 +131,14 @@ def generate_adverse_action_reasons(
     for record in driver_contributions:
         contributions_by_decision[record["decision_id"]] = record.get("contributions", [])
 
-    declined_ids = sorted(
-        record["decision_id"]
-        for record in decisions
-        if record["decision_outcome"] == "declined"
+    declined_decisions = sorted(
+        (record for record in decisions if record["decision_outcome"] == "declined"),
+        key=lambda record: record["decision_id"],
     )
 
     outputs: list[dict[str, Any]] = []
-    for decision_id in declined_ids:
+    for decision in declined_decisions:
+        decision_id = decision["decision_id"]
         contributions = contributions_by_decision.get(decision_id, [])
         outputs.extend(
             generate_reasons_for_decision(
@@ -112,6 +147,8 @@ def generate_adverse_action_reasons(
                 mapping_index,
                 version_id,
                 max_reasons=max_reasons,
+                decision_context=decision,
+                fidelity_context=fidelity_context,
             )
         )
     return outputs

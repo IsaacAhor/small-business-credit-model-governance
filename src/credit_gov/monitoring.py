@@ -10,6 +10,13 @@ from typing import Any
 
 from credit_gov.bisg import run_bisg_proxy_analysis
 from credit_gov.lda import assess_less_discriminatory_alternative
+from credit_gov.reason_fidelity import (
+    REQUIRED_REASON_FIDELITY_FIELDS,
+    build_reason_fidelity_context,
+    is_active_on_date,
+    normalize_reason_text,
+    rank_component_contributions,
+)
 from credit_gov.schemas import validate_dataset
 from credit_gov.stats import compare_group_proportions
 from credit_gov.validation import assess_model_change, render_change_validation_report
@@ -135,6 +142,14 @@ def load_dataset_payloads(dataset_dir: Path) -> dict[str, Any]:
         "score_outputs": load_json(dataset_dir / "score-outputs.json"),
         "reason_mappings": load_json(dataset_dir / "reason-code-mappings.json"),
         "reason_outputs": load_json(dataset_dir / "adverse-action-reason-outputs.json"),
+        "driver_contributions": load_optional_json(
+            dataset_dir / "adverse-action-driver-contributions.json"
+        ),
+        "reason_fidelity_policy": load_optional_json(dataset_dir / "reason-fidelity-policy.json"),
+        "notice_template": load_optional_json(dataset_dir / "adverse-action-notice-template.json"),
+        "reason_selection_methods": load_optional_json(
+            dataset_dir / "reason-selection-methods.json"
+        ),
         "overrides": load_json(dataset_dir / "override-events.json"),
         "outcomes": load_json(dataset_dir / "outcome-records.json"),
         "manifest": load_json(dataset_dir / "evidence-pack-manifest.json"),
@@ -337,6 +352,53 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
                     )
                 )
 
+    fidelity_context = build_reason_fidelity_context(
+        payloads.get("reason_fidelity_policy"),
+        payloads.get("notice_template"),
+        payloads.get("reason_selection_methods"),
+    )
+    if fidelity_context is None or payloads.get("driver_contributions") is None:
+        missing_inputs = []
+        if payloads.get("driver_contributions") is None:
+            missing_inputs.append("adverse-action-driver-contributions.json")
+        if fidelity_context is None:
+            missing_inputs.extend(
+                name
+                for name, value in (
+                    ("reason-fidelity-policy.json", payloads.get("reason_fidelity_policy")),
+                    ("adverse-action-notice-template.json", payloads.get("notice_template")),
+                    ("reason-selection-methods.json", payloads.get("reason_selection_methods")),
+                )
+                if value is None
+            )
+        fidelity = {
+            "status": "not_run_missing_source_to_notice_inputs",
+            "missing_inputs": missing_inputs,
+            "exception_count": 0,
+            "exception_types": [],
+        }
+    else:
+        fidelity_exceptions = compute_reason_fidelity_exceptions(
+            decisions=decisions,
+            reason_mappings=reason_mappings,
+            reason_outputs=reason_outputs,
+            driver_contributions=payloads["driver_contributions"],
+            fidelity_context=fidelity_context,
+        )
+        exceptions.extend(fidelity_exceptions)
+        fidelity = {
+            "status": "ran_synthetic_source_to_notice_controls",
+            "policy_id": fidelity_context.policy["policy_id"],
+            "policy_version": fidelity_context.policy["policy_version"],
+            "notice_template_id": fidelity_context.notice_template["template_id"],
+            "notice_template_version": fidelity_context.notice_template["template_version"],
+            "selection_method_components": sorted(fidelity_context.methods_by_component),
+            "exception_count": len(fidelity_exceptions),
+            "exception_types": sorted(
+                {exception["exception_type"] for exception in fidelity_exceptions}
+            ),
+        }
+
     reason_code_counts = count_by_key(reason_outputs, "reason_code") if reason_outputs else {}
     return {
         "label": "qa_screening_only_not_legal_conclusion",
@@ -344,6 +406,7 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
         "reason_output_count": len(reason_outputs),
         "exception_count": len(exceptions),
         "exceptions": exceptions,
+        "source_to_notice_fidelity": fidelity,
         "stability": {
             "mapping_versions": sorted({record["mapping_version"] for record in reason_mappings}),
             "reason_code_distribution": to_share_map(reason_code_counts, len(reason_outputs)),
@@ -351,6 +414,249 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
             "generated_reason_code_count": len(reason_code_counts),
         },
     }
+
+
+def compute_reason_fidelity_exceptions(
+    decisions: list[dict[str, Any]],
+    reason_mappings: list[dict[str, Any]],
+    reason_outputs: list[dict[str, Any]],
+    driver_contributions: list[dict[str, Any]],
+    fidelity_context: Any,
+) -> list[dict[str, Any]]:
+    """Test the synthetic source-driver-to-notice provenance chain.
+
+    These are deterministic review triggers.  They do not determine whether a
+    creditor's disclosures comply with any legal requirement.
+    """
+    mappings_by_code = {mapping["reason_code"]: mapping for mapping in reason_mappings}
+    outputs_by_decision = group_reason_outputs_by_decision(reason_outputs)
+    contributions_by_decision = {
+        record.get("decision_id"): record.get("contributions", [])
+        for record in driver_contributions
+        if isinstance(record, dict) and record.get("decision_id")
+    }
+    exceptions: list[dict[str, Any]] = []
+
+    for decision in decisions:
+        if decision["decision_outcome"] != "declined":
+            continue
+        decision_id = decision["decision_id"]
+        decision_date = decision["application_date"]
+        decision_component = decision.get("decision_component")
+        policy_version = decision.get("underwriting", {}).get("policy_version")
+        outputs = outputs_by_decision.get(decision_id, [])
+        contributions = contributions_by_decision.get(decision_id, [])
+
+        if not isinstance(decision_component, str) or not decision_component:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "missing_decision_component",
+                    "Declined decision has no recorded final decision component for source-to-notice QA.",
+                )
+            )
+            continue
+        if not isinstance(policy_version, str) or not policy_version:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "missing_policy_version",
+                    "Declined decision has no recorded underwriting policy version for source-to-notice QA.",
+                )
+            )
+        if decision_component not in fidelity_context.methods_by_component:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "unconfigured_selection_method",
+                    "No governed reason-selection method is configured for the final decision component.",
+                )
+            )
+            continue
+        if not contributions:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "missing_driver_contributions",
+                    "Declined decision has no source driver contributions for source-to-notice QA.",
+                )
+            )
+            continue
+
+        ranked = rank_component_contributions(contributions, decision_component)
+        source_rank_by_driver = {
+            contribution["driver_or_signal"]: rank
+            for rank, contribution in enumerate(ranked, start=1)
+        }
+        method = fidelity_context.methods_by_component[decision_component]
+        output_drivers = {output.get("driver_or_signal") for output in outputs}
+        principal_drivers = [
+            contribution["driver_or_signal"]
+            for contribution in ranked[: fidelity_context.principal_driver_rank_limit]
+            if contribution["driver_or_signal"]
+            in {mapping["driver_or_signal"] for mapping in reason_mappings}
+        ]
+        omitted = [driver for driver in principal_drivers if driver not in output_drivers]
+        if omitted:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "principal_driver_omitted",
+                    "A governed principal source driver is absent from the recorded reason outputs: "
+                    + ", ".join(omitted),
+                )
+            )
+
+        for output in outputs:
+            missing_fields = [
+                field
+                for field in REQUIRED_REASON_FIDELITY_FIELDS
+                if output.get(field) in (None, "")
+            ]
+            if missing_fields:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "missing_reason_fidelity_fields",
+                        "Reason output is missing source-to-notice fields: "
+                        + ", ".join(missing_fields),
+                    )
+                )
+                continue
+
+            mapping = mappings_by_code.get(output["reason_code"])
+            if mapping is not None:
+                if output["mapping_id"] != mapping.get("mapping_id"):
+                    exceptions.append(
+                        build_reason_exception(
+                            decision_id,
+                            output,
+                            "mapping_identifier_mismatch",
+                            "Reason output mapping identifier does not match the governed mapping.",
+                        )
+                    )
+                if output["mapping_effective_date"] != mapping.get("effective_date"):
+                    exceptions.append(
+                        build_reason_exception(
+                            decision_id,
+                            output,
+                            "mapping_effective_date_mismatch",
+                            "Reason output does not pin the effective date of its governed mapping.",
+                        )
+                    )
+                if not is_active_on_date(
+                    mapping.get("effective_date"), mapping.get("retired_date"), decision_date
+                ):
+                    exceptions.append(
+                        build_reason_exception(
+                            decision_id,
+                            output,
+                            "mapping_not_effective_on_decision_date",
+                            "Reason output references a mapping that was not active on the decision date.",
+                        )
+                    )
+                if normalize_reason_text(output["disclosed_reason_text"]) != normalize_reason_text(
+                    mapping["reason_text"]
+                ):
+                    exceptions.append(
+                        build_reason_exception(
+                            decision_id,
+                            output,
+                            "notice_text_mapping_mismatch",
+                            "Recorded notice text does not match the governed reason text for its mapped driver.",
+                        )
+                    )
+
+            template = fidelity_context.notice_template
+            if (
+                output["notice_template_id"] != template["template_id"]
+                or output["notice_template_version"] != template["template_version"]
+            ):
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "notice_template_version_mismatch",
+                        "Reason output does not pin the governed notice-template identifier and version.",
+                    )
+                )
+            if not is_active_on_date(
+                template["effective_date"], template["retired_date"], decision_date
+            ):
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "notice_template_not_effective_on_decision_date",
+                        "Reason output uses a notice template that was not active on the decision date.",
+                    )
+                )
+            if output["decision_component"] != decision_component:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "decision_component_mismatch",
+                        "Reason output component does not match the recorded final decision component.",
+                    )
+                )
+            if output["policy_version"] != policy_version:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "policy_version_mismatch",
+                        "Reason output does not pin the underwriting policy version used for the decision.",
+                    )
+                )
+            if (
+                output["selection_method_id"] != method["selection_method_id"]
+                or output["selection_method_version"] != method["selection_method_version"]
+            ):
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "selection_method_version_mismatch",
+                        "Reason output selection-method identifier or version does not match its decision component.",
+                    )
+                )
+
+            actual_source_rank = source_rank_by_driver.get(output["driver_or_signal"])
+            if actual_source_rank is None:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "reason_not_in_actual_contributors",
+                        "Reason output driver is not an adverse source driver for the recorded final decision component.",
+                    )
+                )
+            elif output["source_driver_rank"] != actual_source_rank:
+                exceptions.append(
+                    build_reason_exception(
+                        decision_id,
+                        output,
+                        "source_driver_rank_mismatch",
+                        "Reason output source-driver rank does not match deterministic source contribution ranking.",
+                    )
+                )
+    return exceptions
+
+
+def group_reason_outputs_by_decision(
+    reason_outputs: list[dict[str, Any]],
+) -> dict[str, list[dict[str, Any]]]:
+    outputs_by_decision: dict[str, list[dict[str, Any]]] = {}
+    for output in reason_outputs:
+        outputs_by_decision.setdefault(output["decision_id"], []).append(output)
+    return outputs_by_decision
 
 
 def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:

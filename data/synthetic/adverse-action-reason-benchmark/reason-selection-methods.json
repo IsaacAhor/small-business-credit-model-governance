@@ -1,0 +1,34 @@
+[
+  {
+    "record_type": "reason_selection_method",
+    "decision_component": "scoring",
+    "selection_method_id": "ranked-adverse-contribution",
+    "selection_method_version": "selver-2026-08",
+    "description": "Deterministically rank recorded adverse contribution magnitude for the synthetic benchmark.",
+    "result_type": "synthetic_governance_method_not_legal_conclusion"
+  },
+  {
+    "record_type": "reason_selection_method",
+    "decision_component": "judgmental",
+    "selection_method_id": "ranked-reviewed-adverse-driver",
+    "selection_method_version": "selver-2026-08",
+    "description": "Deterministically rank recorded adverse drivers reviewed in the synthetic judgmental component.",
+    "result_type": "synthetic_governance_method_not_legal_conclusion"
+  },
+  {
+    "record_type": "reason_selection_method",
+    "decision_component": "automatic_denial",
+    "selection_method_id": "automatic-decline-driver",
+    "selection_method_version": "selver-2026-08",
+    "description": "Use the recorded triggering automatic-decline driver in the synthetic benchmark.",
+    "result_type": "synthetic_governance_method_not_legal_conclusion"
+  },
+  {
+    "record_type": "reason_selection_method",
+    "decision_component": "combined",
+    "selection_method_id": "ranked-combined-component-driver",
+    "selection_method_version": "selver-2026-08",
+    "description": "Deterministically rank recorded drivers from the synthetic recorded failed components.",
+    "result_type": "synthetic_governance_method_not_legal_conclusion"
+  }
+]
