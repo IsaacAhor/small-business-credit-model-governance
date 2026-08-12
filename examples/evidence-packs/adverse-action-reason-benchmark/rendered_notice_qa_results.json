@@ -1,0 +1,7 @@
+{
+  "status": "ran_synthetic_rendered_notice_controls",
+  "exception_count": 1,
+  "exception_types": [
+    "rendered_notice_text_mismatch"
+  ]
+}

@@ -116,15 +116,16 @@ applications, actual decision drivers, reason outputs or notice text, mapping
 versions, policy thresholds, and reviewer labels. See
 `PRIVATE_DATA_REQUIREMENTS.md`.
 
-## Source-To-Notice Fidelity Controls
+## Source-To-Rendered-Notice Fidelity Controls
 
-The synthetic benchmark now exercises a separate source-to-notice control
+The synthetic benchmark now exercises a separate source-to-rendered-notice control
 chain. For each declined decision in the benchmark, it records and checks:
 
 1. the final decision component and underwriting policy version;
 2. the adverse source drivers and their deterministic synthetic rank;
 3. the selected reason's governed mapping identifier, version, and effective date;
-4. the rendered reason text and governed notice-template version; and
+4. the separate rendered notice segment, recorded reason output, and governed
+   notice-template version; and
 5. the reason-selection method identifier and version.
 
 The checks flag missing principal source drivers, output drivers not found in

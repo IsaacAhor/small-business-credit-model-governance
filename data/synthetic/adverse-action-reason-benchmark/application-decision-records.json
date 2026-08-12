@@ -208,5 +208,30 @@
                            "review_batch_id":  "run-2026-07-adverse-action"
                        },
         "decision_component":  "scoring"
+    },
+    {
+        "record_type": "application_decision_record",
+        "decision_id": "dec-0011",
+        "application_date": "2026-07-11",
+        "segment": "growth",
+        "decision_outcome": "declined",
+        "manual_review_flag": true,
+        "override_flag": false,
+        "underwriting": {
+            "score": 576.0,
+            "requested_amount": 140000.0,
+            "decision_timestamp": "2026-07-11T20:00:00Z",
+            "policy_version": "polver-2026-08"
+        },
+        "monitoring": {
+            "region": "northeast",
+            "channel": "branch",
+            "review_batch_id": "run-2026-07-adverse-action"
+        },
+        "decision_component": "combined",
+        "failed_components": [
+            "scoring",
+            "judgmental"
+        ]
     }
 ]

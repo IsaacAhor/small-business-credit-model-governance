@@ -19,7 +19,8 @@
     "breach-records.json",
     "reason-fidelity-policy.json",
     "adverse-action-notice-template.json",
-    "reason-selection-methods.json"
+    "reason-selection-methods.json",
+    "rendered-adverse-action-notices.json"
   ],
   "output_files": [
     "manifest.json",
@@ -33,6 +34,7 @@
     "reason_stability_report.json",
     "fair_lending_screening_results.json",
     "fair_lending_escalation_register.json",
+    "rendered_notice_qa_results.json",
     "issue_register.json",
     "monitoring_report.md",
     "reviewer_notes.md",

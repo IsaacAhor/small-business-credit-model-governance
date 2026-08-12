@@ -5,17 +5,19 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - Run ID: `run-2026-07-adverse-action`
 - Model ID: `mdl-adverse-reason-benchmark`
 - Version ID: `ver-2026-07-adverse-action`
-- Total decisions reviewed: 10
-- Approval rate: 0.1
-- Decline rate: 0.9
-- Override rate: 0.1
-- Manual review rate: 0.3
+- Total decisions reviewed: 11
+- Approval rate: 0.0909
+- Decline rate: 0.9091
+- Override rate: 0.0909
+- Manual review rate: 0.3636
 
 ## Adverse-Action Reason QA
 
-- Declined decisions reviewed: 9
-- Generated reason outputs reviewed: 13
-- QA exception count: 17
+- Declined decisions reviewed: 10
+- Generated reason outputs reviewed: 15
+- QA exception count: 18
+- Source-to-notice control status: `ran_synthetic_source_to_rendered_notice_controls`
+- Rendered-notice control status: `ran_synthetic_rendered_notice_controls` (1 exception(s))
 - Result type: screening only, not a legal conclusion
 
 - dec-0003: missing_reason_code (Declined decision has no generated adverse-action reason output.)
@@ -25,16 +27,17 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - dec-0007: mapping_version_mismatch (Generated reason mapping version does not match the governed mapping.)
 - dec-0010: missing_reason_code (Declined decision has no generated adverse-action reason output.)
 - dec-0002: notice_text_mapping_mismatch (Recorded notice text does not match the governed reason text for its mapped driver.)
-- dec-0003: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: cash_flow_stability)
+- dec-0003: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: scoring:cash_flow_stability)
 - dec-0004: policy_version_mismatch (Reason output does not pin the underwriting policy version used for the decision.)
 - dec-0005: decision_component_mismatch (Reason output component does not match the recorded final decision component.)
 - dec-0005: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
-- dec-0006: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: industry_concentration)
-- dec-0006: reason_not_in_actual_contributors (Reason output driver is not an adverse source driver for the recorded final decision component.)
+- dec-0006: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: automatic_denial:industry_concentration)
+- dec-0006: reason_not_in_actual_contributors (Reason output driver is not an adverse source driver for the recorded source component.)
 - dec-0007: mapping_effective_date_mismatch (Reason output does not pin the effective date of its governed mapping.)
 - dec-0008: source_driver_rank_mismatch (Reason output source-driver rank does not match deterministic source contribution ranking.)
 - dec-0008: notice_template_version_mismatch (Reason output does not pin the governed notice-template identifier and version.)
 - dec-0009: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
+- dec-0002: rendered_notice_text_mismatch (Rendered notice reason text does not match the recorded reason output.)
 
 ## Fair-Lending Screening
 
@@ -68,3 +71,4 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - iss-0015: Reason QA exception for dec-0008: source_driver_rank_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
 - iss-0016: Reason QA exception for dec-0008: notice_template_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
 - iss-0017: Reason QA exception for dec-0009: selection_method_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0018: Reason QA exception for dec-0002: rendered_notice_text_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.

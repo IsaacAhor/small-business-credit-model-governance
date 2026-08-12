@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from .reason_fidelity import ReasonFidelityContext
+from .reason_fidelity import ReasonFidelityContext, rank_decision_contributions
 
 DEFAULT_MAX_REASONS = 4
 
@@ -59,11 +59,12 @@ def generate_reasons_for_decision(
     decision_context = decision_context or {}
     decision_component = decision_context.get("decision_component", "scoring")
     if fidelity_context is not None:
-        ranked = [
-            item
-            for item in rank_adverse_contributions(contributions)
-            if item.get("decision_component", decision_component) == decision_component
-        ]
+        ranked = rank_decision_contributions(contributions, decision_context)
+        if not ranked and decision_component == "combined":
+            raise ValueError(
+                "Combined decision must record failed_components and adverse contributions "
+                "from those source components."
+            )
     else:
         ranked = rank_adverse_contributions(contributions)
     outputs: list[dict[str, Any]] = []
@@ -102,6 +103,7 @@ def generate_reasons_for_decision(
                     "selection_method_id": method["selection_method_id"],
                     "selection_method_version": method["selection_method_version"],
                     "decision_component": decision_component,
+                    "source_decision_component": item["decision_component"],
                     "source_driver_rank": source_driver_rank,
                     "policy_version": decision_context["underwriting"]["policy_version"],
                 }

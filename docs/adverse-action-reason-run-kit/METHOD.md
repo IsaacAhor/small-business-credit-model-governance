@@ -21,8 +21,10 @@ otherwise adverse credit decision can be traced from:
 3. to governed reason codes and specific reason text,
 4. to reason QA checks for missing, generic, unmapped, stale, or mismatched
    reasons,
-5. to a versioned rendered-text/template record and reason-selection method,
-6. to source-to-notice reconciliation and a reviewer-ready evidence pack.
+5. to a versioned rendered-notice record whose segments reference each reason
+   output, plus the applicable reason-selection method,
+6. to source-to-rendered-notice reconciliation and a reviewer-ready evidence
+   pack.
 
 For this repository, the public demonstration uses synthetic small-business
 credit data because no current public small-business dataset contains the full
@@ -86,14 +88,18 @@ Where the required synthetic provenance inputs are present, the run kit also
 checks the exact governed chain from the recorded final decision component to
 the text record:
 
-- the reason driver is an adverse contributor in the recorded final component;
-- the recorded source-driver rank matches deterministic source ranking;
+- the reason driver is an adverse contributor in the actual source component;
+  combined decisions record which scoring and/or judgmental component failed;
+- the recorded source-driver rank matches deterministic ranking across the
+  recorded failed source components;
 - governed principal mapped drivers within the configured review limit are not
   absent from recorded outputs;
 - the reason output pins the mapping ID, mapping version, mapping effective
   date, and underwriting policy version used for the decision;
 - the recorded reason text matches the controlled mapped reason text and pins
-  a versioned notice template; and
+  a versioned notice template;
+- each visible synthetic rendered-notice segment matches its recorded reason
+  output's identifier, reason code, and reason text; and
 - the output identifies the governed method and version configured for the
   recorded decision component.
 

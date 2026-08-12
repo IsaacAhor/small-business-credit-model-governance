@@ -165,6 +165,52 @@ class ReasonGenerationTests(unittest.TestCase):
         self.assertEqual(1, outputs[0]["reason_rank"])
         self.assertEqual(2, outputs[0]["source_driver_rank"])
 
+    def test_combined_decision_uses_recorded_failed_source_components(self) -> None:
+        decisions = json.loads(
+            (BENCHMARK_DATASET / "application-decision-records.json").read_text(encoding="utf-8")
+        )
+        contributions = json.loads(
+            (BENCHMARK_DATASET / "adverse-action-driver-contributions.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        mappings = json.loads(
+            (BENCHMARK_DATASET / "reason-code-mappings.json").read_text(encoding="utf-8")
+        )
+        fidelity_context = build_reason_fidelity_context(
+            json.loads((BENCHMARK_DATASET / "reason-fidelity-policy.json").read_text(encoding="utf-8")),
+            json.loads(
+                (BENCHMARK_DATASET / "adverse-action-notice-template.json").read_text(
+                    encoding="utf-8"
+                )
+            ),
+            json.loads(
+                (BENCHMARK_DATASET / "reason-selection-methods.json").read_text(
+                    encoding="utf-8"
+                )
+            ),
+        )
+        decision = next(item for item in decisions if item["decision_id"] == "dec-0011")
+        decision_contributions = next(
+            item["contributions"] for item in contributions if item["decision_id"] == "dec-0011"
+        )
+        outputs = generate_reasons_for_decision(
+            "dec-0011",
+            decision_contributions,
+            {mapping["driver_or_signal"]: mapping for mapping in mappings},
+            "ver-2026-07-adverse-action",
+            decision_context=decision,
+            fidelity_context=fidelity_context,
+        )
+
+        self.assertEqual(["RC-101", "RC-105"], [output["reason_code"] for output in outputs])
+        self.assertEqual(["combined", "combined"], [output["decision_component"] for output in outputs])
+        self.assertEqual(
+            ["scoring", "judgmental"],
+            [output["source_decision_component"] for output in outputs],
+        )
+        self.assertEqual([1, 2], [output["source_driver_rank"] for output in outputs])
+
     def test_summary_reports_uncovered_declined_decisions(self) -> None:
         generated = generate_adverse_action_reasons(
             self.decisions, self.contributions, self.mappings, self.version_id

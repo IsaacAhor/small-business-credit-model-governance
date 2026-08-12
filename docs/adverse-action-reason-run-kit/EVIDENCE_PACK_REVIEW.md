@@ -44,8 +44,9 @@ Confirm that:
 - the benchmark result says expected seeded failures were observed
 - reason-QA exceptions are traceable to specific applications and reason
   outputs
-- source-to-notice fidelity reports distinguish the final decision component,
-  source driver, mapping, rendered text, template, policy, and method versions
+- source-to-rendered-notice fidelity reports distinguish the final decision
+  component, source driver, mapping, recorded reason text, visible notice
+  segment, template, policy, and method versions
 - reason-code mapping problems are separated from generic monitoring metrics
 - the pack does not claim legal compliance, deployment, adoption, or external
   validation

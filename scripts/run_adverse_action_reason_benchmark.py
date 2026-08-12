@@ -56,6 +56,7 @@ EXPECTED_EXCEPTION_TYPES = {
     "source_driver_rank_mismatch",
     "policy_version_mismatch",
     "reason_not_in_actual_contributors",
+    "rendered_notice_text_mismatch",
 }
 
 
@@ -265,7 +266,7 @@ def build_benchmark_results(
             "Synthetic small-business credit benchmark only.",
             "No production applicant records, lender notices, or legal conclusions are represented.",
             "Benchmark exceptions are governance review triggers.",
-            "Synthetic source-to-notice checks use exact controlled mapping text; they do not assess real-world notice readability or legal sufficiency.",
+            "Synthetic source-to-rendered-notice checks reconcile controlled notice segments to recorded reason outputs; they do not assess real-world notice readability or legal sufficiency.",
             "The synthetic selection-method check verifies recorded method provenance and deterministic behavior, not a real creditor's selection-method sufficiency.",
             "Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.",
             "HMDA can support only off-domain denial-reason mechanics, not small-business proof.",
@@ -483,7 +484,7 @@ def render_example_readme(results: dict[str, Any]) -> str:
         "## How To Review This Pack\n\n"
         "1. Read `adverse_action_reason_benchmark_report.md` for the benchmark summary.\n"
         "2. Read `adverse_action_reason_benchmark_results.json` for machine-readable expected and observed exception types.\n"
-        "3. Read `reason_qa_results.json` for the standard monitoring reason-QA output.\n"
+        "3. Read `reason_qa_results.json` and `rendered_notice_qa_results.json` for source and visible-notice reconciliation.\n"
         "4. Read `monitoring_report.md` for the broader evidence-pack output.\n\n"
         "## Regeneration Command\n\n"
         "```bash\n"

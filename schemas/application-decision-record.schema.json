@@ -52,6 +52,17 @@
         "automatic_denial"
       ]
     },
+    "failed_components": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "scoring",
+          "judgmental"
+        ]
+      }
+    },
     "underwriting": {
       "type": "object",
       "additionalProperties": false,

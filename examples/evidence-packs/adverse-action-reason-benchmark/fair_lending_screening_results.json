@@ -25,15 +25,17 @@
           "reason_code_concentration": 0.2857
         },
         "northeast": {
-          "total": 2,
+          "total": 3,
           "approved": 0,
           "overrides": 0,
           "reason_code_counts": {
-            "RC-107": 1
+            "RC-107": 1,
+            "RC-101": 1,
+            "RC-105": 1
           },
           "approval_rate": 0.0,
           "override_rate": 0.0,
-          "reason_code_concentration": 1.0
+          "reason_code_concentration": 0.3333
         },
         "south": {
           "total": 3,
@@ -64,7 +66,7 @@
       "summary": {
         "approval_rate_ratio": 0.0,
         "override_rate_difference": 0.5,
-        "reason_code_concentration": 1.0
+        "reason_code_concentration": 0.5
       },
       "significance": {
         "approval_rate": {
@@ -130,15 +132,16 @@
       "field": "segment",
       "groups": {
         "growth": {
-          "total": 2,
+          "total": 3,
           "approved": 0,
           "overrides": 1,
           "reason_code_counts": {
             "RC-104": 1,
-            "RC-105": 1
+            "RC-105": 2,
+            "RC-101": 1
           },
           "approval_rate": 0.0,
-          "override_rate": 0.5,
+          "override_rate": 0.3333,
           "reason_code_concentration": 0.5
         },
         "micro": {
@@ -173,7 +176,7 @@
       },
       "summary": {
         "approval_rate_ratio": 0.0,
-        "override_rate_difference": 0.5,
+        "override_rate_difference": 0.3333,
         "reason_code_concentration": 0.5
       },
       "significance": {
@@ -181,7 +184,7 @@
           "group_a": {
             "label": "growth",
             "successes": 0,
-            "total": 2,
+            "total": 3,
             "rate": 0.0
           },
           "group_b": {
@@ -215,15 +218,15 @@
           "group_b": {
             "label": "growth",
             "successes": 1,
-            "total": 2,
-            "rate": 0.5
+            "total": 3,
+            "rate": 0.3333
           },
           "effect_size": {
-            "rate_difference": -0.5,
+            "rate_difference": -0.3333,
             "rate_ratio": 0.0
           },
           "test": "fisher_exact_two_sided",
-          "p_value": 0.333333,
+          "p_value": 0.428571,
           "alpha": 0.05,
           "statistically_significant": false,
           "sample_adequate_for_normal_approximation": false,

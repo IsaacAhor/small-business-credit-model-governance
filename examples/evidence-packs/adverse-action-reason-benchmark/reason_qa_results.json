@@ -1,8 +1,8 @@
 {
   "label": "qa_screening_only_not_legal_conclusion",
-  "declined_decision_count": 9,
-  "reason_output_count": 13,
-  "exception_count": 17,
+  "declined_decision_count": 10,
+  "reason_output_count": 15,
+  "exception_count": 18,
   "exceptions": [
     {
       "exception_id": "rex-dec-0003-missing_reason_code",
@@ -66,7 +66,7 @@
       "reason_output_id": null,
       "reason_code": null,
       "exception_type": "principal_driver_omitted",
-      "message": "A governed principal source driver is absent from the recorded reason outputs: cash_flow_stability"
+      "message": "A governed principal source driver is absent from the recorded reason outputs: scoring:cash_flow_stability"
     },
     {
       "exception_id": "rex-dec-0004-policy_version_mismatch",
@@ -98,7 +98,7 @@
       "reason_output_id": null,
       "reason_code": null,
       "exception_type": "principal_driver_omitted",
-      "message": "A governed principal source driver is absent from the recorded reason outputs: industry_concentration"
+      "message": "A governed principal source driver is absent from the recorded reason outputs: automatic_denial:industry_concentration"
     },
     {
       "exception_id": "rex-dec-0006-reason_not_in_actual_contributors",
@@ -106,7 +106,7 @@
       "reason_output_id": "rso-0006-1",
       "reason_code": "RC-105",
       "exception_type": "reason_not_in_actual_contributors",
-      "message": "Reason output driver is not an adverse source driver for the recorded final decision component."
+      "message": "Reason output driver is not an adverse source driver for the recorded source component."
     },
     {
       "exception_id": "rex-dec-0007-mapping_effective_date_mismatch",
@@ -139,10 +139,18 @@
       "reason_code": "RC-107",
       "exception_type": "selection_method_version_mismatch",
       "message": "Reason output selection-method identifier or version does not match its decision component."
+    },
+    {
+      "exception_id": "rex-dec-0002-rendered_notice_text_mismatch",
+      "decision_id": "dec-0002",
+      "reason_output_id": "rso-0002-2",
+      "reason_code": "RC-102",
+      "exception_type": "rendered_notice_text_mismatch",
+      "message": "Rendered notice reason text does not match the recorded reason output."
     }
   ],
   "source_to_notice_fidelity": {
-    "status": "ran_synthetic_source_to_notice_controls",
+    "status": "ran_synthetic_source_to_rendered_notice_controls",
     "policy_id": "rfp-adverse-action-source-notice",
     "policy_version": "polver-2026-08",
     "notice_template_id": "aat-small-business-reason",
@@ -153,7 +161,7 @@
       "judgmental",
       "scoring"
     ],
-    "exception_count": 11,
+    "exception_count": 12,
     "exception_types": [
       "decision_component_mismatch",
       "mapping_effective_date_mismatch",
@@ -162,24 +170,32 @@
       "policy_version_mismatch",
       "principal_driver_omitted",
       "reason_not_in_actual_contributors",
+      "rendered_notice_text_mismatch",
       "selection_method_version_mismatch",
       "source_driver_rank_mismatch"
-    ]
+    ],
+    "rendered_notice_fidelity": {
+      "status": "ran_synthetic_rendered_notice_controls",
+      "exception_count": 1,
+      "exception_types": [
+        "rendered_notice_text_mismatch"
+      ]
+    }
   },
   "stability": {
     "mapping_versions": [
       "mapver-2026-07"
     ],
     "reason_code_distribution": {
-      "RC-101": 0.2308,
-      "RC-102": 0.1538,
-      "RC-103": 0.0769,
-      "RC-104": 0.0769,
-      "RC-105": 0.1538,
-      "RC-106": 0.0769,
-      "RC-107": 0.0769,
-      "RC-108": 0.0769,
-      "RC-999": 0.0769
+      "RC-101": 0.2667,
+      "RC-102": 0.1333,
+      "RC-103": 0.0667,
+      "RC-104": 0.0667,
+      "RC-105": 0.2,
+      "RC-106": 0.0667,
+      "RC-107": 0.0667,
+      "RC-108": 0.0667,
+      "RC-999": 0.0667
     },
     "mapped_reason_code_count": 8,
     "generated_reason_code_count": 9

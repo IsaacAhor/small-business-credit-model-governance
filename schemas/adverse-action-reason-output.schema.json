@@ -82,6 +82,13 @@
         "automatic_denial"
       ]
     },
+    "source_decision_component": {
+      "enum": [
+        "scoring",
+        "judgmental",
+        "automatic_denial"
+      ]
+    },
     "source_driver_rank": {
       "type": "number",
       "exclusiveMinimum": 0
