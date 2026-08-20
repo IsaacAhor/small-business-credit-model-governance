@@ -101,6 +101,16 @@ class Phase2MonitoringTests(unittest.TestCase):
         self.assertFalse(verification["ok"])
         self.assertIn("fingerprint mismatch: metric_results.json", verification["errors"])
 
+    def test_checked_in_evidence_packs_verify_with_explanatory_readmes(self) -> None:
+        for pack_name in (
+            "adverse-action-reason-benchmark",
+            "monthly-demo",
+            "monthly-portfolio",
+        ):
+            evidence_pack = ROOT / "examples" / "evidence-packs" / pack_name
+            verification = verify_evidence_pack(evidence_pack)
+            self.assertTrue(verification["ok"], verification["errors"])
+
     def test_no_breach_scenario_generates_empty_registers(self) -> None:
         dataset = ROOT / "data" / "synthetic" / "monthly-demo-no-breach"
 

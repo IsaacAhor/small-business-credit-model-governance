@@ -314,13 +314,15 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.9.3`. It adds configured minimum-group-
-size and statistical-significance gates to rate-screen escalations, records
-threshold observations that fail those gates as explicit inconclusive results,
-and exercises evidence-pack verification commands in CI. It is a public
-technical and documentation milestone, not proof of adoption, deployment,
-legal compliance, regulatory approval, field recognition, or external
-validation.
+The latest documented milestone is `v0.9.4`. It ensures that the evidence-pack
+verifier recognizes the explanatory README in each curated example pack while
+continuing to reject every other undeclared file. It also adds verification
+coverage for every checked-in pack. The prior `v0.9.3` milestone added
+configured minimum-group-size and statistical-significance gates to rate-screen
+escalations, explicit inconclusive results, and CI coverage for the published
+evidence-verification commands. These are public technical and documentation
+milestones, not proof of adoption, deployment, legal compliance, regulatory
+approval, field recognition, or external validation.
 
 The prior release, `v0.9.0`, makes the project a modern installable Python
 package with `pyproject.toml`, packaged schema/reference resources, console
@@ -352,7 +354,8 @@ See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`,
 `docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`,
 `docs/releases/v0.9.0.md`, `docs/releases/v0.9.1.md`,
-`docs/releases/v0.9.2.md`, and `docs/releases/v0.9.3.md`.
+`docs/releases/v0.9.2.md`, `docs/releases/v0.9.3.md`, and
+`docs/releases/v0.9.4.md`.
 
 ## Data Policy
 
@@ -404,7 +407,7 @@ This repository now contains:
 - a credit-union AI vendor-risk run kit that maps public NCUA resource themes to
   underwriting vendor due diligence, monitoring, adverse-action reason review,
   model-change review, issue tracking, and reviewer signoff
-- release strategy documentation and versioned release notes through `v0.9.3` for stable milestone preservation
+- release strategy documentation and versioned release notes through `v0.9.4` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

@@ -29,6 +29,9 @@ from credit_gov.stats import compare_group_proportions
 from credit_gov.validation import assess_model_change, render_change_validation_report
 
 
+CURATED_EVIDENCE_PACK_DOCUMENTATION_FILES = {"README.md"}
+
+
 @dataclass(slots=True)
 class MonitoringRunResult:
     ok: bool
@@ -1400,7 +1403,9 @@ def build_output_fingerprints(evidence_dir: Path, output_files: list[str]) -> di
 def verify_evidence_pack(evidence_dir: Path) -> dict[str, Any]:
     """Verify the generated file set and output hashes for one evidence pack.
 
-    This detects changes made without updating the fingerprint record. It does
+    This detects changes made without updating the fingerprint record. A
+    curated evidence-pack README is treated as explanatory documentation, not
+    as an evidence artifact; every other undeclared file is rejected. This does
     not provide a signature or independent attestation of the pack's origin.
     """
     evidence_dir = evidence_dir.resolve()
@@ -1435,7 +1440,9 @@ def verify_evidence_pack(evidence_dir: Path) -> dict[str, Any]:
     )
     if actual_files != declared_files:
         missing = sorted(declared_files - actual_files)
-        unexpected = sorted(actual_files - declared_files)
+        unexpected = sorted(
+            actual_files - declared_files - CURATED_EVIDENCE_PACK_DOCUMENTATION_FILES
+        )
         if missing:
             errors.append("missing declared output file(s): " + ", ".join(missing))
         if unexpected:
