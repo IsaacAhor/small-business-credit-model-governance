@@ -8,53 +8,5 @@
     "status": "open",
     "owner": "Credit Policy Review",
     "due_date": "2026-06-30"
-  },
-  {
-    "issue_id": "iss-0002",
-    "linked_breach_ids": [],
-    "linked_reason_exception_ids": [],
-    "linked_fair_lending_finding_ids": [
-      "flf-0001"
-    ],
-    "summary": "Fair-lending screening trigger for region: approval_rate_ratio observed 0.0.",
-    "status": "open",
-    "owner": "Fair Lending Review",
-    "due_date": "2026-06-30"
-  },
-  {
-    "issue_id": "iss-0003",
-    "linked_breach_ids": [],
-    "linked_reason_exception_ids": [],
-    "linked_fair_lending_finding_ids": [
-      "flf-0002"
-    ],
-    "summary": "Fair-lending screening trigger for segment: approval_rate_ratio observed 0.0.",
-    "status": "open",
-    "owner": "Fair Lending Review",
-    "due_date": "2026-06-30"
-  },
-  {
-    "issue_id": "iss-0004",
-    "linked_breach_ids": [],
-    "linked_reason_exception_ids": [],
-    "linked_fair_lending_finding_ids": [
-      "flf-0003"
-    ],
-    "summary": "Fair-lending screening trigger for region: override_rate_difference observed 1.0.",
-    "status": "open",
-    "owner": "Fair Lending Review",
-    "due_date": "2026-06-30"
-  },
-  {
-    "issue_id": "iss-0005",
-    "linked_breach_ids": [],
-    "linked_reason_exception_ids": [],
-    "linked_fair_lending_finding_ids": [
-      "flf-0004"
-    ],
-    "summary": "Fair-lending screening trigger for segment: override_rate_difference observed 1.0.",
-    "status": "open",
-    "owner": "Fair Lending Review",
-    "due_date": "2026-06-30"
   }
 ]

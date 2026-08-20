@@ -1,9 +1,15 @@
 {
   "label": "fair_lending_screening_only_not_legal_conclusion",
   "screening_config_id": "fls-2026-05-monthly",
+  "finding_gate_configuration": {
+    "minimum_group_size": 30,
+    "alpha": 0.05,
+    "rate_screen_requirement": "minimum group size and statistical significance",
+    "descriptive_screen_requirement": "minimum group size"
+  },
   "comparison_group_count": 2,
   "screen_count": 3,
-  "finding_count": 4,
+  "finding_count": 0,
   "group_results": {
     "region": {
       "source": "monitoring",
@@ -35,6 +41,64 @@
         "approval_rate_ratio": 0.0,
         "override_rate_difference": 1.0,
         "reason_code_concentration": 0.5
+      },
+      "significance": {
+        "approval_rate": {
+          "group_a": {
+            "label": "midwest",
+            "successes": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "south",
+            "successes": 1,
+            "total": 1,
+            "rate": 1.0
+          },
+          "effect_size": {
+            "rate_difference": -1.0,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 1.0,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        },
+        "override_rate": {
+          "group_a": {
+            "label": "south",
+            "successes": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "midwest",
+            "successes": 1,
+            "total": 1,
+            "rate": 1.0
+          },
+          "effect_size": {
+            "rate_difference": -1.0,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 1.0,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        }
       }
     },
     "segment": {
@@ -67,12 +131,71 @@
         "approval_rate_ratio": 0.0,
         "override_rate_difference": 1.0,
         "reason_code_concentration": 0.5
+      },
+      "significance": {
+        "approval_rate": {
+          "group_a": {
+            "label": "small",
+            "successes": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "micro",
+            "successes": 1,
+            "total": 1,
+            "rate": 1.0
+          },
+          "effect_size": {
+            "rate_difference": -1.0,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 1.0,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        },
+        "override_rate": {
+          "group_a": {
+            "label": "micro",
+            "successes": 0,
+            "total": 1,
+            "rate": 0.0
+          },
+          "group_b": {
+            "label": "small",
+            "successes": 1,
+            "total": 1,
+            "rate": 1.0
+          },
+          "effect_size": {
+            "rate_difference": -1.0,
+            "rate_ratio": 0.0
+          },
+          "test": "fisher_exact_two_sided",
+          "p_value": 1.0,
+          "alpha": 0.05,
+          "statistically_significant": false,
+          "sample_adequate_for_normal_approximation": false,
+          "caveats": [
+            "Screening signal only; not a causal estimate or a legal conclusion.",
+            "No adjustment for legitimate credit factors (no regression controls).",
+            "Sample too small for the normal approximation; Fisher's exact test used."
+          ]
+        }
       }
     }
   },
-  "findings": [
+  "findings": [],
+  "inconclusive_screen_count": 4,
+  "inconclusive_screens": [
     {
-      "finding_id": "flf-0001",
       "screen_name": "Regional approval-rate ratio",
       "metric_name": "approval_rate_ratio",
       "comparison_group": "region",
@@ -81,11 +204,64 @@
       "comparison_rule": "less_than",
       "severity": "medium",
       "owner": "Fair Lending Review",
-      "review_trigger": "deeper_fair_lending_review",
-      "result_type": "screening_only_not_legal_conclusion"
+      "statistical_significance": {
+        "group_a": {
+          "label": "midwest",
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0
+        },
+        "group_b": {
+          "label": "south",
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0
+        },
+        "effect_size": {
+          "rate_difference": -1.0,
+          "rate_ratio": 0.0
+        },
+        "test": "fisher_exact_two_sided",
+        "p_value": 1.0,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": false,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls).",
+          "Sample too small for the normal approximation; Fisher's exact test used."
+        ]
+      },
+      "finding_gate": {
+        "minimum_group_size": 30,
+        "sample_sizes": [
+          {
+            "label": "midwest",
+            "total": 1
+          },
+          {
+            "label": "south",
+            "total": 1
+          }
+        ],
+        "status": "inconclusive_insufficient_sample",
+        "reason": "One or more comparison groups is below the configured minimum group size.",
+        "below_minimum_groups": [
+          {
+            "label": "midwest",
+            "total": 1
+          },
+          {
+            "label": "south",
+            "total": 1
+          }
+        ]
+      },
+      "screen_result_id": "fls-0001",
+      "review_trigger": "no_escalation_inconclusive_screen",
+      "result_type": "screening_observation_inconclusive_not_escalated"
     },
     {
-      "finding_id": "flf-0002",
       "screen_name": "Regional approval-rate ratio",
       "metric_name": "approval_rate_ratio",
       "comparison_group": "segment",
@@ -94,11 +270,64 @@
       "comparison_rule": "less_than",
       "severity": "medium",
       "owner": "Fair Lending Review",
-      "review_trigger": "deeper_fair_lending_review",
-      "result_type": "screening_only_not_legal_conclusion"
+      "statistical_significance": {
+        "group_a": {
+          "label": "small",
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0
+        },
+        "group_b": {
+          "label": "micro",
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0
+        },
+        "effect_size": {
+          "rate_difference": -1.0,
+          "rate_ratio": 0.0
+        },
+        "test": "fisher_exact_two_sided",
+        "p_value": 1.0,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": false,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls).",
+          "Sample too small for the normal approximation; Fisher's exact test used."
+        ]
+      },
+      "finding_gate": {
+        "minimum_group_size": 30,
+        "sample_sizes": [
+          {
+            "label": "small",
+            "total": 1
+          },
+          {
+            "label": "micro",
+            "total": 1
+          }
+        ],
+        "status": "inconclusive_insufficient_sample",
+        "reason": "One or more comparison groups is below the configured minimum group size.",
+        "below_minimum_groups": [
+          {
+            "label": "small",
+            "total": 1
+          },
+          {
+            "label": "micro",
+            "total": 1
+          }
+        ]
+      },
+      "screen_result_id": "fls-0002",
+      "review_trigger": "no_escalation_inconclusive_screen",
+      "result_type": "screening_observation_inconclusive_not_escalated"
     },
     {
-      "finding_id": "flf-0003",
       "screen_name": "Regional override-rate difference",
       "metric_name": "override_rate_difference",
       "comparison_group": "region",
@@ -107,11 +336,64 @@
       "comparison_rule": "greater_than",
       "severity": "medium",
       "owner": "Fair Lending Review",
-      "review_trigger": "deeper_fair_lending_review",
-      "result_type": "screening_only_not_legal_conclusion"
+      "statistical_significance": {
+        "group_a": {
+          "label": "south",
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0
+        },
+        "group_b": {
+          "label": "midwest",
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0
+        },
+        "effect_size": {
+          "rate_difference": -1.0,
+          "rate_ratio": 0.0
+        },
+        "test": "fisher_exact_two_sided",
+        "p_value": 1.0,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": false,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls).",
+          "Sample too small for the normal approximation; Fisher's exact test used."
+        ]
+      },
+      "finding_gate": {
+        "minimum_group_size": 30,
+        "sample_sizes": [
+          {
+            "label": "south",
+            "total": 1
+          },
+          {
+            "label": "midwest",
+            "total": 1
+          }
+        ],
+        "status": "inconclusive_insufficient_sample",
+        "reason": "One or more comparison groups is below the configured minimum group size.",
+        "below_minimum_groups": [
+          {
+            "label": "south",
+            "total": 1
+          },
+          {
+            "label": "midwest",
+            "total": 1
+          }
+        ]
+      },
+      "screen_result_id": "fls-0003",
+      "review_trigger": "no_escalation_inconclusive_screen",
+      "result_type": "screening_observation_inconclusive_not_escalated"
     },
     {
-      "finding_id": "flf-0004",
       "screen_name": "Regional override-rate difference",
       "metric_name": "override_rate_difference",
       "comparison_group": "segment",
@@ -120,13 +402,69 @@
       "comparison_rule": "greater_than",
       "severity": "medium",
       "owner": "Fair Lending Review",
-      "review_trigger": "deeper_fair_lending_review",
-      "result_type": "screening_only_not_legal_conclusion"
+      "statistical_significance": {
+        "group_a": {
+          "label": "micro",
+          "successes": 0,
+          "total": 1,
+          "rate": 0.0
+        },
+        "group_b": {
+          "label": "small",
+          "successes": 1,
+          "total": 1,
+          "rate": 1.0
+        },
+        "effect_size": {
+          "rate_difference": -1.0,
+          "rate_ratio": 0.0
+        },
+        "test": "fisher_exact_two_sided",
+        "p_value": 1.0,
+        "alpha": 0.05,
+        "statistically_significant": false,
+        "sample_adequate_for_normal_approximation": false,
+        "caveats": [
+          "Screening signal only; not a causal estimate or a legal conclusion.",
+          "No adjustment for legitimate credit factors (no regression controls).",
+          "Sample too small for the normal approximation; Fisher's exact test used."
+        ]
+      },
+      "finding_gate": {
+        "minimum_group_size": 30,
+        "sample_sizes": [
+          {
+            "label": "micro",
+            "total": 1
+          },
+          {
+            "label": "small",
+            "total": 1
+          }
+        ],
+        "status": "inconclusive_insufficient_sample",
+        "reason": "One or more comparison groups is below the configured minimum group size.",
+        "below_minimum_groups": [
+          {
+            "label": "micro",
+            "total": 1
+          },
+          {
+            "label": "small",
+            "total": 1
+          }
+        ]
+      },
+      "screen_result_id": "fls-0004",
+      "review_trigger": "no_escalation_inconclusive_screen",
+      "result_type": "screening_observation_inconclusive_not_escalated"
     }
   ],
   "limitations": [
     "Synthetic data only.",
     "No protected-class labels are used.",
-    "Screening findings are governance review triggers, not legal conclusions."
+    "Screening findings are governance review triggers, not legal conclusions.",
+    "Threshold observations without the configured minimum group size or statistical significance are reported as inconclusive and do not open escalation findings.",
+    "Significance tests are unadjusted comparisons; no regression controls for legitimate credit factors."
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "breach_register.json": "6ac8b115ee22acfa88f83f75144d5bd5c9125c7cf17d58f88947825561e34068",
+  "config_snapshot.json": "1c9040b179e91a48a212c242159d3b9a3ab88efeb893cd039c388f190d0e77c4",
+  "execution_provenance.json": "67cacfddac49a24c2070abdce38d681ca180c709af6ab4de7147df4374032bad",
+  "fair_lending_escalation_register.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "fair_lending_screening_results.json": "ca29ad9cbfd878751afec15421dd46142de6ae7c5befe39901262446275f7fc4",
+  "input_fingerprints.json": "f46be901b098e02142061cd7684497951993cef6cc26be96fe220e9d75f14d4d",
+  "issue_register.json": "bba08b1e413b206bc4075c2f258c56ac2fcf3c9a31eaf039390b57e09d59ad54",
+  "manifest.json": "3234f123ec4e8e63e378ea09101a206968ff1016d7cabebfb057268699471acf",
+  "metric_results.json": "6b73f90680132fe107216075ab42b265e7ee9e8b6f5fc3559cf55ca8e70598d4",
+  "model_record.json": "26384f60545cf8ebe848643458fe70b90970c58ee434a4862e1d8227fcc8f42b",
+  "monitoring_report.md": "1132b7ca53000d1a7e04ff001930deb96d4239c32d6f6a4c276d7aa2fc0cb288",
+  "reason_qa_results.json": "d5703dec185ffac5bb6574d3e82dcd9db6307c377348df02da5e145b9b25b74b",
+  "reason_stability_report.json": "e55f5daffe367803808cae25e0f4d424f475e8cc483634e96577164850b5b4c7",
+  "reviewer_notes.md": "409dc1131c08eb35da7f7928da9990c2da0a6e872d7d0e63a06dc8fa3d2050b1",
+  "reviewer_signoff.md": "d6af595f7d940b9313bed4165a9ded783c147407cb4926347208298009b62e1f",
+  "threshold_set.json": "0e43c9ab61fd407b1a572a5ba1e3a9f81131655dd62a255c25b401b7c9fec8f3"
+}

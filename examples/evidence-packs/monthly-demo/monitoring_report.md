@@ -16,6 +16,8 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - Declined decisions reviewed: 1
 - Generated reason outputs reviewed: 2
 - QA exception count: 0
+- Source-to-notice control status: `not_run_missing_source_to_notice_inputs`
+- Rendered-notice control status: `not_run_missing_source_to_notice_inputs` (0 exception(s))
 - Result type: screening only, not a legal conclusion
 
 - No reason QA exceptions were generated for this run.
@@ -24,13 +26,19 @@ This report is deterministic, synthetic, and intended only for governance workfl
 
 - Comparison groups reviewed: 2
 - Screening rules applied: 3
-- Screening finding count: 4
+- Screening finding count: 0
+- Inconclusive threshold-observation count: 4
+- Finding gate: minimum group size 30; rate screens require significance at alpha 0.05
 - Result type: screening only, not a legal conclusion
 
-- region: approval_rate_ratio observed 0.0 against threshold 0.8 (medium, owner: Fair Lending Review)
-- segment: approval_rate_ratio observed 0.0 against threshold 0.8 (medium, owner: Fair Lending Review)
-- region: override_rate_difference observed 1.0 against threshold 0.25 (medium, owner: Fair Lending Review)
-- segment: override_rate_difference observed 1.0 against threshold 0.25 (medium, owner: Fair Lending Review)
+- No fair-lending screening findings were generated for this run.
+
+### Inconclusive Threshold Observations
+
+- region: approval_rate_ratio observed 0.0 against threshold 0.8 (inconclusive_insufficient_sample); One or more comparison groups is below the configured minimum group size.
+- segment: approval_rate_ratio observed 0.0 against threshold 0.8 (inconclusive_insufficient_sample); One or more comparison groups is below the configured minimum group size.
+- region: override_rate_difference observed 1.0 against threshold 0.25 (inconclusive_insufficient_sample); One or more comparison groups is below the configured minimum group size.
+- segment: override_rate_difference observed 1.0 against threshold 0.25 (inconclusive_insufficient_sample); One or more comparison groups is below the configured minimum group size.
 
 ## Threshold Breaches
 
@@ -39,7 +47,3 @@ This report is deterministic, synthetic, and intended only for governance workfl
 ## Issue Register
 
 - iss-0001: override_rate breached its configured threshold (0.5 vs 0.1). Owner: Credit Policy Review. Due: 2026-06-30.
-- iss-0002: Fair-lending screening trigger for region: approval_rate_ratio observed 0.0. Owner: Fair Lending Review. Due: 2026-06-30.
-- iss-0003: Fair-lending screening trigger for segment: approval_rate_ratio observed 0.0. Owner: Fair Lending Review. Due: 2026-06-30.
-- iss-0004: Fair-lending screening trigger for region: override_rate_difference observed 1.0. Owner: Fair Lending Review. Due: 2026-06-30.
-- iss-0005: Fair-lending screening trigger for segment: override_rate_difference observed 1.0. Owner: Fair Lending Review. Due: 2026-06-30.

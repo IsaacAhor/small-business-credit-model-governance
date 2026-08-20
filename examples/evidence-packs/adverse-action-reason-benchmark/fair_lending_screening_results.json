@@ -1,6 +1,12 @@
 {
   "label": "fair_lending_screening_only_not_legal_conclusion",
   "screening_config_id": "fls-2026-07-adverse-action",
+  "finding_gate_configuration": {
+    "minimum_group_size": 30,
+    "alpha": 0.05,
+    "rate_screen_requirement": "minimum group size and statistical significance",
+    "descriptive_screen_requirement": "minimum group size"
+  },
   "comparison_group_count": 2,
   "screen_count": 3,
   "finding_count": 0,
@@ -240,10 +246,13 @@
     }
   },
   "findings": [],
+  "inconclusive_screen_count": 0,
+  "inconclusive_screens": [],
   "limitations": [
     "Synthetic data only.",
     "No protected-class labels are used.",
     "Screening findings are governance review triggers, not legal conclusions.",
+    "Threshold observations without the configured minimum group size or statistical significance are reported as inconclusive and do not open escalation findings.",
     "Significance tests are unadjusted comparisons; no regression controls for legitimate credit factors."
   ]
 }

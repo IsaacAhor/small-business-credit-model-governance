@@ -4,6 +4,25 @@
   "reason_output_count": 2,
   "exception_count": 0,
   "exceptions": [],
+  "source_to_notice_fidelity": {
+    "status": "not_run_missing_source_to_notice_inputs",
+    "missing_inputs": [
+      "adverse-action-driver-contributions.json",
+      "reason-fidelity-policy.json",
+      "adverse-action-notice-template.json",
+      "reason-selection-methods.json"
+    ],
+    "exception_count": 0,
+    "exception_types": [],
+    "rendered_notice_fidelity": {
+      "status": "not_run_missing_source_to_notice_inputs",
+      "missing_inputs": [
+        "source-to-reason provenance inputs"
+      ],
+      "exception_count": 0,
+      "exception_types": []
+    }
+  },
   "stability": {
     "mapping_versions": [
       "mapver-2026-05"

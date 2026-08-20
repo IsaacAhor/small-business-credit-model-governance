@@ -1,0 +1,9 @@
+{
+  "record_type": "evidence_pack_execution_provenance",
+  "evidence_pack_format_version": 1,
+  "execution_id": "c808e964-7392-40be-96f4-4c3896e0bb76",
+  "executed_at": "2026-08-20T01:00:18Z",
+  "source_run_created_at": "2026-07-26T15:00:00Z",
+  "software_version": "0.9.3",
+  "source_revision": "2dcab7d1c944f5aac19b61e9e6c27d5171360432"
+}
