@@ -4,11 +4,17 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import shutil
+import subprocess
+import uuid
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from credit_gov.bisg import run_bisg_proxy_analysis
+from credit_gov import __version__
 from credit_gov.lda import assess_less_discriminatory_alternative
 from credit_gov.reason_fidelity import (
     REQUIRED_REASON_FIDELITY_FIELDS,
@@ -1146,15 +1152,21 @@ def build_evidence_pack(
     change_validation: dict[str, Any] | None = None,
 ) -> Path:
     manifest = payloads["manifest"]
+    execution_id = str(uuid.uuid4())
+    executed_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     evidence_dir = evidence_root / format_evidence_dir_name(
         dataset_dir.name,
         manifest["run_id"],
-        manifest["created_at"],
+        executed_at,
+        execution_id,
     )
-    evidence_dir.mkdir(parents=True, exist_ok=True)
+    evidence_root.mkdir(parents=True, exist_ok=True)
+    staging_dir = evidence_root / f"tmp-{uuid.uuid4().hex}"
+    staging_dir.mkdir()
 
     output_files = [
         "manifest.json",
+        "execution_provenance.json",
         "config_snapshot.json",
         "input_fingerprints.json",
         "model_record.json",
@@ -1169,6 +1181,7 @@ def build_evidence_pack(
         "monitoring_report.md",
         "reviewer_notes.md",
         "reviewer_signoff.md",
+        "output_fingerprints.json",
     ]
     if lda is not None:
         output_files.insert(output_files.index("issue_register.json"), "lda_assessment_results.json")
@@ -1194,57 +1207,73 @@ def build_evidence_pack(
         "output_files": output_files,
         "reviewer_status": manifest["reviewer_status"],
     }
-    write_json(evidence_dir / "manifest.json", generated_manifest)
-    write_json(
-        evidence_dir / "config_snapshot.json",
-        {
-            "threshold_set_id": payloads["threshold_set"]["threshold_set_id"],
-            "review_cadence": payloads["threshold_set"]["review_cadence"],
-            "thresholds": payloads["threshold_set"]["thresholds"],
-        },
-    )
-    write_json(evidence_dir / "input_fingerprints.json", build_input_fingerprints(dataset_dir))
-    write_json(evidence_dir / "model_record.json", payloads["model_registry"])
-    write_json(evidence_dir / "threshold_set.json", payloads["threshold_set"])
-    write_json(evidence_dir / "metric_results.json", metrics)
-    write_json(evidence_dir / "breach_register.json", breaches)
-    write_json(evidence_dir / "reason_qa_results.json", reason_qa)
-    if rendered_notice_fidelity.get("status") == "ran_synthetic_rendered_notice_controls":
-        write_json(evidence_dir / "rendered_notice_qa_results.json", rendered_notice_fidelity)
-    write_json(evidence_dir / "reason_stability_report.json", reason_qa["stability"])
-    write_json(evidence_dir / "fair_lending_screening_results.json", fair_lending)
-    write_json(evidence_dir / "fair_lending_escalation_register.json", fair_lending["findings"])
-    if lda is not None:
-        write_json(evidence_dir / "lda_assessment_results.json", lda)
-    if bisg is not None:
-        write_json(evidence_dir / "bisg_proxy_results.json", bisg)
-    if change_validation is not None:
-        write_json(evidence_dir / "model_change_validation_results.json", change_validation)
-        write_text(
-            evidence_dir / "model_change_validation_report.md",
-            render_change_validation_report(change_validation),
+    execution_provenance = {
+        "record_type": "evidence_pack_execution_provenance",
+        "evidence_pack_format_version": 1,
+        "execution_id": execution_id,
+        "executed_at": executed_at,
+        "source_run_created_at": manifest["created_at"],
+        "software_version": __version__,
+        "source_revision": discover_source_revision(dataset_dir),
+    }
+    try:
+        write_json(staging_dir / "manifest.json", generated_manifest)
+        write_json(staging_dir / "execution_provenance.json", execution_provenance)
+        write_json(
+            staging_dir / "config_snapshot.json",
+            {
+                "threshold_set_id": payloads["threshold_set"]["threshold_set_id"],
+                "review_cadence": payloads["threshold_set"]["review_cadence"],
+                "thresholds": payloads["threshold_set"]["thresholds"],
+            },
         )
-    write_json(evidence_dir / "issue_register.json", issues)
-    write_text(
-        evidence_dir / "monitoring_report.md",
-        render_monitoring_report(
-            metrics, breaches, issues, reason_qa, fair_lending, lda, bisg, change_validation
-        ),
-    )
-    write_text(
-        evidence_dir / "reviewer_notes.md",
-        render_reviewer_notes(fair_lending),
-    )
-    write_text(
-        evidence_dir / "reviewer_signoff.md",
-        render_reviewer_signoff(
-            generated_manifest,
-            breaches,
-            reason_qa["exceptions"],
-            fair_lending["findings"],
-            change_validation,
-        ),
-    )
+        write_json(staging_dir / "input_fingerprints.json", build_input_fingerprints(dataset_dir))
+        write_json(staging_dir / "model_record.json", payloads["model_registry"])
+        write_json(staging_dir / "threshold_set.json", payloads["threshold_set"])
+        write_json(staging_dir / "metric_results.json", metrics)
+        write_json(staging_dir / "breach_register.json", breaches)
+        write_json(staging_dir / "reason_qa_results.json", reason_qa)
+        if rendered_notice_fidelity.get("status") == "ran_synthetic_rendered_notice_controls":
+            write_json(staging_dir / "rendered_notice_qa_results.json", rendered_notice_fidelity)
+        write_json(staging_dir / "reason_stability_report.json", reason_qa["stability"])
+        write_json(staging_dir / "fair_lending_screening_results.json", fair_lending)
+        write_json(staging_dir / "fair_lending_escalation_register.json", fair_lending["findings"])
+        if lda is not None:
+            write_json(staging_dir / "lda_assessment_results.json", lda)
+        if bisg is not None:
+            write_json(staging_dir / "bisg_proxy_results.json", bisg)
+        if change_validation is not None:
+            write_json(staging_dir / "model_change_validation_results.json", change_validation)
+            write_text(
+                staging_dir / "model_change_validation_report.md",
+                render_change_validation_report(change_validation),
+            )
+        write_json(staging_dir / "issue_register.json", issues)
+        write_text(
+            staging_dir / "monitoring_report.md",
+            render_monitoring_report(
+                metrics, breaches, issues, reason_qa, fair_lending, lda, bisg, change_validation
+            ),
+        )
+        write_text(staging_dir / "reviewer_notes.md", render_reviewer_notes(fair_lending))
+        write_text(
+            staging_dir / "reviewer_signoff.md",
+            render_reviewer_signoff(
+                generated_manifest,
+                breaches,
+                reason_qa["exceptions"],
+                fair_lending["findings"],
+                change_validation,
+            ),
+        )
+        write_json(
+            staging_dir / "output_fingerprints.json",
+            build_output_fingerprints(staging_dir, output_files),
+        )
+        staging_dir.rename(evidence_dir)
+    except Exception:
+        shutil.rmtree(staging_dir, ignore_errors=True)
+        raise
     return evidence_dir
 
 
@@ -1260,6 +1289,101 @@ def build_input_fingerprints(dataset_dir: Path) -> dict[str, str]:
         canonical_bytes = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
         fingerprints[path.name] = hashlib.sha256(canonical_bytes).hexdigest()
     return fingerprints
+
+
+def build_output_fingerprints(evidence_dir: Path, output_files: list[str]) -> dict[str, str]:
+    """Hash generated artifacts; the fingerprint file itself is intentionally excluded."""
+    return {
+        filename: hashlib.sha256((evidence_dir / filename).read_bytes()).hexdigest()
+        for filename in sorted(output_files)
+        if filename != "output_fingerprints.json"
+    }
+
+
+def verify_evidence_pack(evidence_dir: Path) -> dict[str, Any]:
+    """Verify the generated file set and output hashes for one evidence pack.
+
+    This detects changes made without updating the fingerprint record. It does
+    not provide a signature or independent attestation of the pack's origin.
+    """
+    evidence_dir = evidence_dir.resolve()
+    errors: list[str] = []
+    try:
+        manifest = load_json(evidence_dir / "manifest.json")
+        expected_fingerprints = load_json(evidence_dir / "output_fingerprints.json")
+    except (FileNotFoundError, json.JSONDecodeError) as exc:
+        return {
+            "ok": False,
+            "evidence_dir": str(evidence_dir),
+            "verified_files": [],
+            "errors": [str(exc)],
+        }
+
+    output_files = manifest.get("output_files") if isinstance(manifest, dict) else None
+    if not isinstance(output_files, list) or not all(isinstance(item, str) for item in output_files):
+        errors.append("manifest.json must contain a string output_files list")
+        output_files = []
+    if not isinstance(expected_fingerprints, dict) or not all(
+        isinstance(filename, str) and isinstance(digest, str)
+        for filename, digest in expected_fingerprints.items()
+    ):
+        errors.append("output_fingerprints.json must contain filename-to-digest entries")
+        expected_fingerprints = {}
+
+    declared_files = set(output_files)
+    actual_files = (
+        {path.name for path in evidence_dir.iterdir() if path.is_file()}
+        if evidence_dir.is_dir()
+        else set()
+    )
+    if actual_files != declared_files:
+        missing = sorted(declared_files - actual_files)
+        unexpected = sorted(actual_files - declared_files)
+        if missing:
+            errors.append("missing declared output file(s): " + ", ".join(missing))
+        if unexpected:
+            errors.append("unexpected output file(s): " + ", ".join(unexpected))
+
+    covered_files = declared_files - {"output_fingerprints.json"}
+    if set(expected_fingerprints) != covered_files:
+        errors.append("output_fingerprints.json must cover every declared output except itself")
+    for filename, expected_digest in expected_fingerprints.items():
+        if Path(filename).name != filename:
+            errors.append(f"unsafe fingerprint filename: {filename}")
+            continue
+        path = evidence_dir / filename
+        if not path.is_file():
+            continue
+        actual_digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual_digest != expected_digest:
+            errors.append(f"fingerprint mismatch: {filename}")
+
+    return {
+        "ok": not errors,
+        "evidence_dir": str(evidence_dir),
+        "verified_files": sorted(expected_fingerprints),
+        "errors": errors,
+    }
+
+
+def discover_source_revision(dataset_dir: Path) -> str:
+    """Return an explicit override or the enclosing Git revision when available."""
+    revision = os.environ.get("CREDIT_GOV_SOURCE_REVISION")
+    if revision:
+        return revision
+    for candidate in (dataset_dir.resolve(), *dataset_dir.resolve().parents):
+        if not (candidate / ".git").exists():
+            continue
+        completed = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=candidate,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        if completed.returncode == 0:
+            return completed.stdout.strip()
+    return "unavailable"
 
 
 def render_finding_significance(finding: dict[str, Any]) -> str:
@@ -1512,12 +1636,23 @@ def write_json(path: Path, payload: Any) -> None:
 
 def write_text(path: Path, contents: str) -> None:
     """Write UTF-8 artifacts with LF endings on every operating system."""
-    path.write_bytes(contents.encode("utf-8"))
+    temporary_path = path.with_name(f"tmp-{uuid.uuid4().hex}.tmp")
+    try:
+        with temporary_path.open("xb") as handle:
+            handle.write(contents.encode("utf-8"))
+            handle.flush()
+            os.fsync(handle.fileno())
+        temporary_path.replace(path)
+    finally:
+        if temporary_path.exists():
+            temporary_path.unlink()
 
 
-def format_evidence_dir_name(dataset_name: str, run_id: str, created_at: str) -> str:
-    sanitized = created_at.replace(":", "").replace("-", "").replace("T", "-").replace("Z", "Z")
-    return f"{dataset_name}-{run_id}-{sanitized}"
+def format_evidence_dir_name(
+    dataset_name: str, run_id: str, executed_at: str, execution_id: str
+) -> str:
+    sanitized = executed_at.replace(":", "").replace("-", "").replace("T", "-").replace("Z", "Z")
+    return f"{dataset_name}-{run_id}-{sanitized}-{execution_id[:8]}"
 
 
 def count_by_key(records: list[dict[str, Any]], key: str) -> dict[str, int]:

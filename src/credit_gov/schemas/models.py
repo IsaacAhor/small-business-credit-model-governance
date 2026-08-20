@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 from typing import Any
 
 
@@ -14,6 +15,16 @@ def require_type(value: Any, expected_type: type | tuple[type, ...], field: str)
             else expected_type.__name__
         )
         raise TypeError(f"{field} must be of type {names}")
+
+
+def require_finite_number(value: Any, field: str) -> float:
+    """Return a finite JSON number while rejecting Python's bool subtype."""
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise TypeError(f"{field} must be numeric")
+    numeric_value = float(value)
+    if not math.isfinite(numeric_value):
+        raise ValueError(f"{field} must be finite")
+    return numeric_value
 
 
 def require_non_empty_string(value: Any, field: str, minimum: int = 1) -> str:
@@ -121,12 +132,13 @@ class ThresholdDefinition:
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any], field: str) -> "ThresholdDefinition":
-        threshold_value = payload.get("threshold_value")
-        require_type(threshold_value, (int, float), f"{field}.threshold_value")
+        threshold_value = require_finite_number(
+            payload.get("threshold_value"), f"{field}.threshold_value"
+        )
         return cls(
             metric_name=require_non_empty_string(payload.get("metric_name"), f"{field}.metric_name", 3),
             comparison_rule=require_non_empty_string(payload.get("comparison_rule"), f"{field}.comparison_rule", 3),
-            threshold_value=float(threshold_value),
+            threshold_value=threshold_value,
             severity=require_non_empty_string(payload.get("severity"), f"{field}.severity", 3),
             escalation_owner=require_non_empty_string(
                 payload.get("escalation_owner"), f"{field}.escalation_owner", 3
@@ -170,15 +182,15 @@ class UnderwritingFields:
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any], field: str) -> "UnderwritingFields":
-        score = payload.get("score")
-        requested_amount = payload.get("requested_amount")
-        require_type(score, (int, float), f"{field}.score")
-        require_type(requested_amount, (int, float), f"{field}.requested_amount")
-        if float(requested_amount) <= 0:
+        score = require_finite_number(payload.get("score"), f"{field}.score")
+        requested_amount = require_finite_number(
+            payload.get("requested_amount"), f"{field}.requested_amount"
+        )
+        if requested_amount <= 0:
             raise ValueError(f"{field}.requested_amount must be greater than zero")
         return cls(
-            score=float(score),
-            requested_amount=float(requested_amount),
+            score=score,
+            requested_amount=requested_amount,
             decision_timestamp=require_non_empty_string(
                 payload.get("decision_timestamp"), f"{field}.decision_timestamp", 10
             ),
@@ -241,12 +253,11 @@ class ScoreOutput(BaseRecord):
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "ScoreOutput":
-        score_value = payload.get("score_value")
-        require_type(score_value, (int, float), "score_value")
+        score_value = require_finite_number(payload.get("score_value"), "score_value")
         return cls(
             **cls._base_kwargs(payload),
             decision_id=require_non_empty_string(payload.get("decision_id"), "decision_id", 3),
-            score_value=float(score_value),
+            score_value=score_value,
             score_band=require_non_empty_string(payload.get("score_band"), "score_band", 1),
             score_version=require_non_empty_string(payload.get("score_version"), "score_version", 3),
         )
@@ -286,9 +297,8 @@ class AdverseActionReasonOutput(BaseRecord):
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "AdverseActionReasonOutput":
-        reason_rank = payload.get("reason_rank")
-        require_type(reason_rank, (int, float), "reason_rank")
-        if float(reason_rank) <= 0:
+        reason_rank = require_finite_number(payload.get("reason_rank"), "reason_rank")
+        if reason_rank <= 0:
             raise ValueError("reason_rank must be greater than zero")
         return cls(
             **cls._base_kwargs(payload),
@@ -297,7 +307,7 @@ class AdverseActionReasonOutput(BaseRecord):
             version_id=require_non_empty_string(payload.get("version_id"), "version_id", 3),
             reason_code=require_non_empty_string(payload.get("reason_code"), "reason_code", 3),
             driver_or_signal=require_non_empty_string(payload.get("driver_or_signal"), "driver_or_signal", 3),
-            reason_rank=float(reason_rank),
+            reason_rank=reason_rank,
             mapping_version=require_non_empty_string(payload.get("mapping_version"), "mapping_version", 3),
         )
 
@@ -328,13 +338,14 @@ class FairLendingScreen:
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any], field: str) -> "FairLendingScreen":
-        threshold_value = payload.get("threshold_value")
-        require_type(threshold_value, (int, float), f"{field}.threshold_value")
+        threshold_value = require_finite_number(
+            payload.get("threshold_value"), f"{field}.threshold_value"
+        )
         return cls(
             screen_name=require_non_empty_string(payload.get("screen_name"), f"{field}.screen_name", 3),
             metric_name=require_non_empty_string(payload.get("metric_name"), f"{field}.metric_name", 3),
             comparison_rule=require_non_empty_string(payload.get("comparison_rule"), f"{field}.comparison_rule", 3),
-            threshold_value=float(threshold_value),
+            threshold_value=threshold_value,
             severity=require_non_empty_string(payload.get("severity"), f"{field}.severity", 3),
             escalation_owner=require_non_empty_string(payload.get("escalation_owner"), f"{field}.escalation_owner", 3),
         )
@@ -408,8 +419,9 @@ class OutcomeRecord(BaseRecord):
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "OutcomeRecord":
-        realized_outcome_value = payload.get("realized_outcome_value")
-        require_type(realized_outcome_value, (int, float), "realized_outcome_value")
+        realized_outcome_value = require_finite_number(
+            payload.get("realized_outcome_value"), "realized_outcome_value"
+        )
         return cls(
             **cls._base_kwargs(payload),
             outcome_id=require_non_empty_string(payload.get("outcome_id"), "outcome_id", 3),
@@ -420,7 +432,7 @@ class OutcomeRecord(BaseRecord):
                 "repayment_or_default_indicator",
                 3,
             ),
-            realized_outcome_value=float(realized_outcome_value),
+            realized_outcome_value=realized_outcome_value,
         )
 
 
@@ -436,17 +448,15 @@ class BreachRecord(BaseRecord):
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "BreachRecord":
-        observed_value = payload.get("observed_value")
-        threshold_value = payload.get("threshold_value")
-        require_type(observed_value, (int, float), "observed_value")
-        require_type(threshold_value, (int, float), "threshold_value")
+        observed_value = require_finite_number(payload.get("observed_value"), "observed_value")
+        threshold_value = require_finite_number(payload.get("threshold_value"), "threshold_value")
         return cls(
             **cls._base_kwargs(payload),
             breach_id=require_non_empty_string(payload.get("breach_id"), "breach_id", 3),
             run_id=require_non_empty_string(payload.get("run_id"), "run_id", 3),
             metric_name=require_non_empty_string(payload.get("metric_name"), "metric_name", 3),
-            observed_value=float(observed_value),
-            threshold_value=float(threshold_value),
+            observed_value=observed_value,
+            threshold_value=threshold_value,
             severity=require_non_empty_string(payload.get("severity"), "severity", 3),
             owner=require_non_empty_string(payload.get("owner"), "owner", 3),
         )

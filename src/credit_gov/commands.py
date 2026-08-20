@@ -11,7 +11,7 @@ from credit_gov.bisg import run_bisg_proxy_analysis
 from credit_gov.cli import main as validate_main
 from credit_gov.generation import generate_adverse_action_reasons, summarize_generation
 from credit_gov.lda import assess_less_discriminatory_alternative
-from credit_gov.monitoring import run_monthly_monitoring
+from credit_gov.monitoring import run_monthly_monitoring, verify_evidence_pack
 from credit_gov.validation import assess_model_change, render_change_validation_report
 
 
@@ -53,6 +53,20 @@ def monitor_main(argv: list[str] | None = None) -> int:
     json.dump(result.to_dict(), sys.stdout, indent=2)
     sys.stdout.write("\n")
     return 0 if result.ok else 1
+
+
+def verify_evidence_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Verify generated evidence-pack file hashes.")
+    parser.add_argument("evidence_pack_dir", type=Path)
+    return parser
+
+
+def verify_evidence_main(argv: list[str] | None = None) -> int:
+    args = verify_evidence_parser().parse_args(argv)
+    result = verify_evidence_pack(args.evidence_pack_dir)
+    json.dump(result, sys.stdout, indent=2)
+    sys.stdout.write("\n")
+    return 0 if result["ok"] else 1
 
 
 def generate_reasons_parser() -> argparse.ArgumentParser:
@@ -237,13 +251,14 @@ def main(argv: list[str] | None = None) -> int:
     commands = {
         "validate": validate_main,
         "monitor": monitor_main,
+        "verify-evidence": verify_evidence_main,
         "generate-reasons": generate_reasons_main,
         "lda": lda_main,
         "bisg": bisg_main,
         "change-review": change_review_main,
     }
     if not args or args[0] in {"-h", "--help"}:
-        print("usage: credit-gov {validate,monitor,generate-reasons,lda,bisg,change-review} ...")
+        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review} ...")
         print("\nInstalled command entry point for the credit governance evidence engine.")
         print("\ncommands:")
         for command in commands:
@@ -254,6 +269,10 @@ def main(argv: list[str] | None = None) -> int:
     handler = commands.get(command)
     if handler is None:
         print(f"error: unknown command: {command}", file=sys.stderr)
-        print("usage: credit-gov {validate,monitor,generate-reasons,lda,bisg,change-review} ...", file=sys.stderr)
+        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review} ...", file=sys.stderr)
         return 2
     return handler(args[1:])
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

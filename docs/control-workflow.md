@@ -75,6 +75,8 @@ Every run should generate a reviewer-ready evidence pack containing:
 
 - configuration snapshot
 - input fingerprints or references
+- execution provenance (unique execution ID, execution time, software version, and source revision when available)
+- output fingerprints, with a command to verify generated outputs have not changed
 - metric outputs
 - breach register
 - reason QA results
@@ -85,6 +87,11 @@ Every run should generate a reviewer-ready evidence pack containing:
 - monitoring report
 - reviewer notes
 - reviewer signoff artifact
+
+Each generated pack should use a unique execution directory and be assembled in
+a staging directory before publication. Output fingerprints detect changes made
+without updating the fingerprint record; they are not a digital signature or an
+independent attestation of origin.
 
 ### 7. Review and Signoff
 

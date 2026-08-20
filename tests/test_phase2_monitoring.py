@@ -16,7 +16,11 @@ TEMP_ROOT = ROOT / "tmp" / "test-runs"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from credit_gov.monitoring import build_input_fingerprints, run_monthly_monitoring  # noqa: E402
+from credit_gov.monitoring import (  # noqa: E402
+    build_input_fingerprints,
+    run_monthly_monitoring,
+    verify_evidence_pack,
+)
 
 
 class temp_evidence_root:
@@ -74,6 +78,28 @@ class Phase2MonitoringTests(unittest.TestCase):
             self.assertTrue((output_dir / "monitoring_report.md").is_file())
             self.assertTrue((output_dir / "reviewer_notes.md").is_file())
             self.assertTrue((output_dir / "reviewer_signoff.md").is_file())
+            self.assertTrue((output_dir / "execution_provenance.json").is_file())
+            self.assertTrue((output_dir / "output_fingerprints.json").is_file())
+            self.assertTrue(verify_evidence_pack(output_dir)["ok"])
+
+    def test_evidence_packs_are_unique_and_detect_modified_outputs(self) -> None:
+        dataset = ROOT / "data" / "synthetic" / "monthly-demo"
+        with temp_evidence_root() as evidence_root:
+            first = run_monthly_monitoring(dataset, evidence_root=evidence_root)
+            second = run_monthly_monitoring(dataset, evidence_root=evidence_root)
+
+            first_dir = Path(first.output_dir)
+            second_dir = Path(second.output_dir)
+            self.assertNotEqual(first_dir, second_dir)
+            self.assertTrue(verify_evidence_pack(first_dir)["ok"])
+            self.assertTrue(verify_evidence_pack(second_dir)["ok"])
+
+            metric_path = first_dir / "metric_results.json"
+            metric_path.write_text("{}\n", encoding="utf-8")
+            verification = verify_evidence_pack(first_dir)
+
+        self.assertFalse(verification["ok"])
+        self.assertIn("fingerprint mismatch: metric_results.json", verification["errors"])
 
     def test_no_breach_scenario_generates_empty_registers(self) -> None:
         dataset = ROOT / "data" / "synthetic" / "monthly-demo-no-breach"

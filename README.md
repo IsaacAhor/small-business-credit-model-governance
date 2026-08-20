@@ -246,6 +246,7 @@ The installed package exposes console commands for the core workflows:
 ```bash
 credit-gov-validate data/synthetic/monthly-demo
 credit-gov monitor data/synthetic/monthly-demo --evidence-root evidence
+credit-gov verify-evidence evidence/<generated-evidence-pack-directory>
 credit-gov change-review data/synthetic/monthly-portfolio
 ```
 
