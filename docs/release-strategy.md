@@ -38,6 +38,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.9.1`: credit-union AI underwriting vendor-risk run kit
 - `v0.9.2`: source-qualified credit-union reviewability patch, source-to-rendered-notice controls, and cross-platform fingerprint stability
 - `v0.9.3`: sample-aware fair-lending escalation gates and CI evidence-verification coverage
+- `v0.9.4`: curated evidence-pack verification completeness patch
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -58,18 +59,23 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current documented milestone is `v0.9.3`. It makes fair-lending rate-screen
-escalations sample-aware: an escalation now requires the configured minimum
-group size and statistical significance at the configured alpha. Threshold
-observations that do not meet either gate are retained as explicit inconclusive
-results without opening a fair-lending escalation or issue. The CI workflow now
-also verifies evidence-pack hashes through both published command paths after
-building and installing the wheel.
+The current documented milestone is `v0.9.4`. It recognizes an explanatory
+`README.md` in curated example packs as documentation outside the evidence set,
+while continuing to reject every other undeclared file. It also verifies every
+checked-in evidence pack in the automated test suite.
 
 This milestone demonstrates a synthetic technical-control and reviewability
 update over the existing governance evidence engine. It is not proof of
 adoption, production deployment, legal compliance, external validation,
 regulatory approval, field recognition, or examiner acceptance.
+
+The prior milestone, `v0.9.3`, makes fair-lending rate-screen escalations
+sample-aware: an escalation requires the configured minimum group size and
+statistical significance at the configured alpha. Threshold observations that
+do not meet either gate are retained as explicit inconclusive results without
+opening a fair-lending escalation or issue. The CI workflow also verifies
+evidence-pack hashes through both published command paths after building and
+installing the wheel.
 
 The prior milestone, `v0.9.2`, corrects the credit-union vendor-risk run kit's
 public reviewability baseline: source class, applicability, records-retention,
