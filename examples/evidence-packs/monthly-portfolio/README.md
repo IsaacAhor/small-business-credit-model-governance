@@ -10,10 +10,11 @@ and do not contain real applicant, borrower, lender, or institution data.
 
 ## What This Pack Shows That The Minimal Demo Does Not
 
-- Fair-lending screening findings that carry statistical significance blocks
+- Fair-lending screening results that carry statistical significance blocks
   (test used, p-value, effect size, sample adequacy). One regional screen
-  fires with significance; one segment screen fires without it — the contrast
-  is deliberate and shows the screens distinguishing signal from noise.
+  passes the escalation gate; a segment threshold observation is retained as
+  inconclusive because it does not meet the significance gate. The contrast
+  shows the workflow distinguishing signal from noise.
 - BISG proxy screening results (`bisg_proxy_results.json`), with
   probability-weighted point estimates, posterior-predictive bootstrap
   comparisons, and measurement-error sensitivity gates against a configured
@@ -34,8 +35,9 @@ and do not contain real applicant, borrower, lender, or institution data.
 ## How To Review This Pack
 
 1. Read `monitoring_report.md` for the plain-language summary.
-2. Open `fair_lending_screening_results.json` for the screening findings with
-   their significance blocks.
+2. Open `fair_lending_screening_results.json` for gate-supported screening
+   findings and non-escalated inconclusive observations with their significance
+   blocks.
 3. Open `bisg_proxy_results.json` for the proxy-weighted group comparisons,
    bootstrap intervals, and measurement-error sensitivity gates.
 4. Open `lda_assessment_results.json` for the baseline-versus-candidate

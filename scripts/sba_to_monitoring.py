@@ -263,6 +263,8 @@ def write_cohort(cohort_id: str, sub: pd.DataFrame, scores: np.ndarray, out_dir:
         "screening_config_id": f"fls-{c}",
         "model_id": MODEL_ID,
         "version_id": VERSION_ID,
+        "minimum_group_size": 30,
+        "alpha": 0.05,
         "comparison_groups": [
             {"group_name": "region", "source": "monitoring", "field": "region"},
             {"group_name": "segment", "source": "decision", "field": "segment"},

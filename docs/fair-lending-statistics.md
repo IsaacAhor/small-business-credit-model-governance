@@ -36,10 +36,19 @@ What is tested:
 
 Every result reports the effect size (rate difference and rate ratio), the
 test used, the p-value, the alpha level, and whether the sample supported the
-normal approximation. Fair-lending screening findings that fire on these
-metrics carry the significance block alongside the threshold comparison, so a
-reviewer sees both "the screen fired" and "the underlying gap is (or is not)
-statistically distinguishable from noise at this sample size."
+normal approximation. Rate-screen threshold observations open an escalation
+only when both extreme comparison groups meet the configured minimum group size
+and the comparison is statistically significant at the configured alpha. An
+observation that misses either gate is retained in `inconclusive_screens` with
+its sample sizes, p-value where applicable, and a non-escalation reason. This
+keeps descriptive threshold crossings visible without representing them as
+actionable fair-lending findings.
+
+The shipped synthetic configurations use a minimum group size of 30 and alpha
+of 0.05. These are explicit demonstration settings, not universal policy
+recommendations. Reason-code concentration is a descriptive governance metric;
+it is subject to the minimum group-size gate but does not claim an inferential
+test.
 
 Limitations:
 

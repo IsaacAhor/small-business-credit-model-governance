@@ -18,8 +18,9 @@ Use this order if you are reviewing the pack for the first time:
 4. Open `reason_qa_results.json` and `reason_stability_report.json` to inspect
    adverse-action reason QA outputs.
 5. Open `fair_lending_screening_results.json` and
-   `fair_lending_escalation_register.json` to inspect screening triggers and
-   escalation records.
+   `fair_lending_escalation_register.json` to inspect screening results. The
+   small synthetic sample is expected to produce explicit inconclusive
+   observations, not fair-lending escalation records.
 6. Open `reviewer_notes.md` and `reviewer_signoff.md` to see how a human review
    step is represented.
 
@@ -44,9 +45,10 @@ Use this order if you are reviewing the pack for the first time:
 - `reason_stability_report.json`
   Summarizes reason-code stability indicators.
 - `fair_lending_screening_results.json`
-  Records fair-lending screening triggers.
+  Records fair-lending screening findings and non-escalated inconclusive
+  threshold observations.
 - `fair_lending_escalation_register.json`
-  Converts screening findings into escalation records.
+  Contains only gate-supported screening findings that become escalation records.
 - `issue_register.json`
   Tracks resulting governance issues.
 - `monitoring_report.md`

@@ -9,6 +9,8 @@
     "screening_config_id",
     "model_id",
     "version_id",
+    "minimum_group_size",
+    "alpha",
     "comparison_groups",
     "screens"
   ],
@@ -27,6 +29,15 @@
     "version_id": {
       "type": "string",
       "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "minimum_group_size": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "alpha": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "exclusiveMaximum": 1
     },
     "comparison_groups": {
       "type": "array",
