@@ -30,7 +30,7 @@ from credit_gov.generation import (  # noqa: E402
     generate_adverse_action_reasons,
     summarize_generation,
 )
-from credit_gov.monitoring import run_monthly_monitoring  # noqa: E402
+from credit_gov.monitoring import build_output_fingerprints, run_monthly_monitoring  # noqa: E402
 from credit_gov.reason_fidelity import build_reason_fidelity_context  # noqa: E402
 
 
@@ -436,6 +436,12 @@ def update_manifest(output_dir: Path) -> None:
         if filename not in manifest["output_files"]:
             manifest["output_files"].append(filename)
     write_json(manifest_path, manifest)
+    fingerprint_path = output_dir / "output_fingerprints.json"
+    if fingerprint_path.is_file():
+        write_json(
+            fingerprint_path,
+            build_output_fingerprints(output_dir, manifest["output_files"]),
+        )
 
 
 def render_benchmark_report(results: dict[str, Any]) -> str:

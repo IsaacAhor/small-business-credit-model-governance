@@ -169,6 +169,59 @@ class Phase1ValidationTests(unittest.TestCase):
             result.errors,
         )
 
+    def test_boolean_number_is_rejected(self) -> None:
+        with mutated_dataset(
+            "score-outputs.json",
+            lambda payload: payload[0].update({"score_value": True}),
+        ) as dataset:
+            result = validate_dataset(dataset)
+
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any("score_value must be numeric" in error for error in result.errors), result.errors
+        )
+
+    def test_non_finite_number_is_rejected(self) -> None:
+        with mutated_dataset(
+            "score-outputs.json",
+            lambda payload: payload[0].update({"score_value": float("nan")}),
+        ) as dataset:
+            result = validate_dataset(dataset)
+
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any("score_value must be finite" in error for error in result.errors), result.errors
+        )
+
+    def test_invalid_manifest_timestamp_fails(self) -> None:
+        with mutated_dataset(
+            "evidence-pack-manifest.json",
+            lambda payload: payload.update({"created_at": "2026-99-99T99:99:99Z"}),
+        ) as dataset:
+            result = validate_dataset(dataset)
+
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any("created_at must be a valid UTC timestamp" in error for error in result.errors),
+            result.errors,
+        )
+
+    def test_duplicate_decision_id_fails(self) -> None:
+        with mutated_dataset(
+            "application-decision-records.json",
+            lambda payload: payload.append(payload[0].copy()),
+        ) as dataset:
+            result = validate_dataset(dataset)
+
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any(
+                "application-decision-records.json.decision_id must be unique" in error
+                for error in result.errors
+            ),
+            result.errors,
+        )
+
     def test_cli_returns_nonzero_for_relationship_failure(self) -> None:
         with mutated_dataset(
             "score-outputs.json",

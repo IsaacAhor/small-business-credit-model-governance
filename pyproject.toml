@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "credit-gov"
-version = "0.9.2"
+version = "0.9.3"
 description = "Governance evidence engine for machine-learning-based small business credit underwriting workflows."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -57,6 +57,7 @@ Issues = "https://github.com/IsaacAhor/small-business-credit-model-governance/is
 credit-gov = "credit_gov.commands:main"
 credit-gov-validate = "credit_gov.cli:main"
 credit-gov-monitor = "credit_gov.commands:monitor_main"
+credit-gov-verify-evidence = "credit_gov.commands:verify_evidence_main"
 credit-gov-generate-reasons = "credit_gov.commands:generate_reasons_main"
 credit-gov-lda = "credit_gov.commands:lda_main"
 credit-gov-bisg = "credit_gov.commands:bisg_main"

@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime
 from importlib.resources import files
 from pathlib import Path
 from typing import Any, Callable
@@ -113,6 +114,10 @@ def validate_date_string(value: str, field: str) -> None:
 def validate_datetime_string(value: str, field: str) -> None:
     if not DATETIME_PATTERN.match(value):
         raise ValueError(f"{field} must use YYYY-MM-DDTHH:MM:SSZ")
+    try:
+        datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ")
+    except ValueError as exc:
+        raise ValueError(f"{field} must be a valid UTC timestamp") from exc
 
 
 def validate_pattern(value: Any, pattern: str, field: str) -> None:
@@ -173,8 +178,10 @@ def validate_value(value: Any, definition: dict[str, Any], field: str) -> None:
         if fmt == "date":
             validate_date_string(value, field)
     elif schema_type == "number":
-        if not isinstance(value, (int, float)):
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
             raise ValueError(f"{field} must be numeric")
+        if not math.isfinite(float(value)):
+            raise ValueError(f"{field} must be finite")
         minimum = definition.get("exclusiveMinimum")
         if minimum is not None and float(value) <= minimum:
             raise ValueError(f"{field} must be greater than {minimum}")
@@ -269,6 +276,21 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
     outcomes = require_list_payload(payloads, "outcome-records.json")
     breaches = require_list_payload(payloads, "breach-records.json")
 
+    require_unique_values(decisions, "decision_id", "application-decision-records.json")
+    require_unique_values(score_outputs, "decision_id", "score-outputs.json")
+    require_unique_values(reason_mappings, "mapping_id", "reason-code-mappings.json")
+    require_unique_values(reason_outputs, "reason_output_id", "adverse-action-reason-outputs.json")
+    require_unique_values(overrides, "override_id", "override-events.json")
+    require_unique_values(outcomes, "outcome_id", "outcome-records.json")
+    require_unique_values(breaches, "breach_id", "breach-records.json")
+    require_unique_pairs(
+        reason_outputs,
+        "decision_id",
+        "reason_rank",
+        "adverse-action-reason-outputs.json",
+    )
+    require_unique_pairs(outcomes, "decision_id", "observation_period", "outcome-records.json")
+
     model_id = model_registry["model_id"]
     version_id = model_version["version_id"]
     run_id = manifest["run_id"]
@@ -300,7 +322,6 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
             version_id,
             f"score-outputs.json[{index}].score_version",
         )
-
     for index, record in enumerate(reason_mappings):
         require_equal(record["version_id"], version_id, f"reason-code-mappings.json[{index}].version_id")
 
@@ -368,6 +389,41 @@ def require_equal(actual: str, expected: str, field: str) -> None:
 def require_member(actual: str, allowed: set[str], field: str) -> None:
     if actual not in allowed:
         raise ValueError(f"{field} references unknown value: {actual}")
+
+
+def require_unique_values(records: list[dict[str, Any]], field: str, filename: str) -> None:
+    seen: set[Any] = set()
+    duplicates: set[Any] = set()
+    for record in records:
+        value = record[field]
+        if value in seen:
+            duplicates.add(value)
+        seen.add(value)
+    if duplicates:
+        duplicate_values = ", ".join(str(value) for value in sorted(duplicates))
+        raise ValueError(f"{filename}.{field} must be unique; duplicates: {duplicate_values}")
+
+
+def require_unique_pairs(
+    records: list[dict[str, Any]],
+    first_field: str,
+    second_field: str,
+    filename: str,
+) -> None:
+    seen: set[tuple[Any, Any]] = set()
+    duplicates: set[tuple[Any, Any]] = set()
+    for record in records:
+        pair = (record[first_field], record[second_field])
+        if pair in seen:
+            duplicates.add(pair)
+        seen.add(pair)
+    if duplicates:
+        duplicate_values = ", ".join(
+            f"({first}, {second})" for first, second in sorted(duplicates)
+        )
+        raise ValueError(
+            f"{filename}.{first_field}/{second_field} pairs must be unique; duplicates: {duplicate_values}"
+        )
 
 
 def validate_application_decision_business_rules(record: dict[str, Any], index: int) -> None:

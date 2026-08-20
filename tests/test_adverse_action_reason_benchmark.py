@@ -16,6 +16,7 @@ from scripts.run_adverse_action_reason_benchmark import (  # noqa: E402
     EXPECTED_EXCEPTION_TYPES,
     run_benchmark,
 )
+from credit_gov.monitoring import verify_evidence_pack  # noqa: E402
 
 DATASET = ROOT / "data" / "synthetic" / "adverse-action-reason-benchmark"
 EXAMPLE_PACK = ROOT / "examples" / "evidence-packs" / "adverse-action-reason-benchmark"
@@ -69,10 +70,16 @@ class AdverseActionReasonBenchmarkTests(unittest.TestCase):
             manifest["output_files"],
         )
         self.assertIn("rendered_notice_qa_results.json", manifest["output_files"])
+        self.assertTrue(verify_evidence_pack(TEST_OUTPUT)["ok"])
         curated_files = sorted(path.name for path in EXAMPLE_PACK.iterdir() if path.is_file())
         regenerated_files = sorted(path.name for path in TEST_OUTPUT.iterdir() if path.is_file())
-        self.assertEqual(curated_files, regenerated_files)
+        self.assertEqual(
+            sorted(set(curated_files) | {"execution_provenance.json", "output_fingerprints.json"}),
+            regenerated_files,
+        )
         for filename in curated_files:
+            if filename == "manifest.json":
+                continue
             self.assertEqual(
                 (EXAMPLE_PACK / filename).read_bytes(),
                 (TEST_OUTPUT / filename).read_bytes(),
