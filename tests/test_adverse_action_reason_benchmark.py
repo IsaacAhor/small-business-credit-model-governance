@@ -21,6 +21,11 @@ from credit_gov.monitoring import verify_evidence_pack  # noqa: E402
 DATASET = ROOT / "data" / "synthetic" / "adverse-action-reason-benchmark"
 EXAMPLE_PACK = ROOT / "examples" / "evidence-packs" / "adverse-action-reason-benchmark"
 TEST_OUTPUT = ROOT / "evidence" / "_test_adverse_action_reason_benchmark_pack"
+DYNAMIC_EVIDENCE_FILES = {
+    "execution_provenance.json",
+    "manifest.json",
+    "output_fingerprints.json",
+}
 
 
 class AdverseActionReasonBenchmarkTests(unittest.TestCase):
@@ -73,12 +78,10 @@ class AdverseActionReasonBenchmarkTests(unittest.TestCase):
         self.assertTrue(verify_evidence_pack(TEST_OUTPUT)["ok"])
         curated_files = sorted(path.name for path in EXAMPLE_PACK.iterdir() if path.is_file())
         regenerated_files = sorted(path.name for path in TEST_OUTPUT.iterdir() if path.is_file())
-        self.assertEqual(
-            sorted(set(curated_files) | {"execution_provenance.json", "output_fingerprints.json"}),
-            regenerated_files,
-        )
+        self.assertEqual(curated_files, regenerated_files)
+        self.assertTrue(verify_evidence_pack(EXAMPLE_PACK)["ok"])
         for filename in curated_files:
-            if filename == "manifest.json":
+            if filename in DYNAMIC_EVIDENCE_FILES:
                 continue
             self.assertEqual(
                 (EXAMPLE_PACK / filename).read_bytes(),

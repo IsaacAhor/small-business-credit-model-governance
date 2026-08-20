@@ -16,6 +16,8 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - Declined decisions reviewed: 166
 - Generated reason outputs reviewed: 506
 - QA exception count: 1
+- Source-to-notice control status: `not_run_missing_source_to_notice_inputs`
+- Rendered-notice control status: `not_run_missing_source_to_notice_inputs` (0 exception(s))
 - Result type: screening only, not a legal conclusion
 
 - dec-0090: missing_reason_code (Declined decision has no generated adverse-action reason output.)
@@ -24,13 +26,17 @@ This report is deterministic, synthetic, and intended only for governance workfl
 
 - Comparison groups reviewed: 2
 - Screening rules applied: 3
-- Screening finding count: 2
+- Screening finding count: 1
+- Inconclusive threshold-observation count: 1
+- Finding gate: minimum group size 30; rate screens require significance at alpha 0.05
 - Result type: screening only, not a legal conclusion
 
 - region: approval_rate_ratio observed 0.5105 against threshold 0.8 (medium, owner: Fair Lending Review)
   Statistical test: two_proportion_z_test_pooled | p = 0.000385 | significant at alpha 0.05
-- segment: approval_rate_ratio observed 0.767 against threshold 0.8 (medium, owner: Fair Lending Review)
-  Statistical test: two_proportion_z_test_pooled | p = 0.130721 | not significant at alpha 0.05
+
+### Inconclusive Threshold Observations
+
+- segment: approval_rate_ratio observed 0.767 against threshold 0.8 (inconclusive_not_statistically_significant); The threshold observation did not meet the configured statistical-significance gate. (p = 0.130721, alpha = 0.05)
 
 ## BISG Proxy Screening
 
@@ -80,4 +86,3 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - iss-0001: override_rate breached its configured threshold (0.1375 vs 0.1). Owner: Credit Policy Review. Due: 2026-06-30.
 - iss-0002: Reason QA exception for dec-0090: missing_reason_code. Owner: Model Risk Governance. Due: 2026-06-30.
 - iss-0003: Fair-lending screening trigger for region: approval_rate_ratio observed 0.5105. Owner: Fair Lending Review. Due: 2026-06-30.
-- iss-0004: Fair-lending screening trigger for segment: approval_rate_ratio observed 0.767. Owner: Fair Lending Review. Due: 2026-06-30.

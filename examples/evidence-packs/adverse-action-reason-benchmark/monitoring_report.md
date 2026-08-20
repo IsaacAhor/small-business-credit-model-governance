@@ -44,9 +44,15 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - Comparison groups reviewed: 2
 - Screening rules applied: 3
 - Screening finding count: 0
+- Inconclusive threshold-observation count: 0
+- Finding gate: minimum group size 30; rate screens require significance at alpha 0.05
 - Result type: screening only, not a legal conclusion
 
 - No fair-lending screening findings were generated for this run.
+
+### Inconclusive Threshold Observations
+
+- No threshold observations were classified as inconclusive.
 
 ## Threshold Breaches
 

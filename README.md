@@ -19,8 +19,9 @@ clearly scoped public-data run kits.
 
 The workflow generates adverse-action reasons from ranked decision drivers
 (then reviews them via reason QA), reports statistical significance on every
-fair-lending disparity screen (two-proportion z-test with Fisher's exact
-fallback), estimates protected-class proxies via BISG (Bayesian Improved
+fair-lending rate comparison (two-proportion z-test with Fisher's exact
+fallback), and opens a rate-screen escalation only when configured minimum
+group-size and statistical-significance gates pass. It estimates protected-class proxies via BISG (Bayesian Improved
 Surname Geocoding) with posterior-predictive bootstrap and measurement-error
 sensitivity disparity screening, and ships a
 portfolio-scale synthetic dataset (`data/synthetic/monthly-portfolio`, 320
@@ -71,8 +72,8 @@ for:
 - model records and documentation standards
 - threshold configuration and monitoring review
 - adverse-action reason generation and reason accuracy QA
-- fair-lending screening with statistical significance testing and
-  escalation triggers
+- fair-lending screening with statistical significance testing, explicit
+  inconclusive outcomes, and gate-supported escalation triggers
 - BISG protected-class proxy estimation with posterior-predictive bootstrap and
   measurement-error sensitivity disparity screening
 - issue tracking and evidence-pack assembly
@@ -313,13 +314,13 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.9.2`. It adds a source-classification
-and applicability reviewability patch to the credit-union AI vendor-risk run
-kit, source-to-rendered-notice fidelity controls for the synthetic
-adverse-action benchmark, and cross-platform-stable input fingerprints. It is
-a public technical and documentation milestone, not proof of NCUA approval,
-adoption, deployment, legal compliance, regulatory approval, field recognition,
-or external validation.
+The latest documented milestone is `v0.9.3`. It adds configured minimum-group-
+size and statistical-significance gates to rate-screen escalations, records
+threshold observations that fail those gates as explicit inconclusive results,
+and exercises evidence-pack verification commands in CI. It is a public
+technical and documentation milestone, not proof of adoption, deployment,
+legal compliance, regulatory approval, field recognition, or external
+validation.
 
 The prior release, `v0.9.0`, makes the project a modern installable Python
 package with `pyproject.toml`, packaged schema/reference resources, console
@@ -350,8 +351,8 @@ See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.6.0.md`, `docs/releases/v0.6.1.md`,
 `docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`,
 `docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`,
-`docs/releases/v0.9.0.md`, `docs/releases/v0.9.1.md`, and
-`docs/releases/v0.9.2.md`.
+`docs/releases/v0.9.0.md`, `docs/releases/v0.9.1.md`,
+`docs/releases/v0.9.2.md`, and `docs/releases/v0.9.3.md`.
 
 ## Data Policy
 
@@ -403,7 +404,7 @@ This repository now contains:
 - a credit-union AI vendor-risk run kit that maps public NCUA resource themes to
   underwriting vendor due diligence, monitoring, adverse-action reason review,
   model-change review, issue tracking, and reviewer signoff
-- release strategy documentation and versioned release notes through `v0.9.2` for stable milestone preservation
+- release strategy documentation and versioned release notes through `v0.9.3` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

@@ -27,6 +27,15 @@ def require_finite_number(value: Any, field: str) -> float:
     return numeric_value
 
 
+def require_positive_integer(value: Any, field: str) -> int:
+    """Return a positive JSON integer while rejecting Python's bool subtype."""
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise TypeError(f"{field} must be an integer")
+    if value < 1:
+        raise ValueError(f"{field} must be greater than zero")
+    return value
+
+
 def require_non_empty_string(value: Any, field: str, minimum: int = 1) -> str:
     require_type(value, str, field)
     cleaned = value.strip()
@@ -356,6 +365,8 @@ class FairLendingScreeningConfig(BaseRecord):
     screening_config_id: str
     model_id: str
     version_id: str
+    minimum_group_size: int
+    alpha: float
     comparison_groups: list[FairLendingComparisonGroup]
     screens: list[FairLendingScreen]
 
@@ -377,11 +388,18 @@ class FairLendingScreeningConfig(BaseRecord):
             raise ValueError("comparison_groups must contain at least one item")
         if not screens:
             raise ValueError("screens must contain at least one item")
+        alpha = require_finite_number(payload.get("alpha"), "alpha")
+        if not 0.0 < alpha < 1.0:
+            raise ValueError("alpha must be greater than zero and less than one")
         return cls(
             **cls._base_kwargs(payload),
             screening_config_id=require_non_empty_string(payload.get("screening_config_id"), "screening_config_id", 3),
             model_id=require_non_empty_string(payload.get("model_id"), "model_id", 3),
             version_id=require_non_empty_string(payload.get("version_id"), "version_id", 3),
+            minimum_group_size=require_positive_integer(
+                payload.get("minimum_group_size"), "minimum_group_size"
+            ),
+            alpha=alpha,
             comparison_groups=comparison_groups,
             screens=screens,
         )

@@ -31,17 +31,5 @@
     "status": "open",
     "owner": "Fair Lending Review",
     "due_date": "2026-06-30"
-  },
-  {
-    "issue_id": "iss-0004",
-    "linked_breach_ids": [],
-    "linked_reason_exception_ids": [],
-    "linked_fair_lending_finding_ids": [
-      "flf-0002"
-    ],
-    "summary": "Fair-lending screening trigger for segment: approval_rate_ratio observed 0.767.",
-    "status": "open",
-    "owner": "Fair Lending Review",
-    "due_date": "2026-06-30"
   }
 ]

@@ -295,6 +295,16 @@ class SignificanceIntegrationTests(unittest.TestCase):
                 self.assertIn("p_value", significance)
                 self.assertIn("test", significance)
                 self.assertIn("statistically_significant", significance)
+                self.assertTrue(significance["statistically_significant"])
+
+            self.assertTrue(
+                any(
+                    screen["finding_gate"]["status"]
+                    == "inconclusive_not_statistically_significant"
+                    for screen in result.fair_lending["inconclusive_screens"]
+                ),
+                result.fair_lending["inconclusive_screens"],
+            )
 
 
 if __name__ == "__main__":

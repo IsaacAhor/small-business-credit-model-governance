@@ -3,6 +3,8 @@
   "screening_config_id": "fls-2026-05-monthly-invalid-date",
   "model_id": "mdl-smb-credit-xgb",
   "version_id": "ver-2026-05",
+  "minimum_group_size": 30,
+  "alpha": 0.05,
   "comparison_groups": [
     {
       "group_name": "region",

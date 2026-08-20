@@ -37,6 +37,10 @@ jobs:
         run: |
           credit-gov-validate data/synthetic/monthly-demo
           credit-gov monitor data/synthetic/monthly-demo --evidence-root .tmp-ci-evidence
+          evidence_pack="$(find .tmp-ci-evidence -mindepth 1 -maxdepth 1 -type d -print -quit)"
+          test -n "$evidence_pack"
+          credit-gov verify-evidence "$evidence_pack"
+          credit-gov-verify-evidence "$evidence_pack"
           credit-gov change-review data/synthetic/monthly-portfolio
 
       - name: Verify expected starter files exist

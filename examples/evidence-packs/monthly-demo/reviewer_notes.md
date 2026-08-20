@@ -4,10 +4,14 @@ This artifact supports synthetic governance review only. Fair-lending screening 
 
 ## Fair-Lending Review Notes
 
-- flf-0001: review approval_rate_ratio for region with owner Fair Lending Review.
-- flf-0002: review approval_rate_ratio for segment with owner Fair Lending Review.
-- flf-0003: review override_rate_difference for region with owner Fair Lending Review.
-- flf-0004: review override_rate_difference for segment with owner Fair Lending Review.
+- No fair-lending screening findings require reviewer notes.
+
+## Inconclusive Threshold Observations
+
+- fls-0001: region approval_rate_ratio is inconclusive_insufficient_sample; no escalation was opened.
+- fls-0002: segment approval_rate_ratio is inconclusive_insufficient_sample; no escalation was opened.
+- fls-0003: region override_rate_difference is inconclusive_insufficient_sample; no escalation was opened.
+- fls-0004: segment override_rate_difference is inconclusive_insufficient_sample; no escalation was opened.
 
 Reviewer notes:
 

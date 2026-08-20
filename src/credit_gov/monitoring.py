@@ -857,10 +857,11 @@ def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
             "field": group_config["field"],
             "groups": groups,
             "summary": summarize_fair_lending_groups(groups),
-            "significance": compute_group_significance(groups),
+            "significance": compute_group_significance(groups, alpha=float(config["alpha"])),
         }
 
     findings: list[dict[str, Any]] = []
+    inconclusive_screens: list[dict[str, Any]] = []
     for screen in config["screens"]:
         metric_name = screen["metric_name"]
         for group_name, group_result in group_results.items():
@@ -872,9 +873,7 @@ def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
                 screen["comparison_rule"],
                 float(screen["threshold_value"]),
             ):
-                finding_index = len(findings) + 1
-                finding = {
-                    "finding_id": f"flf-{finding_index:04d}",
+                screen_result = {
                     "screen_name": screen["screen_name"],
                     "metric_name": metric_name,
                     "comparison_group": group_name,
@@ -883,28 +882,61 @@ def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
                     "comparison_rule": screen["comparison_rule"],
                     "severity": screen["severity"],
                     "owner": screen["escalation_owner"],
-                    "review_trigger": "deeper_fair_lending_review",
-                    "result_type": "screening_only_not_legal_conclusion",
                 }
                 significance = group_result["significance"].get(
                     significance_key_for_metric(metric_name)
                 )
                 if significance is not None:
-                    finding["statistical_significance"] = significance
-                findings.append(finding)
+                    screen_result["statistical_significance"] = significance
+                gate = evaluate_fair_lending_finding_gate(
+                    metric_name=metric_name,
+                    group_result=group_result,
+                    significance=significance,
+                    minimum_group_size=int(config["minimum_group_size"]),
+                )
+                screen_result["finding_gate"] = gate
+                if gate["status"].startswith("passed"):
+                    finding_index = len(findings) + 1
+                    screen_result.update(
+                        {
+                            "finding_id": f"flf-{finding_index:04d}",
+                            "review_trigger": "deeper_fair_lending_review",
+                            "result_type": "screening_only_not_legal_conclusion",
+                        }
+                    )
+                    findings.append(screen_result)
+                else:
+                    inconclusive_index = len(inconclusive_screens) + 1
+                    screen_result.update(
+                        {
+                            "screen_result_id": f"fls-{inconclusive_index:04d}",
+                            "review_trigger": "no_escalation_inconclusive_screen",
+                            "result_type": "screening_observation_inconclusive_not_escalated",
+                        }
+                    )
+                    inconclusive_screens.append(screen_result)
 
     return {
         "label": "fair_lending_screening_only_not_legal_conclusion",
         "screening_config_id": config["screening_config_id"],
+        "finding_gate_configuration": {
+            "minimum_group_size": config["minimum_group_size"],
+            "alpha": config["alpha"],
+            "rate_screen_requirement": "minimum group size and statistical significance",
+            "descriptive_screen_requirement": "minimum group size",
+        },
         "comparison_group_count": len(config["comparison_groups"]),
         "screen_count": len(config["screens"]),
         "finding_count": len(findings),
         "group_results": group_results,
         "findings": findings,
+        "inconclusive_screen_count": len(inconclusive_screens),
+        "inconclusive_screens": inconclusive_screens,
         "limitations": [
             "Synthetic data only.",
             "No protected-class labels are used.",
             "Screening findings are governance review triggers, not legal conclusions.",
+            "Threshold observations without the configured minimum group size or statistical significance are reported as inconclusive and do not open escalation findings.",
             "Significance tests are unadjusted comparisons; no regression controls for legitimate credit factors.",
         ],
     }
@@ -918,7 +950,9 @@ def significance_key_for_metric(metric_name: str) -> str:
     return metric_name
 
 
-def compute_group_significance(groups: dict[str, dict[str, Any]]) -> dict[str, Any]:
+def compute_group_significance(
+    groups: dict[str, dict[str, Any]], alpha: float
+) -> dict[str, Any]:
     """Significance tests for the extreme-group gaps that drive the screens.
 
     Tests the lowest-rate group against the highest-rate group for approval
@@ -940,11 +974,74 @@ def compute_group_significance(groups: dict[str, dict[str, Any]]) -> dict[str, A
             label_b=high_name,
             successes_b=high[count_key],
             total_b=high["total"],
+            alpha=alpha,
         )
 
     return {
         "approval_rate": extreme_pair("approval_rate", "approved"),
         "override_rate": extreme_pair("override_rate", "overrides"),
+    }
+
+
+def evaluate_fair_lending_finding_gate(
+    metric_name: str,
+    group_result: dict[str, Any],
+    significance: dict[str, Any] | None,
+    minimum_group_size: int,
+) -> dict[str, Any]:
+    """Classify a threshold observation as an escalation or an honest non-escalation.
+
+    Rate screens are inferential: a threshold observation must be supported by
+    both the configured minimum group size and a statistically significant
+    extreme-group comparison. Reason-code concentration is a descriptive
+    governance screen, so it uses the size gate but does not pretend to have
+    an inferential test.
+    """
+    if significance is None:
+        sample_sizes = [
+            {"label": label, "total": group["total"]}
+            for label, group in group_result["groups"].items()
+        ]
+    else:
+        sample_sizes = [
+            {"label": significance["group_a"]["label"], "total": significance["group_a"]["total"]},
+            {"label": significance["group_b"]["label"], "total": significance["group_b"]["total"]},
+        ]
+
+    below_minimum = [
+        sample for sample in sample_sizes if sample["total"] < minimum_group_size
+    ]
+    base = {
+        "minimum_group_size": minimum_group_size,
+        "sample_sizes": sample_sizes,
+    }
+    if below_minimum:
+        return {
+            **base,
+            "status": "inconclusive_insufficient_sample",
+            "reason": "One or more comparison groups is below the configured minimum group size.",
+            "below_minimum_groups": below_minimum,
+        }
+    if significance is None:
+        return {
+            **base,
+            "status": "passed_descriptive_minimum_sample",
+            "reason": "Descriptive screen passed the configured minimum group-size gate; no inferential test applies to this metric.",
+        }
+    if not significance["statistically_significant"]:
+        return {
+            **base,
+            "status": "inconclusive_not_statistically_significant",
+            "reason": "The threshold observation did not meet the configured statistical-significance gate.",
+            "p_value": significance["p_value"],
+            "alpha": significance["alpha"],
+        }
+    return {
+        **base,
+        "status": "passed_statistical_significance",
+        "reason": "The threshold observation met the configured minimum group-size and statistical-significance gates.",
+        "p_value": significance["p_value"],
+        "alpha": significance["alpha"],
     }
 
 
@@ -1526,6 +1623,16 @@ def render_monitoring_report(
         if fair_lending["findings"]
         else "- No fair-lending screening findings were generated for this run."
     )
+    inconclusive_fair_lending_lines = (
+        "\n".join(
+            f"- {screen['comparison_group']}: {screen['metric_name']} observed {screen['observed_value']} "
+            f"against threshold {screen['threshold_value']} ({screen['finding_gate']['status']})"
+            + render_screen_gate_detail(screen)
+            for screen in fair_lending["inconclusive_screens"]
+        )
+        if fair_lending["inconclusive_screens"]
+        else "- No threshold observations were classified as inconclusive."
+    )
     return (
         "# Monthly Monitoring Report\n\n"
         "This report is deterministic, synthetic, and intended only for governance workflow demonstration.\n\n"
@@ -1550,8 +1657,13 @@ def render_monitoring_report(
         f"- Comparison groups reviewed: {fair_lending['comparison_group_count']}\n"
         f"- Screening rules applied: {fair_lending['screen_count']}\n"
         f"- Screening finding count: {fair_lending['finding_count']}\n"
+        f"- Inconclusive threshold-observation count: {fair_lending['inconclusive_screen_count']}\n"
+        f"- Finding gate: minimum group size {fair_lending['finding_gate_configuration']['minimum_group_size']}; "
+        f"rate screens require significance at alpha {fair_lending['finding_gate_configuration']['alpha']}\n"
         "- Result type: screening only, not a legal conclusion\n\n"
         f"{fair_lending_lines}\n\n"
+        "### Inconclusive Threshold Observations\n\n"
+        f"{inconclusive_fair_lending_lines}\n\n"
         f"{render_bisg_section(bisg)}"
         f"{render_lda_section(lda)}"
         f"{render_change_validation_section(change_validation)}"
@@ -1620,14 +1732,33 @@ def render_reviewer_notes(fair_lending: dict[str, Any]) -> str:
         if fair_lending["findings"]
         else "- No fair-lending screening findings require reviewer notes."
     )
+    inconclusive_lines = (
+        "\n".join(
+            f"- {screen['screen_result_id']}: {screen['comparison_group']} "
+            f"{screen['metric_name']} is {screen['finding_gate']['status']}; no escalation was opened."
+            for screen in fair_lending["inconclusive_screens"]
+        )
+        if fair_lending["inconclusive_screens"]
+        else "- No threshold observations were classified as inconclusive."
+    )
     return (
         "# Reviewer Notes\n\n"
         "This artifact supports synthetic governance review only. Fair-lending screening findings are review triggers, not legal conclusions.\n\n"
         "## Fair-Lending Review Notes\n\n"
         f"{finding_lines}\n\n"
+        "## Inconclusive Threshold Observations\n\n"
+        f"{inconclusive_lines}\n\n"
         "Reviewer notes:\n\n"
         "- ____________________\n"
     )
+
+
+def render_screen_gate_detail(screen: dict[str, Any]) -> str:
+    gate = screen["finding_gate"]
+    detail = f"; {gate['reason']}"
+    if "p_value" in gate:
+        detail += f" (p = {gate['p_value']}, alpha = {gate['alpha']})"
+    return detail
 
 
 def write_json(path: Path, payload: Any) -> None:

@@ -1,9 +1,15 @@
 {
   "label": "fair_lending_screening_only_not_legal_conclusion",
   "screening_config_id": "fls-2026-06-monthly",
+  "finding_gate_configuration": {
+    "minimum_group_size": 30,
+    "alpha": 0.05,
+    "rate_screen_requirement": "minimum group size and statistical significance",
+    "descriptive_screen_requirement": "minimum group size"
+  },
   "comparison_group_count": 2,
   "screen_count": 3,
-  "finding_count": 2,
+  "finding_count": 1,
   "group_results": {
     "region": {
       "source": "monitoring",
@@ -258,7 +264,6 @@
   },
   "findings": [
     {
-      "finding_id": "flf-0001",
       "screen_name": "Regional approval-rate ratio",
       "metric_name": "approval_rate_ratio",
       "comparison_group": "region",
@@ -267,8 +272,6 @@
       "comparison_rule": "less_than",
       "severity": "medium",
       "owner": "Fair Lending Review",
-      "review_trigger": "deeper_fair_lending_review",
-      "result_type": "screening_only_not_legal_conclusion",
       "statistical_significance": {
         "group_a": {
           "label": "west",
@@ -296,10 +299,32 @@
           "No adjustment for legitimate credit factors (no regression controls)."
         ],
         "z_statistic": -3.5504
-      }
-    },
+      },
+      "finding_gate": {
+        "minimum_group_size": 30,
+        "sample_sizes": [
+          {
+            "label": "west",
+            "total": 64
+          },
+          {
+            "label": "south",
+            "total": 98
+          }
+        ],
+        "status": "passed_statistical_significance",
+        "reason": "The threshold observation met the configured minimum group-size and statistical-significance gates.",
+        "p_value": 0.000385,
+        "alpha": 0.05
+      },
+      "finding_id": "flf-0001",
+      "review_trigger": "deeper_fair_lending_review",
+      "result_type": "screening_only_not_legal_conclusion"
+    }
+  ],
+  "inconclusive_screen_count": 1,
+  "inconclusive_screens": [
     {
-      "finding_id": "flf-0002",
       "screen_name": "Regional approval-rate ratio",
       "metric_name": "approval_rate_ratio",
       "comparison_group": "segment",
@@ -308,8 +333,6 @@
       "comparison_rule": "less_than",
       "severity": "medium",
       "owner": "Fair Lending Review",
-      "review_trigger": "deeper_fair_lending_review",
-      "result_type": "screening_only_not_legal_conclusion",
       "statistical_significance": {
         "group_a": {
           "label": "micro",
@@ -337,13 +360,34 @@
           "No adjustment for legitimate credit factors (no regression controls)."
         ],
         "z_statistic": -1.5113
-      }
+      },
+      "finding_gate": {
+        "minimum_group_size": 30,
+        "sample_sizes": [
+          {
+            "label": "micro",
+            "total": 176
+          },
+          {
+            "label": "medium",
+            "total": 35
+          }
+        ],
+        "status": "inconclusive_not_statistically_significant",
+        "reason": "The threshold observation did not meet the configured statistical-significance gate.",
+        "p_value": 0.130721,
+        "alpha": 0.05
+      },
+      "screen_result_id": "fls-0001",
+      "review_trigger": "no_escalation_inconclusive_screen",
+      "result_type": "screening_observation_inconclusive_not_escalated"
     }
   ],
   "limitations": [
     "Synthetic data only.",
     "No protected-class labels are used.",
     "Screening findings are governance review triggers, not legal conclusions.",
+    "Threshold observations without the configured minimum group size or statistical significance are reported as inconclusive and do not open escalation findings.",
     "Significance tests are unadjusted comparisons; no regression controls for legitimate credit factors."
   ]
 }

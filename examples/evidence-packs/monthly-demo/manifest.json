@@ -14,6 +14,7 @@
   ],
   "output_files": [
     "manifest.json",
+    "execution_provenance.json",
     "config_snapshot.json",
     "input_fingerprints.json",
     "model_record.json",
@@ -27,7 +28,8 @@
     "issue_register.json",
     "monitoring_report.md",
     "reviewer_notes.md",
-    "reviewer_signoff.md"
+    "reviewer_signoff.md",
+    "output_fingerprints.json"
   ],
   "reviewer_status": "pending_review"
 }

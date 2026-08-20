@@ -1,0 +1,22 @@
+{
+  "README.md": "e778c7c146d14f9ea0e6f88f98030ff13a05cd144f171fed501edc82a587f0ca",
+  "adverse_action_reason_benchmark_report.md": "b9d2dd443b20336b190ad54e9526eda82c904c64e58fd1f85ac891d1ba550589",
+  "adverse_action_reason_benchmark_results.json": "b9eda1e59982bf6f3739feb8807868a2c07da344f32f8b0795a4a9495fb2aa25",
+  "breach_register.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "config_snapshot.json": "f9d840266f7b0cb83bcdc0f352e7d8c0d7371babc6bfc642d7d1d461c1188afa",
+  "execution_provenance.json": "728a40a66bfe8a31a3b3a1f668e016ca167f01e992fa34df1d2692b59c1d8461",
+  "fair_lending_escalation_register.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "fair_lending_screening_results.json": "2ee36a4f8c02c890a9a8216a4d5ab9cc15258a5dd2531d7ee10c770dea3f3d6c",
+  "input_fingerprints.json": "b7d5a377d4e2728d83bcdf489644d4a948fe5a0bbe3b66fc2b4e05c439b0a27e",
+  "issue_register.json": "262b2170cb6d60beeaf7e441713ea971b9209be7b2da093099f46bf3518a85e3",
+  "manifest.json": "23e05c2c838b6b5f32898860bc62d6ace3facbc2971d14c0ec448d04438db0e3",
+  "metric_results.json": "d7bbaa634328e11b2f48548db9432f2112826ceb81bb81a2299490781fc24d3b",
+  "model_record.json": "957848328a229a6b27bd7fd1ea245086c9840efe3a788758b353e7c73b744c94",
+  "monitoring_report.md": "a4ec6d169f4ceeb894e3b67f10b92d4cbf7e91136055be78e290daa2ab4f5920",
+  "reason_qa_results.json": "633f6df9709276d9f30cc8eba914a2eb87e081f37af604a2f5b211f05c053c3b",
+  "reason_stability_report.json": "76488d65086a11acbb518413ad248fe45df183c6be1dc41262cb7c632ef772b9",
+  "rendered_notice_qa_results.json": "0ecaa9c03b5c9cd8281147f406a467e35d32d3afdb8b4c01748b131ae2f3146e",
+  "reviewer_notes.md": "abfa74c208d03f916bcd753c860cd8266bbb6180bacf94a34710273cbf38cc3a",
+  "reviewer_signoff.md": "8c7ed04da590f63812c915caf7fcedfac7c6acf41a65a50a7f249d5ef3aa978f",
+  "threshold_set.json": "c620b89b4e0f4adb65044a6d22205372424349dd829568bb6ebc3ed9b3a6fb94"
+}

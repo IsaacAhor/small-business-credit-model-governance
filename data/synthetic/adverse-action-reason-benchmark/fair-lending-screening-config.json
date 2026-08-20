@@ -3,6 +3,8 @@
   "screening_config_id": "fls-2026-07-adverse-action",
   "model_id": "mdl-adverse-reason-benchmark",
   "version_id": "ver-2026-07-adverse-action",
+  "minimum_group_size": 30,
+  "alpha": 0.05,
   "comparison_groups": [
     {
       "group_name": "region",

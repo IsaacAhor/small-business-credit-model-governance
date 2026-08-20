@@ -193,6 +193,36 @@ class Phase1ValidationTests(unittest.TestCase):
             any("score_value must be finite" in error for error in result.errors), result.errors
         )
 
+    def test_fair_lending_gate_configuration_is_validated(self) -> None:
+        with mutated_dataset(
+            "fair-lending-screening-config.json",
+            lambda payload: payload.update({"minimum_group_size": 0}),
+        ) as dataset:
+            minimum_result = validate_dataset(dataset)
+
+        with mutated_dataset(
+            "fair-lending-screening-config.json",
+            lambda payload: payload.update({"alpha": 1.0}),
+        ) as dataset:
+            alpha_result = validate_dataset(dataset)
+
+        self.assertFalse(minimum_result.ok)
+        self.assertTrue(
+            any(
+                "minimum_group_size must be greater than zero" in error
+                for error in minimum_result.errors
+            ),
+            minimum_result.errors,
+        )
+        self.assertFalse(alpha_result.ok)
+        self.assertTrue(
+            any(
+                "alpha must be greater than zero and less than one" in error
+                for error in alpha_result.errors
+            ),
+            alpha_result.errors,
+        )
+
     def test_invalid_manifest_timestamp_fails(self) -> None:
         with mutated_dataset(
             "evidence-pack-manifest.json",

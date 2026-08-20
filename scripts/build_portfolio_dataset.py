@@ -300,6 +300,8 @@ def build() -> None:
         "screening_config_id": "fls-2026-06-monthly",
         "model_id": MODEL_ID,
         "version_id": VERSION_ID,
+        "minimum_group_size": 30,
+        "alpha": 0.05,
         "comparison_groups": [
             {"group_name": "region", "source": "monitoring", "field": "region"},
             {"group_name": "segment", "source": "decision", "field": "segment"},
