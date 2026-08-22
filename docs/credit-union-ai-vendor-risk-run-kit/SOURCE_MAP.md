@@ -5,15 +5,16 @@ vendor-risk run kit. The mapping is informational and is not legal advice.
 
 ## Source Classification And Applicability
 
-Sources were rechecked on 2026-08-12. The table records why a source is useful
-to a reviewer; it does not turn any source into a universal requirement or
-determine whether a particular credit union, product, applicant, or contract is
-covered. Institution-specific counsel or compliance staff must make that
-determination and record the basis.
+Sources were rechecked on the dates recorded in the table. The table records
+why a source is useful to a reviewer; it does not turn any source into a
+universal requirement or determine whether a particular credit union, product,
+applicant, or contract is covered. Institution-specific counsel or compliance
+staff must make that determination and record the basis.
 
 | Source | Source class | Applicability and review use | Checked on |
 | --- | --- | --- | --- |
 | [NCUA AI resources](https://ncua.gov/regulation-supervision/regulatory-compliance-resources/artificial-intelligence-ai) | NCUA supervisory resource | NCUA states it has no AI-specific rules. Use it as a technology-neutral AI risk-management and third-party-diligence reference, not as a standalone rule. | 2026-08-12 |
+| [Doing Business with Credit Unions](https://ncua.gov/about/doing-business-credit-unions) | NCUA agency/vendor-boundary page | NCUA does not approve, endorse, validate, certify, or license specific vendors, products, services, or technologies. Use it to preserve accurate claim boundaries and to recognize that each credit union remains responsible for third-party due diligence, monitoring, and compliance. It is not a technical review of this run kit or any vendor. | 2026-08-13 |
 | [07-CU-13](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/evaluating-third-party-relationships-0) and [01-CU-20](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/due-diligence-over-third-party-service-providers) | NCUA guidance | Use for risk assessment, due diligence, contract, and ongoing-oversight questions. The credit union retains responsibility for its own relationship. | 2026-08-12 |
 | [12 CFR Part 723](https://www.ecfr.gov/current/title-12/chapter-VII/subchapter-A/part-723) | Binding regulation when applicable | Consider only after the institution determines whether its commercial-lending provisions and charter/product facts apply. | 2026-08-12 |
 | [12 CFR 1002.9](https://www.consumerfinance.gov/rules-policy/regulations/1002/9/) and [12 CFR 1002.12](https://www.consumerfinance.gov/rules-policy/regulations/1002/12/) | Binding regulation when applicable | Use for conditional adverse-action notice-path, specific-reason, timing, and record-retention review. Business-credit categories and retention exceptions require case-specific analysis. | 2026-08-12 |
