@@ -5,21 +5,37 @@ type: software
 authors:
   - family-names: "Ahor"
     given-names: "Isaac"
+    orcid: "https://orcid.org/0009-0002-9659-1505"
 repository-code: "https://github.com/IsaacAhor/small-business-credit-model-governance"
 url: "https://github.com/IsaacAhor/small-business-credit-model-governance"
+doi: "10.5281/zenodo.21614944"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21614944"
+    description: "Concept DOI resolving to the latest archived version"
+  - type: doi
+    value: "10.5281/zenodo.22062395"
+    description: "Archived version v0.10.0"
 abstract: >-
   A governance evidence engine for machine-learning-based small business
-  credit underwriting: synthetic monitoring, adverse-action reason generation
-  and QA, fair-lending screening with statistical significance testing,
-  BISG protected-class proxy estimation, less-discriminatory-alternative
-  assessment, credit-union AI underwriting vendor-risk review, and
-  reviewer-ready evidence packs.
+  credit underwriting. It maintains structured model and version records,
+  evaluates configured monitoring thresholds, generates and reviews
+  adverse-action reasons for accuracy and traceability under Regulation B
+  12 CFR 1002.9, runs model-change and validation review, and assembles
+  reviewer-ready evidence packs with input and output fingerprints. It
+  ships deterministic synthetic fixtures and a public-data run kit for
+  fixed-horizon, out-of-time model-risk monitoring. Fair-lending screening
+  with statistical significance testing, BISG protected-class proxy
+  estimation, and less-discriminatory-alternative assessment are included
+  as supporting risk-management components.
 keywords:
   - model-governance
   - model-risk-management
-  - fair-lending
   - adverse-action
   - credit-underwriting
+  - monitoring
+  - reproducibility
+  - fair-lending
   - responsible-ai
 license: Apache-2.0
 version: 0.10.0

@@ -1,6 +1,7 @@
 # Small Business Credit Model Governance
 
 [![CI](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml/badge.svg)](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21614944.svg)](https://doi.org/10.5281/zenodo.21614944)
 
 This repository contains reproducible governance methods, documentation
 standards, and public-data run kits for model-risk monitoring, fair-lending
