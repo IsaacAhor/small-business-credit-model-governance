@@ -314,7 +314,12 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.9.4`. It ensures that the evidence-pack
+The latest documented milestone is `v0.10.0`. It repairs the SBA public-data
+adapter against the current official file layout and adds fixed-horizon outcome
+construction, explicit censoring and row dispositions, pre-monitoring model
+development, out-of-time performance review, numeric and categorical drift,
+source and output hashes, and validated not-applicable module states. The
+prior `v0.9.4` milestone ensures that the evidence-pack
 verifier recognizes the explanatory README in each curated example pack while
 continuing to reject every other undeclared file. It also adds verification
 coverage for every checked-in pack. The prior `v0.9.3` milestone added
@@ -340,7 +345,10 @@ model-risk oversight public-data run kit:
 an adapter for real SBA 7(a)/504 FOIA loan-level data, a synthetic schema
 fixture for pipeline validation, reproducibility documentation, and
 scope/limitations notes. The run kit is designed to exercise model-risk
-monitoring and drift reporting on real approved-loan public data; it is not an
+monitoring and drift reporting on real approved-loan public data. The current
+adapter uses fixed-horizon charge-off labels, a pre-monitoring development
+split, out-of-time scoring, source and output hashes, row-disposition counts,
+and explicit not-applicable module states; it is not an
 underwriting model, fairness analysis, adverse-action analysis, deployment
 claim, or legal conclusion. The prior substantive analytical milestone,
 `v0.6.0`, adds statistical significance testing for fair-lending screens and
@@ -355,7 +363,7 @@ See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`,
 `docs/releases/v0.9.0.md`, `docs/releases/v0.9.1.md`,
 `docs/releases/v0.9.2.md`, `docs/releases/v0.9.3.md`, and
-`docs/releases/v0.9.4.md`.
+`docs/releases/v0.9.4.md`, and `docs/releases/v0.10.0.md`.
 
 ## Data Policy
 
@@ -368,7 +376,8 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 1. Complete the Phase 8 analytical-rigor track: an LDA step that searches
    candidate models and a reproducible run on a recognizable public dataset.
-2. Add drift logic and regression controls to strengthen the analytical layer.
+2. Extend regression controls beyond the implemented public-data drift and
+   out-of-time performance path.
 3. Obtain external practitioner review of the credit-union AI vendor-risk run kit
    from credit-union, vendor-risk, model-risk, compliance, or counsel reviewers.
 4. Refine the framework and practitioner-facing article after the portfolio-scale workflow produces report excerpts.
@@ -397,8 +406,9 @@ This repository now contains:
 - a portfolio-scale synthetic monthly dataset that exercises reason generation, reason QA, fair-lending screening, and LDA assessment
 - a Phase 5 model-change and validation-review workflow that compares prior and current model-version, threshold-set, and reason-code mapping records, summarizes change impact, and emits a reviewer signoff record tied to a version and evidence pack
 - a model-risk oversight public-data run kit that adapts real approved-loan
-  FOIA data into model-risk monitoring cohorts while excluding fairness and
-  adverse-action interpretations that the data cannot support
+  FOIA data into fixed-horizon model-risk monitoring cohorts, records source
+  provenance and row dispositions, scores monitoring periods out of time, and
+  marks decision-rate, override, reason, and fair-lending modules not applicable
 - a synthetic adverse-action reason accuracy benchmark that demonstrates reason
   generation, driver-to-reason mapping, reason QA, and public-data limitations
   without claiming real-world notice accuracy
@@ -407,11 +417,11 @@ This repository now contains:
 - a credit-union AI vendor-risk run kit that maps public NCUA resource themes to
   underwriting vendor due diligence, monitoring, adverse-action reason review,
   model-change review, issue tracking, and reviewer signoff
-- release strategy documentation and versioned release notes through `v0.9.4` for stable milestone preservation
+- release strategy documentation and versioned release notes through `v0.10.0` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
 With Phase 5 implemented, the current priority is the Phase 8 analytical-rigor
 track (see `docs/system-implementation-roadmap.md`): an LDA step that searches
 candidate models and a reproducible run on a recognizable public dataset, plus
-drift logic and regression controls.
+additional regression controls beyond the implemented public-data drift path.
