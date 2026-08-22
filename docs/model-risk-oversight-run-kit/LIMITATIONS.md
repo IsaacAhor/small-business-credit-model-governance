@@ -1,54 +1,87 @@
-# Scope and Limitations - Model-Risk Oversight Public-Data Run
+# Scope and Limitations: SBA Public-Data Monitoring Run
 
-A candid statement of scope and limitations. Read before reusing or reporting
-this run's outputs.
+## What the run demonstrates
 
-## What this run IS
+- Ingestion of current-layout SBA 7(a)/504 FOIA approved-loan files with
+  source hashes and row-level disposition accounting.
+- Fixed-horizon charge-off labeling based on `FirstDisbursementDate`,
+  `ChargeOffDate`, and `AsOfDate`.
+- A pre-monitoring development split, out-of-time scoring, outcome performance,
+  and numeric and categorical drift measurements.
+- Generation of traceable monitoring artifacts with explicit module-
+  applicability decisions and output hashes.
 
-- A demonstration that the governance monitoring workflow runs on **real
-  federal small-business lending records** (SBA 7(a)/504 FOIA), producing
-  reviewer-ready evidence packs and a cross-cohort drift signal on real
-  distributions.
-- Evidence of **integration and reproducibility** - the defensible
-  contribution - not of novel methods.
+These are implementation and reproducibility results. They are not proof of
+production use, institutional adoption, independent validation, field impact,
+or regulatory compliance.
 
-## What this run is NOT
+## Source boundary
 
-- **Not an underwriting model.** The default-risk model is a governed-model
-  stand-in so the monitoring workflow has something to monitor. It makes no
-  lending recommendation and is not tuned or validated for decisioning.
-- **Not adoption, deployment, or institutional reliance.** No lender uses this.
-- **Not a fairness or protected-class analysis.** SBA FOIA is approved-only
-  with no applicant demographics. Fair-lending and adverse-action work requires
-  a different dataset. HMDA can support only off-domain mechanics, not small-
-  business proof.
+SBA FOIA files contain booked or approved loans. They do not contain the full
+application and decision population. They also lack model-driver provenance,
+adverse-action notices, review and override events, and applicant protected-
+class fields.
 
-## Metrics that are NOT meaningful on this dataset (exclude from interpretation)
+Consequently, the following modules are `not_applicable`:
 
-- `approval_rate` (always 1.0 - approved-only), `decline_rate` (0),
-  `override_rate` (0 - no override data), `manual_review_rate` (0),
-  adverse-action reason QA (no declines), and fair-lending disparity
-  (no demographics). The `override-events.json` file contains a single
-  clearly-labeled placeholder record solely to satisfy the workflow's
-  non-empty-file requirement; it represents no real override.
+- approval and decline rates;
+- manual-review rates;
+- override monitoring;
+- adverse-action reason and notice QA; and
+- fair-lending or protected-class disparity screening.
 
-## Metrics that ARE meaningful
+The generated inputs for these modules are empty where appropriate. No
+placeholder override, reason mapping, protected-class value, or synthetic zero
+is presented as an observed SBA fact.
 
-- **Charge-off (default) rate per cohort** and its drift over time.
-- **Score distribution and drift** across cohorts.
-- **Portfolio-composition drift** (segment / region / channel mix).
+## Outcome definition and censoring
 
-## Data-quality handling
+The default label is a charge-off whose recorded `ChargeOffDate` falls on or
+before the configured number of months after `FirstDisbursementDate`. A row is
+eligible only when its `AsOfDate` reaches that horizon. Charge-offs after the
+horizon are nondefaults at the horizon, not lifetime nondefaults.
 
-- Restricted to matured loans (LoanStatus PIF or CHGOFF) so the default label is
-  observed, and to FY2010+ to avoid older definitional changes.
-- Charge-off label = LoanStatus CHGOFF or positive GrossChargeOffAmount.
-- Verify SBA column names against the current data dictionary before each run.
+Status normalization removes spaces and punctuation, so the current `P I F`
+value is recognized as `PIF`. A seasoned `EXEMPT` active, disbursed loan is a
+nondefault at the horizon. Canceled records, unsupported statuses, unseasoned
+records, invalid core fields, and charge-off signals without an event date are
+excluded and counted separately.
 
-## Public-Data Reminder
+This definition does not correct for every possible administrative lag,
+recovery, servicing change, guarantee purchase, prepayment, or SBA reporting
+revision. Review the current data dictionary and disposition counts for every
+run.
 
-Current public small-business loan-level datasets do not provide the full
-application decision chain needed for decline, adverse-action, or applicant-
-level fairness claims. Future public small-business lending data may improve
-context, but SBA or HMDA should not be treated as a substitute for small-
-business decision-driver and notice data.
+## Model boundary
+
+The regularized logistic regression is a governed-model stand-in for testing
+monitoring controls. It uses loan amount, term, jobs, two-digit NAICS,
+business type, region, delivery method, and program. It does not make a lending
+recommendation and has not been validated for underwriting.
+
+Development rows precede the configured monitoring-start date. Monitoring rows
+are not used to fit the model. Development performance is therefore labeled
+in-sample, while the monitoring section is out-of-time. The reported metrics do
+not establish causal validity, stability in production, or fitness for a
+particular institution.
+
+The cross-cohort summaries use each full cohort. Evidence-pack inputs may use a
+bounded sample to control artifact size, and the threshold register inside such
+a pack therefore evaluates the sample, not the full cohort. A run intended to
+produce full-population breach decisions must set the sample limit at or above
+the cohort size.
+
+## Drift boundary
+
+PSI is reported for score, amount, term, program, NAICS sector, business type,
+region, and delivery method relative to the development population. Bands of
+less than 0.10, 0.10 to less than 0.25, and 0.25 or more are demonstration
+review bands. They are not universal validation standards or automatic model-
+change decisions.
+
+## Privacy and publication
+
+The adapter does not retain borrower names or street addresses. Raw downloads
+and run directories should remain outside version control. If a small output
+subset is intentionally published, review it independently, retain its source
+and output hashes, and preserve all limitations with it.

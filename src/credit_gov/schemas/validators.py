@@ -87,6 +87,38 @@ SCHEMA_SPECS: tuple[SchemaSpec, ...] = (
     ),
 )
 
+APPLICABILITY_FILENAME = "monitoring-applicability.json"
+
+
+def validate_monitoring_applicability(payload: dict[str, Any]) -> dict[str, Any]:
+    """Apply semantic checks that the lightweight JSON-schema walker cannot infer."""
+    modules = payload.get("modules")
+    if not isinstance(modules, dict):
+        raise ValueError("modules must be an object")
+    required_modules = {
+        "decision_outcome_rates",
+        "manual_review",
+        "override_monitoring",
+        "adverse_action_reason_qa",
+        "fair_lending_screening",
+    }
+    missing = sorted(required_modules - set(modules))
+    extra = sorted(set(modules) - required_modules)
+    if missing:
+        raise ValueError(f"modules is missing: {', '.join(missing)}")
+    if extra:
+        raise ValueError(f"modules has unexpected field(s): {', '.join(extra)}")
+    for name, module in modules.items():
+        if not isinstance(module, dict):
+            raise ValueError(f"modules.{name} must be an object")
+        if set(module) != {"applicable", "reason"}:
+            raise ValueError(f"modules.{name} must contain only applicable and reason")
+        if not isinstance(module["applicable"], bool):
+            raise ValueError(f"modules.{name}.applicable must be boolean")
+        if not isinstance(module["reason"], str) or len(module["reason"].strip()) < 10:
+            raise ValueError(f"modules.{name}.reason must be at least 10 characters")
+    return payload
+
 
 def load_json(path: Path) -> Any:
     with path.open(encoding="utf-8") as handle:
@@ -217,6 +249,26 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
     errors: list[str] = []
     validated_files: list[str] = []
     payloads: dict[str, Any] = {}
+    applicability_path = dataset_dir / APPLICABILITY_FILENAME
+    if applicability_path.is_file():
+        try:
+            applicability = load_json(applicability_path)
+            schema = load_schema("monitoring-applicability.schema.json")
+            validate_record(applicability, schema, validate_monitoring_applicability)
+            payloads[APPLICABILITY_FILENAME] = applicability
+            validated_files.append(APPLICABILITY_FILENAME)
+        except Exception as exc:  # noqa: BLE001
+            errors.append(f"{APPLICABILITY_FILENAME}: {exc}")
+
+    modules = payloads.get(APPLICABILITY_FILENAME, {}).get("modules", {})
+    optional_empty_lists = {
+        "adverse-action-reason-outputs.json",
+        "breach-records.json",
+    }
+    if modules.get("override_monitoring", {}).get("applicable") is False:
+        optional_empty_lists.add("override-events.json")
+    if modules.get("adverse_action_reason_qa", {}).get("applicable") is False:
+        optional_empty_lists.add("reason-code-mappings.json")
     for spec in SCHEMA_SPECS:
         data_path = dataset_dir / spec.filename
         if not data_path.is_file():
@@ -227,10 +279,6 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
             payloads[spec.filename] = payload
             schema = load_schema(spec.schema_file)
             records = payload if isinstance(payload, list) else [payload]
-            optional_empty_lists = {
-                "adverse-action-reason-outputs.json",
-                "breach-records.json",
-            }
             if isinstance(payload, list) and not payload and spec.filename not in optional_empty_lists:
                 raise ValueError(f"{spec.filename} must contain at least one record")
             for index, record in enumerate(records):
@@ -275,6 +323,22 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
     overrides = require_list_payload(payloads, "override-events.json")
     outcomes = require_list_payload(payloads, "outcome-records.json")
     breaches = require_list_payload(payloads, "breach-records.json")
+
+    applicability = payloads.get(APPLICABILITY_FILENAME)
+    if applicability is not None:
+        modules = applicability["modules"]
+        if modules["override_monitoring"]["applicable"] is False and overrides:
+            raise ValueError("override-events.json must be empty when override monitoring is not applicable")
+        if modules["adverse_action_reason_qa"]["applicable"] is False:
+            if reason_mappings or reason_outputs:
+                raise ValueError(
+                    "reason-code mappings and outputs must be empty when reason QA is not applicable"
+                )
+        fair_applicable = modules["fair_lending_screening"]["applicable"]
+        if bool(fair_lending_config.get("applicable", True)) != fair_applicable:
+            raise ValueError(
+                "fair-lending-screening-config.json applicable must match monitoring-applicability.json"
+            )
 
     require_unique_values(decisions, "decision_id", "application-decision-records.json")
     require_unique_values(score_outputs, "decision_id", "score-outputs.json")

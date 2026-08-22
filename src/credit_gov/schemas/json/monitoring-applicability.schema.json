@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/monitoring-applicability.schema.json",
+  "title": "Monitoring Applicability",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "data_context",
+    "dataset_name",
+    "modules"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "monitoring_applicability"
+    },
+    "data_context": {
+      "enum": [
+        "synthetic",
+        "public_data",
+        "private_data"
+      ]
+    },
+    "dataset_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "modules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision_outcome_rates",
+        "manual_review",
+        "override_monitoring",
+        "adverse_action_reason_qa",
+        "fair_lending_screening"
+      ],
+      "properties": {
+        "decision_outcome_rates": {
+          "$ref": "#/$defs/moduleApplicability"
+        },
+        "manual_review": {
+          "$ref": "#/$defs/moduleApplicability"
+        },
+        "override_monitoring": {
+          "$ref": "#/$defs/moduleApplicability"
+        },
+        "adverse_action_reason_qa": {
+          "$ref": "#/$defs/moduleApplicability"
+        },
+        "fair_lending_screening": {
+          "$ref": "#/$defs/moduleApplicability"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "moduleApplicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "applicable",
+        "reason"
+      ],
+      "properties": {
+        "applicable": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    }
+  }
+}

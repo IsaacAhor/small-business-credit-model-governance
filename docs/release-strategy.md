@@ -39,6 +39,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.9.2`: source-qualified credit-union reviewability patch, source-to-rendered-notice controls, and cross-platform fingerprint stability
 - `v0.9.3`: sample-aware fair-lending escalation gates and CI evidence-verification coverage
 - `v0.9.4`: curated evidence-pack verification completeness patch
+- `v0.10.0`: fixed-horizon SBA public-data monitoring, out-of-time performance, drift, provenance, and applicability controls
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -59,7 +60,20 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current documented milestone is `v0.9.4`. It recognizes an explanatory
+The current documented milestone is `v0.10.0`. It repairs the SBA public-data
+workflow against the current official 7(a)/504 file layout. The adapter now
+normalizes current status values, constructs fixed-horizon outcomes from event
+and as-of dates, separates row dispositions, fits only a pre-monitoring
+development population, reports out-of-time performance and population drift,
+records source/output provenance, and marks unsupported monitoring modules not
+applicable through a backward-compatible optional contract.
+
+This milestone demonstrates public-data engineering, outcome-monitoring, and
+reproducibility controls. It does not demonstrate underwriting validity,
+institutional adoption, independent validation, production deployment, legal
+compliance, regulatory approval, field recognition, or examiner acceptance.
+
+The prior documented milestone is `v0.9.4`. It recognizes an explanatory
 `README.md` in curated example packs as documentation outside the evidence set,
 while continuing to reject every other undeclared file. It also verifies every
 checked-in evidence pack in the automated test suite.

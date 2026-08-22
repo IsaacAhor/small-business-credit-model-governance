@@ -166,7 +166,15 @@ def load_dataset_payloads(dataset_dir: Path) -> dict[str, Any]:
         "overrides": load_json(dataset_dir / "override-events.json"),
         "outcomes": load_json(dataset_dir / "outcome-records.json"),
         "manifest": load_json(dataset_dir / "evidence-pack-manifest.json"),
+        "applicability": load_optional_json(dataset_dir / "monitoring-applicability.json"),
     }
+
+
+def module_applicability(payloads: dict[str, Any], module_name: str) -> dict[str, Any]:
+    applicability = payloads.get("applicability")
+    if applicability is None:
+        return {"applicable": True, "reason": "No applicability override was supplied."}
+    return applicability["modules"][module_name]
 
 
 def run_monthly_monitoring(
@@ -248,19 +256,46 @@ def compute_metrics(payloads: dict[str, Any]) -> dict[str, Any]:
     channels = count_by_nested_key(decisions, "monitoring", "channel")
     reason_codes = count_by_key(reason_outputs, "reason_code")
     outcomes_summary = count_by_key(outcomes, "repayment_or_default_indicator")
+    defaults = outcomes_summary.get("default", 0)
+
+    decision_applicability = module_applicability(payloads, "decision_outcome_rates")
+    manual_review_applicability = module_applicability(payloads, "manual_review")
+    override_applicability = module_applicability(payloads, "override_monitoring")
+    fair_lending_applicability = module_applicability(payloads, "fair_lending_screening")
 
     fairness_by_region = build_group_outcomes(decisions, "region")
     fairness_by_segment = build_group_outcomes(decisions, "segment")
 
-    return {
+    fairness_summary = {
+        "label": "screening_only_not_legal_conclusion",
+        "approval_rate_by_region": fairness_by_region,
+        "approval_rate_by_segment": fairness_by_segment,
+        "minimum_region_approval_rate": min(
+            (entry["approval_rate"] for entry in fairness_by_region.values()),
+            default=0.0,
+        ),
+        "maximum_region_approval_rate": max(
+            (entry["approval_rate"] for entry in fairness_by_region.values()),
+            default=0.0,
+        ),
+    }
+    if not fair_lending_applicability["applicable"]:
+        fairness_summary = {
+            "label": "not_applicable",
+            "status": "not_applicable",
+            "reason": fair_lending_applicability["reason"],
+        }
+
+    applicability = payloads.get("applicability")
+    result = {
         "run_id": payloads["manifest"]["run_id"],
         "model_id": payloads["model_registry"]["model_id"],
         "version_id": payloads["model_version"]["version_id"],
         "total_decisions": total_decisions,
-        "approval_rate": safe_rate(approved, total_decisions),
-        "decline_rate": safe_rate(declined, total_decisions),
-        "override_rate": safe_rate(overrides, total_decisions),
-        "manual_review_rate": safe_rate(manual_reviews, total_decisions),
+        "approval_rate": safe_rate(approved, total_decisions) if decision_applicability["applicable"] else None,
+        "decline_rate": safe_rate(declined, total_decisions) if decision_applicability["applicable"] else None,
+        "override_rate": safe_rate(overrides, total_decisions) if override_applicability["applicable"] else None,
+        "manual_review_rate": safe_rate(manual_reviews, total_decisions) if manual_review_applicability["applicable"] else None,
         "score_distribution": {
             "count": len(score_values),
             "minimum": min(score_values),
@@ -279,24 +314,56 @@ def compute_metrics(payloads: dict[str, Any]) -> dict[str, Any]:
             "region_mix": to_share_map(regions, total_decisions),
             "channel_mix": to_share_map(channels, total_decisions),
         },
-        "fair_lending_screening": {
-            "label": "screening_only_not_legal_conclusion",
-            "approval_rate_by_region": fairness_by_region,
-            "approval_rate_by_segment": fairness_by_segment,
-            "minimum_region_approval_rate": min(
-                (entry["approval_rate"] for entry in fairness_by_region.values()),
-                default=0.0,
-            ),
-            "maximum_region_approval_rate": max(
-                (entry["approval_rate"] for entry in fairness_by_region.values()),
-                default=0.0,
-            ),
-        },
+        "fair_lending_screening": fairness_summary,
         "outcome_summary": outcomes_summary,
     }
+    if applicability is not None:
+        result.update(
+            {
+                "data_context": applicability["data_context"],
+                "dataset_name": applicability["dataset_name"],
+                "module_applicability": applicability["modules"],
+                "default_rate": safe_rate(defaults, len(outcomes)),
+                "score_average": round(sum(score_values) / len(score_values), 4),
+            }
+        )
+    return result
 
 
 def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
+    applicability = module_applicability(payloads, "adverse_action_reason_qa")
+    if not applicability["applicable"]:
+        reason = applicability["reason"]
+        return {
+            "label": "not_applicable",
+            "status": "not_applicable",
+            "reason": reason,
+            "declined_decision_count": 0,
+            "reason_output_count": 0,
+            "exception_count": 0,
+            "exceptions": [],
+            "source_to_notice_fidelity": {
+                "status": "not_applicable",
+                "reason": reason,
+                "exception_count": 0,
+                "exception_types": [],
+                "rendered_notice_fidelity": {
+                    "status": "not_applicable",
+                    "reason": reason,
+                    "exception_count": 0,
+                    "exception_types": [],
+                },
+            },
+            "stability": {
+                "status": "not_applicable",
+                "reason": reason,
+                "mapping_versions": [],
+                "reason_code_distribution": {},
+                "mapped_reason_code_count": 0,
+                "generated_reason_code_count": 0,
+            },
+        }
+
     decisions = payloads["decisions"]
     reason_mappings = payloads["reason_mappings"]
     reason_outputs = payloads["reason_outputs"]
@@ -845,6 +912,29 @@ def compute_fair_lending_screening(payloads: dict[str, Any]) -> dict[str, Any]:
     decisions = payloads["decisions"]
     reason_outputs = payloads["reason_outputs"]
     config = payloads["fair_lending_config"]
+    applicability = module_applicability(payloads, "fair_lending_screening")
+    if not applicability["applicable"]:
+        reason = applicability["reason"]
+        return {
+            "label": "not_applicable",
+            "status": "not_applicable",
+            "reason": reason,
+            "screening_config_id": config["screening_config_id"],
+            "finding_gate_configuration": {
+                "minimum_group_size": None,
+                "alpha": None,
+                "rate_screen_requirement": "not applicable",
+                "descriptive_screen_requirement": "not applicable",
+            },
+            "comparison_group_count": 0,
+            "screen_count": 0,
+            "finding_count": 0,
+            "group_results": {},
+            "findings": [],
+            "inconclusive_screen_count": 0,
+            "inconclusive_screens": [],
+            "limitations": [reason],
+        }
 
     group_results: dict[str, dict[str, Any]] = {}
     for group_config in config["comparison_groups"]:
@@ -1640,37 +1730,78 @@ def render_monitoring_report(
         if fair_lending["inconclusive_screens"]
         else "- No threshold observations were classified as inconclusive."
     )
+    if reason_qa.get("status") == "not_applicable":
+        reason_section = (
+            "## Adverse-Action Reason QA\n\n"
+            "- Status: `not_applicable`\n"
+            f"- Reason: {reason_qa['reason']}\n\n"
+        )
+    else:
+        reason_section = (
+            "## Adverse-Action Reason QA\n\n"
+            f"- Declined decisions reviewed: {reason_qa['declined_decision_count']}\n"
+            f"- Generated reason outputs reviewed: {reason_qa['reason_output_count']}\n"
+            f"- QA exception count: {reason_qa['exception_count']}\n"
+            f"- Source-to-notice control status: `{fidelity['status']}`\n"
+            f"- Rendered-notice control status: `{rendered_notice_status}` "
+            f"({rendered_notice_exception_count} exception(s))\n"
+            "- Result type: screening only, not a legal conclusion\n\n"
+            f"{reason_exception_lines}\n\n"
+        )
+
+    if fair_lending.get("status") == "not_applicable":
+        fair_lending_section = (
+            "## Fair-Lending Screening\n\n"
+            "- Status: `not_applicable`\n"
+            f"- Reason: {fair_lending['reason']}\n\n"
+        )
+    else:
+        fair_lending_section = (
+            "## Fair-Lending Screening\n\n"
+            f"- Comparison groups reviewed: {fair_lending['comparison_group_count']}\n"
+            f"- Screening rules applied: {fair_lending['screen_count']}\n"
+            f"- Screening finding count: {fair_lending['finding_count']}\n"
+            f"- Inconclusive threshold-observation count: {fair_lending['inconclusive_screen_count']}\n"
+            f"- Finding gate: minimum group size {fair_lending['finding_gate_configuration']['minimum_group_size']}; "
+            f"rate screens require significance at alpha {fair_lending['finding_gate_configuration']['alpha']}\n"
+            "- Result type: screening only, not a legal conclusion\n\n"
+            f"{fair_lending_lines}\n\n"
+            "### Inconclusive Threshold Observations\n\n"
+            f"{inconclusive_fair_lending_lines}\n\n"
+        )
+
+    context_sentence = (
+        "This report uses an approved-loan public dataset and a demonstration model; it does not report underwriting, adoption, or compliance conclusions."
+        if metrics.get("data_context") == "public_data"
+        else "This report is deterministic, synthetic, and intended only for governance workflow demonstration."
+    )
+    fixed_horizon_line = (
+        f"- Fixed-horizon default rate: {metrics['default_rate']}\n"
+        if "default_rate" in metrics
+        else ""
+    )
+    approval_rate = metrics["approval_rate"] if metrics["approval_rate"] is not None else "not_applicable"
+    decline_rate = metrics["decline_rate"] if metrics["decline_rate"] is not None else "not_applicable"
+    override_rate = metrics["override_rate"] if metrics["override_rate"] is not None else "not_applicable"
+    manual_review_rate = (
+        metrics["manual_review_rate"]
+        if metrics["manual_review_rate"] is not None
+        else "not_applicable"
+    )
     return (
         "# Monthly Monitoring Report\n\n"
-        "This report is deterministic, synthetic, and intended only for governance workflow demonstration.\n\n"
+        f"{context_sentence}\n\n"
         f"- Run ID: `{metrics['run_id']}`\n"
         f"- Model ID: `{metrics['model_id']}`\n"
         f"- Version ID: `{metrics['version_id']}`\n"
         f"- Total decisions reviewed: {metrics['total_decisions']}\n"
-        f"- Approval rate: {metrics['approval_rate']}\n"
-        f"- Decline rate: {metrics['decline_rate']}\n"
-        f"- Override rate: {metrics['override_rate']}\n"
-        f"- Manual review rate: {metrics['manual_review_rate']}\n\n"
-        "## Adverse-Action Reason QA\n\n"
-        f"- Declined decisions reviewed: {reason_qa['declined_decision_count']}\n"
-        f"- Generated reason outputs reviewed: {reason_qa['reason_output_count']}\n"
-        f"- QA exception count: {reason_qa['exception_count']}\n"
-        f"- Source-to-notice control status: `{fidelity['status']}`\n"
-        f"- Rendered-notice control status: `{rendered_notice_status}` "
-        f"({rendered_notice_exception_count} exception(s))\n"
-        "- Result type: screening only, not a legal conclusion\n\n"
-        f"{reason_exception_lines}\n\n"
-        "## Fair-Lending Screening\n\n"
-        f"- Comparison groups reviewed: {fair_lending['comparison_group_count']}\n"
-        f"- Screening rules applied: {fair_lending['screen_count']}\n"
-        f"- Screening finding count: {fair_lending['finding_count']}\n"
-        f"- Inconclusive threshold-observation count: {fair_lending['inconclusive_screen_count']}\n"
-        f"- Finding gate: minimum group size {fair_lending['finding_gate_configuration']['minimum_group_size']}; "
-        f"rate screens require significance at alpha {fair_lending['finding_gate_configuration']['alpha']}\n"
-        "- Result type: screening only, not a legal conclusion\n\n"
-        f"{fair_lending_lines}\n\n"
-        "### Inconclusive Threshold Observations\n\n"
-        f"{inconclusive_fair_lending_lines}\n\n"
+        f"- Approval rate: {approval_rate}\n"
+        f"- Decline rate: {decline_rate}\n"
+        f"- Override rate: {override_rate}\n"
+        f"- Manual review rate: {manual_review_rate}\n"
+        f"{fixed_horizon_line}\n"
+        f"{reason_section}"
+        f"{fair_lending_section}"
         f"{render_bisg_section(bisg)}"
         f"{render_lda_section(lda)}"
         f"{render_change_validation_section(change_validation)}"
@@ -1730,6 +1861,15 @@ def render_change_validation_signoff_block(change_validation: dict[str, Any] | N
 
 
 def render_reviewer_notes(fair_lending: dict[str, Any]) -> str:
+    if fair_lending.get("status") == "not_applicable":
+        return (
+            "# Reviewer Notes\n\n"
+            "## Fair-Lending Review Notes\n\n"
+            "- Status: `not_applicable`\n"
+            f"- Reason: {fair_lending['reason']}\n\n"
+            "Reviewer notes:\n\n"
+            "- ____________________\n"
+        )
     finding_lines = (
         "\n".join(
             f"- {finding['finding_id']}: review {finding['metric_name']} for {finding['comparison_group']} "

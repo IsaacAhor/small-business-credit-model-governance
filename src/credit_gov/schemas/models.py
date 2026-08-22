@@ -369,6 +369,8 @@ class FairLendingScreeningConfig(BaseRecord):
     alpha: float
     comparison_groups: list[FairLendingComparisonGroup]
     screens: list[FairLendingScreen]
+    applicable: bool = True
+    not_applicable_reason: str | None = None
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "FairLendingScreeningConfig":
@@ -384,10 +386,21 @@ class FairLendingScreeningConfig(BaseRecord):
             FairLendingScreen.from_dict(item, f"screens[{index}]")
             for index, item in enumerate(screens_payload)
         ]
-        if not comparison_groups:
-            raise ValueError("comparison_groups must contain at least one item")
-        if not screens:
-            raise ValueError("screens must contain at least one item")
+        applicable = payload.get("applicable", True)
+        if not isinstance(applicable, bool):
+            raise ValueError("applicable must be boolean")
+        not_applicable_reason = payload.get("not_applicable_reason")
+        if applicable:
+            if not comparison_groups:
+                raise ValueError("comparison_groups must contain at least one item when applicable")
+            if not screens:
+                raise ValueError("screens must contain at least one item when applicable")
+            if not_applicable_reason is not None:
+                raise ValueError("not_applicable_reason is only valid when applicable is false")
+        else:
+            not_applicable_reason = require_non_empty_string(
+                not_applicable_reason, "not_applicable_reason", 10
+            )
         alpha = require_finite_number(payload.get("alpha"), "alpha")
         if not 0.0 < alpha < 1.0:
             raise ValueError("alpha must be greater than zero and less than one")
@@ -402,6 +415,8 @@ class FairLendingScreeningConfig(BaseRecord):
             alpha=alpha,
             comparison_groups=comparison_groups,
             screens=screens,
+            applicable=applicable,
+            not_applicable_reason=not_applicable_reason,
         )
 
 
