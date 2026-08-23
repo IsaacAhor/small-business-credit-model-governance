@@ -104,7 +104,8 @@ The repository is designed to support several connected outputs:
 - implementation-oriented system designs, workflows, and templates
 - practitioner-facing written work that translates the framework into usable methods
 - a credit-union AI vendor-risk run kit that adapts the workflow to
-  third-party underwriting-tool review
+  third-party underwriting-tool review, with executable linked contracts,
+  evidence validation, synthetic scenarios, and deterministic reviewer outputs
 - a configuration-driven governance evidence engine supported by synthetic
   fixtures and clearly scoped public-data run kits
 
@@ -176,15 +177,16 @@ It does not assume a fixed modeling stack at this stage.
   Reviewer and adopter entry points.
 - `schemas/`
   JSON contracts for core evidence records and the optional formal governance
-  bundle.
+  bundle, plus the separate vendor-model oversight bundle.
 - `notebooks/`
   Implementation notes and future analytical notebooks.
 - `src/`
   Reusable contract validation, governance-review, monitoring,
-  reason-generation, model-change validation, and supporting LDA assessment
-  code.
+  reason-generation, model-change validation, vendor-risk validation and
+  reporting, and supporting LDA assessment code.
 - `data/synthetic/`
-  Deterministic demonstration inputs for validation, monitoring, and portfolio-scale workflow runs.
+  Deterministic demonstration inputs for validation, monitoring,
+  portfolio-scale workflow runs, and vendor-risk scenarios.
 - `data/reference/bisg/`
   Demonstration BISG reference tables with a documented path to full Census-derived data.
 - `examples/`
@@ -192,7 +194,8 @@ It does not assume a fixed modeling stack at this stage.
 - `tests/`
   Validation checks for schemas, typed models, governance relationships,
   deterministic reports, synthetic-data integrity, monitoring, reason QA,
-  reason generation, model-change validation, and supporting screening modules.
+  reason generation, model-change validation, vendor oversight, and supporting
+  screening modules.
 - `templates/`
   Checklists and governance templates.
 - `governance/`
@@ -260,6 +263,8 @@ credit-gov-validate data/synthetic/monthly-demo
 credit-gov monitor data/synthetic/monthly-demo --evidence-root evidence
 credit-gov verify-evidence evidence/<generated-evidence-pack-directory>
 credit-gov change-review data/synthetic/monthly-portfolio
+credit-gov vendor-validate data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo
+credit-gov vendor-report data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo vendor-review-output
 ```
 
 For the SBA public-data run kit, install the optional public-data stack:
@@ -287,6 +292,13 @@ Generate the deterministic formal governance review summary:
 
 ```bash
 python scripts/run_governance_review.py data/synthetic/monthly-demo review-output
+```
+
+Validate and report the synthetic vendor-model oversight bundle:
+
+```bash
+python scripts/validate_vendor_risk_run_kit.py data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo
+python scripts/build_vendor_risk_evidence_pack.py data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo vendor-review-output
 ```
 
 Run the monthly monitoring workflow against the default synthetic dataset:
@@ -441,12 +453,14 @@ This repository now contains:
   run, review, limit, and extend the benchmark
 - a credit-union AI vendor-risk run kit that maps public NCUA resource themes to
   underwriting vendor due diligence, monitoring, adverse-action reason review,
-  model-change review, issue tracking, and reviewer signoff
+  model-change review, issue tracking, and reviewer signoff, now paired with an
+  executable synthetic vendor-oversight workflow
 - release strategy documentation and versioned release notes through `v0.10.0` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
 The current priority is independent review and method-level validation of the
-core governance and adverse-action reason path. Additional monitoring regression
-controls and executable vendor oversight follow. Fair-lending and LDA remain
-supporting risk-screening work rather than the repository's headline.
+core governance and adverse-action reason path. Executable vendor oversight is
+implemented but remains synthetic and externally unvalidated. Additional
+monitoring regression controls follow. Fair-lending and LDA remain supporting
+risk-screening work rather than the repository's headline.

@@ -148,10 +148,22 @@ credit-union-specific profile:
 - `docs/credit-union-ai-vendor-risk-run-kit/ADVERSE_ACTION_REVIEW.md`
 - `docs/credit-union-ai-vendor-risk-run-kit/LIMITATIONS.md`
 
-That profile does not add a new compliance claim. It shows how the existing
-records, monitoring outputs, adverse-action review, model-change review, issue
-registers, and signoff artifacts can be packaged for third-party underwriting
-tool due diligence and ongoing vendor oversight.
+Validate the linked synthetic vendor records and generate the reviewer output:
+
+```bash
+python scripts/validate_vendor_risk_run_kit.py \
+  data/synthetic/credit-union-vendor-risk/baseline-complete \
+  data/synthetic/monthly-demo
+python scripts/build_vendor_risk_evidence_pack.py \
+  data/synthetic/credit-union-vendor-risk/baseline-complete \
+  data/synthetic/monthly-demo \
+  vendor-review-output
+```
+
+The executable profile does not add a new compliance claim. It records linked
+vendor components, limitations, evidence, monitoring, events, notice controls,
+and signoff state; validates their relationships; and packages visible gaps for
+third-party underwriting-tool due diligence and ongoing vendor oversight.
 
 ## 9. Record Follow-Up
 

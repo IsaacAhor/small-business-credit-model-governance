@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/vendor-model-limitation.schema.json",
+  "title": "Vendor Model Limitation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "limitation_id",
+    "review_id",
+    "component_id",
+    "category",
+    "description",
+    "transparency_state",
+    "evidence_available",
+    "evidence_references",
+    "validation_status",
+    "compensating_control",
+    "residual_risk_decision",
+    "owner",
+    "review_date",
+    "result_type"
+  ],
+  "properties": {
+    "record_type": {"const": "vendor_model_limitation"},
+    "limitation_id": {"type": "string", "pattern": "^vml-[a-z0-9-]+$"},
+    "review_id": {"type": "string", "pattern": "^vrr-[a-z0-9-]+$"},
+    "component_id": {"type": "string", "pattern": "^vmc-[a-z0-9-]+$"},
+    "category": {"enum": ["data", "model_design", "explainability", "validation", "monitoring", "operational", "contractual", "security", "other"]},
+    "description": {"type": "string", "minLength": 15},
+    "transparency_state": {"enum": ["transparent", "partial", "opaque"]},
+    "evidence_available": {"type": "boolean"},
+    "evidence_references": {"type": "array", "items": {"type": "string", "minLength": 3}},
+    "validation_status": {"enum": ["not_started", "pending", "partially_validated", "validated", "not_available"]},
+    "compensating_control": {"type": "string", "minLength": 10},
+    "residual_risk_decision": {"enum": ["pending", "accepted_with_controls", "remediate_before_reliance", "reliance_restricted", "rejected"]},
+    "owner": {"type": "string", "minLength": 3},
+    "review_date": {"type": "string", "format": "date"},
+    "result_type": {"const": "vendor_limitation_record_not_validation_or_acceptance_claim"}
+  }
+}

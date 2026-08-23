@@ -1,0 +1,214 @@
+{
+  "applicability_determinations": [
+    {
+      "applicability": "applicable",
+      "checked_on": "2026-08-23",
+      "determination": "The synthetic workflow includes a declined business-credit application and therefore exercises the configured notice-control path.",
+      "evidence_reference": "synthetic-applicability-note.md",
+      "source_class": "binding_when_applicable",
+      "source_id": "regulation-b-1002-9"
+    },
+    {
+      "applicability": "not_applicable",
+      "checked_on": "2026-08-23",
+      "determination": "The synthetic institution is a credit-union example, so SR 26-2 is used only as an analogous model-risk design reference.",
+      "evidence_reference": "synthetic-applicability-note.md",
+      "source_class": "voluntary_or_analogous",
+      "source_id": "sr-26-2-section-vii"
+    }
+  ],
+  "business_credit_notice_controls": [
+    {
+      "action_date": "2026-05-04",
+      "application_date": "2026-05-04",
+      "component_id": "vmc-synthetic-reason-service",
+      "credit_classification": "business_revenue_at_or_below_1m",
+      "decision_id": "dec-0002",
+      "esign_applicability": "pending_determination",
+      "evidence_references": [
+        "synthetic-applicability-note.md",
+        "reason-code-mappings.json"
+      ],
+      "fcra_applicability": "pending_determination",
+      "notice_control_id": "bcn-synthetic-decision-0002",
+      "path_determination": "written_notice_with_reasons",
+      "reason_mapping_ids": [
+        "map-001",
+        "map-002"
+      ],
+      "reason_source_references": [
+        "adverse-action-reason-outputs.json",
+        "reason-code-mappings.json"
+      ],
+      "record_type": "business_credit_notice_control",
+      "result_type": "business_credit_notice_control_not_legal_sufficiency_finding",
+      "retention_basis": "Synthetic reviewer configuration referencing Regulation B record-retention review; actual applicability requires institution counsel or compliance review.",
+      "review_id": "vrr-synthetic-underwriting-2026",
+      "reviewer_disposition": "accepted_with_conditions",
+      "section_1071_applicability": "pending_determination",
+      "specific_reason_review": "completed"
+    }
+  ],
+  "components": [
+    {
+      "component_id": "vmc-synthetic-reason-service",
+      "component_type": "explanation_service",
+      "data_categories": [
+        "synthetic ranked drivers",
+        "versioned reason mappings"
+      ],
+      "decision_role": "explanation_only",
+      "event_ids": [],
+      "event_status": "no_event_reported",
+      "function": "Maps supplied synthetic decision drivers to versioned adverse-action reason records.",
+      "limitation_ids": [],
+      "model_change_notice_method": "Fictional contract requires notice before reason-mapping or explanation-service changes.",
+      "model_id": "mdl-smb-credit-xgb",
+      "model_reference_status": "known",
+      "output_type": "reason",
+      "record_type": "vendor_model_component",
+      "result_type": "vendor_component_inventory_not_safety_or_reliability_finding",
+      "review_id": "vrr-synthetic-underwriting-2026",
+      "subcontractor_status": "none_disclosed",
+      "transparency_state": "transparent",
+      "version_id": "ver-2026-05"
+    },
+    {
+      "component_id": "vmc-synthetic-underwriting-model",
+      "component_type": "model",
+      "data_categories": [
+        "synthetic application attributes",
+        "synthetic cash-flow indicators"
+      ],
+      "decision_role": "advisory",
+      "event_ids": [],
+      "event_status": "no_event_reported",
+      "function": "Produces a synthetic underwriting score and nonbinding recommendation.",
+      "limitation_ids": [
+        "vml-synthetic-proprietary-detail"
+      ],
+      "model_change_notice_method": "Fictional contract requires written notice before material model changes.",
+      "model_id": "mdl-smb-credit-xgb",
+      "model_reference_status": "known",
+      "output_type": "recommendation",
+      "record_type": "vendor_model_component",
+      "result_type": "vendor_component_inventory_not_safety_or_reliability_finding",
+      "review_id": "vrr-synthetic-underwriting-2026",
+      "subcontractor_status": "none_disclosed",
+      "transparency_state": "partial",
+      "version_id": "ver-2026-05"
+    }
+  ],
+  "events": [],
+  "limitations": [
+    {
+      "category": "model_design",
+      "compensating_control": "Use institution-owned outcome monitoring, reason QA, volume limits, and change review.",
+      "component_id": "vmc-synthetic-underwriting-model",
+      "description": "The fictional vendor overview omits training code and complete development-data details.",
+      "evidence_available": true,
+      "evidence_references": [
+        "synthetic-vendor-evidence.md"
+      ],
+      "limitation_id": "vml-synthetic-proprietary-detail",
+      "owner": "Synthetic Model Risk",
+      "record_type": "vendor_model_limitation",
+      "residual_risk_decision": "accepted_with_controls",
+      "result_type": "vendor_limitation_record_not_validation_or_acceptance_claim",
+      "review_date": "2026-06-01",
+      "review_id": "vrr-synthetic-underwriting-2026",
+      "transparency_state": "partial",
+      "validation_status": "partially_validated"
+    }
+  ],
+  "limitations_of_output": [
+    "All vendor, product, institution, reviewer, contract, and event records in the checked-in fixture are synthetic.",
+    "This output does not establish institutional adoption, model accuracy, notice legal sufficiency, compliance, safety, soundness, security, reliability, or regulatory approval.",
+    "Source applicability and risk acceptance require institution-specific legal, compliance, model-risk, security, and business review."
+  ],
+  "monitoring": {
+    "cadence_rationale": "Monthly review is an illustrative institution choice for the high-risk synthetic profile and is not a regulatory schedule.",
+    "event_triggers": [
+      "model_change",
+      "data_change",
+      "reason_mapping_change",
+      "service_change",
+      "performance_breach",
+      "reason_qa_failure"
+    ],
+    "heightened_monitoring": {
+      "entry_criteria": [
+        "First three review periods after synthetic launch",
+        "Any material model or reason-mapping change",
+        "Any unexplained reason QA failure"
+      ],
+      "evidence_due_date": "2026-06-30",
+      "exit_criteria": [
+        "Three consecutive review periods without unresolved high-severity findings",
+        "All material changes have documented assessment dispositions"
+      ],
+      "required": true,
+      "status": "configured"
+    },
+    "metric_threshold_references": [
+      "thr-2026-05-monthly",
+      "approval_rate",
+      "override_rate"
+    ],
+    "oversight_config_id": "voc-synthetic-underwriting-2026",
+    "owners": {
+      "escalation_owner": "Synthetic Vendor Management",
+      "monitoring_owner": "Synthetic Model Risk",
+      "reporting_owner": "Synthetic Senior Management Reporting"
+    },
+    "record_type": "vendor_oversight_config",
+    "reporting_audience": [
+      "Synthetic Model Risk Committee",
+      "Synthetic Compliance Review"
+    ],
+    "result_type": "risk_based_vendor_monitoring_config_not_regulatory_schedule",
+    "review_cadence": "monthly synthetic review",
+    "review_id": "vrr-synthetic-underwriting-2026",
+    "risk_tier": "high"
+  },
+  "open_findings": [],
+  "result_type": "synthetic_vendor_oversight_summary_not_compliance_or_regulatory_approval",
+  "review": {
+    "covered_use_cases": [
+      "adverse_action_reason_support",
+      "ongoing_monitoring",
+      "scoring",
+      "underwriting_decision_support"
+    ],
+    "decision_authority": "institution",
+    "decision_impact": "recommendation",
+    "product_id": "prd-example-underwriting-api",
+    "product_version": "synthetic-2.1",
+    "review_id": "vrr-synthetic-underwriting-2026",
+    "review_period_end": "2026-05-31",
+    "review_period_start": "2026-05-01",
+    "review_status": "accepted_with_conditions",
+    "risk_rationale": "The fictional service influences underwriting recommendations and supplies reason-support outputs, so the demonstration configures heightened review.",
+    "risk_tier": "high",
+    "signoff": {
+      "disposition": "accepted_with_conditions",
+      "independence_status": "independent_internal",
+      "review_date": "2026-06-01",
+      "reviewer_identity": "Synthetic independent internal reviewer role",
+      "reviewer_role": "Synthetic Model Validation"
+    },
+    "vendor_id": "vnd-example-analytics"
+  },
+  "review_gaps": [
+    {
+      "description": "Partial or opaque vendor information is recorded for: vmc-synthetic-underwriting-model",
+      "gap_id": "vendor-transparency-limited",
+      "severity": "moderate"
+    },
+    {
+      "description": "One or more conditional FCRA, E-SIGN, or Section 1071 determinations remain pending for: bcn-synthetic-decision-0002",
+      "gap_id": "conditional-notice-applicability-pending",
+      "severity": "moderate"
+    }
+  ]
+}

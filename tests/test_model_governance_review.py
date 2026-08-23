@@ -77,6 +77,46 @@ class ModelGovernanceReviewTests(unittest.TestCase):
             result.errors,
         )
 
+    def test_missing_explainability_validation_reference_fails(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            dataset = self.copy_dataset(Path(temporary))
+            self.update_json(
+                dataset / "explainability-method-records.json",
+                lambda payload: payload[0].update(
+                    {"validation_test_references": ["tests/test_missing_reason_check.py"]}
+                ),
+            )
+            result = validate_dataset(dataset)
+
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any(
+                "validation_test_references missing file: "
+                "tests/test_missing_reason_check.py" in error
+                for error in result.errors
+            ),
+            result.errors,
+        )
+
+    def test_explainability_reference_outside_dataset_or_source_root_fails(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            root = Path(temporary)
+            dataset = self.copy_dataset(root / "dataset-copy")
+            outside_reference = Path(sys.executable).resolve()
+            self.update_json(
+                dataset / "explainability-method-records.json",
+                lambda payload: payload[0].update(
+                    {"validation_test_references": [str(outside_reference)]}
+                ),
+            )
+            result = validate_dataset(dataset)
+
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any("validation_test_references missing file" in error for error in result.errors),
+            result.errors,
+        )
+
     def test_self_review_cannot_claim_approval_or_promotion(self) -> None:
         with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
             dataset = self.copy_dataset(Path(temporary))

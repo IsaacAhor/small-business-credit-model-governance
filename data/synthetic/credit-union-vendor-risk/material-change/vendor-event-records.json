@@ -1,0 +1,23 @@
+[
+  {
+    "record_type": "vendor_event_record",
+    "event_id": "vme-synthetic-model-change",
+    "review_id": "vrr-synthetic-underwriting-2026",
+    "component_id": "vmc-synthetic-underwriting-model",
+    "event_type": "model_change",
+    "detected_at": "2026-05-20T14:00:00Z",
+    "vendor_notice_at": "2026-05-19T18:00:00Z",
+    "materiality": "material",
+    "affected_version": "synthetic-2.2-proposed",
+    "impact_summary": "The fictional vendor proposes a model-version change that requires institution review before continued reliance.",
+    "contract_notice_status": "timely",
+    "institution_assessment_required": true,
+    "assessment_disposition": "accepted_with_controls",
+    "escalation_owner": "Synthetic Vendor Management",
+    "remediation_status": "in_progress",
+    "evidence_references": [
+      "synthetic-event-evidence.md"
+    ],
+    "result_type": "vendor_event_fact_record_not_reportability_determination"
+  }
+]

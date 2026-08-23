@@ -49,16 +49,19 @@ reviewability improvements that do not change the implementation phase.
 
 ## Unreleased Development Milestone
 
-The current branch adds an optional formal governance bundle for model
+The current unreleased work adds an optional formal governance bundle for model
 risk/materiality, explainability-method assumptions and population boundaries,
 validation independence/findings, and a linked monitoring plan. It also adds a
-deterministic reviewer summary, report, and SHA-256 manifest. No public version
-number is assigned until the release scope and gates are reviewed.
+separate executable vendor-oversight layer: six linked contracts, evidence and
+context validation, synthetic opaque/change/incident/notice fixtures,
+deterministic reviewer outputs, and package commands. No public version number
+is assigned until the release scope and gates are reviewed.
 
 This work is not yet a tagged release. It does not establish independent
-validation, production use, institutional adoption, legal compliance, or
-regulatory approval. The checked-in fixture deliberately reports a developer
-self-review, open findings, and promotion not allowed.
+external validation, production use, institutional adoption, legal compliance,
+vendor reliability, or regulatory approval. The governance fixture deliberately
+reports a developer self-review, open findings, and promotion not allowed; the
+vendor fixtures use explicitly fictional reviewers and evidence.
 
 ## Current Release
 

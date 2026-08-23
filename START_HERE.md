@@ -28,7 +28,9 @@ Use this path if you have limited time and want the clearest view of the work:
    path, and public-data limits.
 7. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
    reviewing an AI-enabled credit-union underwriting vendor, CUSO relationship,
-   or third-party small-business/member-business lending tool.
+   or third-party small-business/member-business lending tool. Inspect
+   `examples/evidence-packs/credit-union-vendor-risk/README.md` for the
+   deterministic synthetic vendor-oversight output.
 8. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
    the plain-language output of a synthetic monthly governance review at
    portfolio scale. A minimal controlled-breach scenario is also available
@@ -56,13 +58,15 @@ scale) and `examples/evidence-packs/monthly-demo/` (minimal controlled
 scenario) and `docs/adverse-action-reason-run-kit/README.md`
 (adverse-action reason accuracy benchmark landing path). For a credit-union
 third-party underwriting-tool review, also inspect
-`docs/credit-union-ai-vendor-risk-run-kit/README.md`.
+`docs/credit-union-ai-vendor-risk-run-kit/README.md` and
+`examples/evidence-packs/credit-union-vendor-risk/README.md`.
 
 If you want to reproduce the synthetic workflow locally, run:
 
 ```bash
 python scripts/validate_repository.py
 python scripts/validate_phase1.py
+python scripts/validate_vendor_risk_run_kit.py data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo
 python scripts/run_governance_review.py data/synthetic/monthly-demo review-output
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-portfolio --evidence-root evidence
 python scripts/run_adverse_action_reason_benchmark.py --overwrite

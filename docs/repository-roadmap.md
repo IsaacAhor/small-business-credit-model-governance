@@ -109,9 +109,10 @@ Status:
   third-party-risk, compliance, CUSO, and Regulation B resource themes to due
   diligence, monitoring, adverse-action reason review, model-change review,
   issue tracking, and reviewer signoff.
-  The v0.9.2 documentation patch qualifies its public sources and preserves the
-  distinction between this reviewer profile and the later executable vendor-
-  oversight build defined in `IMPLEMENTATION_PLAN.md`.
+  The v0.9.2 documentation patch qualified its public sources. The later,
+  version-unassigned executable build defined in `IMPLEMENTATION_PLAN.md` is
+  now implemented with linked contracts, evidence validation, synthetic
+  fixtures, deterministic reporting, and package commands.
 - A backward-compatible formal governance bundle is now implemented for model
   risk/materiality, explainability-method assumptions and population boundaries,
   validation independence/findings, and a linked monitoring plan. The repository
@@ -119,6 +120,7 @@ Status:
   visible and does not convert self-review into approval.
 - The first remaining priority is independent practitioner review and
   method-level validation of the core governance and adverse-action reason path.
-  Additional monitoring regression controls and executable vendor oversight
-  follow. Fair-lending/LDA rigor remains supporting work and should not displace
-  those core priorities.
+  Additional monitoring regression controls follow. Executable vendor
+  oversight is implemented but remains synthetic and externally unvalidated.
+  Fair-lending/LDA rigor remains supporting work and should not displace those
+  core priorities.

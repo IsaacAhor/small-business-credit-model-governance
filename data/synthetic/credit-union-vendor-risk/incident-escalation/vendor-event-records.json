@@ -1,0 +1,23 @@
+[
+  {
+    "record_type": "vendor_event_record",
+    "event_id": "vme-synthetic-security-event",
+    "review_id": "vrr-synthetic-underwriting-2026",
+    "component_id": "vmc-synthetic-underwriting-model",
+    "event_type": "security_event",
+    "detected_at": "2026-05-24T10:15:00Z",
+    "vendor_notice_at": "2026-05-24T09:45:00Z",
+    "materiality": "high",
+    "affected_version": "synthetic-2.1",
+    "impact_summary": "The fictional service experienced an access-control event requiring institution assessment and tracked remediation.",
+    "contract_notice_status": "timely",
+    "institution_assessment_required": true,
+    "assessment_disposition": "accepted_with_controls",
+    "escalation_owner": "Synthetic Information Security",
+    "remediation_status": "in_progress",
+    "evidence_references": [
+      "synthetic-event-evidence.md"
+    ],
+    "result_type": "vendor_event_fact_record_not_reportability_determination"
+  }
+]

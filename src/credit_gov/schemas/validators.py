@@ -170,6 +170,36 @@ def load_schema(schema_file: str) -> dict[str, Any]:
         return json.load(handle)
 
 
+def resolve_dataset_reference(dataset_dir: Path, reference: str) -> Path | None:
+    """Resolve a local evidence reference from a dataset or source checkout."""
+    dataset_root = dataset_dir.resolve()
+    allowed_roots = [dataset_root]
+    source_candidates = [ROOT.resolve(), dataset_root, *dataset_root.parents]
+    for candidate in source_candidates:
+        if (candidate / "pyproject.toml").is_file() and candidate not in allowed_roots:
+            allowed_roots.append(candidate)
+
+    reference_path = Path(reference)
+    if reference_path.is_absolute():
+        candidates = [reference_path]
+    else:
+        candidates = [root / reference_path for root in allowed_roots]
+    seen: set[Path] = set()
+    for candidate in candidates:
+        resolved = candidate.resolve()
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+        if not any(
+            resolved == allowed_root or allowed_root in resolved.parents
+            for allowed_root in allowed_roots
+        ):
+            continue
+        if resolved.is_file():
+            return resolved
+    return None
+
+
 def validate_date_string(value: str, field: str) -> None:
     if not DATE_PATTERN.match(value):
         raise ValueError(f"{field} must use YYYY-MM-DD")
@@ -242,6 +272,8 @@ def validate_value(value: Any, definition: dict[str, Any], field: str) -> None:
         fmt = definition.get("format")
         if fmt == "date":
             validate_date_string(value, field)
+        elif fmt == "date-time":
+            validate_datetime_string(value, field)
     elif schema_type == "number":
         if isinstance(value, bool) or not isinstance(value, (int, float)):
             raise ValueError(f"{field} must be numeric")
@@ -603,6 +635,13 @@ def validate_governance_relationships(
                 "model-validation-record.json.evidence_references missing file: "
                 + reference
             )
+    for index, method in enumerate(explainability_methods):
+        for reference in method["validation_test_references"]:
+            if resolve_dataset_reference(dataset_dir, reference) is None:
+                raise ValueError(
+                    "explainability-method-records.json"
+                    f"[{index}].validation_test_references missing file: {reference}"
+                )
 
 
 def require_object_payload(payloads: dict[str, Any], filename: str) -> dict[str, Any]:

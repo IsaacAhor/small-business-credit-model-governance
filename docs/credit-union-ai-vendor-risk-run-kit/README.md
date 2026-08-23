@@ -34,12 +34,15 @@ directly affect a covered credit underwriting decision or its documentation.
 
 This profile is informed by public NCUA and federal resources. The source map is
 in [SOURCE_MAP.md](SOURCE_MAP.md).
+The complete framework-to-implementation decision record is in
+[../finreglab-framework-implementation-crosswalk.md](../finreglab-framework-implementation-crosswalk.md).
 
-The planned documentation corrections and executable vendor-oversight build are
-defined in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Until that build is
-released, this run kit remains a documentation and reviewer-profile artifact;
-the existing repository workflow does not yet validate vendor-risk records or
-generate a vendor-oversight report.
+The implementation sequence and source/applicability controls are defined in
+[IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). The repository now includes
+an executable, synthetic vendor-oversight workflow. It validates six linked
+vendor contracts against an existing model/version/decision/reason context and
+generates a deterministic reviewer summary, open-findings list, report, and
+SHA-256 manifest. This implementation is not yet a tagged release.
 
 Key public themes:
 
@@ -86,6 +89,42 @@ Key public themes:
    regulatory compliance certification, production deployment, or external
    validation.
 
+## Executable Synthetic Workflow
+
+The executable layer records:
+
+- master vendor/product review, decision authority, risk tier, source class,
+  applicability, evidence, findings, and signoff
+- vendor model, score, rules, data, or explanation components
+- transparency limitations, compensating controls, and residual-risk decisions
+- risk-based monitoring and heightened-monitoring configuration
+- model, data, subprocessor, threshold, reason-mapping, service, and security
+  events requiring institution assessment
+- business-credit notice controls linked to a synthetic decision and governed
+  reason mappings
+
+Validate the baseline fixture:
+
+```bash
+python scripts/validate_vendor_risk_run_kit.py \
+  data/synthetic/credit-union-vendor-risk/baseline-complete \
+  data/synthetic/monthly-demo
+```
+
+Generate the checked-in reviewer outputs:
+
+```bash
+python scripts/build_vendor_risk_evidence_pack.py \
+  data/synthetic/credit-union-vendor-risk/baseline-complete \
+  data/synthetic/monthly-demo \
+  examples/evidence-packs/credit-union-vendor-risk \
+  --overwrite
+```
+
+See `data/synthetic/credit-union-vendor-risk/README.md` for the full fixture
+matrix, including opaque-component, material-change, incident-escalation,
+notice-gap, missing-evidence, and broken-link cases.
+
 ## Minimum Evidence Package
 
 A credit union or reviewer using this profile should be able to assemble:
@@ -113,6 +152,8 @@ A credit union or reviewer using this profile should be able to assemble:
 | Model-change review | `scripts/run_change_validation.py`; `examples/evidence-packs/monthly-portfolio/model_change_validation_report.md` |
 | Issue and remediation tracking | `examples/evidence-packs/monthly-portfolio/issue_register.json`; `.github/ISSUE_TEMPLATE/validation-finding.md`; `.github/ISSUE_TEMPLATE/monitoring-breach.md` |
 | Reviewer signoff | `examples/evidence-packs/monthly-portfolio/reviewer_signoff.md` |
+| Executable vendor contracts and validation | `schemas/vendor-*.schema.json`; `schemas/business-credit-notice-control.schema.json`; `src/credit_gov/vendor_risk.py` |
+| Deterministic vendor report and manifest | `src/credit_gov/vendor_reporting.py`; `examples/evidence-packs/credit-union-vendor-risk/` |
 | Public-data model-risk demonstration | `docs/model-risk-oversight-run-kit/README.md` |
 | Claim discipline | `docs/evidence-map.md`; `docs/release-strategy.md`; `START_HERE.md` |
 

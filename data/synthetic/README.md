@@ -11,5 +11,7 @@ Rules:
 - inputs should remain stable so validation tests and future workflow runs are reproducible
 
 The datasets under this directory support validation, monthly monitoring,
-controlled-breach, no-breach, adverse-action reason QA, and fair-lending
-screening demonstrations.
+controlled-breach, no-breach, adverse-action reason QA, fair-lending screening,
+formal model-governance review, and vendor-model oversight demonstrations. See
+`credit-union-vendor-risk/README.md` for the valid and intentionally invalid
+vendor-risk fixture matrix.

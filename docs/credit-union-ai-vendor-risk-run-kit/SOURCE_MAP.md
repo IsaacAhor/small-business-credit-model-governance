@@ -22,6 +22,19 @@ staff must make that determination and record the basis.
 | [Regulation V](https://www.consumerfinance.gov/rules-policy/regulations/1022/) and [NCUA E-SIGN guide](https://ncua.gov/regulation-supervision/manuals-guides/federal-consumer-financial-protection-guide/compliance-management/deposit-regulations/electronic-signatures-global-and-national-commerce-act-e-sign-act) | Binding law or regulation when applicable | Ask whether consumer reports, risk-based-pricing notices, or electronic records and disclosures are implicated; do not assume they are. | 2026-08-12 |
 | [12 CFR 748.0](https://www.ecfr.gov/current/title-12/chapter-VII/subchapter-A/part-748/section-748.0) and [NCUA cyber-incident guidance](https://ncua.gov/regulation-supervision/letters-credit-unions-other-guidance/cyber-incident-notification-requirements) | Binding regulation and NCUA guidance when applicable | Use for security-program, contractual event-notice, and institution-led escalation-assessment prompts. A vendor event record is not a reportability determination. | 2026-08-12 |
 | [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) and [SR 26-2](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) | Voluntary or analogous reference | Use only as optional AI/model-risk vocabulary and design benchmarks; neither is an NCUA AI rule or a credit-union mandate. | 2026-08-12 |
+| [FinRegLab 2026 ML underwriting framework](https://finreglab.org/research/framework-for-managing-machine-learning-models-in-consumer-credit-underwriting/) | Nonbinding practitioner reference | Section 6.1 informs vendor information, opacity, monitoring, change-notice, and supplemental-control prompts. The framework reflects large-bank consumer-underwriting discussions and is not an OCC rule, endorsement, or credit-union mandate. | 2026-08-23 |
+
+## Executable Control Mapping
+
+| Review need | Executable repository control | Remaining boundary |
+| --- | --- | --- |
+| Vendor/product scope, decision authority, risk tier, source class, applicability, evidence, findings, and signoff | `vendor-risk-review-record.schema.json` plus typed and cross-record validation | Synthetic review logic does not decide actual regulatory applicability or prove institution adoption |
+| Vendor model/component inventory and transparency | `vendor-model-component.schema.json` | A recorded vendor statement is not proof of model soundness, accuracy, or completeness |
+| Opaque or partial information and compensating controls | `vendor-model-limitation.schema.json` requires a separate limitation, control, validation status, and residual-risk decision | The checked-in limitation is fictional and is not a real institution's acceptance decision |
+| Risk-based cadence and heightened monitoring | `vendor-oversight-config.schema.json` links risk tier, thresholds, triggers, entry/exit criteria, evidence date, and owners | Cadence and thresholds are illustrative rather than regulatory minimums |
+| Material model/data/service/security change review | `vendor-event-record.schema.json` links notice, materiality, institution assessment, disposition, remediation, and evidence | Event records do not make legal or regulatory reportability determinations |
+| Business-credit notice traceability | `business-credit-notice-control.schema.json` links a decision, notice path, reason sources/mappings, specific-reason review, retention basis, conditional flags, evidence, and disposition | The synthetic record does not establish notice accuracy or legal sufficiency |
+| Deterministic reviewer output | `vendor_reporting.py` emits a summary, report, open-findings list, and SHA-256 manifest | Reproducibility is not external validation, vendor reliability, or regulatory approval |
 
 ## NCUA Artificial Intelligence Resources
 

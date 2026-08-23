@@ -1,0 +1,83 @@
+{
+  "record_type": "vendor_risk_review_record",
+  "review_id": "vrr-synthetic-underwriting-2026",
+  "vendor_id": "vnd-example-analytics",
+  "product_id": "prd-example-underwriting-api",
+  "product_version": "synthetic-2.1",
+  "review_period_start": "2026-05-01",
+  "review_period_end": "2026-05-31",
+  "covered_use_cases": [
+    "scoring",
+    "underwriting_decision_support",
+    "adverse_action_reason_support",
+    "ongoing_monitoring"
+  ],
+  "decision_impact": "recommendation",
+  "decision_authority": "institution",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "applicability_determinations": [
+    {
+      "source_id": "regulation-b-1002-9",
+      "source_class": "binding_when_applicable",
+      "applicability": "applicable",
+      "determination": "The synthetic workflow includes a declined business-credit application and therefore exercises the configured notice-control path.",
+      "evidence_reference": "synthetic-applicability-note.md",
+      "checked_on": "2026-08-23"
+    },
+    {
+      "source_id": "sr-26-2-section-vii",
+      "source_class": "voluntary_or_analogous",
+      "applicability": "not_applicable",
+      "determination": "The synthetic institution is a credit-union example, so SR 26-2 is used only as an analogous model-risk design reference.",
+      "evidence_reference": "synthetic-applicability-note.md",
+      "checked_on": "2026-08-23"
+    }
+  ],
+  "document_versions": [
+    {
+      "document_name": "Synthetic vendor model overview",
+      "document_version": "2.1-demo",
+      "evidence_reference": "synthetic-vendor-evidence.md"
+    },
+    {
+      "document_name": "Synthetic contract change-notice schedule",
+      "document_version": "2026-demo",
+      "evidence_reference": "synthetic-vendor-evidence.md"
+    }
+  ],
+  "contract_version": "synthetic-contract-2026",
+  "risk_tier": "high",
+  "risk_rationale": "The fictional service influences underwriting recommendations and supplies reason-support outputs, so the demonstration configures heightened review.",
+  "evidence_references": [
+    "synthetic-applicability-note.md",
+    "missing-vendor-evidence.md",
+    "model-registry-record.json",
+    "model-version-record.json"
+  ],
+  "owners": {
+    "business_owner": "Synthetic Business Owner",
+    "vendor_management_owner": "Synthetic Vendor Management",
+    "model_risk_owner": "Synthetic Model Risk",
+    "compliance_owner": "Synthetic Compliance Review"
+  },
+  "findings": [
+    {
+      "finding_id": "vrf-proprietary-detail-limited",
+      "severity": "moderate",
+      "summary": "The fictional vendor does not provide training code or complete development data.",
+      "status": "accepted",
+      "owner": "Synthetic Model Risk",
+      "target_date": "2026-06-15"
+    }
+  ],
+  "review_status": "accepted_with_conditions",
+  "signoff": {
+    "reviewer_identity": "Synthetic independent internal reviewer role",
+    "reviewer_role": "Synthetic Model Validation",
+    "independence_status": "independent_internal",
+    "disposition": "accepted_with_conditions",
+    "review_date": "2026-06-01"
+  },
+  "result_type": "vendor_oversight_record_not_compliance_or_regulatory_approval"
+}
