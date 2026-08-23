@@ -1,6 +1,6 @@
 # Interpretable model risk monitoring for machine-learning-based small business credit underwriting
 
-*By Isaac Ahor. My background spans credit risk, model validation, and SME portfolio analytics across JPMorgan Chase and Zenith Bank, and my current work focuses on governance of machine-learning-based small business credit underwriting. The framework below is implemented as an open-source governance evidence engine, which runs on synthetic data and is available at [github.com/IsaacAhor/small-business-credit-model-governance](https://github.com/IsaacAhor/small-business-credit-model-governance).*
+*By Isaac Ahor. I develop public, reproducible governance methods for machine-learning-based small business credit underwriting. The framework below is implemented as an open-source governance evidence engine, runs on synthetic data, and is available at [github.com/IsaacAhor/small-business-credit-model-governance](https://github.com/IsaacAhor/small-business-credit-model-governance).*
 
 ## Why this topic matters
 

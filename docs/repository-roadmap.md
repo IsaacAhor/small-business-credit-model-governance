@@ -109,10 +109,10 @@ Status:
   third-party-risk, compliance, CUSO, and Regulation B resource themes to due
   diligence, monitoring, adverse-action reason review, model-change review,
   issue tracking, and reviewer signoff.
-  The v0.9.2 documentation patch qualified its public sources. The later,
-  version-unassigned executable build defined in `IMPLEMENTATION_PLAN.md` is
-  now implemented with linked contracts, evidence validation, synthetic
-  fixtures, deterministic reporting, and package commands.
+  The v0.9.2 documentation patch qualified its public sources. Version 0.11.0
+  adds the executable build defined in `IMPLEMENTATION_PLAN.md`, with linked
+  contracts, evidence validation, synthetic fixtures, deterministic reporting,
+  and package commands.
 - A backward-compatible formal governance bundle is now implemented for model
   risk/materiality, explainability-method assumptions and population boundaries,
   validation independence/findings, and a linked monitoring plan. The repository

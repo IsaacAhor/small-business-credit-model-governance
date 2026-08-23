@@ -1,43 +1,44 @@
 {
+  "hash_policy": "sha256_canonical_json_or_lf_text_inputs_raw_generated_outputs_v1",
   "inputs": [
     {
       "filename": "explainability-method-records.json",
-      "sha256": "bc1557d3a678ec61db5d8025febfb55aa54455712c6283203ccf34a5492afa91"
+      "sha256": "c6bac41aad4ad98ab3ea3f29c9024c6d98ae2c8bd6927a80c704730158547808"
     },
     {
       "filename": "model-monitoring-plan.json",
-      "sha256": "837f73b46129ae585fd3a57870b961f46ff927663c3128da0d67c4d0d5fcc803"
+      "sha256": "4b2bac64dff1ee7946f25104d419e327d5d1a59039422d6f82c0bce0a6de4696"
     },
     {
       "filename": "model-registry-record.json",
-      "sha256": "cd8c21fea34d02a338ab8ed14dcdb50c3a8f6dddb3197f4f622b3c4941ad8640"
+      "sha256": "a92bd5236c28177d53697d224367a3362d17393b36013ef9faa1c336774569bd"
     },
     {
       "filename": "model-risk-profile.json",
-      "sha256": "c7cb2b47ff071fa8b778dec5c3115cfc166248573fec9d6c6486c0df4beaa2a0"
+      "sha256": "f11d5b02f38a2c8b30ec7d148ca01bf88469cf188f96a07cce58608a4ca06bbe"
     },
     {
       "filename": "model-validation-record.json",
-      "sha256": "8c4f60034e076044970e8c28874a8b8c1346d36fc70ad597163596296e837d84"
+      "sha256": "3e176c597578cd6c1ffdb0fb90ed9e2d1d55c16483ad3ab4c246d05b75a96517"
     },
     {
       "filename": "model-version-record.json",
-      "sha256": "97686c4be048f47d6619f0c595c354fb7627efc46ee1243097841d7c816e1b6f"
+      "sha256": "0dac61080eba9e543728b0c91f95f8864b8897bff2564978cc2b02a97bbf7374"
     },
     {
       "filename": "threshold-set.json",
-      "sha256": "063fbdd6a507ffe7ce6869a8006088ff04ff3b6573dcb84871701d2179616435"
+      "sha256": "37658fb94654ab7ae5c486ca6f4d50dc8e12954eda78a5e30fa61751295ea8c1"
     }
   ],
   "model_id": "mdl-smb-credit-xgb",
   "outputs": [
     {
       "filename": "governance-review-summary.json",
-      "sha256": "d7bfa263127d57cd67c91b9437348e1f9a3efd1972bfb8000fd0579e090a5937"
+      "sha256": "da182a0c48133543ed6f3f2aa72384ece26709af0e55d973595e7612c7c14483"
     },
     {
       "filename": "governance-review-report.md",
-      "sha256": "7d76b92a888af255bafc8ea25ac505dcf4288b106cf0fe577b7d04a73955f4ce"
+      "sha256": "697d40266c99e155455de9c8dd0264d911a23ddd5b56517d10bdda2ff5bd934a"
     }
   ],
   "record_type": "governance_review_manifest",

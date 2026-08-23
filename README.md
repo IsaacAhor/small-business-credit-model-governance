@@ -343,12 +343,15 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.10.0`. It repairs the SBA public-data
-adapter against the current official file layout and adds fixed-horizon outcome
-construction, explicit censoring and row dispositions, pre-monitoring model
-development, out-of-time performance review, numeric and categorical drift,
-source and output hashes, and validated not-applicable module states. The
-prior `v0.9.4` milestone ensures that the evidence-pack
+The latest documented milestone is `v0.11.0`. It adds a formal governance-
+validation bundle and an executable vendor-model oversight workflow with linked
+records, evidence checks, synthetic scenarios, deterministic reviewer reports,
+and installed package commands. The prior `v0.10.0` milestone repaired the SBA
+public-data adapter against the current official file layout and added fixed-
+horizon outcome construction, explicit censoring and row dispositions, pre-
+monitoring model development, out-of-time performance review, drift measures,
+source and output hashes, and validated not-applicable module states. The prior
+`v0.9.4` milestone ensures that the evidence-pack
 verifier recognizes the explanatory README in each curated example pack while
 continuing to reject every other undeclared file. It also adds verification
 coverage for every checked-in pack. The prior `v0.9.3` milestone added
@@ -391,8 +394,9 @@ See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.6.2.md`, `docs/releases/v0.6.3.md`,
 `docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`,
 `docs/releases/v0.9.0.md`, `docs/releases/v0.9.1.md`,
-`docs/releases/v0.9.2.md`, `docs/releases/v0.9.3.md`, and
-`docs/releases/v0.9.4.md`, and `docs/releases/v0.10.0.md`.
+`docs/releases/v0.9.2.md`, `docs/releases/v0.9.3.md`,
+`docs/releases/v0.9.4.md`, `docs/releases/v0.10.0.md`, and
+`docs/releases/v0.11.0.md`.
 
 ## Data Policy
 
@@ -412,8 +416,9 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 3. Extend monitoring regression controls beyond the implemented public-data
    drift and out-of-time performance path, while preserving version and
    evidence hashes.
-4. Build the executable vendor-oversight layer after its release version is
-   assigned; the current vendor run kit remains a documentation profile.
+4. Exercise the vendor-oversight contracts with permissioned evidence in an
+   institution-controlled environment and calibrate the configurable review
+   inputs to that actual use case.
 5. Keep the fair-lending/LDA track as a supporting risk-screening module and add
    rigor only where data, current law, and review scope support it.
 
@@ -455,7 +460,7 @@ This repository now contains:
   underwriting vendor due diligence, monitoring, adverse-action reason review,
   model-change review, issue tracking, and reviewer signoff, now paired with an
   executable synthetic vendor-oversight workflow
-- release strategy documentation and versioned release notes through `v0.10.0` for stable milestone preservation
+- release strategy documentation and versioned release notes through `v0.11.0` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

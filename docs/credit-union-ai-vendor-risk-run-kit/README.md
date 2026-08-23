@@ -42,7 +42,7 @@ The implementation sequence and source/applicability controls are defined in
 an executable, synthetic vendor-oversight workflow. It validates six linked
 vendor contracts against an existing model/version/decision/reason context and
 generates a deterministic reviewer summary, open-findings list, report, and
-SHA-256 manifest. This implementation is not yet a tagged release.
+SHA-256 manifest. The executable workflow is released in `v0.11.0`.
 
 Key public themes:
 

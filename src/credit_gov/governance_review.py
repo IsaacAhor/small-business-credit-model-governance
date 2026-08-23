@@ -36,11 +36,31 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def sha256_manifest_input(path: Path) -> str:
+    """Hash stable JSON meaning or normalized UTF-8 text for manifest inputs."""
+    if path.suffix.lower() == ".json":
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        content = json.dumps(
+            payload,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+    elif path.suffix.lower() in {".md", ".txt", ".csv", ".tsv"}:
+        text = path.read_text(encoding="utf-8")
+        content = text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+    else:
+        return sha256_file(path)
+    return hashlib.sha256(content).hexdigest()
+
+
+def write_text_lf(path: Path, content: str) -> None:
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(content)
+
+
 def write_json(path: Path, payload: dict[str, Any]) -> None:
-    path.write_text(
-        json.dumps(payload, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
+    write_text_lf(path, json.dumps(payload, indent=2, sort_keys=True) + "\n")
 
 
 def load_governance_payloads(dataset_dir: Path) -> dict[str, Any]:
@@ -250,7 +270,7 @@ def generate_governance_review(
         summary_path = staging_dir / SUMMARY_FILENAME
         report_path = staging_dir / REPORT_FILENAME
         write_json(summary_path, summary)
-        report_path.write_text(render_review_report(summary), encoding="utf-8")
+        write_text_lf(report_path, render_review_report(summary))
 
         input_filenames = sorted(
             set(CORE_INPUT_FILENAMES) | OPTIONAL_GOVERNANCE_FILENAMES
@@ -258,12 +278,13 @@ def generate_governance_review(
         manifest = {
             "record_type": "governance_review_manifest",
             "result_type": "reproducibility_manifest_not_validation_or_approval",
+            "hash_policy": "sha256_canonical_json_or_lf_text_inputs_raw_generated_outputs_v1",
             "model_id": summary["model"]["model_id"],
             "version_id": summary["model"]["version_id"],
             "inputs": [
                 {
                     "filename": filename,
-                    "sha256": sha256_file(dataset_dir / filename),
+                    "sha256": sha256_manifest_input(dataset_dir / filename),
                 }
                 for filename in input_filenames
             ],
