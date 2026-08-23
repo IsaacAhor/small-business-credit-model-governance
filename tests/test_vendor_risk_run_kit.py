@@ -28,6 +28,7 @@ from credit_gov.vendor_reporting import (  # noqa: E402
     generate_vendor_oversight_report,
     main as report_main,
     sha256_file,
+    sha256_manifest_input,
 )
 from credit_gov.vendor_risk import (  # noqa: E402
     load_vendor_payloads,
@@ -323,6 +324,7 @@ class VendorRiskRunKitTests(unittest.TestCase):
                 OPEN_FINDINGS_FILENAME,
                 MANIFEST_FILENAME,
             ):
+                self.assertNotIn(b"\r\n", (first / filename).read_bytes())
                 self.assertEqual(
                     (first / filename).read_bytes(),
                     (second / filename).read_bytes(),
@@ -334,11 +336,34 @@ class VendorRiskRunKitTests(unittest.TestCase):
         evidence_sources = {item["source"] for item in manifest["inputs"]}
         self.assertIn("vendor_evidence", evidence_sources)
         self.assertIn("core_evidence", evidence_sources)
+        self.assertEqual(
+            "sha256_canonical_json_or_lf_text_inputs_raw_generated_outputs_v1",
+            manifest["hash_policy"],
+        )
 
         self.assertNotIn("is compliant", report)
         self.assertNotIn("regulator approved", report)
         self.assertNotIn("production-ready", report)
         self.assertIn("not a legal opinion", report)
+
+    def test_manifest_input_hashes_ignore_platform_line_endings(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            root = Path(temporary)
+            json_lf = root / "lf.json"
+            json_crlf = root / "crlf.json"
+            text_lf = root / "lf.md"
+            text_crlf = root / "crlf.md"
+            json_lf.write_bytes(b'{"b": 2, "a": 1}\n')
+            json_crlf.write_bytes(b'{\r\n  "a": 1,\r\n  "b": 2\r\n}\r\n')
+            text_lf.write_bytes(b"alpha\nbeta\n")
+            text_crlf.write_bytes(b"alpha\r\nbeta\r\n")
+
+            self.assertEqual(
+                sha256_manifest_input(json_lf), sha256_manifest_input(json_crlf)
+            )
+            self.assertEqual(
+                sha256_manifest_input(text_lf), sha256_manifest_input(text_crlf)
+            )
 
     def test_existing_outputs_require_explicit_overwrite(self) -> None:
         with LocalTemporaryDirectory(TEMP_ROOT) as temporary:

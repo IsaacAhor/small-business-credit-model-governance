@@ -19,8 +19,11 @@ python scripts/build_vendor_risk_evidence_pack.py \
 
 The manifest hashes the five core-context inputs, six vendor-contract inputs,
 every distinct supporting-evidence file referenced by the records, and three
-substantive generated outputs. `README.md` is explanatory documentation outside
-that evidence set.
+substantive generated outputs. JSON inputs use a sorted, compact canonical form
+and UTF-8 text inputs normalize line endings to LF so input hashes remain stable
+across operating systems. Generated outputs are written with LF endings and
+hashed byte-for-byte. `README.md` is explanatory documentation outside that
+evidence set.
 
 All named organizations, products, contracts, reviewers, and decisions are
 synthetic. This evidence pack is not institutional adoption, independent

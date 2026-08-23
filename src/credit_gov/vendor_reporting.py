@@ -39,8 +39,31 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def sha256_manifest_input(path: Path) -> str:
+    """Hash stable JSON meaning or normalized UTF-8 text for cross-platform inputs."""
+    if path.suffix.lower() == ".json":
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        content = json.dumps(
+            payload,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+    elif path.suffix.lower() in {".md", ".txt", ".csv", ".tsv"}:
+        text = path.read_text(encoding="utf-8")
+        content = text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+    else:
+        return sha256_file(path)
+    return hashlib.sha256(content).hexdigest()
+
+
+def write_text_lf(path: Path, content: str) -> None:
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(content)
+
+
 def write_json(path: Path, payload: Any) -> None:
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    write_text_lf(path, json.dumps(payload, indent=2, sort_keys=True) + "\n")
 
 
 def _gap(gap_id: str, severity: str, description: str) -> dict[str, str]:
@@ -347,7 +370,11 @@ def supporting_evidence_manifest_entries(
             source = "repository_evidence"
             filename = reference
         entries.append(
-            {"source": source, "filename": filename, "sha256": sha256_file(resolved)}
+            {
+                "source": source,
+                "filename": filename,
+                "sha256": sha256_manifest_input(resolved),
+            }
         )
     return sorted(entries, key=lambda item: (item["source"], item["filename"]))
 
@@ -381,17 +408,18 @@ def generate_vendor_oversight_report(
         report_path = staging / REPORT_FILENAME
         findings_path = staging / OPEN_FINDINGS_FILENAME
         write_json(summary_path, summary)
-        report_path.write_text(render_vendor_report(summary), encoding="utf-8")
+        write_text_lf(report_path, render_vendor_report(summary))
         write_json(findings_path, summary["open_findings"])
         manifest = {
             "record_type": "vendor_oversight_manifest",
             "result_type": "reproducibility_manifest_not_validation_or_regulatory_approval",
+            "hash_policy": "sha256_canonical_json_or_lf_text_inputs_raw_generated_outputs_v1",
             "review_id": summary["review"]["review_id"],
             "inputs": [
                 {
                     "source": "core_context",
                     "filename": filename,
-                    "sha256": sha256_file(core_dir / filename),
+                    "sha256": sha256_manifest_input(core_dir / filename),
                 }
                 for filename in sorted(CORE_CONTEXT_FILENAMES)
             ]
@@ -399,7 +427,7 @@ def generate_vendor_oversight_report(
                 {
                     "source": "vendor_dataset",
                     "filename": filename,
-                    "sha256": sha256_file(vendor_dir / filename),
+                    "sha256": sha256_manifest_input(vendor_dir / filename),
                 }
                 for filename in sorted(VENDOR_INPUT_FILENAMES)
             ]
