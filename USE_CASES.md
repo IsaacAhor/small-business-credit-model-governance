@@ -11,6 +11,8 @@ and reviewer-ready evidence packs.
 
 Start with:
 
+- `docs/model-governance-validation-run-kit/README.md`
+- `examples/evidence-packs/model-governance-review/governance-review-report.md`
 - `docs/system-charter.md`
 - `docs/system-boundaries.md`
 - `docs/domain-object-model.md`
@@ -19,6 +21,12 @@ Start with:
 
 What to evaluate:
 
+- whether risk/materiality is linked to commensurate validation and monitoring
+  rigor
+- whether explainability methods record population boundaries, assumptions,
+  limitations, and review status
+- whether reviewer independence, open findings, disposition, and promotion
+  status are explicit rather than implied
 - whether the model/version/run relationships are traceable
 - whether monitoring thresholds are explicit
 - whether breaches and issues are linked to reviewer action

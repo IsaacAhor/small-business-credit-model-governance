@@ -49,7 +49,7 @@ class Phase1ValidationTests(unittest.TestCase):
     def test_demo_dataset_validates(self) -> None:
         result = validate_dataset(self.dataset_dir)
         self.assertTrue(result.ok, result.errors)
-        self.assertEqual(len(result.validated_files), 12)
+        self.assertEqual(len(result.validated_files), 16)
 
     def test_invalid_record_produces_specific_error(self) -> None:
         invalid_dataset = (

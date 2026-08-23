@@ -34,6 +34,80 @@ Key fields:
 - limitations
 - linked_validation_record
 
+### Model Risk Profile
+
+Represents a risk-based assessment of a model version and the rigor expected of
+its validation and monitoring. It is a governance assessment, not a regulatory
+classification.
+
+Key fields:
+
+- risk_profile_id
+- model_id
+- version_id
+- inherent_risk
+- model_exposure
+- model_materiality
+- aggregate_dependencies
+- validation_rigor
+- monitoring_rigor
+
+### Explainability Method Record
+
+Represents a governed explanation method and the assumptions and population
+boundary under which reviewers may use it.
+
+Key fields:
+
+- explainability_method_id
+- model_id
+- version_id
+- method_family
+- use_cases
+- reference_population
+- correlation_assumptions
+- directionality_review
+- known_limitations
+- status
+
+### Model Validation Record
+
+Represents the scope, independence, evidence, findings, disposition, and
+promotion status of a version-specific validation review. A developer
+self-review cannot establish independent approval.
+
+Key fields:
+
+- validation_id
+- model_id
+- version_id
+- validation_scope
+- independence_status
+- evidence_references
+- explainability_method_ids
+- findings
+- overall_disposition
+- promotion_allowed
+
+### Model Monitoring Plan
+
+Represents the risk-based protocol connecting a model version to its risk
+profile, validation, explainability methods, thresholds, metrics, limitations,
+change triggers, and owners.
+
+Key fields:
+
+- monitoring_plan_id
+- model_id
+- version_id
+- risk_profile_id
+- validation_id
+- threshold_set_id
+- explainability_method_ids
+- metrics
+- change_triggers
+- reason_monitoring_scope
+
 ### Threshold Set
 
 Represents the configured monitoring thresholds for a given version or review context.
@@ -183,6 +257,13 @@ Key fields:
 
 - one model registry record can have many model version records
 - one model version can reference one or more threshold sets
+- one model version can have a risk profile whose materiality determines the
+  minimum validation and monitoring rigor
+- one model version can have one or more governed explainability method records
+- one model validation record covers the governed explainability methods for a
+  version and records reviewer independence, findings, and promotion posture
+- one monitoring plan links the risk profile, validation, explainability
+  methods, and threshold set for the same model version
 - one monitoring run can process many application decision records
 - one decision record can be linked to zero or more override events
 - one decision record can reference zero or more adverse-action reason outputs

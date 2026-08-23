@@ -1,0 +1,53 @@
+{
+  "record_type": "model_monitoring_plan",
+  "monitoring_plan_id": "mnp-phase1-demo",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "risk_profile_id": "mrp-phase1-demo",
+  "validation_id": "val-phase1-demo",
+  "threshold_set_id": "thr-2026-05-monthly",
+  "plan_version": "demo-1.0",
+  "effective_date": "2026-05-01",
+  "review_cadence": "monthly demonstration run",
+  "explainability_method_ids": [
+    "xai-ranked-recorded-drivers"
+  ],
+  "metrics": [
+    {
+      "metric_name": "approval_rate",
+      "purpose": "Surface changes in the synthetic decision distribution for reviewer follow-up.",
+      "evidence_source": "application-decision-records.json",
+      "threshold_reference": "thr-2026-05-monthly",
+      "action_on_breach": "Record a breach and route it to Model Risk Governance for review."
+    },
+    {
+      "metric_name": "override_rate",
+      "purpose": "Track the share of synthetic decisions with a documented override event.",
+      "evidence_source": "override-events.json",
+      "threshold_reference": "thr-2026-05-monthly",
+      "action_on_breach": "Record a breach and route it to Credit Policy Review."
+    },
+    {
+      "metric_name": "reason_qa_exception_count",
+      "purpose": "Count missing, duplicated, or untraceable synthetic reason records.",
+      "evidence_source": "adverse-action-reason-outputs.json",
+      "threshold_reference": "review-any-exception",
+      "action_on_breach": "Open a reason-quality review item before accepting the run."
+    }
+  ],
+  "limitation_review_items": [
+    "Confirm all inputs remain synthetic and non-production.",
+    "Reassess whether the reference population remains fit for the stated demonstration scope.",
+    "Review open validation findings and method limitations."
+  ],
+  "change_triggers": [
+    "Model or threshold version changes",
+    "Explainability method or reason mapping changes",
+    "Input schema or monitoring metric changes"
+  ],
+  "reason_monitoring_scope": "Traceability, rank ordering, and quality exceptions in synthetic adverse-action reason records; not legal sufficiency or production performance.",
+  "escalation_owner": "Model Risk Governance",
+  "review_owner": "Independent reviewer pending assignment",
+  "status": "draft",
+  "result_type": "risk_based_monitoring_plan_not_regulatory_schedule"
+}

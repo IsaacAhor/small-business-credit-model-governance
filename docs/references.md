@@ -28,6 +28,20 @@ institution-specific review.
   historical reference):
   <https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm>
 
+## Practitioner Frameworks for ML Underwriting
+
+- FinRegLab, *Framework for Managing Machine Learning Models in Consumer Credit
+  Underwriting* (April 9, 2026):
+  <https://finreglab.org/research/framework-for-managing-machine-learning-models-in-consumer-credit-underwriting/>
+
+The FinRegLab publication reflects large-bank practices discussed through an OCC
+Project REACh working group. It is a useful technical reference for model design,
+explainability-method governance, independent validation, monitoring, and vendor
+oversight. It is not an OCC issuance or a binding legal requirement, and it
+predates the April 17, 2026 revised interagency model-risk guidance. Its consumer
+credit focus and large-bank experience should not be presented as automatically
+applicable to every small-business product or institution.
+
 ## AI Risk Management and Documentation
 
 - National Institute of Standards and Technology, Artificial Intelligence Risk
@@ -97,6 +111,9 @@ institution-specific review.
   notification, and reason-review concepts.
 - Model risk management guidance is relevant to validation, monitoring,
   documentation, governance, and controls.
+- FinRegLab's 2026 framework is a nonbinding practitioner reference. Use it to
+  inform technical questions and record design, not to assert a regulatory
+  mandate.
 - NIST AI RMF materials are relevant as general AI risk-management context and
   should be used carefully because they are not credit-specific legal authority.
 - NCUA AI and third-party-risk resources are relevant to credit-union vendor due

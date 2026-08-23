@@ -1,0 +1,40 @@
+[
+  {
+    "record_type": "explainability_method_record",
+    "explainability_method_id": "xai-ranked-recorded-drivers",
+    "model_id": "mdl-smb-credit-xgb",
+    "version_id": "ver-2026-05",
+    "method_name": "Ranked recorded-driver mapping",
+    "method_version": "demo-1.0",
+    "method_family": "recorded_driver_ranking",
+    "use_cases": [
+      "Synthetic adverse-action reason traceability",
+      "Reviewer inspection of reason ordering"
+    ],
+    "explanation_scope": "local",
+    "implementation_reference": "reason-code-mappings.json",
+    "reference_population": {
+      "population_id": "refpop-synthetic-recorded-decisions",
+      "description": "Synthetic decisions included in the monthly demonstration dataset.",
+      "selection_rationale": "The demonstration population is bounded to records shipped with the repository so results remain reproducible.",
+      "data_boundary": "Synthetic records only; no production applicants or institutional data."
+    },
+    "correlation_assumptions": [
+      "Recorded drivers are treated as reviewer inputs, not causal estimates.",
+      "No independence among recorded drivers is asserted."
+    ],
+    "aggregation_rationale": "Reasons retain record-level rank and are summarized only for governance review counts.",
+    "directionality_review": "pending",
+    "known_limitations": [
+      "The method records supplied drivers and does not reproduce a trained model's internal attribution process.",
+      "The demonstration does not establish legal sufficiency of any notice reason."
+    ],
+    "validation_test_references": [
+      "tests/test_reason_mapping.py",
+      "tests/test_reason_qa.py"
+    ],
+    "owner": "Model Risk Governance",
+    "status": "draft",
+    "result_type": "governed_explainability_method_not_legal_sufficiency_finding"
+  }
+]

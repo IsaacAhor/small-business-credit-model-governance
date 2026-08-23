@@ -1,0 +1,51 @@
+{
+  "record_type": "model_validation_record",
+  "validation_id": "val-phase1-demo",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "validation_date": "2026-05-26",
+  "validation_scope": [
+    "conceptual_soundness",
+    "implementation_verification",
+    "explainability_method",
+    "ongoing_monitoring"
+  ],
+  "validator_role": "Repository developer self-review",
+  "independence_status": "developer_self_review",
+  "reviewer_identity": "No independent reviewer assigned",
+  "evidence_references": [
+    "model-registry-record.json",
+    "model-version-record.json",
+    "score-outputs.json",
+    "reason-code-mappings.json",
+    "adverse-action-reason-outputs.json"
+  ],
+  "explainability_method_ids": [
+    "xai-ranked-recorded-drivers"
+  ],
+  "findings": [
+    {
+      "finding_id": "vf-independent-review-open",
+      "severity": "high",
+      "summary": "No independent model-risk or lending practitioner has reviewed the governance bundle.",
+      "status": "open",
+      "owner": "Model Risk Governance",
+      "target_date": "2026-12-31"
+    },
+    {
+      "finding_id": "vf-directionality-review-open",
+      "severity": "moderate",
+      "summary": "Directionality review for the recorded-driver method remains pending.",
+      "status": "open",
+      "owner": "Model Risk Governance",
+      "target_date": "2026-12-31"
+    }
+  ],
+  "limitations": [
+    "This is a developer self-review of synthetic demonstration artifacts.",
+    "No production model, institutional process, or real lending data was validated."
+  ],
+  "overall_disposition": "pending_independent_review",
+  "promotion_allowed": false,
+  "result_type": "validation_governance_record_not_compliance_or_approval_claim"
+}

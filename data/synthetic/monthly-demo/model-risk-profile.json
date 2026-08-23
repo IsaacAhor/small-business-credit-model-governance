@@ -1,0 +1,26 @@
+{
+  "record_type": "model_risk_profile",
+  "risk_profile_id": "mrp-phase1-demo",
+  "model_id": "mdl-smb-credit-xgb",
+  "version_id": "ver-2026-05",
+  "assessment_date": "2026-05-01",
+  "model_purpose": "Demonstrate reviewer-visible governance records for a synthetic small-business underwriting workflow.",
+  "inherent_risk": "moderate",
+  "model_exposure": "low",
+  "model_materiality": "moderate",
+  "materiality_rationale": "The demonstration covers decision scoring and adverse-action reason records, while using only synthetic inputs and no production decisions.",
+  "complexity_summary": "A synthetic score workflow with threshold decisions, ranked recorded drivers, and monthly monitoring outputs.",
+  "data_constraints": [
+    "All application, score, reason, and outcome records are synthetic.",
+    "The dataset is too small to establish production performance or population representativeness."
+  ],
+  "aggregate_dependencies": [
+    "Synthetic application-decision records",
+    "Versioned threshold set",
+    "Recorded-driver reason mapping"
+  ],
+  "validation_rigor": "standard",
+  "monitoring_rigor": "standard",
+  "owner": "Model Risk Governance",
+  "result_type": "governance_risk_assessment_not_regulatory_classification"
+}

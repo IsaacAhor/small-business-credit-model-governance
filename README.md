@@ -1,35 +1,33 @@
 # Small Business Credit Model Governance
 
 [![CI](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml/badge.svg)](https://github.com/IsaacAhor/small-business-credit-model-governance/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21614944.svg)](https://doi.org/10.5281/zenodo.21614944)
 
-This repository contains reproducible governance methods, documentation
-standards, and public-data run kits for model-risk monitoring, fair-lending
-review, and reviewer-ready documentation for machine-learning-based small
-business credit underwriting systems.
+This repository contains reproducible methods, monitoring protocols,
+documentation standards, and portable tools for model-risk governance and
+adverse-action reason accuracy and traceability in machine-learning-based small
+business credit underwriting systems. Fair-lending screening is included as a
+supporting risk-review module.
 
 ## For Reviewers
 
 This repository demonstrates repeatable governance methods for
 machine-learning-based small business credit underwriting systems. It shows how
-a lender, validator, auditor, regulator-facing reviewer, or
-policy/compliance professional could organize model records, threshold
-reviews, adverse-action reason QA, fair-lending screening triggers, issue
-registers, and reviewer-ready evidence packs using synthetic fixtures and
-clearly scoped public-data run kits.
+a lender, validator, auditor, regulator-facing reviewer, or policy/compliance
+professional could organize model and version records, risk and materiality
+assessments, explainability-method documentation, validation findings,
+threshold monitoring, adverse-action reason QA, change review, issue registers,
+and hash-verifiable evidence packs using synthetic fixtures and clearly scoped
+public-data run kits.
 
-The workflow generates adverse-action reasons from ranked decision drivers
-(then reviews them via reason QA), reports statistical significance on every
-fair-lending rate comparison (two-proportion z-test with Fisher's exact
-fallback), and opens a rate-screen escalation only when configured minimum
-group-size and statistical-significance gates pass. It estimates protected-class proxies via BISG (Bayesian Improved
-Surname Geocoding) with posterior-predictive bootstrap and measurement-error
-sensitivity disparity screening, and ships a
-portfolio-scale synthetic dataset (`data/synthetic/monthly-portfolio`, 320
-decisions) so screens and exceptions fire on realistic distributions. As a
-supporting risk-management component, it also includes a
-less-discriminatory-alternative (LDA) assessment step that scores a supplied
-candidate model against the baseline; see `docs/fair-lending-statistics.md`
-for the statistical methodology.
+The core workflow generates adverse-action reasons from ranked decision
+drivers, reviews their mapping and traceability, records validation independence
+and promotion posture, monitors versioned thresholds, and preserves input/output
+fingerprints. A portfolio-scale synthetic dataset
+(`data/synthetic/monthly-portfolio`, 320 decisions) exercises the broader review
+path. Supporting fair-lending modules add significance testing, BISG proxy
+estimation with sensitivity analysis, and a bounded LDA comparison; see
+`docs/fair-lending-statistics.md` for their methods and limitations.
 
 ## Start Here
 
@@ -43,6 +41,9 @@ If you are new to the repository, use these entry points:
 - `IMPLEMENTATION_GUIDE.md`
   A practical sequence for adapting the synthetic workflow into a governed
   monthly review pattern.
+- `docs/model-governance-validation-run-kit/README.md`
+  The formal risk-profile, explainability-method, validation, and monitoring
+  bundle, with its deterministic reviewer summary and candid gap record.
 - `examples/evidence-packs/monthly-portfolio/README.md`
   A curated portfolio-scale evidence-pack walkthrough (320 synthetic
   decisions, with statistical significance results, BISG proxy screening, and
@@ -70,16 +71,18 @@ brings together public, reviewable artifacts that support a governance workflow
 for:
 
 - model records and documentation standards
+- model risk/materiality, explainability-method, validation, and monitoring-plan
+  records
 - threshold configuration and monitoring review
 - adverse-action reason generation and reason accuracy QA
-- fair-lending screening with statistical significance testing, explicit
-  inconclusive outcomes, and gate-supported escalation triggers
-- BISG protected-class proxy estimation with posterior-predictive bootstrap and
-  measurement-error sensitivity disparity screening
+- model-change review and validation findings
 - issue tracking and evidence-pack assembly
 - ongoing model-risk oversight using deterministic demonstration inputs
 - credit-union AI underwriting vendor-risk review, using public NCUA resources
   as source grounding for due diligence, controls, monitoring, and oversight
+- supporting fair-lending screening with statistical significance testing,
+  explicit inconclusive outcomes, BISG sensitivity analysis, and bounded LDA
+  comparison
 
 ## Who This Repository Is For
 
@@ -126,9 +129,9 @@ adapt the workflow. Citation metadata is provided in `CITATION.cff`.
 
 This project provides a reproducible governance evidence engine for
 machine-learning-based small business credit underwriting systems. It focuses on
-structured model records, monitoring workflows, adverse-action reason review,
-fair-lending screening triggers, model-change review, and reviewer-ready output
-packages.
+structured model-risk and validation records, monitoring workflows,
+adverse-action reason accuracy and traceability review, model-change review,
+reviewer-ready output packages, and supporting fair-lending screening triggers.
 
 The repository is organized as a standalone technical project with public,
 reviewable artifacts: schemas, templates, synthetic fixtures, public-data run
@@ -138,14 +141,18 @@ kits, tests, and configuration-driven workflow code.
 
 - monthly monitoring runs that compute metrics, identify threshold breaches, and
   generate evidence packs
+- formal model-risk, explainability-method, validation, and monitoring-plan
+  records with cross-file relationship checks
 - adverse-action reason review that tests mapping quality, specificity, and
   traceability
-- fair-lending screening that flags disparity indicators for governance review
 - change-review workflows for model versions, thresholds, and reason-code
   mappings
+- reviewer-preparation summaries that surface independence gaps, open findings,
+  method limitations, and promotion posture without claiming validation
 - AI vendor due-diligence and monitoring review for credit-union
   small-business or member-business underwriting workflows
-- independent validation review supported by reviewer-facing summary artifacts
+- supporting fair-lending screening that flags disparity indicators for
+  governance review
 
 ## Scope
 
@@ -168,12 +175,14 @@ It does not assume a fixed modeling stack at this stage.
 - `START_HERE.md`, `USE_CASES.md`, and `IMPLEMENTATION_GUIDE.md`
   Reviewer and adopter entry points.
 - `schemas/`
-  Phase 1 JSON contracts for governed records and evidence-pack manifests.
+  JSON contracts for core evidence records and the optional formal governance
+  bundle.
 - `notebooks/`
   Implementation notes and future analytical notebooks.
 - `src/`
-  Reusable validation, monitoring, reason-generation, LDA assessment, and
-  model-change validation code.
+  Reusable contract validation, governance-review, monitoring,
+  reason-generation, model-change validation, and supporting LDA assessment
+  code.
 - `data/synthetic/`
   Deterministic demonstration inputs for validation, monitoring, and portfolio-scale workflow runs.
 - `data/reference/bisg/`
@@ -181,7 +190,9 @@ It does not assume a fixed modeling stack at this stage.
 - `examples/`
   Curated synthetic example outputs that can be reviewed without running code.
 - `tests/`
-  Validation checks for schemas, typed models, synthetic-data integrity, monitoring, reason QA, fair-lending screening, reason generation, LDA assessment, and model-change validation.
+  Validation checks for schemas, typed models, governance relationships,
+  deterministic reports, synthetic-data integrity, monitoring, reason QA,
+  reason generation, model-change validation, and supporting screening modules.
 - `templates/`
   Checklists and governance templates.
 - `governance/`
@@ -270,6 +281,12 @@ Run Phase 1 data-contract validation:
 
 ```bash
 python scripts/validate_phase1.py
+```
+
+Generate the deterministic formal governance review summary:
+
+```bash
+python scripts/run_governance_review.py data/synthetic/monthly-demo review-output
 ```
 
 Run the monthly monitoring workflow against the default synthetic dataset:
@@ -374,18 +391,23 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 
 ## Near-Term Priorities
 
-1. Complete the Phase 8 analytical-rigor track: an LDA step that searches
-   candidate models and a reproducible run on a recognizable public dataset.
-2. Extend regression controls beyond the implemented public-data drift and
-   out-of-time performance path.
-3. Obtain external practitioner review of the credit-union AI vendor-risk run kit
-   from credit-union, vendor-risk, model-risk, compliance, or counsel reviewers.
-4. Refine the framework and practitioner-facing article after the portfolio-scale workflow produces report excerpts.
-5. Keep public PR, commit, release, and validation history current as implementation milestones land.
+1. Obtain an independent model-risk or lending-practitioner review of a tagged
+   governance bundle and preserve the review scope, identity, findings, and
+   disposition.
+2. Exercise the explainability-method contract against an implemented model and
+   fit-for-purpose reference population, including directionality, correlation,
+   reproducibility, and outcome-analysis evidence.
+3. Extend monitoring regression controls beyond the implemented public-data
+   drift and out-of-time performance path, while preserving version and
+   evidence hashes.
+4. Build the executable vendor-oversight layer after its release version is
+   assigned; the current vendor run kit remains a documentation profile.
+5. Keep the fair-lending/LDA track as a supporting risk-screening module and add
+   rigor only where data, current law, and review scope support it.
 
-The core Phase 5 change-and-validation workflow is now implemented; the remaining
-gaps above are analytical-rigor and documentation work, not change-governance
-plumbing.
+The formal governance plumbing is now implemented. The largest remaining gap is
+external validation, which code, synthetic fixtures, and self-authored reports
+cannot supply.
 
 ## Current Status
 
@@ -398,6 +420,9 @@ This repository now contains:
 - Phase 0 system design documents for a governance evidence engine
 - Phase 1 JSON schemas, typed validation models, deterministic synthetic demo records, and validation tests
 - Phase 1A cross-file evidence-integrity validation for the synthetic demo records
+- an optional formal governance bundle covering risk/materiality,
+  explainability-method assumptions, validation independence/findings, and a
+  linked monitoring plan, plus deterministic hash-verifiable review outputs
 - a Phase 2 one-command synthetic monthly monitoring workflow that emits metrics, breaches, issues, and reviewer-ready evidence packs
 - a Phase 3 adverse-action reason QA workflow that checks generated reason outputs, records traceable exceptions, and adds reason QA reports to evidence packs
 - a Phase 4 fair-lending screening workflow that applies configured comparison groups, creates escalation findings, and adds reviewer notes to evidence packs
@@ -421,7 +446,7 @@ This repository now contains:
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 
-With Phase 5 implemented, the current priority is the Phase 8 analytical-rigor
-track (see `docs/system-implementation-roadmap.md`): an LDA step that searches
-candidate models and a reproducible run on a recognizable public dataset, plus
-additional regression controls beyond the implemented public-data drift path.
+The current priority is independent review and method-level validation of the
+core governance and adverse-action reason path. Additional monitoring regression
+controls and executable vendor oversight follow. Fair-lending and LDA remain
+supporting risk-screening work rather than the repository's headline.

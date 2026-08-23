@@ -47,6 +47,19 @@ governance evidence engine under active development, not a production release.
 Patch releases can be used for material packaging, documentation, or
 reviewability improvements that do not change the implementation phase.
 
+## Unreleased Development Milestone
+
+The current branch adds an optional formal governance bundle for model
+risk/materiality, explainability-method assumptions and population boundaries,
+validation independence/findings, and a linked monitoring plan. It also adds a
+deterministic reviewer summary, report, and SHA-256 manifest. No public version
+number is assigned until the release scope and gates are reviewed.
+
+This work is not yet a tagged release. It does not establish independent
+validation, production use, institutional adoption, legal compliance, or
+regulatory approval. The checked-in fixture deliberately reports a developer
+self-review, open findings, and promotion not allowed.
+
 ## Current Release
 
 The first versioned milestone was `v0.4.0`, because the repository contained

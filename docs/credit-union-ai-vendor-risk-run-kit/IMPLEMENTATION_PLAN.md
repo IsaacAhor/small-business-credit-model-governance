@@ -4,7 +4,7 @@
 
 This document is the public build authority for extending the Credit Union AI
 Vendor-Risk Run Kit from a documentation profile into a reproducible, synthetic
-vendor-oversight workflow. It defines the release sequence, scope, data
+vendor-oversight workflow. It defines milestone sequencing, scope, data
 contracts, validation behavior, fixture set, test coverage, and release gates.
 
 The work concerns AI or ML-enabled third-party products used in small-business
@@ -15,17 +15,18 @@ This is a technical implementation specification. It is not legal advice, a
 compliance certification, an NCUA requirement, or evidence of credit-union
 adoption or external validation.
 
-## Release Sequence
+## Milestone Sequence
 
-The work is split into two releases.
+The work is split into a completed documentation milestone and a future
+executable release whose version will be assigned during release planning.
 
-| Release | Purpose | Executable vendor oversight |
+| Milestone | Purpose | Executable vendor oversight |
 | --- | --- | --- |
 | v0.9.2 | Correct material source-mapping and reviewability gaps in v0.9.1 and add this implementation plan. | No |
-| v0.10.0 | Implement synthetic vendor-risk records, validation, evidence-pack generation, fixtures, and tests. | Yes |
+| Future vendor-oversight release (version unassigned) | Implement synthetic vendor-risk records, validation, evidence-pack generation, fixtures, and tests. | Yes |
 
-Do not skip v0.9.2. It establishes the accurate public baseline for the
-executable build. Neither release may be described as production deployment,
+The v0.9.2 milestone establishes the accurate public baseline for the
+executable build. Neither milestone may be described as production deployment,
 legal compliance, regulator approval, credit-union adoption, or external
 validation.
 
@@ -147,10 +148,12 @@ does not claim to implement the Phase 6 workflow.
   representations, or confidential information.
 - Existing repository validation and tests pass.
 
-## v0.10.0 Executable Vendor-Oversight Build
+## Future Executable Vendor-Oversight Build
 
-v0.10.0 adds a separate vendor-risk layer. Do not silently extend generic model
-records where linked vendor records preserve scope and backward compatibility.
+The future release adds a separate vendor-risk layer. Do not silently extend
+generic model records where linked vendor records preserve scope and backward
+compatibility. Its version remains unassigned because `v0.10.0` was used for
+the fixed-horizon SBA public-data monitoring release.
 
 ### Data Contracts
 
@@ -266,11 +269,12 @@ Tests must cover:
 6. Integrate with existing monitoring, change-review, reason-mapping, and
    evidence-pack-manifest workflows.
 7. Add package commands and package-resource tests.
-8. Update public documentation, examples, release notes, and version metadata
-   for v0.10.0.
+8. Assign a release version, then update public documentation, examples, release
+   notes, and version metadata consistently.
 9. Run repository validation, focused/full tests, package build, and command
    smoke tests through the pull-request workflow.
-10. Tag and publish v0.10.0 only after all release gates pass.
+10. Tag and publish the assigned vendor-oversight release only after all release
+    gates pass.
 
 External practitioner feedback may improve this plan, but it does not substitute
 for these implementation/verification gates. Completing the code likewise does
@@ -278,17 +282,17 @@ not establish adoption or external validation.
 
 ## Definition Of Done
 
-### v0.9.2
+### v0.9.2 Documentation Baseline
 
-- [ ] Documentation changes in this plan's v0.9.2 scope are complete.
-- [ ] Source mappings distinguish binding, guidance, voluntary, and
+- [x] Documentation changes in this plan's v0.9.2 scope are complete.
+- [x] Source mappings distinguish binding, guidance, voluntary, and
   institution-specific material.
-- [ ] New public regulatory claims have been rechecked and scoped.
-- [ ] Documentation links and existing validation/tests pass.
-- [ ] Pull request, merge, tag, and release note identify documentation and
+- [x] New public regulatory claims were rechecked and scoped for that release.
+- [x] Documentation links and repository validation/tests passed for that release.
+- [x] Pull request, merge, tag, and release note identify documentation and
   reviewability work only.
 
-### v0.10.0
+### Future Vendor-Oversight Release (Version Unassigned)
 
 - [ ] All six vendor-risk schemas, typed models, and relationship validators are
   implemented and packaged.
