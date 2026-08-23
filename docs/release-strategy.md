@@ -40,6 +40,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.9.3`: sample-aware fair-lending escalation gates and CI evidence-verification coverage
 - `v0.9.4`: curated evidence-pack verification completeness patch
 - `v0.10.0`: fixed-horizon SBA public-data monitoring, out-of-time performance, drift, provenance, and applicability controls
+- `v0.11.0`: executable formal governance review and vendor-model oversight
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
@@ -47,21 +48,20 @@ governance evidence engine under active development, not a production release.
 Patch releases can be used for material packaging, documentation, or
 reviewability improvements that do not change the implementation phase.
 
-## Unreleased Development Milestone
+## v0.11.0 Release Scope
 
-The current unreleased work adds an optional formal governance bundle for model
+Version 0.11.0 adds an optional formal governance bundle for model
 risk/materiality, explainability-method assumptions and population boundaries,
 validation independence/findings, and a linked monitoring plan. It also adds a
 separate executable vendor-oversight layer: six linked contracts, evidence and
 context validation, synthetic opaque/change/incident/notice fixtures,
-deterministic reviewer outputs, and package commands. No public version number
-is assigned until the release scope and gates are reviewed.
+deterministic reviewer outputs, and package commands.
 
-This work is not yet a tagged release. It does not establish independent
-external validation, production use, institutional adoption, legal compliance,
-vendor reliability, or regulatory approval. The governance fixture deliberately
-reports a developer self-review, open findings, and promotion not allowed; the
-vendor fixtures use explicitly fictional reviewers and evidence.
+This release does not establish independent external validation, production
+use, institutional adoption, legal compliance, vendor reliability, or
+regulatory approval. The governance fixture deliberately reports a developer
+self-review, open findings, and promotion not allowed; the vendor fixtures use
+explicitly fictional reviewers and evidence.
 
 ## Current Release
 
@@ -76,7 +76,9 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current documented milestone is `v0.10.0`. It repairs the SBA public-data
+The current documented milestone is `v0.11.0`. It adds the formal governance-
+validation and executable vendor-model oversight capabilities described above.
+The prior documented milestone is `v0.10.0`. It repairs the SBA public-data
 workflow against the current official 7(a)/504 file layout. The adapter now
 normalizes current status values, constructs fixed-horizon outcomes from event
 and as-of dates, separates row dispositions, fits only a pre-monitoring
@@ -89,7 +91,7 @@ reproducibility controls. It does not demonstrate underwriting validity,
 institutional adoption, independent validation, production deployment, legal
 compliance, regulatory approval, field recognition, or examiner acceptance.
 
-The prior documented milestone is `v0.9.4`. It recognizes an explanatory
+The prior milestone `v0.9.4` recognizes an explanatory
 `README.md` in curated example packs as documentation outside the evidence set,
 while continuing to reject every other undeclared file. It also verifies every
 checked-in evidence pack in the automated test suite.

@@ -24,6 +24,7 @@ from credit_gov.governance_review import (  # noqa: E402
     generate_governance_review,
     main,
     sha256_file,
+    sha256_manifest_input,
 )
 from credit_gov.schemas import validate_dataset  # noqa: E402
 
@@ -151,6 +152,15 @@ class ModelGovernanceReviewTests(unittest.TestCase):
                 self.assertEqual(
                     output["sha256"], sha256_file(first / output["filename"])
                 )
+            for manifest_input in manifest["inputs"]:
+                self.assertEqual(
+                    manifest_input["sha256"],
+                    sha256_manifest_input(DATASET / manifest_input["filename"]),
+                )
+            self.assertEqual(
+                "sha256_canonical_json_or_lf_text_inputs_raw_generated_outputs_v1",
+                manifest["hash_policy"],
+            )
             summary = json.loads((first / SUMMARY_FILENAME).read_text(encoding="utf-8"))
 
         self.assertFalse(summary["validation"]["promotion_allowed"])
@@ -159,6 +169,37 @@ class ModelGovernanceReviewTests(unittest.TestCase):
             any(gap["gap_id"] == "independent-validation" for gap in summary["review_gaps"])
         )
         self.assertIn("not_validation_or_approval", summary["result_type"])
+
+    def test_manifest_and_outputs_are_stable_across_json_line_endings(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            root = Path(temporary)
+            dataset = self.copy_dataset(root)
+            input_path = dataset / "explainability-method-records.json"
+            lf_text = input_path.read_text(encoding="utf-8")
+            input_path.write_bytes(lf_text.replace("\n", "\r\n").encode("utf-8"))
+
+            expected = root / "expected"
+            actual = root / "actual"
+            generate_governance_review(DATASET, expected)
+            generate_governance_review(dataset, actual)
+
+            for filename in (SUMMARY_FILENAME, REPORT_FILENAME, MANIFEST_FILENAME):
+                self.assertEqual(
+                    (expected / filename).read_bytes(),
+                    (actual / filename).read_bytes(),
+                )
+
+    def test_checked_in_example_matches_fresh_generation(self) -> None:
+        checked_in = ROOT / "examples" / "evidence-packs" / "model-governance-review"
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            generated = Path(temporary) / "generated"
+            generate_governance_review(DATASET, generated)
+
+            for filename in (SUMMARY_FILENAME, REPORT_FILENAME, MANIFEST_FILENAME):
+                self.assertEqual(
+                    (checked_in / filename).read_bytes(),
+                    (generated / filename).read_bytes(),
+                )
 
     def test_existing_outputs_require_explicit_overwrite(self) -> None:
         with LocalTemporaryDirectory(TEMP_ROOT) as temporary:

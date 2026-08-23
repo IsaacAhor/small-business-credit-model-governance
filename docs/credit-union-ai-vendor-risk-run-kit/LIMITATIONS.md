@@ -1,7 +1,8 @@
 # Limitations
 
-This run kit is a public documentation profile for credit-union review of
-AI-enabled underwriting vendors. It should be cited carefully.
+This run kit is a public documentation profile, paired with an executable
+synthetic oversight workflow, for credit-union review of AI-enabled underwriting
+vendors. It should be cited carefully.
 
 ## What It Is
 

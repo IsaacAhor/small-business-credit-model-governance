@@ -17,17 +17,17 @@ adoption or external validation.
 
 ## Milestone Sequence
 
-The work is split into a completed documentation milestone and a future
-executable release whose version will be assigned during release planning.
+The work is split into a completed documentation milestone and a separately
+versioned executable milestone.
 
 | Milestone | Purpose | Executable vendor oversight |
 | --- | --- | --- |
 | v0.9.2 | Correct material source-mapping and reviewability gaps in v0.9.1 and add this implementation plan. | No |
-| Unreleased vendor-oversight build (version unassigned) | Implements synthetic vendor-risk records, validation, evidence-pack generation, fixtures, commands, and tests; tag and release remain separate gates. | Yes |
+| v0.11.0 | Implements synthetic vendor-risk records, validation, evidence-pack generation, fixtures, commands, and tests. | Yes |
 
-The v0.9.2 milestone established the accurate public baseline. The executable
-build is now implemented in the repository but remains version-unassigned and
-untagged. Neither milestone may be described as production deployment, legal
+The v0.9.2 milestone established the accurate public baseline. Version 0.11.0
+adds the separately reviewed executable build. Neither milestone may be
+described as production deployment, legal
 compliance, regulator approval, credit-union adoption, or external validation.
 
 ## Scope And Non-Goals
@@ -150,10 +150,9 @@ does not claim to implement the Phase 6 workflow.
 
 ## Executable Vendor-Oversight Build
 
-The version-unassigned build adds a separate vendor-risk layer. Do not silently extend
+Version 0.11.0 adds a separate vendor-risk layer. It does not silently extend
 generic model records where linked vendor records preserve scope and backward
-compatibility. Its version remains unassigned because `v0.10.0` was used for
-the fixed-horizon SBA public-data monitoring release.
+compatibility.
 
 ### Data Contracts
 
@@ -292,7 +291,7 @@ not establish adoption or external validation.
 - [x] Pull request, merge, tag, and release note identify documentation and
   reviewability work only.
 
-### Unreleased Vendor-Oversight Build (Version Unassigned)
+### v0.11.0 Vendor-Oversight Build
 
 - [x] All six vendor-risk schemas, typed models, and relationship validators are
   implemented and packaged.
@@ -303,7 +302,7 @@ not establish adoption or external validation.
 - [x] Existing workflows remain backward compatible and their tests pass.
 - [x] Full repository validation, test suite, package build, and command smoke
   tests pass in CI for pull request #28.
-- [ ] A separately approved tag and release note accurately identify a
+- [x] A separately approved tag and release note accurately identify a
   synthetic technical demonstration and preserve every non-claim.
 
 ## Change Control

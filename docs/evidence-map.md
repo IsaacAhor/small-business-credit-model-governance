@@ -11,7 +11,7 @@ overclaiming from synthetic demonstrations.
 | `docs/framework-draft.md` | Method design for governance, monitoring, documentation, and oversight | Peer-reviewed publication status or field adoption |
 | `docs/ai-rmf-alignment.md` | Practical mapping of the workflow to NIST AI RMF Govern, Map, Measure, and Manage functions | NIST endorsement, a formal AI RMF profile, regulatory approval, or compliance certification |
 | `docs/model-governance-validation-run-kit/` | Formal synthetic records for model risk/materiality, explainability-method assumptions, validation independence/findings, linked monitoring, and deterministic gap reporting | Independent validation, production model fitness, institutional adoption, deployment approval, or regulatory compliance |
-| `docs/credit-union-ai-vendor-risk-run-kit/` | NCUA-informed reviewer profile for AI underwriting vendor due diligence, monitoring, adverse-action reason review, model-change review, issue tracking, and signoff | NCUA approval, credit-union adoption, vendor validation, legal compliance, examiner acceptance, or production use |
+| `docs/credit-union-ai-vendor-risk-run-kit/` and the linked vendor commands | NCUA-informed reviewer profile plus executable synthetic contracts, relationship/evidence validation, monitoring and event records, notice controls, and deterministic reports | NCUA approval, credit-union adoption, real-vendor validation, legal compliance, examiner acceptance, or production use |
 | `docs/adverse-action-reason-run-kit/` | One-folder reviewer and operator landing path for the adverse-action reason benchmark | Real-world validation, legal compliance, lender adoption, or production notice accuracy |
 | `docs/adverse-action-reason-run-kit/METHOD.md` | Method design for reason generation, mapping, QA, and evidence packaging under Regulation B section 1002.9 | Legal sufficiency of any actual notice or current lender compliance |
 | `docs/adverse-action-reason-run-kit/PUBLIC_DATA_LIMITS.md` | Public-data boundary for SBA, PPP, CRA, HMDA, and 1071 use | That public data proves small-business adverse-action reason accuracy |
@@ -42,5 +42,6 @@ overclaiming from synthetic demonstrations.
 - Public repository history can show execution and development discipline, but
   it does not by itself show external recognition or adoption.
 - The credit-union AI vendor-risk run kit should be described as a public
-  documentation profile informed by NCUA resources, not as NCUA approval,
-  credit-union adoption, or examiner acceptance.
+  documentation profile paired with an executable synthetic oversight workflow,
+  not as NCUA approval, credit-union adoption, real-vendor validation, or
+  examiner acceptance.

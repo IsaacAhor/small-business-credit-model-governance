@@ -9,11 +9,11 @@ regulatory approval, or independent validation by itself.
 
 ## Current Release Status
 
-As of 2026-07-26, `v0.9.0` has been built locally, checked with Twine,
+As of 2026-08-23, `v0.11.0` has been built locally, checked with Twine,
 installed from the generated wheel, smoke-tested through installed console
 commands, tagged, pushed, and published as a GitHub Release:
 
-[v0.9.0 GitHub Release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/tag/v0.9.0)
+[v0.11.0 GitHub Release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/tag/v0.11.0)
 
 TestPyPI and PyPI upload have not been performed. The steps below are the
 controlled process for a future package-index upload.
@@ -27,6 +27,8 @@ controlled process for a future package-index upload.
 - Packaged schema resources: `src/credit_gov/schemas/json/`
 - Packaged BISG reference resources: `src/credit_gov/reference/bisg/`
 - Optional public-data commands: `credit-gov-sba-to-monitoring` and `credit-gov-make-sba-fixture`
+- Formal governance command: `credit-gov-governance-review`
+- Vendor oversight commands: `credit-gov-vendor-validate` and `credit-gov-vendor-report`
 
 The root `schemas/` and `data/reference/bisg/` folders remain reviewer-facing
 copies. `scripts/validate_repository.py` checks that those files stay synced
@@ -74,7 +76,7 @@ Use TestPyPI before uploading to the real package index:
 
 ```bash
 python -m twine upload --repository testpypi dist/*
-python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ credit-gov==0.9.0
+python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ credit-gov==0.11.0
 ```
 
 Run the same installed-command smoke checks after the TestPyPI install.

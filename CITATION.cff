@@ -13,21 +13,17 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.21614944"
     description: "Concept DOI resolving to the latest archived version"
-  - type: doi
-    value: "10.5281/zenodo.22062395"
-    description: "Archived version v0.10.0"
 abstract: >-
   A governance evidence engine for machine-learning-based small business
   credit underwriting. It maintains structured model and version records,
-  evaluates configured monitoring thresholds, generates and reviews
-  adverse-action reasons for accuracy and traceability under Regulation B
-  12 CFR 1002.9, runs model-change and validation review, and assembles
-  reviewer-ready evidence packs with input and output fingerprints. It
-  ships deterministic synthetic fixtures and a public-data run kit for
-  fixed-horizon, out-of-time model-risk monitoring. Fair-lending screening
-  with statistical significance testing, BISG protected-class proxy
-  estimation, and less-discriminatory-alternative assessment are included
-  as supporting risk-management components.
+  evaluates configured monitoring thresholds, generates and reviews adverse-
+  action reasons for accuracy and traceability under Regulation B 12 CFR
+  1002.9, records formal governance-validation state, and assembles reviewer-
+  ready evidence packs with input and output fingerprints. It includes an
+  executable vendor-model oversight workflow, deterministic synthetic fixtures,
+  and a public-data run kit for fixed-horizon, out-of-time model-risk
+  monitoring. Fair-lending screening remains a supporting risk-management
+  component.
 keywords:
   - model-governance
   - model-risk-management
@@ -38,5 +34,5 @@ keywords:
   - fair-lending
   - responsible-ai
 license: Apache-2.0
-version: 0.10.0
-date-released: "2026-08-22"
+version: 0.11.0
+date-released: "2026-08-23"

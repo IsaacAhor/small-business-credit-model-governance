@@ -45,6 +45,9 @@ jobs:
           credit-gov verify-evidence "$evidence_pack"
           credit-gov-verify-evidence "$evidence_pack"
           credit-gov change-review data/synthetic/monthly-portfolio
+          credit-gov-governance-review data/synthetic/monthly-demo .tmp-ci-governance-review
+          credit-gov-vendor-validate data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo
+          credit-gov-vendor-report data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo .tmp-ci-vendor-review
 
       - name: Verify expected starter files exist
         run: python scripts/validate_repository.py

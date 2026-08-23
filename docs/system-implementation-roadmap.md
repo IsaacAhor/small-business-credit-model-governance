@@ -378,12 +378,12 @@ Status:
   execution authority for the documentation correction patch and the
   subsequent executable vendor-oversight build.
   The v0.9.2 patch improved source-qualified reviewer documentation only.
-- The subsequent version-unassigned executable build now adds six strict
+- Version 0.11.0 adds six strict
   vendor contracts, typed validation models, linked evidence and context
   checks, heightened-monitoring configuration, valid and intentionally invalid
   fixtures, deterministic reviewer outputs, package commands, and regression
   tests.
-- The workflow remains synthetic and untagged. It does not establish a live
+- The workflow remains synthetic and externally unvalidated. It does not establish a live
   vendor's transparency, performance, safety, compliance, institutional use,
   or independent external validation.
 
@@ -395,6 +395,8 @@ Acceptance criteria:
 
 Remaining follow-up work:
 
+- add and test a challenger or benchmark comparison hook when an actual vendor
+  review question and suitable evidence justify it
 - obtain independent practitioner review of a tagged vendor-oversight artifact
 - exercise the contracts with permissioned, nonpublic vendor evidence in an
   institution-controlled environment

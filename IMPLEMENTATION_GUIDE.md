@@ -172,6 +172,7 @@ artifacts to demonstrate the control pattern. A production adaptation would need
 institution-specific owners, evidence retention rules, legal review, validation
 standards, and a formal approval workflow.
 
-The next milestone is the Phase 8 analytical-rigor track: an LDA candidate search
-and a reproducible run on a recognizable public dataset, plus drift logic and
-regression controls.
+The next priority is independent practitioner review of one exact tagged
+artifact, followed by method-level testing and additional monitoring regression
+controls. Fair-lending and LDA work remains supporting and should not displace
+review of the core governance, adverse-action reason, and vendor-oversight path.
