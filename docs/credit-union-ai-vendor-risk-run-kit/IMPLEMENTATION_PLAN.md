@@ -301,8 +301,8 @@ not establish adoption or external validation.
 - [x] Generated reports surface limitations, missing evidence, and pending
   decisions without a compliance/approval conclusion.
 - [x] Existing workflows remain backward compatible and their tests pass.
-- [ ] Full repository validation, test suite, package build, and command smoke
-  tests pass in CI.
+- [x] Full repository validation, test suite, package build, and command smoke
+  tests pass in CI for pull request #28.
 - [ ] A separately approved tag and release note accurately identify a
   synthetic technical demonstration and preserve every non-claim.
 
