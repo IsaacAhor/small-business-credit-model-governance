@@ -1,0 +1,91 @@
+{
+  "inputs": [
+    {
+      "filename": "application-decision-records.json",
+      "sha256": "3c558f16ff3b26fbde6b9d01baf2b7e50158a12025e4f286f3ea2c1b789979da",
+      "source": "core_context"
+    },
+    {
+      "filename": "model-registry-record.json",
+      "sha256": "cd8c21fea34d02a338ab8ed14dcdb50c3a8f6dddb3197f4f622b3c4941ad8640",
+      "source": "core_context"
+    },
+    {
+      "filename": "model-version-record.json",
+      "sha256": "97686c4be048f47d6619f0c595c354fb7627efc46ee1243097841d7c816e1b6f",
+      "source": "core_context"
+    },
+    {
+      "filename": "reason-code-mappings.json",
+      "sha256": "924e0ac0aa0deffdadf929461ed72378e01a70c7a57ddbb21f6fcb52756e3ce9",
+      "source": "core_context"
+    },
+    {
+      "filename": "threshold-set.json",
+      "sha256": "063fbdd6a507ffe7ce6869a8006088ff04ff3b6573dcb84871701d2179616435",
+      "source": "core_context"
+    },
+    {
+      "filename": "business-credit-notice-controls.json",
+      "sha256": "fd3b469b9d0e295dcdfb8474a0ef238fddf5a0473f45d435f7b21f2f96b762e2",
+      "source": "vendor_dataset"
+    },
+    {
+      "filename": "vendor-event-records.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "source": "vendor_dataset"
+    },
+    {
+      "filename": "vendor-model-components.json",
+      "sha256": "b31f8326cc3f8909a807e4e6446b5ef3875073a225d8aeced3f87aadaaabdf75",
+      "source": "vendor_dataset"
+    },
+    {
+      "filename": "vendor-model-limitations.json",
+      "sha256": "2c291a36e468f4a85fe5b8e558699fc0f22e9e4cca6a7ec2eb53a3bfab7dc21e",
+      "source": "vendor_dataset"
+    },
+    {
+      "filename": "vendor-oversight-config.json",
+      "sha256": "f08f247b83d2c31e1ac5820b3c1c51cdbe9caef05f4ae56a7eea8c875c7e0424",
+      "source": "vendor_dataset"
+    },
+    {
+      "filename": "vendor-risk-review-record.json",
+      "sha256": "0b80638dc211f80fa02d92a04b89a15052083539ab25c1ffd5026ddb806d15b8",
+      "source": "vendor_dataset"
+    },
+    {
+      "filename": "adverse-action-reason-outputs.json",
+      "sha256": "3a354e15a7d67a1b1af0a30894100f5b8fab44946d32320a94f250f24a811126",
+      "source": "core_evidence"
+    },
+    {
+      "filename": "synthetic-applicability-note.md",
+      "sha256": "2ee75b3868f87b7a903be3eb37dc1456ee92d60be13280c595285aba6f89dbf5",
+      "source": "vendor_evidence"
+    },
+    {
+      "filename": "synthetic-vendor-evidence.md",
+      "sha256": "ba6f236cbdade92233c509a7dff5e1b95c000e20046ee994659d553cc92933e2",
+      "source": "vendor_evidence"
+    }
+  ],
+  "outputs": [
+    {
+      "filename": "vendor-oversight-summary.json",
+      "sha256": "1c187290b679105ca599486adbf932b4cb18fc0d9184ddeac71826051e0eb305"
+    },
+    {
+      "filename": "vendor-oversight-report.md",
+      "sha256": "72e252ff4f3058cf1d6bae1b38511dbb3d34d12ae86b2dbcec6ba9ebeffcf4e4"
+    },
+    {
+      "filename": "vendor-open-findings.json",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    }
+  ],
+  "record_type": "vendor_oversight_manifest",
+  "result_type": "reproducibility_manifest_not_validation_or_regulatory_approval",
+  "review_id": "vrr-synthetic-underwriting-2026"
+}

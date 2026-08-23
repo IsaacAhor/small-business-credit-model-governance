@@ -1,0 +1,19 @@
+[
+  {
+    "record_type": "vendor_model_limitation",
+    "limitation_id": "vml-synthetic-proprietary-detail",
+    "review_id": "vrr-synthetic-underwriting-2026",
+    "component_id": "vmc-synthetic-underwriting-model",
+    "category": "model_design",
+    "description": "The fictional vendor overview omits training code and complete development-data details.",
+    "transparency_state": "opaque",
+    "evidence_available": false,
+    "evidence_references": [],
+    "validation_status": "not_available",
+    "compensating_control": "Use institution-owned outcome monitoring, reason QA, volume limits, and change review.",
+    "residual_risk_decision": "accepted_with_controls",
+    "owner": "Synthetic Model Risk",
+    "review_date": "2026-06-01",
+    "result_type": "vendor_limitation_record_not_validation_or_acceptance_claim"
+  }
+]

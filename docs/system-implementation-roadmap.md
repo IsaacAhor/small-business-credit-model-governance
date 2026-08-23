@@ -367,7 +367,7 @@ Deliverables:
 - heightened monitoring configuration
 - vendor oversight report section
 
-Documentation profile added:
+Status:
 
 - `docs/credit-union-ai-vendor-risk-run-kit/` maps public NCUA AI,
   third-party-risk, compliance-management, CUSO, and Regulation B resource themes
@@ -377,9 +377,15 @@ Documentation profile added:
 - `docs/credit-union-ai-vendor-risk-run-kit/IMPLEMENTATION_PLAN.md` is the
   execution authority for the documentation correction patch and the
   subsequent executable vendor-oversight build.
-  The v0.9.2 patch improves source-qualified reviewer documentation only; it
-  does not add the structured vendor metadata, heightened monitoring, or
-  vendor-report generation reserved for the later executable build.
+  The v0.9.2 patch improved source-qualified reviewer documentation only.
+- The subsequent version-unassigned executable build now adds six strict
+  vendor contracts, typed validation models, linked evidence and context
+  checks, heightened-monitoring configuration, valid and intentionally invalid
+  fixtures, deterministic reviewer outputs, package commands, and regression
+  tests.
+- The workflow remains synthetic and untagged. It does not establish a live
+  vendor's transparency, performance, safety, compliance, institutional use,
+  or independent external validation.
 
 Acceptance criteria:
 
@@ -387,12 +393,13 @@ Acceptance criteria:
 - limitations are documented separately from internal validation gaps
 - vendor oversight outputs map to model risk governance concepts
 
-Remaining implementation work:
+Remaining follow-up work:
 
-- add structured vendor model metadata fields
-- add opaque-score limitation fields to governed records
-- add heightened monitoring configuration
-- emit a vendor oversight section in generated monitoring reports
+- obtain independent practitioner review of a tagged vendor-oversight artifact
+- exercise the contracts with permissioned, nonpublic vendor evidence in an
+  institution-controlled environment
+- calibrate cadence, thresholds, and notice applicability to an actual
+  institution and use case
 
 ## Target Repository Shape
 

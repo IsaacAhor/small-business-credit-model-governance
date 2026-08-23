@@ -1,0 +1,32 @@
+[
+  {
+    "record_type": "business_credit_notice_control",
+    "notice_control_id": "bcn-synthetic-decision-0002",
+    "review_id": "vrr-synthetic-underwriting-2026",
+    "component_id": "vmc-synthetic-reason-service",
+    "decision_id": "dec-0002",
+    "credit_classification": "business_revenue_at_or_below_1m",
+    "path_determination": "written_notice_with_reasons",
+    "application_date": "2026-05-04",
+    "action_date": "2026-05-04",
+    "reason_source_references": [
+      "adverse-action-reason-outputs.json",
+      "reason-code-mappings.json"
+    ],
+    "reason_mapping_ids": [
+      "map-001",
+      "map-002"
+    ],
+    "specific_reason_review": "completed",
+    "retention_basis": "Synthetic reviewer configuration referencing Regulation B record-retention review; actual applicability requires institution counsel or compliance review.",
+    "fcra_applicability": "pending_determination",
+    "esign_applicability": "pending_determination",
+    "section_1071_applicability": "pending_determination",
+    "reviewer_disposition": "accepted_with_conditions",
+    "evidence_references": [
+      "synthetic-applicability-note.md",
+      "reason-code-mappings.json"
+    ],
+    "result_type": "business_credit_notice_control_not_legal_sufficiency_finding"
+  }
+]

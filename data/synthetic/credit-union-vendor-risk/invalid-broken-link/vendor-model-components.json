@@ -1,0 +1,50 @@
+[
+  {
+    "record_type": "vendor_model_component",
+    "component_id": "vmc-synthetic-underwriting-model",
+    "review_id": "vrr-unknown-review",
+    "component_type": "model",
+    "function": "Produces a synthetic underwriting score and nonbinding recommendation.",
+    "model_reference_status": "known",
+    "model_id": "mdl-smb-credit-xgb",
+    "version_id": "ver-2026-05",
+    "data_categories": [
+      "synthetic application attributes",
+      "synthetic cash-flow indicators"
+    ],
+    "output_type": "recommendation",
+    "decision_role": "advisory",
+    "model_change_notice_method": "Fictional contract requires written notice before material model changes.",
+    "subcontractor_status": "none_disclosed",
+    "transparency_state": "partial",
+    "limitation_ids": [
+      "vml-synthetic-proprietary-detail"
+    ],
+    "event_status": "no_event_reported",
+    "event_ids": [],
+    "result_type": "vendor_component_inventory_not_safety_or_reliability_finding"
+  },
+  {
+    "record_type": "vendor_model_component",
+    "component_id": "vmc-synthetic-reason-service",
+    "review_id": "vrr-synthetic-underwriting-2026",
+    "component_type": "explanation_service",
+    "function": "Maps supplied synthetic decision drivers to versioned adverse-action reason records.",
+    "model_reference_status": "known",
+    "model_id": "mdl-smb-credit-xgb",
+    "version_id": "ver-2026-05",
+    "data_categories": [
+      "synthetic ranked drivers",
+      "versioned reason mappings"
+    ],
+    "output_type": "reason",
+    "decision_role": "explanation_only",
+    "model_change_notice_method": "Fictional contract requires notice before reason-mapping or explanation-service changes.",
+    "subcontractor_status": "none_disclosed",
+    "transparency_state": "transparent",
+    "limitation_ids": [],
+    "event_status": "no_event_reported",
+    "event_ids": [],
+    "result_type": "vendor_component_inventory_not_safety_or_reliability_finding"
+  }
+]

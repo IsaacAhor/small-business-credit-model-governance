@@ -27,6 +27,9 @@ Primary links:
 - Regulation B, 12 CFR 1002.9:
   <https://www.ecfr.gov/current/title-12/chapter-X/part-1002/section-1002.9>
 
+The complete section-by-section selection, exclusion, and current-status record
+is in `../finreglab-framework-implementation-crosswalk.md`.
+
 ## Control Mapping
 
 | Topic | Source status | Repository implementation | What remains unproven or incomplete |

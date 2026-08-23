@@ -1,0 +1,45 @@
+{
+  "record_type": "vendor_oversight_config",
+  "oversight_config_id": "voc-synthetic-underwriting-2026",
+  "review_id": "vrr-synthetic-underwriting-2026",
+  "risk_tier": "high",
+  "review_cadence": "monthly synthetic review",
+  "cadence_rationale": "Monthly review is an illustrative institution choice for the high-risk synthetic profile and is not a regulatory schedule.",
+  "metric_threshold_references": [
+    "thr-2026-05-monthly",
+    "approval_rate",
+    "override_rate"
+  ],
+  "event_triggers": [
+    "model_change",
+    "data_change",
+    "reason_mapping_change",
+    "service_change",
+    "performance_breach",
+    "reason_qa_failure"
+  ],
+  "heightened_monitoring": {
+    "required": true,
+    "status": "configured",
+    "entry_criteria": [
+      "First three review periods after synthetic launch",
+      "Any material model or reason-mapping change",
+      "Any unexplained reason QA failure"
+    ],
+    "exit_criteria": [
+      "Three consecutive review periods without unresolved high-severity findings",
+      "All material changes have documented assessment dispositions"
+    ],
+    "evidence_due_date": "2026-06-30"
+  },
+  "owners": {
+    "monitoring_owner": "Synthetic Model Risk",
+    "escalation_owner": "Synthetic Vendor Management",
+    "reporting_owner": "Synthetic Senior Management Reporting"
+  },
+  "reporting_audience": [
+    "Synthetic Model Risk Committee",
+    "Synthetic Compliance Review"
+  ],
+  "result_type": "risk_based_vendor_monitoring_config_not_regulatory_schedule"
+}

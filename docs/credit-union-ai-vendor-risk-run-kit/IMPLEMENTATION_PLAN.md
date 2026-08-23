@@ -23,12 +23,12 @@ executable release whose version will be assigned during release planning.
 | Milestone | Purpose | Executable vendor oversight |
 | --- | --- | --- |
 | v0.9.2 | Correct material source-mapping and reviewability gaps in v0.9.1 and add this implementation plan. | No |
-| Future vendor-oversight release (version unassigned) | Implement synthetic vendor-risk records, validation, evidence-pack generation, fixtures, and tests. | Yes |
+| Unreleased vendor-oversight build (version unassigned) | Implements synthetic vendor-risk records, validation, evidence-pack generation, fixtures, commands, and tests; tag and release remain separate gates. | Yes |
 
-The v0.9.2 milestone establishes the accurate public baseline for the
-executable build. Neither milestone may be described as production deployment,
-legal compliance, regulator approval, credit-union adoption, or external
-validation.
+The v0.9.2 milestone established the accurate public baseline. The executable
+build is now implemented in the repository but remains version-unassigned and
+untagged. Neither milestone may be described as production deployment, legal
+compliance, regulator approval, credit-union adoption, or external validation.
 
 ## Scope And Non-Goals
 
@@ -148,9 +148,9 @@ does not claim to implement the Phase 6 workflow.
   representations, or confidential information.
 - Existing repository validation and tests pass.
 
-## Future Executable Vendor-Oversight Build
+## Executable Vendor-Oversight Build
 
-The future release adds a separate vendor-risk layer. Do not silently extend
+The version-unassigned build adds a separate vendor-risk layer. Do not silently extend
 generic model records where linked vendor records preserve scope and backward
 compatibility. Its version remains unassigned because `v0.10.0` was used for
 the fixed-horizon SBA public-data monitoring release.
@@ -292,19 +292,19 @@ not establish adoption or external validation.
 - [x] Pull request, merge, tag, and release note identify documentation and
   reviewability work only.
 
-### Future Vendor-Oversight Release (Version Unassigned)
+### Unreleased Vendor-Oversight Build (Version Unassigned)
 
-- [ ] All six vendor-risk schemas, typed models, and relationship validators are
+- [x] All six vendor-risk schemas, typed models, and relationship validators are
   implemented and packaged.
-- [ ] Valid and intentionally invalid synthetic fixtures are present.
-- [ ] Validation and evidence-pack commands are documented and tested.
-- [ ] Generated reports surface limitations, missing evidence, and pending
+- [x] Valid and intentionally invalid synthetic fixtures are present.
+- [x] Validation and evidence-pack commands are documented and tested.
+- [x] Generated reports surface limitations, missing evidence, and pending
   decisions without a compliance/approval conclusion.
-- [ ] Existing workflows remain backward compatible and their tests pass.
+- [x] Existing workflows remain backward compatible and their tests pass.
 - [ ] Full repository validation, test suite, package build, and command smoke
   tests pass in CI.
-- [ ] Pull request, merge, tag, and release note accurately identify a
-  synthetic technical demonstration.
+- [ ] A separately approved tag and release note accurately identify a
+  synthetic technical demonstration and preserve every non-claim.
 
 ## Change Control
 
