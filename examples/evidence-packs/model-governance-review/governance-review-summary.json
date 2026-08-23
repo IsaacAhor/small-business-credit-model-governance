@@ -1,0 +1,125 @@
+{
+  "explainability_methods": [
+    {
+      "directionality_review": "pending",
+      "explainability_method_id": "xai-ranked-recorded-drivers",
+      "known_limitations": [
+        "The method records supplied drivers and does not reproduce a trained model's internal attribution process.",
+        "The demonstration does not establish legal sufficiency of any notice reason."
+      ],
+      "method_family": "recorded_driver_ranking",
+      "method_name": "Ranked recorded-driver mapping",
+      "reference_population_id": "refpop-synthetic-recorded-decisions",
+      "scope": "local",
+      "status": "draft"
+    }
+  ],
+  "limitations": [
+    "The source dataset is synthetic and does not represent production lending decisions.",
+    "This output summarizes governance records; it is not an independent validation, regulatory conclusion, legal opinion, or deployment approval."
+  ],
+  "model": {
+    "intended_use": "Risk-rank small business applicants for manual and automated underwriting review.",
+    "model_id": "mdl-smb-credit-xgb",
+    "model_name": "Small Business Credit Underwriting Model",
+    "version_id": "ver-2026-05"
+  },
+  "monitoring_plan": {
+    "change_triggers": [
+      "Model or threshold version changes",
+      "Explainability method or reason mapping changes",
+      "Input schema or monitoring metric changes"
+    ],
+    "metrics": [
+      {
+        "action_on_breach": "Record a breach and route it to Model Risk Governance for review.",
+        "evidence_source": "application-decision-records.json",
+        "metric_name": "approval_rate",
+        "purpose": "Surface changes in the synthetic decision distribution for reviewer follow-up.",
+        "threshold_reference": "thr-2026-05-monthly"
+      },
+      {
+        "action_on_breach": "Record a breach and route it to Credit Policy Review.",
+        "evidence_source": "override-events.json",
+        "metric_name": "override_rate",
+        "purpose": "Track the share of synthetic decisions with a documented override event.",
+        "threshold_reference": "thr-2026-05-monthly"
+      },
+      {
+        "action_on_breach": "Open a reason-quality review item before accepting the run.",
+        "evidence_source": "adverse-action-reason-outputs.json",
+        "metric_name": "reason_qa_exception_count",
+        "purpose": "Count missing, duplicated, or untraceable synthetic reason records.",
+        "threshold_reference": "review-any-exception"
+      }
+    ],
+    "monitoring_plan_id": "mnp-phase1-demo",
+    "reason_monitoring_scope": "Traceability, rank ordering, and quality exceptions in synthetic adverse-action reason records; not legal sufficiency or production performance.",
+    "review_cadence": "monthly demonstration run",
+    "status": "draft"
+  },
+  "result_type": "synthetic_model_governance_review_not_validation_or_approval",
+  "review_gaps": [
+    {
+      "description": "Independent validation is not established by this bundle.",
+      "gap_id": "independent-validation",
+      "severity": "high"
+    },
+    {
+      "description": "2 validation finding(s) remain open.",
+      "gap_id": "open-validation-findings",
+      "severity": "high"
+    },
+    {
+      "description": "Directionality review remains incomplete for: xai-ranked-recorded-drivers",
+      "gap_id": "explanation-directionality-review",
+      "severity": "moderate"
+    },
+    {
+      "description": "Approved method status is not established for: xai-ranked-recorded-drivers",
+      "gap_id": "explainability-method-approval",
+      "severity": "moderate"
+    }
+  ],
+  "risk_profile": {
+    "data_constraints": [
+      "All application, score, reason, and outcome records are synthetic.",
+      "The dataset is too small to establish production performance or population representativeness."
+    ],
+    "inherent_risk": "moderate",
+    "model_exposure": "low",
+    "model_materiality": "moderate",
+    "monitoring_rigor": "standard",
+    "risk_profile_id": "mrp-phase1-demo",
+    "validation_rigor": "standard"
+  },
+  "validation": {
+    "independence_status": "developer_self_review",
+    "limitations": [
+      "This is a developer self-review of synthetic demonstration artifacts.",
+      "No production model, institutional process, or real lending data was validated."
+    ],
+    "open_findings": [
+      {
+        "finding_id": "vf-directionality-review-open",
+        "owner": "Model Risk Governance",
+        "severity": "moderate",
+        "status": "open",
+        "summary": "Directionality review for the recorded-driver method remains pending.",
+        "target_date": "2026-12-31"
+      },
+      {
+        "finding_id": "vf-independent-review-open",
+        "owner": "Model Risk Governance",
+        "severity": "high",
+        "status": "open",
+        "summary": "No independent model-risk or lending practitioner has reviewed the governance bundle.",
+        "target_date": "2026-12-31"
+      }
+    ],
+    "overall_disposition": "pending_independent_review",
+    "promotion_allowed": false,
+    "reviewer_identity": "No independent reviewer assigned",
+    "validation_id": "val-phase1-demo"
+  }
+}

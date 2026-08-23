@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/explainability-method-record.schema.json",
+  "title": "Explainability Method Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "explainability_method_id",
+    "model_id",
+    "version_id",
+    "method_name",
+    "method_version",
+    "method_family",
+    "use_cases",
+    "explanation_scope",
+    "implementation_reference",
+    "reference_population",
+    "correlation_assumptions",
+    "aggregation_rationale",
+    "directionality_review",
+    "known_limitations",
+    "validation_test_references",
+    "owner",
+    "status",
+    "result_type"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "explainability_method_record"
+    },
+    "explainability_method_id": {
+      "type": "string",
+      "pattern": "^xai-[a-z0-9-]+$"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^mdl-[a-z0-9-]+$"
+    },
+    "version_id": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "method_name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "method_version": {
+      "type": "string",
+      "minLength": 3
+    },
+    "method_family": {
+      "enum": [
+        "intrinsic",
+        "post_hoc_attribution",
+        "score_distance",
+        "rule_trace",
+        "recorded_driver_ranking",
+        "other"
+      ]
+    },
+    "use_cases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "explanation_scope": {
+      "enum": ["local", "global", "local_and_global"]
+    },
+    "implementation_reference": {
+      "type": "string",
+      "minLength": 5
+    },
+    "reference_population": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "population_id",
+        "description",
+        "selection_rationale",
+        "data_boundary"
+      ],
+      "properties": {
+        "population_id": {
+          "type": "string",
+          "pattern": "^refpop-[a-z0-9-]+$"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10
+        },
+        "selection_rationale": {
+          "type": "string",
+          "minLength": 15
+        },
+        "data_boundary": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    },
+    "correlation_assumptions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "aggregation_rationale": {
+      "type": "string",
+      "minLength": 10
+    },
+    "directionality_review": {
+      "enum": ["not_started", "pending", "completed", "not_applicable"]
+    },
+    "known_limitations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "validation_test_references": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 3
+    },
+    "status": {
+      "enum": ["draft", "approved", "restricted", "retired"]
+    },
+    "result_type": {
+      "const": "governed_explainability_method_not_legal_sufficiency_finding"
+    }
+  }
+}

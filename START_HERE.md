@@ -16,21 +16,24 @@ Use this path if you have limited time and want the clearest view of the work:
    does not prove.
 3. Read `docs/ai-rmf-alignment.md` for a NIST AI RMF-oriented view of how
    the workflow maps to Govern, Map, Measure, and Manage.
-4. Inspect `examples/evidence-packs/monthly-portfolio/README.md` for the
+4. Read `docs/model-governance-validation-run-kit/README.md` and inspect
+   `examples/evidence-packs/model-governance-review/README.md` for the formal
+   risk, explainability, validation, monitoring, and gap records.
+5. Inspect `examples/evidence-packs/monthly-portfolio/README.md` for the
    curated portfolio-scale evidence-pack outputs (320 synthetic decisions,
    including statistical significance results, BISG proxy screening, and the
    LDA assessment).
-5. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
+6. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
    adverse-action reason accuracy benchmark, run command, evidence-pack review
    path, and public-data limits.
-6. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
+7. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
    reviewing an AI-enabled credit-union underwriting vendor, CUSO relationship,
    or third-party small-business/member-business lending tool.
-7. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
+8. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
    the plain-language output of a synthetic monthly governance review at
    portfolio scale. A minimal controlled-breach scenario is also available
    under `examples/evidence-packs/monthly-demo/`.
-8. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
+9. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
    could adapt the workflow.
 
 ## Role-Based Paths
@@ -60,6 +63,7 @@ If you want to reproduce the synthetic workflow locally, run:
 ```bash
 python scripts/validate_repository.py
 python scripts/validate_phase1.py
+python scripts/run_governance_review.py data/synthetic/monthly-demo review-output
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-portfolio --evidence-root evidence
 python scripts/run_adverse_action_reason_benchmark.py --overwrite
 python -m unittest discover -s tests -p "test_*.py"

@@ -6,7 +6,9 @@ This repository is a standalone technical project for model governance in
 machine-learning-based small business credit underwriting. It provides schemas,
 workflow code, synthetic fixtures, public-data run kits, and reviewer-ready
 outputs for model-risk monitoring, adverse-action reason review, fair-lending
-screening triggers, and model-change review.
+screening triggers, formal validation records, and model-change review. The
+model-risk, adverse-action, monitoring, and documentation path is the core;
+fair-lending screening is a supporting risk-review module.
 
 All roadmap phases should support that technical scope. The evidence engine is
 the implementation vehicle for the repository's workflow and documentation
@@ -110,7 +112,13 @@ Status:
   The v0.9.2 documentation patch qualifies its public sources and preserves the
   distinction between this reviewer profile and the later executable vendor-
   oversight build defined in `IMPLEMENTATION_PLAN.md`.
-- The remaining priorities are the analytical-rigor track in
-  `docs/system-implementation-roadmap.md` (LDA candidate search, public-dataset
-  run, regression controls), then executable vendor model oversight metadata and
-  heightened monitoring mode.
+- A backward-compatible formal governance bundle is now implemented for model
+  risk/materiality, explainability-method assumptions and population boundaries,
+  validation independence/findings, and a linked monitoring plan. The repository
+  emits a deterministic, hash-verifiable reviewer summary that keeps open gaps
+  visible and does not convert self-review into approval.
+- The first remaining priority is independent practitioner review and
+  method-level validation of the core governance and adverse-action reason path.
+  Additional monitoring regression controls and executable vendor oversight
+  follow. Fair-lending/LDA rigor remains supporting work and should not displace
+  those core priorities.

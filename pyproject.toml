@@ -62,6 +62,7 @@ credit-gov-generate-reasons = "credit_gov.commands:generate_reasons_main"
 credit-gov-lda = "credit_gov.commands:lda_main"
 credit-gov-bisg = "credit_gov.commands:bisg_main"
 credit-gov-change-review = "credit_gov.commands:change_review_main"
+credit-gov-governance-review = "credit_gov.governance_review:main"
 credit-gov-sba-to-monitoring = "credit_gov.sba_to_monitoring:main"
 credit-gov-make-sba-fixture = "credit_gov.make_sba_fixture:main"
 

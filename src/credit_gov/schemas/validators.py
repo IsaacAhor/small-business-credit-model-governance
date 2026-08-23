@@ -11,6 +11,12 @@ from importlib.resources import files
 from pathlib import Path
 from typing import Any, Callable
 
+from .governance_models import (
+    ExplainabilityMethodRecord,
+    ModelMonitoringPlan,
+    ModelRiskProfile,
+    ModelValidationRecord,
+)
 from .models import (
     AdverseActionReasonOutput,
     ApplicationDecisionRecord,
@@ -86,6 +92,33 @@ SCHEMA_SPECS: tuple[SchemaSpec, ...] = (
         EvidencePackManifest.from_dict,
     ),
 )
+
+OPTIONAL_GOVERNANCE_SCHEMA_SPECS: tuple[SchemaSpec, ...] = (
+    SchemaSpec(
+        "model-risk-profile.json",
+        "model-risk-profile.schema.json",
+        ModelRiskProfile.from_dict,
+    ),
+    SchemaSpec(
+        "explainability-method-records.json",
+        "explainability-method-record.schema.json",
+        ExplainabilityMethodRecord.from_dict,
+    ),
+    SchemaSpec(
+        "model-validation-record.json",
+        "model-validation-record.schema.json",
+        ModelValidationRecord.from_dict,
+    ),
+    SchemaSpec(
+        "model-monitoring-plan.json",
+        "model-monitoring-plan.schema.json",
+        ModelMonitoringPlan.from_dict,
+    ),
+)
+
+OPTIONAL_GOVERNANCE_FILENAMES = {
+    spec.filename for spec in OPTIONAL_GOVERNANCE_SCHEMA_SPECS
+}
 
 APPLICABILITY_FILENAME = "monitoring-applicability.json"
 
@@ -288,9 +321,41 @@ def validate_dataset(dataset_dir: Path) -> ValidationResult:
             validated_files.append(spec.filename)
         except Exception as exc:  # noqa: BLE001
             errors.append(f"{spec.filename}: {exc}")
+    present_governance_files = {
+        filename
+        for filename in OPTIONAL_GOVERNANCE_FILENAMES
+        if (dataset_dir / filename).is_file()
+    }
+    governance_bundle_present = bool(present_governance_files)
+    if governance_bundle_present:
+        missing_governance_files = sorted(
+            OPTIONAL_GOVERNANCE_FILENAMES - present_governance_files
+        )
+        for filename in missing_governance_files:
+            errors.append(
+                "Incomplete governance bundle; missing dataset file: " + filename
+            )
+        for spec in OPTIONAL_GOVERNANCE_SCHEMA_SPECS:
+            data_path = dataset_dir / spec.filename
+            if not data_path.is_file():
+                continue
+            try:
+                payload = load_json(data_path)
+                payloads[spec.filename] = payload
+                schema = load_schema(spec.schema_file)
+                records = payload if isinstance(payload, list) else [payload]
+                if isinstance(payload, list) and not payload:
+                    raise ValueError(f"{spec.filename} must contain at least one record")
+                for record in records:
+                    validate_record(record, schema, spec.model_factory)
+                validated_files.append(spec.filename)
+            except Exception as exc:  # noqa: BLE001
+                errors.append(f"{spec.filename}: {exc}")
     if not errors:
         try:
             validate_dataset_relationships(dataset_dir, payloads)
+            if governance_bundle_present:
+                validate_governance_relationships(dataset_dir, payloads)
         except Exception as exc:  # noqa: BLE001
             errors.append(f"dataset relationships: {exc}")
     if not errors:
@@ -428,6 +493,115 @@ def validate_dataset_relationships(dataset_dir: Path, payloads: dict[str, Any]) 
         if not (dataset_dir / reference).is_file():
             raise ValueError(
                 f"evidence-pack-manifest.json.input_references missing file: {reference}"
+            )
+
+
+def validate_governance_relationships(
+    dataset_dir: Path, payloads: dict[str, Any]
+) -> None:
+    """Validate links within the optional governance bundle and to core records."""
+    model_registry = require_object_payload(payloads, "model-registry-record.json")
+    model_version = require_object_payload(payloads, "model-version-record.json")
+    threshold_set = require_object_payload(payloads, "threshold-set.json")
+    manifest = require_object_payload(payloads, "evidence-pack-manifest.json")
+    risk_profile = require_object_payload(payloads, "model-risk-profile.json")
+    explainability_methods = require_list_payload(
+        payloads, "explainability-method-records.json"
+    )
+    validation = require_object_payload(payloads, "model-validation-record.json")
+    monitoring_plan = require_object_payload(payloads, "model-monitoring-plan.json")
+
+    require_unique_values(
+        explainability_methods,
+        "explainability_method_id",
+        "explainability-method-records.json",
+    )
+    model_id = model_registry["model_id"]
+    version_id = model_version["version_id"]
+    for filename, record in (
+        ("model-risk-profile.json", risk_profile),
+        ("model-validation-record.json", validation),
+        ("model-monitoring-plan.json", monitoring_plan),
+    ):
+        require_equal(record["model_id"], model_id, f"{filename}.model_id")
+        require_equal(record["version_id"], version_id, f"{filename}.version_id")
+    for index, record in enumerate(explainability_methods):
+        require_equal(
+            record["model_id"],
+            model_id,
+            f"explainability-method-records.json[{index}].model_id",
+        )
+        require_equal(
+            record["version_id"],
+            version_id,
+            f"explainability-method-records.json[{index}].version_id",
+        )
+
+    require_equal(
+        validation["validation_id"],
+        model_version["linked_validation_record"],
+        "model-validation-record.json.validation_id",
+    )
+    require_equal(
+        monitoring_plan["risk_profile_id"],
+        risk_profile["risk_profile_id"],
+        "model-monitoring-plan.json.risk_profile_id",
+    )
+    require_equal(
+        monitoring_plan["validation_id"],
+        validation["validation_id"],
+        "model-monitoring-plan.json.validation_id",
+    )
+    require_equal(
+        monitoring_plan["threshold_set_id"],
+        threshold_set["threshold_set_id"],
+        "model-monitoring-plan.json.threshold_set_id",
+    )
+
+    known_method_ids = {
+        record["explainability_method_id"] for record in explainability_methods
+    }
+    validation_method_ids = set(validation["explainability_method_ids"])
+    monitoring_method_ids = set(monitoring_plan["explainability_method_ids"])
+    unknown_validation_ids = sorted(validation_method_ids - known_method_ids)
+    if unknown_validation_ids:
+        raise ValueError(
+            "model-validation-record.json.explainability_method_ids references "
+            "unknown value(s): " + ", ".join(unknown_validation_ids)
+        )
+    unknown_monitoring_ids = sorted(monitoring_method_ids - known_method_ids)
+    if unknown_monitoring_ids:
+        raise ValueError(
+            "model-monitoring-plan.json.explainability_method_ids references "
+            "unknown value(s): " + ", ".join(unknown_monitoring_ids)
+        )
+    if validation_method_ids != known_method_ids:
+        missing = sorted(known_method_ids - validation_method_ids)
+        raise ValueError(
+            "model-validation-record.json.explainability_method_ids must cover every "
+            "method record; missing: " + ", ".join(missing)
+        )
+    if monitoring_method_ids != known_method_ids:
+        missing = sorted(known_method_ids - monitoring_method_ids)
+        raise ValueError(
+            "model-monitoring-plan.json.explainability_method_ids must cover every "
+            "method record; missing: " + ", ".join(missing)
+        )
+
+    manifest_references = set(manifest["input_references"])
+    missing_manifest_references = sorted(
+        OPTIONAL_GOVERNANCE_FILENAMES - manifest_references
+    )
+    if missing_manifest_references:
+        raise ValueError(
+            "evidence-pack-manifest.json.input_references must include governance "
+            "bundle file(s): " + ", ".join(missing_manifest_references)
+        )
+    for reference in validation["evidence_references"]:
+        if not (dataset_dir / reference).is_file():
+            raise ValueError(
+                "model-validation-record.json.evidence_references missing file: "
+                + reference
             )
 
 

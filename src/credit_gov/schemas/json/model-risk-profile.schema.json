@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/model-risk-profile.schema.json",
+  "title": "Model Risk Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "risk_profile_id",
+    "model_id",
+    "version_id",
+    "assessment_date",
+    "model_purpose",
+    "inherent_risk",
+    "model_exposure",
+    "model_materiality",
+    "materiality_rationale",
+    "complexity_summary",
+    "data_constraints",
+    "aggregate_dependencies",
+    "validation_rigor",
+    "monitoring_rigor",
+    "owner",
+    "result_type"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "model_risk_profile"
+    },
+    "risk_profile_id": {
+      "type": "string",
+      "pattern": "^mrp-[a-z0-9-]+$"
+    },
+    "model_id": {
+      "type": "string",
+      "pattern": "^mdl-[a-z0-9-]+$"
+    },
+    "version_id": {
+      "type": "string",
+      "pattern": "^ver-[a-z0-9-]+$"
+    },
+    "assessment_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "model_purpose": {
+      "type": "string",
+      "minLength": 10
+    },
+    "inherent_risk": {
+      "enum": ["low", "moderate", "high"]
+    },
+    "model_exposure": {
+      "enum": ["low", "moderate", "high"]
+    },
+    "model_materiality": {
+      "enum": ["immaterial", "low", "moderate", "high"]
+    },
+    "materiality_rationale": {
+      "type": "string",
+      "minLength": 20
+    },
+    "complexity_summary": {
+      "type": "string",
+      "minLength": 10
+    },
+    "data_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "aggregate_dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "validation_rigor": {
+      "enum": ["limited", "standard", "heightened"]
+    },
+    "monitoring_rigor": {
+      "enum": ["limited", "standard", "heightened"]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 3
+    },
+    "result_type": {
+      "const": "governance_risk_assessment_not_regulatory_classification"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "inputs": [
+    {
+      "filename": "explainability-method-records.json",
+      "sha256": "bc1557d3a678ec61db5d8025febfb55aa54455712c6283203ccf34a5492afa91"
+    },
+    {
+      "filename": "model-monitoring-plan.json",
+      "sha256": "837f73b46129ae585fd3a57870b961f46ff927663c3128da0d67c4d0d5fcc803"
+    },
+    {
+      "filename": "model-registry-record.json",
+      "sha256": "cd8c21fea34d02a338ab8ed14dcdb50c3a8f6dddb3197f4f622b3c4941ad8640"
+    },
+    {
+      "filename": "model-risk-profile.json",
+      "sha256": "c7cb2b47ff071fa8b778dec5c3115cfc166248573fec9d6c6486c0df4beaa2a0"
+    },
+    {
+      "filename": "model-validation-record.json",
+      "sha256": "8c4f60034e076044970e8c28874a8b8c1346d36fc70ad597163596296e837d84"
+    },
+    {
+      "filename": "model-version-record.json",
+      "sha256": "97686c4be048f47d6619f0c595c354fb7627efc46ee1243097841d7c816e1b6f"
+    },
+    {
+      "filename": "threshold-set.json",
+      "sha256": "063fbdd6a507ffe7ce6869a8006088ff04ff3b6573dcb84871701d2179616435"
+    }
+  ],
+  "model_id": "mdl-smb-credit-xgb",
+  "outputs": [
+    {
+      "filename": "governance-review-summary.json",
+      "sha256": "d7bfa263127d57cd67c91b9437348e1f9a3efd1972bfb8000fd0579e090a5937"
+    },
+    {
+      "filename": "governance-review-report.md",
+      "sha256": "7d76b92a888af255bafc8ea25ac505dcf4288b106cf0fe577b7d04a73955f4ce"
+    }
+  ],
+  "record_type": "governance_review_manifest",
+  "result_type": "reproducibility_manifest_not_validation_or_approval",
+  "version_id": "ver-2026-05"
+}

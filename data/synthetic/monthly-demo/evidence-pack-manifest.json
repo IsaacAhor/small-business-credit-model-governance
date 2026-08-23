@@ -8,6 +8,10 @@
     "model-registry-record.json",
     "model-version-record.json",
     "threshold-set.json",
+    "model-risk-profile.json",
+    "explainability-method-records.json",
+    "model-validation-record.json",
+    "model-monitoring-plan.json",
     "fair-lending-screening-config.json",
     "application-decision-records.json",
     "adverse-action-reason-outputs.json"

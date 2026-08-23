@@ -317,6 +317,46 @@ Open follow-ups (not blocking Phase 5):
 - drift logic and regression controls (tracked under the Phase 8 rigor track)
 - external practitioner review of the change-review outputs
 
+## Phase 5A: Formal Governance Validation Layer
+
+Deliverables:
+
+- version-linked model risk and materiality profile
+- governed explainability-method records with population boundaries,
+  assumptions, limitations, directionality review, and test references
+- validation record with reviewer independence, evidence, findings,
+  disposition, and promotion posture
+- risk-based monitoring plan linked to validation, methods, and thresholds
+- deterministic reviewer summary and SHA-256 manifest
+
+Status:
+
+- Phase 5A is implemented as an optional, backward-compatible bundle in
+  `data/synthetic/monthly-demo/`, with schemas mirrored into the package,
+  typed semantic validation, cross-record relationship checks, a standalone
+  command, checked-in example output, and focused tests.
+- If any bundle record is supplied, all four records are required. A developer
+  self-review cannot claim an approved disposition or promotion permission.
+- The checked-in example accurately records pending independent review and open
+  findings. It does not claim production model validity, institutional use, or
+  regulatory compliance.
+
+Acceptance criteria:
+
+- existing datasets without the bundle validate unchanged
+- complete bundles fail on broken model, version, validation, method,
+  threshold, evidence, or manifest links
+- outputs are deterministic and hash-verifiable
+- reports distinguish repository self-review from independent validation
+
+Open follow-ups:
+
+- independent practitioner review of a tagged artifact
+- method-level testing against an implemented model and fit-for-purpose
+  reference population
+- additional robustness and regression controls appropriate to the model and
+  data context
+
 ## Phase 6: Vendor Model Oversight
 
 Deliverables:
