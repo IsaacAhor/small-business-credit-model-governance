@@ -1,0 +1,19 @@
+[
+  {
+    "record_type": "recourse_subject_record",
+    "recourse_subject_id": "rcs-unknown-assumption-0002",
+    "decision_id": "dec-0002",
+    "model_id": "mdl-adverse-reason-benchmark",
+    "version_id": "ver-2026-07-adverse-action",
+    "feature_schema_version": "featver-synthetic-1",
+    "feature_values": [
+      {"feature_name": "cash_flow_margin", "value": 0.2},
+      {"feature_name": "debt_service_coverage", "value": 0.8},
+      {"feature_name": "months_in_business", "value": 18}
+    ],
+    "source_class": "synthetic",
+    "provenance_note": "Fictional values created only for deterministic reviewer testing.",
+    "assessment_scope": "eligible",
+    "result_type": "recourse_input_not_applicant_instruction"
+  }
+]

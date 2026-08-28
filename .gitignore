@@ -29,7 +29,6 @@ sba_run_fixture/
 build/
 dist/
 *.egg-info/
-tmp/test-runs/
+/tmp/
 .tmp-*/
-tmp/build-temp/
 .pytest_cache/

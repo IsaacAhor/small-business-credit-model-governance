@@ -87,11 +87,11 @@ Before uploading to PyPI:
 
 1. Confirm the package name is still available or controlled by Isaac.
 2. Confirm README, package metadata, release notes, and package contents have no
-   private case-strategy language.
+   non-public project or personal information.
 3. Confirm CI has built and installed the wheel successfully.
 4. Confirm the version number has not already been published.
 5. Preserve the GitHub release, PyPI project page, wheel filename, hash, and
-   upload timestamp for the evidence index.
+   upload timestamp in the project's release records.
 
 Upload:
 

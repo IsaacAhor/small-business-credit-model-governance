@@ -1,0 +1,117 @@
+{
+  "audience": "reviewer_only",
+  "hash_policy": "canonical_json_inputs_and_raw_generated_outputs_v1",
+  "inputs": [
+    {
+      "filename": "model-registry-record.json",
+      "sha256": "296809e4f9975f3dcd5e423196f97cf3870cd62ac2957904063bf8adaaa0f11a",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "model-version-record.json",
+      "sha256": "b1922152d361e840d7c86feff966b1c617d52e7d632773b9146eaeb5fc9bf114",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "application-decision-records.json",
+      "sha256": "7427d9ce504f1eb41db65d877e718824414447c0e50743e9e14611c9cb6449b2",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "adverse-action-driver-contributions.json",
+      "sha256": "b623828d47042d7598034fa2550a441a582fb9e70d146548abd8122b419aeec6",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "reason-code-mappings.json",
+      "sha256": "33644e1a4ff9580e1de03ca697730cd0d3725aaf8a3122c2d58424f31ca303ed",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "adverse-action-reason-outputs.json",
+      "sha256": "87f4e53d8a53960266e7e5a8add306d0d132de714edc1f9b348a4a27961eefd3",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "rendered-adverse-action-notices.json",
+      "sha256": "f5638a7ba44f012b2153f2fbe9e2f7ca28e2cd6eea01c6a85772c5c5ac7e6198",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "recourse-subject-records.json",
+      "sha256": "3e2db7d36c25185607996208e22025d0a5d43ebab623bb3935a114a86ebc4d41",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "recourse-method-record.json",
+      "sha256": "19e7f8941d18de84cfdf2888a0446e831de6e1496f864a91e224883f8808df19",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "recourse-action-set.json",
+      "sha256": "34e311d01f2b5203771c8c143d55473cb5a94a2103178864bfb8986239d1e176",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "recourse-review-config.json",
+      "sha256": "76a440e658b87589ae76d4fe16f8ec058eff0da1eb7f38470d46f9f7512e9846",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "synthetic-prediction-model.json",
+      "sha256": "34eabaee226049c1668604b8d65fa0ece4374a20fc9dc7378b258ac4a2bb5669",
+      "source": "recourse_bundle"
+    }
+  ],
+  "limitations": [
+    "Synthetic demonstration only; no real applicant, lender, or production model data are represented.",
+    "The pack does not establish institutional adoption, independent validation, legal compliance, guaranteed recourse, increased approvals, or improved credit access."
+  ],
+  "model_id": "mdl-adverse-reason-benchmark",
+  "outputs": [
+    {
+      "filename": "input_fingerprints.json",
+      "sha256": "417e7c4794d77dde271d37c5dc8df147cc0456c302dfddddb32269a897e68500"
+    },
+    {
+      "filename": "output_fingerprints.json",
+      "sha256": "4b1c272b124c7e4ce66e4f1aab956401cbb5dcdcb8589ee41169e80cec540546"
+    },
+    {
+      "filename": "recourse_method_snapshot.json",
+      "sha256": "78173a627eee72ec3f33dce9a726ff3dcde9df6bff9dba012b9971e29dc6d84e"
+    },
+    {
+      "filename": "action_set_snapshot.json",
+      "sha256": "38f8ea1d4a51ec9677109ff9f2cf6fbca3739449154adbdd826bfdda79a06d2e"
+    },
+    {
+      "filename": "review_config_snapshot.json",
+      "sha256": "25bda05f28a17ee136bc27234f0cbed755b534e117a717c2cd57779789e211b5"
+    },
+    {
+      "filename": "recourse_assessment_results.json",
+      "sha256": "39ed07835485dd1a1c79bf98457821342d0c003866e2b69117585592aab38f05"
+    },
+    {
+      "filename": "recourse_qa_results.json",
+      "sha256": "0d3768b20ecd80028ee9eebecf58872ac51bb4336c9d5c5b5ecc994da5725599"
+    },
+    {
+      "filename": "recourse_review_report.md",
+      "sha256": "cef3cc1704210413ca01cb44dc879e2e140faae5205e87535657348080d7507c"
+    },
+    {
+      "filename": "reviewer_notes.md",
+      "sha256": "f6c162d627a43fa6b96dacf32a19e63df1ca479d54ac6cdbd9d2a78459a14556"
+    },
+    {
+      "filename": "reviewer_signoff.md",
+      "sha256": "ead9b5442cf8a818bde01b1cdd4e43187634ad88fbb767075c38062e6471531b"
+    }
+  ],
+  "record_type": "recourse_evidence_pack_manifest",
+  "recourse_run_id": "rcrun-baseline",
+  "result_type": "synthetic_reviewer_pack_not_applicant_guidance_not_validation_or_compliance",
+  "version_id": "ver-2026-07-adverse-action"
+}

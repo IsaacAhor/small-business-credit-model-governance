@@ -1,0 +1,39 @@
+{
+  "files": [
+    {
+      "filename": "recourse_method_snapshot.json",
+      "sha256": "78173a627eee72ec3f33dce9a726ff3dcde9df6bff9dba012b9971e29dc6d84e"
+    },
+    {
+      "filename": "action_set_snapshot.json",
+      "sha256": "38f8ea1d4a51ec9677109ff9f2cf6fbca3739449154adbdd826bfdda79a06d2e"
+    },
+    {
+      "filename": "review_config_snapshot.json",
+      "sha256": "25bda05f28a17ee136bc27234f0cbed755b534e117a717c2cd57779789e211b5"
+    },
+    {
+      "filename": "recourse_assessment_results.json",
+      "sha256": "39ed07835485dd1a1c79bf98457821342d0c003866e2b69117585592aab38f05"
+    },
+    {
+      "filename": "recourse_qa_results.json",
+      "sha256": "0d3768b20ecd80028ee9eebecf58872ac51bb4336c9d5c5b5ecc994da5725599"
+    },
+    {
+      "filename": "recourse_review_report.md",
+      "sha256": "cef3cc1704210413ca01cb44dc879e2e140faae5205e87535657348080d7507c"
+    },
+    {
+      "filename": "reviewer_notes.md",
+      "sha256": "f6c162d627a43fa6b96dacf32a19e63df1ca479d54ac6cdbd9d2a78459a14556"
+    },
+    {
+      "filename": "reviewer_signoff.md",
+      "sha256": "ead9b5442cf8a818bde01b1cdd4e43187634ad88fbb767075c38062e6471531b"
+    }
+  ],
+  "hash_policy": "sha256_raw_generated_bytes_v1",
+  "record_type": "recourse_output_fingerprints",
+  "result_type": "generated_output_integrity_record_not_validation_or_approval"
+}

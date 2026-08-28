@@ -475,8 +475,10 @@ The first serious build target is:
 
 ## Phase 8: Analytical Rigor and External Corroboration
 
-Priority track ahead of the remaining Phase 5 to 7 items. Raises analytical
-rigor rather than building production infrastructure.
+Supporting analytical track after the core model-risk governance,
+adverse-action reason, monitoring, documentation, and external-review
+priorities. It raises analytical rigor rather than building production
+infrastructure.
 
 The remaining deliverables converge on a single build: a reproducible run
 on recognizable public data that trains a simple, interpretable reference
@@ -515,3 +517,48 @@ Status:
   `src/credit_gov/stats.py`, wired into the monitoring run and evidence pack
   (see `docs/fair-lending-statistics.md`)
 - LDA candidate search and the public-dataset run remain open
+
+## Phase 9: Reviewer-Facing Recourse Assessment
+
+Deliverables:
+
+- separate subject, method, action-set, review-config, prediction-model, and
+  output contracts
+- strict cross-file model/version and baseline-prediction validation
+- explicit complete feature-state candidates with primary and linked changes
+- deterministic finite enumeration and feature-level bounded responsiveness
+- conservative single-feature, joint-only, fixed-under-set, bounded,
+  inconclusive, and not-assessed statuses
+- distinct evidence-pack generation and verification with no reason or notice
+  fields
+- source and installed-package commands with no heavy base dependency
+
+Status:
+
+- Implemented as a separate optional sidecar with synthetic fixtures and a
+  deterministic curated reviewer pack.
+- The core `SCHEMA_SPECS`, `MonitoringRunResult`, reason generator, reason
+  outputs, notice schemas, current monitoring packs, and SBA workflow remain
+  unchanged.
+
+Acceptance criteria:
+
+- every baseline is recomputed and matched to the recorded eligible outcome
+- all declared versions, feature orders, state deltas, directions, bounds, and
+  control roles validate before execution
+- fixed-under-set requires complete enumeration; bounded search never implies
+  fixed
+- unresolved feasibility forces `inconclusive` and withholding
+- the output directory is disjoint from both input trees
+- protected reason/notice file hashes remain unchanged
+- repeated runs are byte-identical and the exact output set is verifiable
+
+Deferred:
+
+- applicant-facing instructions or notice text
+- production model loading or remote scoring
+- causal-feasibility certification
+- external recourse-provider adapters
+- continuous optimization and institution-specific calibration
+- claims of adoption, independent validation, practical effectiveness, or
+  cross-institutional utility without external evidence

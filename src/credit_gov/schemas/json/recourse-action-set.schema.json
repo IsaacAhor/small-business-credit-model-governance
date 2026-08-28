@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/recourse-action-set.schema.json",
+  "title": "Recourse Action Set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "action_set_id",
+    "action_set_version",
+    "model_id",
+    "version_id",
+    "population_scope",
+    "effective_date",
+    "retired_date",
+    "time_horizon",
+    "source_basis",
+    "reviewer_status",
+    "feature_controls",
+    "action_candidates",
+    "joint_constraints",
+    "unresolved_assumptions",
+    "result_type"
+  ],
+  "properties": {
+    "record_type": {"const": "recourse_action_set"},
+    "action_set_id": {"type": "string", "pattern": "^ras-[a-z0-9-]+$"},
+    "action_set_version": {"type": "string", "pattern": "^rasver-[a-z0-9-]+$"},
+    "model_id": {"type": "string", "pattern": "^mdl-[a-z0-9-]+$"},
+    "version_id": {"type": "string", "pattern": "^ver-[a-z0-9-]+$"},
+    "population_scope": {"type": "string", "minLength": 15},
+    "effective_date": {"type": "string", "format": "date"},
+    "retired_date": {"type": ["string", "null"], "format": "date"},
+    "time_horizon": {"type": "string", "minLength": 5},
+    "source_basis": {"type": "string", "minLength": 15},
+    "reviewer_status": {"enum": ["synthetic_demonstration_only", "pending_review", "retired"]},
+    "feature_controls": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["feature_name", "control_class", "allowed_direction", "assumption_reference"],
+        "properties": {
+          "feature_name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "control_class": {
+            "enum": ["not_actionable_under_set", "directly_actionable", "conditionally_actionable", "derived_or_downstream", "unknown"]
+          },
+          "allowed_direction": {"enum": ["increase", "decrease", "both", "not_applicable", "unknown"]},
+          "lower_bound": {"type": "number"},
+          "upper_bound": {"type": "number"},
+          "allowed_values": {"type": "array", "minItems": 1, "items": {"type": "number"}},
+          "assumption_reference": {"type": "string", "minLength": 10}
+        }
+      }
+    },
+    "action_candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "primary_action_features",
+          "resulting_feature_state",
+          "changes",
+          "feasibility_status",
+          "assumption_reference"
+        ],
+        "properties": {
+          "action_id": {"type": "string", "pattern": "^act-[a-z0-9-]+$"},
+          "primary_action_features": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+          },
+          "resulting_feature_state": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["feature_name", "value"],
+              "properties": {
+                "feature_name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+                "value": {"type": "number"}
+              }
+            }
+          },
+          "changes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["feature_name", "from_value", "to_value", "change_role"],
+              "properties": {
+                "feature_name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+                "from_value": {"type": "number"},
+                "to_value": {"type": "number"},
+                "change_role": {"enum": ["primary", "linked_downstream"]}
+              }
+            }
+          },
+          "feasibility_status": {
+            "enum": ["supported_by_declared_synthetic_assumption", "unknown", "excluded"]
+          },
+          "assumption_reference": {"type": "string", "minLength": 10}
+        }
+      }
+    },
+    "joint_constraints": {"type": "array", "items": {"type": "string", "minLength": 10}},
+    "unresolved_assumptions": {"type": "array", "items": {"type": "string", "minLength": 10}},
+    "result_type": {"const": "declared_action_set_not_real_world_feasibility_finding"}
+  }
+}

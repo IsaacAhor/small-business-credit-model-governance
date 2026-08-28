@@ -1,0 +1,27 @@
+{
+  "calculation_mode": "exhaustive_enumeration",
+  "implementation_reference": "src/credit_gov/recourse.py",
+  "known_limitations": [
+    "Synthetic action candidates do not establish real-world feasibility.",
+    "A target model prediction does not guarantee a future lending outcome.",
+    "The finite enumerator is not the official implementation of any cited research software."
+  ],
+  "linked_change_treatment": "Every linked downstream change is declared and evaluated inside the complete candidate feature state.",
+  "method_family": "bounded model-query recourse assessment",
+  "method_name": "Declared finite action-state enumeration",
+  "method_version": "rcmver-synthetic-1",
+  "owner": "Model Risk Governance",
+  "randomness_policy": "The finite enumerator is deterministic and uses no random sampling.",
+  "record_type": "recourse_method_record",
+  "recourse_method_id": "rcm-finite-enumeration",
+  "result_type": "governed_recourse_method_not_outcome_guarantee",
+  "single_feature_action_treatment": "A single-feature result has exactly one declared primary action feature; linked downstream changes remain part of its state.",
+  "source_citations": [
+    "Cheon, Wernerfelt, Friedler, and Ustun (2025), Feature Responsiveness Scores: Model-Agnostic Explanations for Recourse."
+  ],
+  "status": "approved_for_synthetic_review",
+  "target_outcome_interpretation": "The configured synthetic provider returns its target prediction for an evaluated declared state.",
+  "validation_references": [
+    "tests/test_recourse_run_kit.py"
+  ]
+}

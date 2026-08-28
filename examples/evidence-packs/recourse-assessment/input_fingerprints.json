@@ -1,0 +1,67 @@
+{
+  "files": [
+    {
+      "filename": "model-registry-record.json",
+      "sha256": "296809e4f9975f3dcd5e423196f97cf3870cd62ac2957904063bf8adaaa0f11a",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "model-version-record.json",
+      "sha256": "b1922152d361e840d7c86feff966b1c617d52e7d632773b9146eaeb5fc9bf114",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "application-decision-records.json",
+      "sha256": "7427d9ce504f1eb41db65d877e718824414447c0e50743e9e14611c9cb6449b2",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "adverse-action-driver-contributions.json",
+      "sha256": "b623828d47042d7598034fa2550a441a582fb9e70d146548abd8122b419aeec6",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "reason-code-mappings.json",
+      "sha256": "33644e1a4ff9580e1de03ca697730cd0d3725aaf8a3122c2d58424f31ca303ed",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "adverse-action-reason-outputs.json",
+      "sha256": "87f4e53d8a53960266e7e5a8add306d0d132de714edc1f9b348a4a27961eefd3",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "rendered-adverse-action-notices.json",
+      "sha256": "f5638a7ba44f012b2153f2fbe9e2f7ca28e2cd6eea01c6a85772c5c5ac7e6198",
+      "source": "core_dataset"
+    },
+    {
+      "filename": "recourse-subject-records.json",
+      "sha256": "3e2db7d36c25185607996208e22025d0a5d43ebab623bb3935a114a86ebc4d41",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "recourse-method-record.json",
+      "sha256": "19e7f8941d18de84cfdf2888a0446e831de6e1496f864a91e224883f8808df19",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "recourse-action-set.json",
+      "sha256": "34e311d01f2b5203771c8c143d55473cb5a94a2103178864bfb8986239d1e176",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "recourse-review-config.json",
+      "sha256": "76a440e658b87589ae76d4fe16f8ec058eff0da1eb7f38470d46f9f7512e9846",
+      "source": "recourse_bundle"
+    },
+    {
+      "filename": "synthetic-prediction-model.json",
+      "sha256": "34eabaee226049c1668604b8d65fa0ece4374a20fc9dc7378b258ac4a2bb5669",
+      "source": "recourse_bundle"
+    }
+  ],
+  "hash_policy": "sha256_canonical_json_v1",
+  "record_type": "recourse_input_fingerprints",
+  "result_type": "reproducibility_fingerprints_not_validation_or_approval"
+}

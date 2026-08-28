@@ -94,3 +94,16 @@ allowed. These are accurate limitations, not defects to hide.
 
 Code cannot manufacture independent review or institutional use. Those remain
 external evidence events.
+
+## Optional Linked Recourse Sidecar
+
+`docs/recourse-assessment-run-kit/README.md` documents a separate optional
+sidecar for bounded action-set queries. It may share stable decision, model,
+version, and run context, but it does not extend this governance bundle or the
+mandatory core dataset. Its subject features, method, action set, prediction
+provider, results, QA, manifest, and reviewer files remain separate.
+
+The sidecar does not change explainability-method approval, validation
+disposition, promotion status, required adverse-action reasons, or rendered
+notice records. A review of this governance bundle does not automatically
+validate a later recourse release.

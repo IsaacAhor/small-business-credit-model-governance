@@ -1,0 +1,24 @@
+{
+  "record_type": "synthetic_prediction_model",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "version_id": "ver-2026-07-adverse-action",
+  "provider_type": "deterministic_linear_threshold",
+  "ordered_features": [
+    "cash_flow_margin",
+    "debt_service_coverage",
+    "months_in_business"
+  ],
+  "intercept": 0,
+  "coefficients": [
+    {"feature_name": "cash_flow_margin", "weight": 2},
+    {"feature_name": "debt_service_coverage", "weight": 0.5},
+    {"feature_name": "months_in_business", "weight": 0.01}
+  ],
+  "threshold": 1.5,
+  "threshold_comparison": "greater_than_or_equal",
+  "target_label": "approved",
+  "non_target_label": "declined",
+  "implementation_version": "predver-linear-1",
+  "synthetic_only": true,
+  "result_type": "synthetic_prediction_provider_not_underwriting_model"
+}

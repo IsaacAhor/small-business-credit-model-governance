@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/synthetic-prediction-model.schema.json",
+  "title": "Synthetic Prediction Model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "model_id",
+    "version_id",
+    "provider_type",
+    "ordered_features",
+    "intercept",
+    "coefficients",
+    "threshold",
+    "threshold_comparison",
+    "target_label",
+    "non_target_label",
+    "implementation_version",
+    "synthetic_only",
+    "result_type"
+  ],
+  "properties": {
+    "record_type": {"const": "synthetic_prediction_model"},
+    "model_id": {"type": "string", "pattern": "^mdl-[a-z0-9-]+$"},
+    "version_id": {"type": "string", "pattern": "^ver-[a-z0-9-]+$"},
+    "provider_type": {"const": "deterministic_linear_threshold"},
+    "ordered_features": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+    },
+    "intercept": {"type": "number"},
+    "coefficients": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["feature_name", "weight"],
+        "properties": {
+          "feature_name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "weight": {"type": "number"}
+        }
+      }
+    },
+    "threshold": {"type": "number"},
+    "threshold_comparison": {"const": "greater_than_or_equal"},
+    "target_label": {"type": "string", "minLength": 3},
+    "non_target_label": {"type": "string", "minLength": 3},
+    "implementation_version": {"type": "string", "pattern": "^predver-[a-z0-9-]+$"},
+    "synthetic_only": {"const": true},
+    "result_type": {"const": "synthetic_prediction_provider_not_underwriting_model"}
+  }
+}

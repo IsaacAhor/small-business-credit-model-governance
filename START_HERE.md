@@ -26,16 +26,19 @@ Use this path if you have limited time and want the clearest view of the work:
 6. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
    adverse-action reason accuracy benchmark, run command, evidence-pack review
    path, and public-data limits.
-7. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
+7. Read `docs/recourse-assessment-run-kit/README.md` to inspect the separate
+   optional action-set assessment, conservative statuses, and curated reviewer
+   pack without conflating it with required adverse-action reasons.
+8. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
    reviewing an AI-enabled credit-union underwriting vendor, CUSO relationship,
    or third-party small-business/member-business lending tool. Inspect
    `examples/evidence-packs/credit-union-vendor-risk/README.md` for the
    deterministic synthetic vendor-oversight output.
-8. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
+9. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
    the plain-language output of a synthetic monthly governance review at
    portfolio scale. A minimal controlled-breach scenario is also available
    under `examples/evidence-packs/monthly-demo/`.
-9. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
+10. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
    could adapt the workflow.
 
 ## Role-Based Paths
@@ -44,6 +47,7 @@ Use `USE_CASES.md` if you are reviewing from a specific role, including a
 credit-union vendor-risk review role:
 
 - model-risk or validation reviewer
+- recourse or explanation-method reviewer
 - fair-lending or compliance reviewer
 - credit policy or underwriting governance lead
 - credit-union vendor-management or CUSO reviewer
@@ -60,6 +64,8 @@ scenario) and `docs/adverse-action-reason-run-kit/README.md`
 third-party underwriting-tool review, also inspect
 `docs/credit-union-ai-vendor-risk-run-kit/README.md` and
 `examples/evidence-packs/credit-union-vendor-risk/README.md`.
+For the separate recourse sidecar, inspect
+`examples/evidence-packs/recourse-assessment/`.
 
 If you want to reproduce the synthetic workflow locally, run:
 
@@ -70,6 +76,8 @@ python scripts/validate_vendor_risk_run_kit.py data/synthetic/credit-union-vendo
 python scripts/run_governance_review.py data/synthetic/monthly-demo review-output
 python scripts/run_monthly_monitoring.py data/synthetic/monthly-portfolio --evidence-root evidence
 python scripts/run_adverse_action_reason_benchmark.py --overwrite
+python scripts/validate_recourse_run_kit.py data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline
+python scripts/build_recourse_evidence_pack.py data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline tmp/recourse-review-pack
 python -m unittest discover -s tests -p "test_*.py"
 ```
 
@@ -81,4 +89,6 @@ legal compliance certification.
 
 Fair-lending outputs are screening triggers for governance review, not legal
 conclusions. Adverse-action reason QA outputs are review checks, not legal
-advice.
+advice. Recourse outputs are synthetic reviewer assessments under declared
+action sets, not applicant instructions, real-world feasibility findings, or
+future-outcome guarantees.

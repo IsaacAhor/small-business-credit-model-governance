@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "check_id": "core-validation",
+      "detail": "The unchanged core validator accepted the source dataset.",
+      "passed": true
+    },
+    {
+      "check_id": "recourse-bundle-validation",
+      "detail": "All five recourse input contracts and cross-file relationships passed.",
+      "passed": true
+    },
+    {
+      "check_id": "baseline-recomputation",
+      "detail": "Every subject baseline prediction matched its recorded eligible outcome.",
+      "passed": true
+    },
+    {
+      "check_id": "cross-layer-field-rejection",
+      "detail": "Generated recourse outputs passed a closed schema that excludes reason, mapping, and notice fields.",
+      "passed": true
+    },
+    {
+      "check_id": "protected-core-hashes",
+      "detail": "All five protected core files retained their pre-run SHA-256 hashes.",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "protected_core_hashes_after": {
+    "adverse-action-driver-contributions.json": "1a26af6f16638682248c0845e1d18ece198b1ed89acdb12c0fd7aaefa3be4eda",
+    "adverse-action-reason-outputs.json": "f03662d78ce8808f26ca1992f03ad4430b04a6d67f48e16f16a0af1f6e0cca06",
+    "application-decision-records.json": "1ebf66a011ff5bad12320155e6dd7c66c1352400bb2a64cdd51a38ef2784db67",
+    "reason-code-mappings.json": "98dbf665a757b869a4d04db60ec518c1196aeb88f8969e6347f7abebbe912884",
+    "rendered-adverse-action-notices.json": "c395023771c2924a8174544edd78d38299f49b6f8c3806d547b66c2f725d555f"
+  },
+  "protected_core_hashes_before": {
+    "adverse-action-driver-contributions.json": "1a26af6f16638682248c0845e1d18ece198b1ed89acdb12c0fd7aaefa3be4eda",
+    "adverse-action-reason-outputs.json": "f03662d78ce8808f26ca1992f03ad4430b04a6d67f48e16f16a0af1f6e0cca06",
+    "application-decision-records.json": "1ebf66a011ff5bad12320155e6dd7c66c1352400bb2a64cdd51a38ef2784db67",
+    "reason-code-mappings.json": "98dbf665a757b869a4d04db60ec518c1196aeb88f8969e6347f7abebbe912884",
+    "rendered-adverse-action-notices.json": "c395023771c2924a8174544edd78d38299f49b6f8c3806d547b66c2f725d555f"
+  },
+  "record_type": "recourse_qa_results",
+  "result_type": "synthetic_recourse_qa_not_independent_validation",
+  "status_counts": {
+    "single_feature_path_identified": 1
+  }
+}

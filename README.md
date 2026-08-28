@@ -18,7 +18,8 @@ professional could organize model and version records, risk and materiality
 assessments, explainability-method documentation, validation findings,
 threshold monitoring, adverse-action reason QA, change review, issue registers,
 and hash-verifiable evidence packs using synthetic fixtures and clearly scoped
-public-data run kits.
+public-data run kits. A separate optional recourse sidecar evaluates explicit
+synthetic action states without modifying required reasons or notices.
 
 The core workflow generates adverse-action reasons from ranked decision
 drivers, reviews their mapping and traceability, records validation independence
@@ -53,6 +54,13 @@ If you are new to the repository, use these entry points:
   A one-folder reviewer and operator entry point for the synthetic adverse-
   action reason accuracy benchmark, including run command, limitations,
   benchmark spec, private-data requirements, and evidence-pack review path.
+- `docs/adverse-action-reason-run-kit/TERMINOLOGY.md`
+  Defines legacy `fidelity` compatibility identifiers narrowly as record-level
+  traceability and reconciliation, not unique explanation truth, actionability,
+  or recourse.
+- `docs/recourse-assessment-run-kit/README.md`
+  Documents the separate synthetic recourse sidecar, finite enumeration method,
+  status rules, data contracts, deterministic reviewer pack, and limitations.
 - `docs/model-risk-oversight-run-kit/README.md`
   A model-risk oversight public-data run kit for SBA 7(a)/504 FOIA approved-loan
   monitoring and drift review.
@@ -78,6 +86,9 @@ for:
 - model-change review and validation findings
 - issue tracking and evidence-pack assembly
 - ongoing model-risk oversight using deterministic demonstration inputs
+- optional recourse assessment under declared model, method, action-set,
+  target, search, and uncertainty records, kept structurally separate from
+  required adverse-action reasons and notices
 - credit-union AI underwriting vendor-risk review, using public NCUA resources
   as source grounding for due diligence, controls, monitoring, and oversight
 - supporting fair-lending screening with statistical significance testing,
@@ -108,6 +119,8 @@ The repository is designed to support several connected outputs:
   evidence validation, synthetic scenarios, and deterministic reviewer outputs
 - a configuration-driven governance evidence engine supported by synthetic
   fixtures and clearly scoped public-data run kits
+- a separate dependency-free recourse-assessment sidecar with closed schemas,
+  conservative findings, and deterministic reviewer evidence
 
 ## What It Does Not Claim
 
@@ -132,7 +145,8 @@ This project provides a reproducible governance evidence engine for
 machine-learning-based small business credit underwriting systems. It focuses on
 structured model-risk and validation records, monitoring workflows,
 adverse-action reason accuracy and traceability review, model-change review,
-reviewer-ready output packages, and supporting fair-lending screening triggers.
+reviewer-ready output packages, an optional bounded recourse-assessment sidecar,
+and supporting fair-lending screening triggers.
 
 The repository is organized as a standalone technical project with public,
 reviewable artifacts: schemas, templates, synthetic fixtures, public-data run
@@ -146,6 +160,8 @@ kits, tests, and configuration-driven workflow code.
   records with cross-file relationship checks
 - adverse-action reason review that tests mapping quality, specificity, and
   traceability
+- bounded recourse assessment that queries complete declared synthetic feature
+  states without changing reason selection or notice rendering
 - change-review workflows for model versions, thresholds, and reason-code
   mappings
 - reviewer-preparation summaries that surface independence gaps, open findings,
@@ -177,16 +193,18 @@ It does not assume a fixed modeling stack at this stage.
   Reviewer and adopter entry points.
 - `schemas/`
   JSON contracts for core evidence records and the optional formal governance
-  bundle, plus the separate vendor-model oversight bundle.
+  bundle, plus separate vendor-model oversight and recourse bundles.
 - `notebooks/`
   Implementation notes and future analytical notebooks.
 - `src/`
   Reusable contract validation, governance-review, monitoring,
   reason-generation, model-change validation, vendor-risk validation and
-  reporting, and supporting LDA assessment code.
+  reporting, separate recourse validation/reporting, and supporting LDA
+  assessment code.
 - `data/synthetic/`
   Deterministic demonstration inputs for validation, monitoring,
-  portfolio-scale workflow runs, and vendor-risk scenarios.
+  portfolio-scale workflow runs, vendor-risk scenarios, and recourse status
+  coverage.
 - `data/reference/bisg/`
   Demonstration BISG reference tables with a documented path to full Census-derived data.
 - `examples/`
@@ -194,8 +212,8 @@ It does not assume a fixed modeling stack at this stage.
 - `tests/`
   Validation checks for schemas, typed models, governance relationships,
   deterministic reports, synthetic-data integrity, monitoring, reason QA,
-  reason generation, model-change validation, vendor oversight, and supporting
-  screening modules.
+  reason generation, model-change validation, vendor oversight, recourse
+  separation/status logic, and supporting screening modules.
 - `templates/`
   Checklists and governance templates.
 - `governance/`
@@ -265,6 +283,8 @@ credit-gov verify-evidence evidence/<generated-evidence-pack-directory>
 credit-gov change-review data/synthetic/monthly-portfolio
 credit-gov vendor-validate data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo
 credit-gov vendor-report data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo vendor-review-output
+credit-gov recourse-validate data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline
+credit-gov recourse-report data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline recourse-review-output
 ```
 
 For the SBA public-data run kit, install the optional public-data stack:
@@ -313,6 +333,14 @@ Run the adverse-action reason accuracy benchmark after reviewing the landing run
 
 ```bash
 python scripts/run_adverse_action_reason_benchmark.py --overwrite
+```
+
+Validate the separate recourse sidecar and generate its deterministic reviewer
+pack outside both input trees:
+
+```bash
+python scripts/validate_recourse_run_kit.py data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline
+python scripts/build_recourse_evidence_pack.py data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline tmp/recourse-review-pack
 ```
 
 Run the standalone Phase 5 model-change and validation review (the portfolio
@@ -419,7 +447,9 @@ documented provenance, permitted use, sensitivity classification, and reviewer.
 4. Exercise the vendor-oversight contracts with permissioned evidence in an
    institution-controlled environment and calibrate the configurable review
    inputs to that actual use case.
-5. Keep the fair-lending/LDA track as a supporting risk-screening module and add
+5. Obtain a focused independent review of the exact recourse sidecar release
+   before treating its synthetic action sets as evidence of practical utility.
+6. Keep the fair-lending/LDA track as a supporting risk-screening module and add
    rigor only where data, current law, and review scope support it.
 
 The formal governance plumbing is now implemented. The largest remaining gap is
@@ -456,6 +486,10 @@ This repository now contains:
   without claiming real-world notice accuracy
 - a one-folder adverse-action reason run-kit landing path that explains how to
   run, review, limit, and extend the benchmark
+- a separate synthetic recourse-assessment sidecar with six mirrored schemas,
+  five-input bundle validation, a transparent finite enumerator, conservative
+  status logic, invalid fixtures, protected-core hash checks, and an exact
+  eleven-file reviewer pack
 - a credit-union AI vendor-risk run kit that maps public NCUA resource themes to
   underwriting vendor due diligence, monitoring, adverse-action reason review,
   model-change review, issue tracking, and reviewer signoff, now paired with an
@@ -465,7 +499,8 @@ This repository now contains:
 - repository guardrails that check required governance artifacts and data discipline
 
 The current priority is independent review and method-level validation of the
-core governance and adverse-action reason path. Executable vendor oversight is
-implemented but remains synthetic and externally unvalidated. Additional
-monitoring regression controls follow. Fair-lending and LDA remain supporting
-risk-screening work rather than the repository's headline.
+core governance and adverse-action reason path. Executable vendor oversight and
+the optional recourse sidecar are implemented but remain synthetic and
+externally unvalidated. Additional monitoring regression controls follow.
+Fair-lending and LDA remain supporting risk-screening work rather than the
+repository's headline.

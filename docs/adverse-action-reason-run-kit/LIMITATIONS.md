@@ -83,7 +83,7 @@ Say instead:
 The gap closes only with independent evidence, such as:
 
 - a private deidentified lender, CDFI, or fintech validation run
-- a practitioner or counsel review letter that evaluates the method
+- an independent practitioner review that evaluates the method
 - a public issue, pull request, replication, or review from a credible external
   model-risk, compliance, credit-policy, or fair-lending practitioner
 - a documented pilot that preserves deidentification, provenance, and review

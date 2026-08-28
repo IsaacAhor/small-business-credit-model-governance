@@ -12,6 +12,8 @@ from credit_gov.cli import main as validate_main
 from credit_gov.generation import generate_adverse_action_reasons, summarize_generation
 from credit_gov.lda import assess_less_discriminatory_alternative
 from credit_gov.monitoring import run_monthly_monitoring, verify_evidence_pack
+from credit_gov.recourse import validate_main as recourse_validate_main
+from credit_gov.recourse_reporting import main as recourse_report_main
 from credit_gov.validation import assess_model_change, render_change_validation_report
 from credit_gov.vendor_reporting import main as vendor_report_main
 from credit_gov.vendor_risk import validate_main as vendor_validate_main
@@ -260,9 +262,11 @@ def main(argv: list[str] | None = None) -> int:
         "change-review": change_review_main,
         "vendor-validate": vendor_validate_main,
         "vendor-report": vendor_report_main,
+        "recourse-validate": recourse_validate_main,
+        "recourse-report": recourse_report_main,
     }
     if not args or args[0] in {"-h", "--help"}:
-        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review,vendor-validate,vendor-report} ...")
+        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review,vendor-validate,vendor-report,recourse-validate,recourse-report} ...")
         print("\nInstalled command entry point for the credit governance evidence engine.")
         print("\ncommands:")
         for command in commands:
@@ -273,7 +277,7 @@ def main(argv: list[str] | None = None) -> int:
     handler = commands.get(command)
     if handler is None:
         print(f"error: unknown command: {command}", file=sys.stderr)
-        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review,vendor-validate,vendor-report} ...", file=sys.stderr)
+        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review,vendor-validate,vendor-report,recourse-validate,recourse-report} ...", file=sys.stderr)
         return 2
     return handler(args[1:])
 

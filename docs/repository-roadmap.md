@@ -124,3 +124,40 @@ Status:
   oversight is implemented but remains synthetic and externally unvalidated.
   Fair-lending/LDA rigor remains supporting work and should not displace those
   core priorities.
+
+## Phase 9: Separate Recourse Assessment Sidecar
+
+Deliverables:
+
+- prospective terminology clarification that defines legacy `fidelity`
+  identifiers narrowly as reason-record traceability and reconciliation
+- six mirrored JSON Schema 2020-12 contracts for subjects, methods, action sets,
+  review configuration, the synthetic prediction provider, and outputs
+- typed models and an all-or-none validator outside the mandatory core schema
+  tuple
+- dependency-free deterministic finite enumeration with explicit linked-state
+  handling and conservative status rules
+- valid and invalid synthetic fixtures covering single-feature, joint-only,
+  fixed-under-set, bounded, inconclusive, baseline-mismatch, missing-version,
+  and cross-layer-field behavior
+- a separate deterministic eleven-file reviewer pack, protected-core hash
+  checks, package commands, and regression tests
+
+Status:
+
+- Implemented in the working tree as a separate reviewer-facing synthetic
+  module. It does not alter required reason selection, mappings, reason output,
+  notice rendering, monthly monitoring results, or existing curated reason
+  evidence packs.
+- Public release, independent review, institution-specific action-set
+  calibration, and applicant-facing use remain separate future gates.
+
+Acceptance criteria:
+
+- old datasets validate and existing commands behave as before without a
+  recourse bundle
+- recourse output schemas reject reason, mapping, and notice fields
+- fixed-under-set is impossible from incomplete search
+- uncertainty and withholding remain visible
+- exact input/output fingerprints and protected-core hashes verify
+- public claims remain synthetic, reviewer-facing, and non-outcome-guaranteeing

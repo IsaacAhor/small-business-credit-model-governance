@@ -1,0 +1,120 @@
+{
+  "action_candidates": [
+    {
+      "action_id": "act-cash-flow-responsive",
+      "assumption_reference": "Fictional complete-state cash-flow candidate.",
+      "changes": [
+        {
+          "change_role": "primary",
+          "feature_name": "cash_flow_margin",
+          "from_value": 0.2,
+          "to_value": 0.6
+        },
+        {
+          "change_role": "linked_downstream",
+          "feature_name": "months_in_business",
+          "from_value": 18,
+          "to_value": 24
+        }
+      ],
+      "feasibility_status": "supported_by_declared_synthetic_assumption",
+      "primary_action_features": [
+        "cash_flow_margin"
+      ],
+      "resulting_feature_state": [
+        {
+          "feature_name": "cash_flow_margin",
+          "value": 0.6
+        },
+        {
+          "feature_name": "debt_service_coverage",
+          "value": 0.8
+        },
+        {
+          "feature_name": "months_in_business",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "action_id": "act-debt-service-unresponsive",
+      "assumption_reference": "Fictional complete-state debt-service candidate.",
+      "changes": [
+        {
+          "change_role": "primary",
+          "feature_name": "debt_service_coverage",
+          "from_value": 0.8,
+          "to_value": 1.2
+        }
+      ],
+      "feasibility_status": "supported_by_declared_synthetic_assumption",
+      "primary_action_features": [
+        "debt_service_coverage"
+      ],
+      "resulting_feature_state": [
+        {
+          "feature_name": "cash_flow_margin",
+          "value": 0.2
+        },
+        {
+          "feature_name": "debt_service_coverage",
+          "value": 1.2
+        },
+        {
+          "feature_name": "months_in_business",
+          "value": 18
+        }
+      ]
+    }
+  ],
+  "action_set_id": "ras-baseline",
+  "action_set_version": "rasver-baseline-1",
+  "effective_date": "2026-08-27",
+  "feature_controls": [
+    {
+      "allowed_direction": "increase",
+      "allowed_values": [
+        0.4,
+        0.6
+      ],
+      "assumption_reference": "Synthetic cash-flow scenario assumption.",
+      "control_class": "directly_actionable",
+      "feature_name": "cash_flow_margin",
+      "lower_bound": 0,
+      "upper_bound": 1
+    },
+    {
+      "allowed_direction": "increase",
+      "allowed_values": [
+        1.2,
+        1.6
+      ],
+      "assumption_reference": "Synthetic debt-service scenario assumption.",
+      "control_class": "directly_actionable",
+      "feature_name": "debt_service_coverage",
+      "lower_bound": 0.5,
+      "upper_bound": 3
+    },
+    {
+      "allowed_direction": "increase",
+      "assumption_reference": "Synthetic time-linked downstream assumption.",
+      "control_class": "derived_or_downstream",
+      "feature_name": "months_in_business",
+      "lower_bound": 0,
+      "upper_bound": 240
+    }
+  ],
+  "joint_constraints": [
+    "Each candidate is evaluated as one complete declared feature state."
+  ],
+  "model_id": "mdl-adverse-reason-benchmark",
+  "population_scope": "Fictional small-business credit reviewer fixture records only.",
+  "record_type": "recourse_action_set",
+  "result_type": "declared_action_set_not_real_world_feasibility_finding",
+  "retired_date": null,
+  "reviewer_status": "synthetic_demonstration_only",
+  "source_basis": "Synthetic assumptions selected to exercise deterministic status logic, not observed applicant behavior.",
+  "time_horizon": "Illustrative twelve-month change horizon",
+  "unresolved_assumptions": [],
+  "version_id": "ver-2026-07-adverse-action"
+}

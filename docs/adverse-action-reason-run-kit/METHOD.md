@@ -82,7 +82,7 @@ accuracy and transparency:
 
 These checks are review triggers. They do not determine legal sufficiency.
 
-## Source-To-Notice Fidelity Controls
+## Source-To-Notice Traceability And Reconciliation Controls
 
 Where the required synthetic provenance inputs are present, the run kit also
 checks the exact governed chain from the recorded final decision component to
@@ -108,6 +108,10 @@ the method would produce results substantially similar to a creditor's
 production score-distance or other selection method, and it does not make a
 legal-sufficiency finding. That determination requires a creditor's actual
 system, data, and appropriate legal review.
+
+These checks establish record-level traceability to the declared convention;
+they do not establish a unique model explanation, causal truth, actionability,
+or recourse. See `TERMINOLOGY.md`.
 
 ## Public Demonstration Boundary
 

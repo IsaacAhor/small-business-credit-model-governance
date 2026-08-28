@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/recourse-assessment-output.schema.json",
+  "title": "Recourse Assessment Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "recourse_assessment_id",
+    "recourse_run_id",
+    "recourse_subject_id",
+    "decision_id",
+    "model_id",
+    "version_id",
+    "recourse_method_id",
+    "method_version",
+    "action_set_id",
+    "action_set_version",
+    "input_fingerprints",
+    "baseline_prediction",
+    "target_prediction",
+    "overall_status",
+    "feature_results",
+    "identified_paths",
+    "search",
+    "uncertainty_reasons",
+    "withholding_reasons",
+    "limitation_references",
+    "reviewer_disposition",
+    "audience",
+    "result_type"
+  ],
+  "properties": {
+    "record_type": {"const": "recourse_assessment_output"},
+    "recourse_assessment_id": {"type": "string", "pattern": "^rca-[a-z0-9-]+$"},
+    "recourse_run_id": {"type": "string", "pattern": "^rcrun-[a-z0-9-]+$"},
+    "recourse_subject_id": {"type": "string", "pattern": "^rcs-[a-z0-9-]+$"},
+    "decision_id": {"type": "string", "pattern": "^dec-[a-z0-9-]+$"},
+    "model_id": {"type": "string", "pattern": "^mdl-[a-z0-9-]+$"},
+    "version_id": {"type": "string", "pattern": "^ver-[a-z0-9-]+$"},
+    "recourse_method_id": {"type": "string", "pattern": "^rcm-[a-z0-9-]+$"},
+    "method_version": {"type": "string", "pattern": "^rcmver-[a-z0-9-]+$"},
+    "action_set_id": {"type": "string", "pattern": "^ras-[a-z0-9-]+$"},
+    "action_set_version": {"type": "string", "pattern": "^rasver-[a-z0-9-]+$"},
+    "input_fingerprints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject_sha256", "method_sha256", "action_set_sha256", "review_config_sha256", "prediction_model_sha256"],
+      "properties": {
+        "subject_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "method_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "action_set_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "review_config_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "prediction_model_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "baseline_prediction": {"type": "string", "minLength": 3},
+    "target_prediction": {"type": "string", "minLength": 3},
+    "overall_status": {
+      "enum": ["single_feature_path_identified", "joint_path_only_identified", "fixed_under_declared_action_set", "no_target_path_found_within_search", "inconclusive", "not_assessed"]
+    },
+    "feature_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["feature_name", "control_class", "evaluated_intervention_count", "target_reaching_count", "responsiveness_defined"],
+        "properties": {
+          "feature_name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "control_class": {"enum": ["not_actionable_under_set", "directly_actionable", "conditionally_actionable", "derived_or_downstream", "unknown"]},
+          "evaluated_intervention_count": {"type": "integer", "minimum": 0},
+          "target_reaching_count": {"type": "integer", "minimum": 0},
+          "responsiveness_defined": {"type": "boolean"},
+          "responsiveness_estimate": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "identified_paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action_id", "primary_action_features", "evaluated_prediction"],
+        "properties": {
+          "action_id": {"type": "string", "pattern": "^act-[a-z0-9-]+$"},
+          "primary_action_features": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}},
+          "evaluated_prediction": {"type": "string", "minLength": 3}
+        }
+      }
+    },
+    "search": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["calculation_mode", "exhaustive", "evaluated_state_count", "available_state_count", "computational_limit", "maximum_joint_action_size"],
+      "properties": {
+        "calculation_mode": {"enum": ["exhaustive_enumeration", "bounded_enumeration", "sampling", "external_provider"]},
+        "exhaustive": {"type": "boolean"},
+        "evaluated_state_count": {"type": "integer", "minimum": 0},
+        "available_state_count": {"type": "integer", "minimum": 0},
+        "computational_limit": {"type": "integer", "minimum": 1},
+        "maximum_joint_action_size": {"type": "integer", "minimum": 1},
+        "seed": {"type": "integer", "minimum": 0}
+      }
+    },
+    "uncertainty_reasons": {"type": "array", "items": {"type": "string", "minLength": 10}},
+    "withholding_reasons": {"type": "array", "items": {"type": "string", "minLength": 10}},
+    "limitation_references": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 5}},
+    "reviewer_disposition": {"enum": ["pending_review", "withheld", "not_assessed"]},
+    "audience": {"const": "reviewer_only"},
+    "result_type": {"const": "recourse_assessment_not_reason_not_notice_not_outcome_guarantee"}
+  }
+}

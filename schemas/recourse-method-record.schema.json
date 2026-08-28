@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/recourse-method-record.schema.json",
+  "title": "Recourse Method Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "recourse_method_id",
+    "method_version",
+    "method_name",
+    "method_family",
+    "implementation_reference",
+    "source_citations",
+    "calculation_mode",
+    "target_outcome_interpretation",
+    "single_feature_action_treatment",
+    "linked_change_treatment",
+    "randomness_policy",
+    "validation_references",
+    "known_limitations",
+    "owner",
+    "status",
+    "result_type"
+  ],
+  "properties": {
+    "record_type": {"const": "recourse_method_record"},
+    "recourse_method_id": {"type": "string", "pattern": "^rcm-[a-z0-9-]+$"},
+    "method_version": {"type": "string", "pattern": "^rcmver-[a-z0-9-]+$"},
+    "method_name": {"type": "string", "minLength": 5},
+    "method_family": {"type": "string", "minLength": 5},
+    "implementation_reference": {"type": "string", "minLength": 5},
+    "source_citations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 10}
+    },
+    "calculation_mode": {
+      "enum": ["exhaustive_enumeration", "bounded_enumeration", "sampling", "external_provider"]
+    },
+    "target_outcome_interpretation": {"type": "string", "minLength": 15},
+    "single_feature_action_treatment": {"type": "string", "minLength": 15},
+    "linked_change_treatment": {"type": "string", "minLength": 15},
+    "randomness_policy": {"type": "string", "minLength": 10},
+    "validation_references": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 5}
+    },
+    "known_limitations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 15}
+    },
+    "owner": {"type": "string", "minLength": 3},
+    "status": {"enum": ["draft", "approved_for_synthetic_review", "retired"]},
+    "result_type": {"const": "governed_recourse_method_not_outcome_guarantee"}
+  }
+}
