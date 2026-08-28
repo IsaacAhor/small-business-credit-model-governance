@@ -15,7 +15,7 @@
   "maximum_evaluated_states": 3,
   "fixed_finding_rule": "exhaustive_enumeration_only",
   "withholding_rules": [
-    "Withhold a stronger finding when feasibility, version, method, or search uncertainty remains."
+    "withhold_on_inconclusive"
   ],
   "audience": "reviewer_only",
   "output_directory_policy": "separate_from_all_input_trees",

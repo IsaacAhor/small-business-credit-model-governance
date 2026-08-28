@@ -193,6 +193,11 @@ def validate_recourse_relationships(
     config = payloads["recourse-review-config.json"]
     prediction_model = payloads["synthetic-prediction-model.json"]
 
+    if len(subjects) != 1:
+        raise ValueError(
+            "first-release recourse bundles must contain exactly one subject because "
+            "declared action candidates are baseline-specific"
+        )
     _require_unique(subjects, "recourse_subject_id", "recourse-subject-records.json")
     _require_unique(subjects, "decision_id", "recourse-subject-records.json")
     decision_by_id = {record["decision_id"]: record for record in decisions}
@@ -245,6 +250,10 @@ def validate_recourse_relationships(
         if subject["model_id"] != model_id or subject["version_id"] != version_id:
             raise ValueError(
                 f"recourse-subject-records.json[{subject_index}] references an unknown model or version"
+            )
+        if subject["feature_schema_version"] != prediction_model["feature_schema_version"]:
+            raise ValueError(
+                f"recourse-subject-records.json[{subject_index}] feature schema version mismatch"
             )
         subject_names = [item["feature_name"] for item in subject["feature_values"]]
         if subject_names != ordered_features:
@@ -326,6 +335,7 @@ def validate_recourse_bundle(recourse_dir: Path, core_dir: Path) -> ValidationRe
     errors: list[str] = []
     validated_files: list[str] = []
     payloads: dict[str, Any] = {}
+    output_fixture_records: list[dict[str, Any]] | None = None
 
     core_result = validate_dataset(core_dir)
     if not core_result.ok:
@@ -360,6 +370,7 @@ def validate_recourse_bundle(recourse_dir: Path, core_dir: Path) -> ValidationRe
             records = payload if isinstance(payload, list) else [payload]
             for record in records:
                 validate_recourse_output_record(record)
+            output_fixture_records = records
             validated_files.append(OPTIONAL_OUTPUT_FIXTURE_FILENAME)
         except Exception as exc:  # noqa: BLE001
             errors.append(f"{OPTIONAL_OUTPUT_FIXTURE_FILENAME}: {exc}")
@@ -368,6 +379,12 @@ def validate_recourse_bundle(recourse_dir: Path, core_dir: Path) -> ValidationRe
         try:
             validate_recourse_relationships(core_dir, recourse_dir, payloads)
             validate_recourse_baselines(core_dir, payloads)
+            if output_fixture_records is not None:
+                expected_outputs = _assess_recourse_validated(core_dir, payloads)
+                if output_fixture_records != expected_outputs:
+                    raise ValueError(
+                        "recourse-assessment-output.json does not match recomputed bundle results"
+                    )
         except Exception as exc:  # noqa: BLE001
             errors.append(f"recourse relationships: {exc}")
     return ValidationResult(
@@ -446,13 +463,10 @@ def _feature_results(
     return results
 
 
-def assess_recourse(core_dir: Path, recourse_dir: Path) -> list[dict[str, Any]]:
-    core_dir = core_dir.resolve()
-    recourse_dir = recourse_dir.resolve()
-    validation = validate_recourse_bundle(recourse_dir, core_dir)
-    if not validation.ok:
-        raise ValueError("; ".join(validation.errors))
-    payloads = load_recourse_payloads(recourse_dir)
+def _assess_recourse_validated(
+    core_dir: Path, payloads: dict[str, Any]
+) -> list[dict[str, Any]]:
+    """Assess payloads that already passed bundle and baseline validation."""
     subjects = payloads["recourse-subject-records.json"]
     method = payloads["recourse-method-record.json"]
     action_set = payloads["recourse-action-set.json"]
@@ -509,6 +523,7 @@ def assess_recourse(core_dir: Path, recourse_dir: Path) -> list[dict[str, Any]]:
                 "search": {
                     "calculation_mode": method["calculation_mode"],
                     "exhaustive": False,
+                    "single_feature_search_exhaustive": False,
                     "evaluated_state_count": 0,
                     "available_state_count": len(supported_candidates),
                     "computational_limit": config["maximum_evaluated_states"],
@@ -599,6 +614,11 @@ def assess_recourse(core_dir: Path, recourse_dir: Path) -> list[dict[str, Any]]:
         withholding_reasons: list[str] = []
         reviewer_disposition = "pending_review"
         if status == "inconclusive":
+            if "withhold_on_inconclusive" not in config["withholding_rules"]:
+                raise ValueError(
+                    "inconclusive result requires the configured "
+                    "withhold_on_inconclusive rule"
+                )
             withholding_reasons.append(
                 "Uncertainty prevents a stronger reviewer finding under the declared action set."
             )
@@ -626,6 +646,7 @@ def assess_recourse(core_dir: Path, recourse_dir: Path) -> list[dict[str, Any]]:
             "search": {
                 "calculation_mode": method["calculation_mode"],
                 "exhaustive": exhaustive,
+                "single_feature_search_exhaustive": single_search_exhaustive,
                 "evaluated_state_count": len(evaluated),
                 "available_state_count": len(supported_candidates),
                 "computational_limit": config["maximum_evaluated_states"],
@@ -646,6 +667,15 @@ def assess_recourse(core_dir: Path, recourse_dir: Path) -> list[dict[str, Any]]:
         validate_recourse_output_record(output)
         outputs.append(output)
     return outputs
+
+
+def assess_recourse(core_dir: Path, recourse_dir: Path) -> list[dict[str, Any]]:
+    core_dir = core_dir.resolve()
+    recourse_dir = recourse_dir.resolve()
+    validation = validate_recourse_bundle(recourse_dir, core_dir)
+    if not validation.ok:
+        raise ValueError("; ".join(validation.errors))
+    return _assess_recourse_validated(core_dir, load_recourse_payloads(recourse_dir))
 
 
 def build_parser() -> argparse.ArgumentParser:

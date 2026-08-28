@@ -2,6 +2,7 @@
   "record_type": "synthetic_prediction_model",
   "model_id": "mdl-adverse-reason-benchmark",
   "version_id": "ver-2026-07-adverse-action",
+  "feature_schema_version": "featver-synthetic-1",
   "provider_type": "deterministic_linear_threshold",
   "ordered_features": [
     "cash_flow_margin",

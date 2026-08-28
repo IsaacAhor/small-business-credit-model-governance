@@ -5,6 +5,8 @@
 A recourse input bundle is separate from the core monitoring dataset and
 contains all five files below. The files are validated as an all-or-none
 sidecar; none is added to the core validator's mandatory `SCHEMA_SPECS` tuple.
+The first-release provider accepts exactly one subject record per bundle because
+its declared action candidates are relative to one baseline.
 
 | Bundle file | Schema | Purpose |
 | --- | --- | --- |
@@ -35,7 +37,8 @@ Required fields include:
 
 Public fixtures must use `source_class = synthetic`. The subject file does not
 extend `application-decision-record.schema.json` and does not place a feature
-vector in the required-reason record.
+vector in the required-reason record. The subject feature-schema version must
+match the version declared by the synthetic prediction provider.
 
 ## Recourse Method
 
@@ -91,16 +94,17 @@ The configuration is fixed before execution and includes:
 - target prediction and eligible baseline outcome;
 - maximum joint-action size and evaluated-state count;
 - optional sample count and seed fields reserved for a future enabled mode;
-- fixed-finding and withholding rules;
+- fixed-finding rules and the executable first-release
+  `withhold_on_inconclusive` rule;
 - `audience = reviewer_only`;
 - `output_directory_policy = separate_from_all_input_trees`; and
 - `result_type = configured_recourse_review_not_applicant_advice`.
 
 ## Synthetic Prediction Model
 
-The first provider requires an ordered feature list, exactly matching ordered
-coefficients, intercept, threshold, target and non-target labels,
-implementation version, `synthetic_only = true`, and
+The first provider requires a feature-schema version, ordered feature list,
+exactly matching ordered coefficients, intercept, threshold, target and
+non-target labels, implementation version, `synthetic_only = true`, and
 `result_type = synthetic_prediction_provider_not_underwriting_model`.
 
 Production model loading, serialized artifacts, remote scoring, and vendor
@@ -118,7 +122,8 @@ Each output records:
 - feature-level evaluated and target-reaching counts plus an estimate only when
   defined;
 - target-reaching evaluated action IDs;
-- search mode, exhaustive flag, counts, limits, and seed when applicable;
+- search mode, overall and single-feature exhaustive flags, counts, limits, and
+  seed when applicable;
 - uncertainty, withholding, and limitation references;
 - reviewer disposition and `audience = reviewer_only`; and
 - `result_type = recourse_assessment_not_reason_not_notice_not_outcome_guarantee`.
@@ -134,6 +139,12 @@ of being ignored:
 - `notice_template_id`
 - `notice_template_version`
 - `rendered_reason_text`
+
+Typed validation also rejects internally contradictory status, path,
+feature-count, search, uncertainty, withholding, or reviewer-disposition
+combinations. When an output fixture is supplied with a bundle, it must match
+the exact recomputed assessment rather than merely satisfy the standalone JSON
+shape.
 
 ## Compatibility Boundary
 

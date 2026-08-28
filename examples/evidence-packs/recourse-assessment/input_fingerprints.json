@@ -52,12 +52,12 @@
     },
     {
       "filename": "recourse-review-config.json",
-      "sha256": "76a440e658b87589ae76d4fe16f8ec058eff0da1eb7f38470d46f9f7512e9846",
+      "sha256": "d31b20c09d44d14c254cf9aad337bd31be149c459dcfb9f0cd68393efe7a8120",
       "source": "recourse_bundle"
     },
     {
       "filename": "synthetic-prediction-model.json",
-      "sha256": "34eabaee226049c1668604b8d65fa0ece4374a20fc9dc7378b258ac4a2bb5669",
+      "sha256": "591ad301a949a7ecb72b065121bd19be82085f295f23acd55a96454e7728ba8b",
       "source": "recourse_bundle"
     }
   ],

@@ -50,6 +50,10 @@ immutability finding.
 Bounded search without a target returns
 `no_target_path_found_within_search`. It cannot return a fixed finding.
 
+The first executable provider accepts one subject per bundle. Supporting
+multiple different baselines would require subject-scoped action candidates and
+is deferred rather than approximated.
+
 ## Method Limits
 
 The finite enumerator is a small standard-library implementation for contract

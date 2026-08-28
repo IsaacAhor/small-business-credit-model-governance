@@ -525,6 +525,8 @@ Deliverables:
 - separate subject, method, action-set, review-config, prediction-model, and
   output contracts
 - strict cross-file model/version and baseline-prediction validation
+- one baseline-specific subject per first-release bundle and explicit
+  feature-schema-version linkage
 - explicit complete feature-state candidates with primary and linked changes
 - deterministic finite enumeration and feature-level bounded responsiveness
 - conservative single-feature, joint-only, fixed-under-set, bounded,
@@ -552,6 +554,8 @@ Acceptance criteria:
 - the output directory is disjoint from both input trees
 - protected reason/notice file hashes remain unchanged
 - repeated runs are byte-identical and the exact output set is verifiable
+- supplied outputs are internally consistent and match recomputation from the
+  validated bundle
 
 Deferred:
 

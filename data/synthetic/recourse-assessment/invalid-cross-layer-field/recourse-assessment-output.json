@@ -67,6 +67,7 @@
       "computational_limit": 2,
       "evaluated_state_count": 2,
       "exhaustive": true,
+      "single_feature_search_exhaustive": true,
       "maximum_joint_action_size": 1
     },
     "target_prediction": "approved",

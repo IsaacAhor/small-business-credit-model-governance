@@ -92,10 +92,11 @@
     "search": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["calculation_mode", "exhaustive", "evaluated_state_count", "available_state_count", "computational_limit", "maximum_joint_action_size"],
+      "required": ["calculation_mode", "exhaustive", "single_feature_search_exhaustive", "evaluated_state_count", "available_state_count", "computational_limit", "maximum_joint_action_size"],
       "properties": {
         "calculation_mode": {"enum": ["exhaustive_enumeration", "bounded_enumeration", "sampling", "external_provider"]},
         "exhaustive": {"type": "boolean"},
+        "single_feature_search_exhaustive": {"type": "boolean"},
         "evaluated_state_count": {"type": "integer", "minimum": 0},
         "available_state_count": {"type": "integer", "minimum": 0},
         "computational_limit": {"type": "integer", "minimum": 1},

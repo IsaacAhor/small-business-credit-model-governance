@@ -10,11 +10,11 @@
     },
     {
       "filename": "review_config_snapshot.json",
-      "sha256": "25bda05f28a17ee136bc27234f0cbed755b534e117a717c2cd57779789e211b5"
+      "sha256": "d3aeb0a323333a9988f36a410199c3e99487b0f552a0b1f87da1b1c0029986de"
     },
     {
       "filename": "recourse_assessment_results.json",
-      "sha256": "39ed07835485dd1a1c79bf98457821342d0c003866e2b69117585592aab38f05"
+      "sha256": "bc05219a717280992ace8178d54af4af287608899a92e8967a5e8cd14b553260"
     },
     {
       "filename": "recourse_qa_results.json",

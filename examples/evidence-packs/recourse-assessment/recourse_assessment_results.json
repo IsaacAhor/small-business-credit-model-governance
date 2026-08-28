@@ -42,8 +42,8 @@
     "input_fingerprints": {
       "action_set_sha256": "34e311d01f2b5203771c8c143d55473cb5a94a2103178864bfb8986239d1e176",
       "method_sha256": "19e7f8941d18de84cfdf2888a0446e831de6e1496f864a91e224883f8808df19",
-      "prediction_model_sha256": "34eabaee226049c1668604b8d65fa0ece4374a20fc9dc7378b258ac4a2bb5669",
-      "review_config_sha256": "76a440e658b87589ae76d4fe16f8ec058eff0da1eb7f38470d46f9f7512e9846",
+      "prediction_model_sha256": "591ad301a949a7ecb72b065121bd19be82085f295f23acd55a96454e7728ba8b",
+      "review_config_sha256": "d31b20c09d44d14c254cf9aad337bd31be149c459dcfb9f0cd68393efe7a8120",
       "subject_sha256": "30141bc0a53127fdfeec9037e0e9ca5cb45bca3bb5d7b3dcfbc35d368f6c62f0"
     },
     "limitation_references": [
@@ -66,7 +66,8 @@
       "computational_limit": 2,
       "evaluated_state_count": 2,
       "exhaustive": true,
-      "maximum_joint_action_size": 1
+      "maximum_joint_action_size": 1,
+      "single_feature_search_exhaustive": true
     },
     "target_prediction": "approved",
     "uncertainty_reasons": [],

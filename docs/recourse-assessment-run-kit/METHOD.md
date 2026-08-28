@@ -55,7 +55,8 @@ Before evaluating a state, the command:
 4. validates all five recourse input files against mirrored JSON Schema 2020-12
    contracts and typed models;
 5. confirms subject, decision, model, model-version, method-version,
-   action-set-version, config, and prediction-provider relationships;
+   action-set-version, feature-schema-version, config, and prediction-provider
+   relationships;
 6. checks that feature order is identical across subject, model, controls, and
    every complete candidate state;
 7. confirms each declared change starts at the subject baseline, ends at the
@@ -78,6 +79,10 @@ Supported candidates are sorted deterministically by:
 This ordering exhausts declared single-primary-feature states before joint
 states. The command then applies `maximum_joint_action_size` and
 `maximum_evaluated_states` from the review configuration.
+
+The first-release provider accepts one subject per bundle. Candidate deltas are
+baseline-specific, so accepting several different baselines without
+subject-scoped candidates would be ambiguous and is rejected explicitly.
 
 A candidate is evaluated only when its feasibility status is
 `supported_by_declared_synthetic_assumption`. An `excluded` candidate is outside
@@ -132,6 +137,12 @@ Status is assigned in this order:
    exhaustive finding; and
 5. otherwise no target path is reported as
    `no_target_path_found_within_search`.
+
+The output records whether the single-feature search was exhaustive. Output
+validation reconciles that flag, the overall status, identified target paths,
+feature-level target counts, search counts, uncertainty, withholding, and
+reviewer disposition. A supplied output fixture must also equal the result
+recomputed from the validated bundle.
 
 Sampling cannot support a fixed finding in this build because sampling is not
 an enabled provider mode. A future sampling adapter would have to record its
