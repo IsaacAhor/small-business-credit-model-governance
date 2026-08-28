@@ -220,6 +220,8 @@ def check_required_terms() -> None:
 
 def check_local_markdown_links() -> None:
     for markdown_path in ROOT.rglob("*.md"):
+        if ".git" in markdown_path.parts or is_git_ignored(markdown_path):
+            continue
         text = markdown_path.read_text(encoding="utf-8")
         for match in LINK_PATTERN.finditer(text):
             target = match.group(1).strip()
@@ -243,6 +245,8 @@ def check_local_markdown_links() -> None:
 
 def check_notebooks() -> None:
     for notebook_path in ROOT.rglob("*.ipynb"):
+        if ".git" in notebook_path.parts or is_git_ignored(notebook_path):
+            continue
         with notebook_path.open(encoding="utf-8") as handle:
             notebook = json.load(handle)
         cells = notebook.get("cells", [])
