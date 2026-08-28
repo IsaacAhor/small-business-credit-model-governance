@@ -1,0 +1,25 @@
+{
+  "action_set_id": "ras-baseline",
+  "action_set_version": "rasver-baseline-1",
+  "assessment_date": "2026-08-27",
+  "audience": "reviewer_only",
+  "eligible_baseline_outcome": "declined",
+  "fixed_finding_rule": "exhaustive_enumeration_only",
+  "maximum_evaluated_states": 2,
+  "maximum_joint_action_size": 1,
+  "method_version": "rcmver-synthetic-1",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "output_directory_policy": "separate_from_all_input_trees",
+  "record_type": "recourse_review_config",
+  "recourse_method_id": "rcm-finite-enumeration",
+  "recourse_run_id": "rcrun-baseline",
+  "recourse_subject_ids": [
+    "rcs-baseline-0002"
+  ],
+  "result_type": "configured_recourse_review_not_applicant_advice",
+  "target_prediction": "approved",
+  "version_id": "ver-2026-07-adverse-action",
+  "withholding_rules": [
+    "Withhold a stronger finding when feasibility, version, method, or search uncertainty remains."
+  ]
+}

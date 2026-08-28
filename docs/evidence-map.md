@@ -16,6 +16,9 @@ overclaiming from synthetic demonstrations.
 | `docs/adverse-action-reason-run-kit/METHOD.md` | Method design for reason generation, mapping, QA, and evidence packaging under Regulation B section 1002.9 | Legal sufficiency of any actual notice or current lender compliance |
 | `docs/adverse-action-reason-run-kit/PUBLIC_DATA_LIMITS.md` | Public-data boundary for SBA, PPP, CRA, HMDA, and 1071 use | That public data proves small-business adverse-action reason accuracy |
 | `docs/adverse-action-reason-run-kit/PRIVATE_DATA_SPEC.md` | Field specification for a future private deidentified validation run | That private data has been obtained or reviewed |
+| `docs/recourse-assessment-run-kit/` | Separate contracts, finite synthetic enumeration, conservative status logic, uncertainty records, and reviewer-only evidence packaging | Real-world actionability, causal feasibility, applicant usefulness, institutional adoption, independent validation, legal compliance, or future lending outcomes |
+| `data/synthetic/recourse-assessment/` | Deterministic valid and invalid fixtures for single-feature, joint-only, fixed-under-set, bounded, inconclusive, baseline-mismatch, missing-version, and cross-layer rejection behavior | Real applicant feature states, institution-specific action sets, production model access, or complete real-world search spaces |
+| `examples/evidence-packs/recourse-assessment/` | Exact deterministic reviewer output, input/output hashes, protected-core hash evidence, and an unsigned review template | Completed independent review, guaranteed recourse, applicant guidance, adoption, or effectiveness |
 | `docs/system-charter.md` | System purpose, intended users, core capabilities, and non-objectives | Production readiness or institution-specific compliance |
 | `schemas/` | Structured data contracts for governed records and evidence-pack manifests | Completeness for every lender, model type, or legal requirement |
 | `src/credit_gov/` | Implementation ability and reusable workflow logic | Production hardening, security review, or deployment at a lender |
@@ -37,6 +40,9 @@ overclaiming from synthetic demonstrations.
   legal conclusions.
 - Evidence packs should be described as reviewer-ready examples, not production
   records.
+- Recourse outputs should be described as bounded model-query results under a
+  declared synthetic action set, not required reasons, applicant instructions,
+  real-world feasibility findings, or future-outcome promises.
 - Tests should be described as reproducibility and regression checks, not
   certification.
 - Public repository history can show execution and development discipline, but

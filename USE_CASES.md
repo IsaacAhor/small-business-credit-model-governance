@@ -32,6 +32,32 @@ What to evaluate:
 - whether breaches and issues are linked to reviewer action
 - whether limitations are documented separately from findings
 
+## Recourse or Explanation-Method Reviewer
+
+Use the separate sidecar to inspect whether a model-query result is bounded by
+an explicit method, action set, target, model version, complete feature states,
+search limit, uncertainty record, and reviewer-only output contract.
+
+Start with:
+
+- `docs/adverse-action-reason-run-kit/TERMINOLOGY.md`
+- `docs/recourse-assessment-run-kit/README.md`
+- `docs/recourse-assessment-run-kit/METHOD.md`
+- `docs/recourse-assessment-run-kit/DATA_CONTRACTS.md`
+- `docs/recourse-assessment-run-kit/LIMITATIONS.md`
+- `examples/evidence-packs/recourse-assessment/recourse_review_report.md`
+
+What to evaluate:
+
+- whether required reasons and recourse records remain structurally separate
+- whether actionability and linked-change assumptions are declared rather than
+  inferred
+- whether single-feature, joint-only, fixed, bounded, inconclusive, and invalid
+  cases receive the most conservative supported status
+- whether baseline recomputation and version relationships fail closed
+- whether the action set is realistic enough for the intended review context
+- whether uncertainty blocks applicant-facing or outcome claims
+
 ## Fair-Lending or Compliance Reviewer
 
 Use the repository to inspect how fair-lending screening can be treated as a
@@ -167,3 +193,5 @@ Do not use this repository as:
 - a substitute for institution-specific model validation
 - evidence of external adoption unless separate adoption evidence exists
 - evidence of NCUA approval, endorsement, or acceptance
+- applicant instructions, guaranteed recourse, or evidence that a synthetic
+  action set is feasible in a real institution

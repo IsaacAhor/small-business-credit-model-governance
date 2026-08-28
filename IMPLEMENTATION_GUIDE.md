@@ -165,7 +165,40 @@ vendor components, limitations, evidence, monitoring, events, notice controls,
 and signoff state; validates their relationships; and packages visible gaps for
 third-party underwriting-tool due diligence and ongoing vendor oversight.
 
-## 9. Record Follow-Up
+## 9. Add The Separate Recourse Sidecar Only When Needed
+
+Do not add feature vectors or recourse fields to application-decision, reason,
+or notice records. Prepare a separate five-file bundle only when the reviewer
+has a defined model-query question, target label, transparent prediction
+provider, versioned action set, feasibility basis, and uncertainty rules.
+
+Relevant artifacts:
+
+- `docs/recourse-assessment-run-kit/README.md`
+- `docs/recourse-assessment-run-kit/DATA_CONTRACTS.md`
+- `schemas/recourse-subject-record.schema.json`
+- `schemas/recourse-method-record.schema.json`
+- `schemas/recourse-action-set.schema.json`
+- `schemas/recourse-review-config.schema.json`
+- `schemas/synthetic-prediction-model.schema.json`
+
+Validate and report to a directory outside both input trees:
+
+```bash
+python scripts/validate_recourse_run_kit.py \
+  data/synthetic/adverse-action-reason-benchmark \
+  data/synthetic/recourse-assessment/baseline
+python scripts/build_recourse_evidence_pack.py \
+  data/synthetic/adverse-action-reason-benchmark \
+  data/synthetic/recourse-assessment/baseline \
+  tmp/recourse-review-pack
+```
+
+The first build is reviewer-facing and synthetic. Applicant-facing use requires
+a separate institution-specific legal, privacy, feasibility, robustness,
+accessibility, HCI, and operational-support gate.
+
+## 10. Record Follow-Up
 
 The current public workflow creates issue, change-validation, and signoff
 artifacts to demonstrate the control pattern. A production adaptation would need

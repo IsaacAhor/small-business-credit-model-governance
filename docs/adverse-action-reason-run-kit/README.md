@@ -116,7 +116,7 @@ applications, actual decision drivers, reason outputs or notice text, mapping
 versions, policy thresholds, and reviewer labels. See
 `PRIVATE_DATA_REQUIREMENTS.md`.
 
-## Source-To-Rendered-Notice Fidelity Controls
+## Source-To-Rendered-Notice Traceability And Reconciliation Controls
 
 The synthetic benchmark now exercises a separate source-to-rendered-notice control
 chain. For each declined decision in the benchmark, it records and checks:
@@ -133,3 +133,5 @@ the recorded final component, rank drift, template or mapping version drift,
 and source-to-text mismatches. These are reproducible governance review
 triggers, not a semantic readability review, a legal conclusion, or a claim
 that the synthetic method is a permitted reason-selection method for a lender.
+See `TERMINOLOGY.md` for the narrow compatibility meaning of legacy programmatic
+identifiers that contain the word `fidelity`.

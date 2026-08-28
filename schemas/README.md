@@ -34,6 +34,15 @@ Vendor-model oversight contracts:
 - vendor event record
 - business-credit notice control
 
+Separate recourse-assessment contracts:
+
+- recourse subject record
+- recourse method record
+- recourse action set
+- recourse review configuration
+- synthetic prediction model
+- recourse assessment output
+
 The optional bundle is backward compatible: datasets with none of the four
 files retain the original contract. If any bundle file is present, validation
 requires all four, checks their model/version/method/validation/threshold links,
@@ -48,3 +57,9 @@ model/version/decision/reason context. This preserves backward compatibility
 for existing datasets. The vendor validator fails on missing evidence, broken
 IDs, unresolved opaque-component controls, mismatched risk tiers, insufficient
 heightened monitoring, unknown decisions or mappings, and unlinked events.
+
+The recourse input contracts are also a separate all-or-none bundle and are not
+added to the core mandatory schema tuple. They link to stable decision,
+model/version, method/version, and action-set/version context while keeping
+subject features and outputs outside required reason and notice records. The
+closed output schema rejects reason, mapping, and notice fields.

@@ -1,0 +1,23 @@
+{
+  "record_type": "recourse_review_config",
+  "recourse_run_id": "rcrun-bounded",
+  "assessment_date": "2026-08-27",
+  "model_id": "mdl-adverse-reason-benchmark",
+  "version_id": "ver-2026-07-adverse-action",
+  "recourse_method_id": "rcm-finite-enumeration",
+  "method_version": "rcmver-synthetic-1",
+  "action_set_id": "ras-bounded",
+  "action_set_version": "rasver-bounded-1",
+  "recourse_subject_ids": ["rcs-bounded-0002"],
+  "target_prediction": "approved",
+  "eligible_baseline_outcome": "declined",
+  "maximum_joint_action_size": 1,
+  "maximum_evaluated_states": 1,
+  "fixed_finding_rule": "exhaustive_enumeration_only",
+  "withholding_rules": [
+    "Withhold a stronger finding when feasibility, version, method, or search uncertainty remains."
+  ],
+  "audience": "reviewer_only",
+  "output_directory_policy": "separate_from_all_input_trees",
+  "result_type": "configured_recourse_review_not_applicant_advice"
+}

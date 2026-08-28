@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "credit-gov"
-version = "0.11.0"
+version = "0.12.0.dev0"
 description = "Governance evidence engine for machine-learning-based small business credit underwriting workflows."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -67,6 +67,8 @@ credit-gov-vendor-validate = "credit_gov.vendor_risk:validate_main"
 credit-gov-vendor-report = "credit_gov.vendor_reporting:main"
 credit-gov-sba-to-monitoring = "credit_gov.sba_to_monitoring:main"
 credit-gov-make-sba-fixture = "credit_gov.make_sba_fixture:main"
+credit-gov-recourse-validate = "credit_gov.recourse:validate_main"
+credit-gov-recourse-report = "credit_gov.recourse_reporting:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -260,12 +260,29 @@ def validate_value(value: Any, definition: dict[str, Any], field: str) -> None:
     if "enum" in definition:
         validate_enum(value, definition["enum"], field)
     schema_type = definition.get("type")
+    if isinstance(schema_type, list):
+        if value is None and "null" in schema_type:
+            return
+        errors: list[str] = []
+        for candidate_type in (item for item in schema_type if item != "null"):
+            candidate_definition = dict(definition)
+            candidate_definition["type"] = candidate_type
+            try:
+                validate_value(value, candidate_definition, field)
+                return
+            except (TypeError, ValueError) as exc:
+                errors.append(str(exc))
+        allowed = ", ".join(schema_type)
+        raise ValueError(f"{field} must match one of the allowed types: {allowed}")
     if schema_type == "string":
         if not isinstance(value, str):
             raise ValueError(f"{field} must be a string")
         minimum = definition.get("minLength")
         if minimum is not None and len(value.strip()) < minimum:
             raise ValueError(f"{field} must be at least {minimum} characters")
+        maximum = definition.get("maxLength")
+        if maximum is not None and len(value) > maximum:
+            raise ValueError(f"{field} must be at most {maximum} characters")
         pattern = definition.get("pattern")
         if pattern:
             validate_pattern(value, pattern, field)
@@ -274,19 +291,24 @@ def validate_value(value: Any, definition: dict[str, Any], field: str) -> None:
             validate_date_string(value, field)
         elif fmt == "date-time":
             validate_datetime_string(value, field)
-    elif schema_type == "number":
+    elif schema_type in {"number", "integer"}:
         if isinstance(value, bool) or not isinstance(value, (int, float)):
             raise ValueError(f"{field} must be numeric")
+        if schema_type == "integer" and not isinstance(value, int):
+            raise ValueError(f"{field} must be an integer")
         if not math.isfinite(float(value)):
             raise ValueError(f"{field} must be finite")
-        minimum = definition.get("exclusiveMinimum")
-        if minimum is not None and float(value) <= minimum:
-            raise ValueError(f"{field} must be greater than {minimum}")
+        exclusive_minimum = definition.get("exclusiveMinimum")
+        if exclusive_minimum is not None and float(value) <= exclusive_minimum:
+            raise ValueError(f"{field} must be greater than {exclusive_minimum}")
     elif schema_type == "boolean":
         if not isinstance(value, bool):
             raise ValueError(f"{field} must be boolean")
     elif schema_type == "array":
         validate_array(value, field, definition.get("minItems", 0))
+        maximum = definition.get("maxItems")
+        if maximum is not None and len(value) > maximum:
+            raise ValueError(f"{field} must contain at most {maximum} item(s)")
         if definition.get("uniqueItems") and len(value) != len(set(value)):
             raise ValueError(f"{field} must not contain duplicate items")
         item_schema = definition.get("items")

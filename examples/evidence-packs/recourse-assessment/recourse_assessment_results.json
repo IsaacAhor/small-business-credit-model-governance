@@ -1,0 +1,76 @@
+[
+  {
+    "action_set_id": "ras-baseline",
+    "action_set_version": "rasver-baseline-1",
+    "audience": "reviewer_only",
+    "baseline_prediction": "declined",
+    "decision_id": "dec-0002",
+    "feature_results": [
+      {
+        "control_class": "directly_actionable",
+        "evaluated_intervention_count": 1,
+        "feature_name": "cash_flow_margin",
+        "responsiveness_defined": true,
+        "responsiveness_estimate": 1.0,
+        "target_reaching_count": 1
+      },
+      {
+        "control_class": "directly_actionable",
+        "evaluated_intervention_count": 1,
+        "feature_name": "debt_service_coverage",
+        "responsiveness_defined": true,
+        "responsiveness_estimate": 0.0,
+        "target_reaching_count": 0
+      },
+      {
+        "control_class": "derived_or_downstream",
+        "evaluated_intervention_count": 0,
+        "feature_name": "months_in_business",
+        "responsiveness_defined": false,
+        "target_reaching_count": 0
+      }
+    ],
+    "identified_paths": [
+      {
+        "action_id": "act-cash-flow-responsive",
+        "evaluated_prediction": "approved",
+        "primary_action_features": [
+          "cash_flow_margin"
+        ]
+      }
+    ],
+    "input_fingerprints": {
+      "action_set_sha256": "34e311d01f2b5203771c8c143d55473cb5a94a2103178864bfb8986239d1e176",
+      "method_sha256": "19e7f8941d18de84cfdf2888a0446e831de6e1496f864a91e224883f8808df19",
+      "prediction_model_sha256": "34eabaee226049c1668604b8d65fa0ece4374a20fc9dc7378b258ac4a2bb5669",
+      "review_config_sha256": "76a440e658b87589ae76d4fe16f8ec058eff0da1eb7f38470d46f9f7512e9846",
+      "subject_sha256": "30141bc0a53127fdfeec9037e0e9ca5cb45bca3bb5d7b3dcfbc35d368f6c62f0"
+    },
+    "limitation_references": [
+      "docs/recourse-assessment-run-kit/LIMITATIONS.md",
+      "src/credit_gov/recourse.py"
+    ],
+    "method_version": "rcmver-synthetic-1",
+    "model_id": "mdl-adverse-reason-benchmark",
+    "overall_status": "single_feature_path_identified",
+    "record_type": "recourse_assessment_output",
+    "recourse_assessment_id": "rca-baseline-0002",
+    "recourse_method_id": "rcm-finite-enumeration",
+    "recourse_run_id": "rcrun-baseline",
+    "recourse_subject_id": "rcs-baseline-0002",
+    "result_type": "recourse_assessment_not_reason_not_notice_not_outcome_guarantee",
+    "reviewer_disposition": "pending_review",
+    "search": {
+      "available_state_count": 2,
+      "calculation_mode": "exhaustive_enumeration",
+      "computational_limit": 2,
+      "evaluated_state_count": 2,
+      "exhaustive": true,
+      "maximum_joint_action_size": 1
+    },
+    "target_prediction": "approved",
+    "uncertainty_reasons": [],
+    "version_id": "ver-2026-07-adverse-action",
+    "withholding_reasons": []
+  }
+]

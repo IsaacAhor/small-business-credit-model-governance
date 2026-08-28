@@ -41,12 +41,35 @@ Use semantic-style version numbers for public milestones:
 - `v0.9.4`: curated evidence-pack verification completeness patch
 - `v0.10.0`: fixed-horizon SBA public-data monitoring, out-of-time performance, drift, provenance, and applicability controls
 - `v0.11.0`: executable formal governance review and vendor-model oversight
+- `v0.12.0` candidate: prospective reason-traceability terminology correction
+  and a separate executable synthetic recourse-assessment sidecar
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
 
 Patch releases can be used for material packaging, documentation, or
 reviewability improvements that do not change the implementation phase.
+
+## Unreleased Recourse Candidate Scope
+
+The working tree contains a prospective terminology correction and a separate
+reviewer-facing recourse sidecar. The terminology change retains every legacy
+programmatic identifier while defining its meaning narrowly as record-level
+traceability and reconciliation. The sidecar adds six closed mirrored schemas,
+five-input bundle validation, a transparent dependency-free prediction
+provider, deterministic finite enumeration, conservative status logic,
+synthetic valid/invalid fixtures, protected-core hashes, an eleven-file
+reviewer pack, package commands, and regression tests.
+
+`v0.12.0` remains a candidate label until the exact tree passes the full test,
+repository, documentation, build, installed-wheel, compatibility, and public-
+surface gates. No publication, adoption, independent validation, applicant
+usefulness, legal compliance, increased approval, or credit-access claim follows
+from the local implementation.
+
+While unreleased, package metadata uses `0.12.0.dev0`. The final `0.12.0`
+version, citation date, tag, release note, and archive record are assigned only
+through the publication workflow.
 
 ## v0.11.0 Release Scope
 
@@ -114,7 +137,10 @@ public reviewability baseline: source class, applicability, records-retention,
 contractual-event, and cadence qualifiers; current metadata; and a release
 note. It also packages the synthetic source-to-rendered-notice fidelity controls
 and fixes evidence-pack input fingerprints so they are stable across Windows
-CRLF and Linux LF checkouts.
+CRLF and Linux LF checkouts. Current documentation defines that legacy label
+narrowly as source-to-notice traceability and reconciliation; it does not treat
+it as proof of a unique model explanation, causal truth, actionability, or
+recourse. See `docs/adverse-action-reason-run-kit/TERMINOLOGY.md`.
 
 The prior milestone, `v0.9.1`, added the initial credit-union AI underwriting
 vendor-risk run kit under `docs/credit-union-ai-vendor-risk-run-kit/`. It maps
