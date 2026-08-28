@@ -231,6 +231,13 @@ class RecourseRunKitTests(unittest.TestCase):
                 lambda payload: payload.update({"model_id": "mdl-mismatch"}),
                 "unknown model or version",
             ),
+            (
+                "synthetic-prediction-model.json",
+                lambda payload: payload.update(
+                    {"feature_schema_version": "featver-mismatch"}
+                ),
+                "feature schema version mismatch",
+            ),
         )
         for filename, mutation, expected in mutations:
             with self.subTest(filename=filename, expected=expected):
@@ -240,6 +247,40 @@ class RecourseRunKitTests(unittest.TestCase):
                     result = validate_recourse_bundle(fixture, CORE_DATASET)
                 self.assertFalse(result.ok)
                 self.assertTrue(any(expected in error for error in result.errors), result.errors)
+
+    def test_first_release_rejects_multiple_subjects_explicitly(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            fixture = self.copy_fixture("baseline", Path(temporary))
+
+            def add_subject(payload: list[dict]) -> None:
+                second = json.loads(json.dumps(payload[0]))
+                second["recourse_subject_id"] = "rcs-baseline-0003"
+                second["decision_id"] = "dec-0003"
+                payload.append(second)
+
+            self.update_json(fixture / "recourse-subject-records.json", add_subject)
+            self.update_json(
+                fixture / "recourse-review-config.json",
+                lambda payload: payload["recourse_subject_ids"].append(
+                    "rcs-baseline-0003"
+                ),
+            )
+            result = validate_recourse_bundle(fixture, CORE_DATASET)
+        self.assertFalse(result.ok)
+        self.assertTrue(any("exactly one subject" in error for error in result.errors))
+
+    def test_first_release_withholding_policy_is_executable_and_closed(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            fixture = self.copy_fixture("baseline", Path(temporary))
+            self.update_json(
+                fixture / "recourse-review-config.json",
+                lambda payload: payload.update(
+                    {"withholding_rules": ["withhold_on_target_path"]}
+                ),
+            )
+            result = validate_recourse_bundle(fixture, CORE_DATASET)
+        self.assertFalse(result.ok)
+        self.assertTrue(any("withholding_rules" in error for error in result.errors))
 
     def test_sampling_and_external_provider_modes_fail_closed_in_first_build(self) -> None:
         for mode in ("sampling", "external_provider"):
@@ -271,6 +312,60 @@ class RecourseRunKitTests(unittest.TestCase):
                 payload[field] = value
                 with self.assertRaisesRegex(ValueError, field):
                     validate_recourse_output_record(payload)
+
+    def test_output_validator_rejects_internally_contradictory_fixed_record(self) -> None:
+        payload = json.loads(
+            json.dumps(assess_recourse(CORE_DATASET, FIXTURE_ROOT / "baseline")[0])
+        )
+        payload["overall_status"] = "fixed_under_declared_action_set"
+        payload["identified_paths"] = []
+        payload["search"]["exhaustive"] = True
+        with self.assertRaisesRegex(ValueError, "target_reaching_count"):
+            validate_recourse_output_record(payload)
+
+    def test_output_validator_rejects_other_internal_contradictions(self) -> None:
+        baseline = assess_recourse(CORE_DATASET, FIXTURE_ROOT / "baseline")[0]
+        mutations = (
+            (
+                lambda payload: payload["feature_results"][0].update(
+                    {"evaluated_intervention_count": 999}
+                ),
+                "evaluated_intervention_count",
+            ),
+            (
+                lambda payload: payload["identified_paths"][0][
+                    "primary_action_features"
+                ].append("undeclared_feature"),
+                "unknown feature results",
+            ),
+            (
+                lambda payload: payload["withholding_reasons"].append(
+                    "This reason contradicts a pending-review disposition."
+                ),
+                "pending_review disposition",
+            ),
+        )
+        for mutation, expected in mutations:
+            with self.subTest(expected=expected):
+                payload = json.loads(json.dumps(baseline))
+                mutation(payload)
+                with self.assertRaisesRegex(ValueError, expected):
+                    validate_recourse_output_record(payload)
+
+    def test_supplied_output_fixture_must_match_recomputed_bundle(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            fixture = self.copy_fixture("baseline", Path(temporary))
+            payload = assess_recourse(CORE_DATASET, fixture)
+            payload[0]["recourse_run_id"] = "rcrun-structurally-valid-mismatch"
+            (fixture / "recourse-assessment-output.json").write_text(
+                json.dumps(payload, indent=2) + "\n", encoding="utf-8"
+            )
+            result = validate_recourse_bundle(fixture, CORE_DATASET)
+        self.assertFalse(result.ok)
+        self.assertTrue(
+            any("does not match recomputed bundle results" in error for error in result.errors),
+            result.errors,
+        )
 
     def test_output_path_must_be_disjoint_from_both_input_trees(self) -> None:
         bundle = FIXTURE_ROOT / "baseline"

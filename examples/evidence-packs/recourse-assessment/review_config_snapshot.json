@@ -20,6 +20,6 @@
   "target_prediction": "approved",
   "version_id": "ver-2026-07-adverse-action",
   "withholding_rules": [
-    "Withhold a stronger finding when feasibility, version, method, or search uncertainty remains."
+    "withhold_on_inconclusive"
   ]
 }

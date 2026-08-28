@@ -8,6 +8,7 @@
     "record_type",
     "model_id",
     "version_id",
+    "feature_schema_version",
     "provider_type",
     "ordered_features",
     "intercept",
@@ -24,6 +25,7 @@
     "record_type": {"const": "synthetic_prediction_model"},
     "model_id": {"type": "string", "pattern": "^mdl-[a-z0-9-]+$"},
     "version_id": {"type": "string", "pattern": "^ver-[a-z0-9-]+$"},
+    "feature_schema_version": {"type": "string", "pattern": "^featver-[a-z0-9-]+$"},
     "provider_type": {"const": "deterministic_linear_threshold"},
     "ordered_features": {
       "type": "array",

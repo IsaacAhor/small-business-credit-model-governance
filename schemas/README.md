@@ -62,4 +62,8 @@ The recourse input contracts are also a separate all-or-none bundle and are not
 added to the core mandatory schema tuple. They link to stable decision,
 model/version, method/version, and action-set/version context while keeping
 subject features and outputs outside required reason and notice records. The
-closed output schema rejects reason, mapping, and notice fields.
+closed output schema rejects reason, mapping, and notice fields. The first
+provider accepts one baseline-specific subject per bundle, links the subject and
+prediction-provider feature-schema versions, uses the closed
+`withhold_on_inconclusive` policy identifier, and validates supplied outputs
+against recomputed bundle results.

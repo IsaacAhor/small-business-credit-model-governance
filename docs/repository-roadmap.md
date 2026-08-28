@@ -145,7 +145,7 @@ Deliverables:
 
 Status:
 
-- Implemented in the working tree as a separate reviewer-facing synthetic
+- Implemented on development `main` as a separate reviewer-facing synthetic
   module. It does not alter required reason selection, mappings, reason output,
   notice rendering, monthly monitoring results, or existing curated reason
   evidence packs.

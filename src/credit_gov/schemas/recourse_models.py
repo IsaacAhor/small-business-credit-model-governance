@@ -352,6 +352,14 @@ class RecourseReviewConfig(BaseRecord):
         seed = payload.get("seed")
         if seed is not None:
             seed = require_nonnegative_integer(seed, "seed")
+        withholding_rules = require_string_list(
+            payload.get("withholding_rules"), "withholding_rules"
+        )
+        if withholding_rules != ["withhold_on_inconclusive"]:
+            raise ValueError(
+                "withholding_rules must contain only withhold_on_inconclusive "
+                "in the first-release provider"
+            )
         return cls(
             **cls._base_kwargs(payload),
             recourse_run_id=require_non_empty_string(
@@ -392,9 +400,7 @@ class RecourseReviewConfig(BaseRecord):
             fixed_finding_rule=require_non_empty_string(
                 payload.get("fixed_finding_rule"), "fixed_finding_rule", 3
             ),
-            withholding_rules=require_string_list(
-                payload.get("withholding_rules"), "withholding_rules"
-            ),
+            withholding_rules=withholding_rules,
             audience=require_non_empty_string(payload.get("audience"), "audience", 3),
             output_directory_policy=require_non_empty_string(
                 payload.get("output_directory_policy"), "output_directory_policy", 10
@@ -407,6 +413,7 @@ class RecourseReviewConfig(BaseRecord):
 class SyntheticPredictionModel(BaseRecord):
     model_id: str
     version_id: str
+    feature_schema_version: str
     provider_type: str
     ordered_features: list[str]
     intercept: float
@@ -446,6 +453,9 @@ class SyntheticPredictionModel(BaseRecord):
             **cls._base_kwargs(payload),
             model_id=require_non_empty_string(payload.get("model_id"), "model_id", 3),
             version_id=require_non_empty_string(payload.get("version_id"), "version_id", 3),
+            feature_schema_version=require_non_empty_string(
+                payload.get("feature_schema_version"), "feature_schema_version", 3
+            ),
             provider_type=require_non_empty_string(
                 payload.get("provider_type"), "provider_type", 3
             ),
@@ -494,9 +504,23 @@ class RecourseAssessmentOutput(BaseRecord):
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "RecourseAssessmentOutput":
+        baseline_prediction = require_non_empty_string(
+            payload.get("baseline_prediction"), "baseline_prediction", 3
+        )
+        target_prediction = require_non_empty_string(
+            payload.get("target_prediction"), "target_prediction", 3
+        )
+        if baseline_prediction == target_prediction:
+            raise ValueError("baseline_prediction and target_prediction must differ")
+
         feature_results = require_object_list(payload.get("feature_results"), "feature_results")
         require_unique_object_field(feature_results, "feature_name", "feature_results")
+        evaluated_counts_by_feature: dict[str, int] = {}
+        target_counts_by_feature: dict[str, int] = {}
         for index, result in enumerate(feature_results):
+            feature_name = require_non_empty_string(
+                result.get("feature_name"), f"feature_results[{index}].feature_name"
+            )
             evaluated = require_nonnegative_integer(
                 result.get("evaluated_intervention_count"),
                 f"feature_results[{index}].evaluated_intervention_count",
@@ -530,14 +554,56 @@ class RecourseAssessmentOutput(BaseRecord):
                     raise ValueError(
                         f"feature_results[{index}].responsiveness_estimate must be between zero and one"
                     )
+            evaluated_counts_by_feature[feature_name] = evaluated
+            target_counts_by_feature[feature_name] = reaching
+
         paths = require_object_list(
             payload.get("identified_paths"), "identified_paths", allow_empty=True
         )
+        require_unique_object_field(paths, "action_id", "identified_paths")
+        single_path_counts: dict[str, int] = {}
+        path_features: set[str] = set()
+        for index, path in enumerate(paths):
+            primary_features = require_string_list(
+                path.get("primary_action_features"),
+                f"identified_paths[{index}].primary_action_features",
+            )
+            evaluated_prediction = require_non_empty_string(
+                path.get("evaluated_prediction"),
+                f"identified_paths[{index}].evaluated_prediction",
+            )
+            if evaluated_prediction != target_prediction:
+                raise ValueError(
+                    f"identified_paths[{index}].evaluated_prediction must match target_prediction"
+                )
+            path_features.update(primary_features)
+            if len(primary_features) == 1:
+                feature_name = primary_features[0]
+                single_path_counts[feature_name] = (
+                    single_path_counts.get(feature_name, 0) + 1
+                )
+        unknown_path_features = sorted(path_features - set(target_counts_by_feature))
+        if unknown_path_features:
+            raise ValueError(
+                "identified paths reference unknown feature results: "
+                + ", ".join(unknown_path_features)
+            )
+        for feature_name, target_count in target_counts_by_feature.items():
+            if target_count != single_path_counts.get(feature_name, 0):
+                raise ValueError(
+                    f"feature_results.{feature_name}.target_reaching_count must match "
+                    "identified single-feature paths"
+                )
+
         input_fingerprints = payload.get("input_fingerprints")
         require_type(input_fingerprints, dict, "input_fingerprints")
         search = payload.get("search")
         require_type(search, dict, "search")
-        require_boolean(search.get("exhaustive"), "search.exhaustive")
+        exhaustive = require_boolean(search.get("exhaustive"), "search.exhaustive")
+        single_feature_search_exhaustive = require_boolean(
+            search.get("single_feature_search_exhaustive"),
+            "search.single_feature_search_exhaustive",
+        )
         evaluated_states = require_nonnegative_integer(
             search.get("evaluated_state_count"), "search.evaluated_state_count"
         )
@@ -557,22 +623,113 @@ class RecourseAssessmentOutput(BaseRecord):
             raise ValueError("search.evaluated_state_count must not exceed available states")
         if evaluated_states > computational_limit:
             raise ValueError("search.evaluated_state_count must not exceed computational limit")
+        if len(paths) > evaluated_states:
+            raise ValueError("identified_paths must not exceed evaluated state count")
+        for feature_name, evaluated_count in evaluated_counts_by_feature.items():
+            if evaluated_count > evaluated_states:
+                raise ValueError(
+                    f"feature_results.{feature_name}.evaluated_intervention_count "
+                    "must not exceed evaluated state count"
+                )
+        calculation_mode = require_non_empty_string(
+            search.get("calculation_mode"), "search.calculation_mode", 3
+        )
+        if exhaustive:
+            if calculation_mode != "exhaustive_enumeration":
+                raise ValueError("exhaustive search requires exhaustive_enumeration mode")
+            if evaluated_states != available_states:
+                raise ValueError(
+                    "exhaustive search requires every available state to be evaluated"
+                )
+            if not single_feature_search_exhaustive:
+                raise ValueError(
+                    "exhaustive search requires single-feature search exhaustion"
+                )
+
         status = require_non_empty_string(payload.get("overall_status"), "overall_status", 3)
-        if status == "fixed_under_declared_action_set" and not search.get("exhaustive"):
-            raise ValueError("fixed_under_declared_action_set requires exhaustive search")
+        uncertainty_reasons = require_maybe_empty_string_list(
+            payload.get("uncertainty_reasons"), "uncertainty_reasons"
+        )
+        withholding_reasons = require_maybe_empty_string_list(
+            payload.get("withholding_reasons"), "withholding_reasons"
+        )
+        reviewer_disposition = require_non_empty_string(
+            payload.get("reviewer_disposition"), "reviewer_disposition", 3
+        )
+        if reviewer_disposition == "pending_review" and withholding_reasons:
+            raise ValueError("pending_review disposition must not include withholding reasons")
+        if reviewer_disposition == "withheld" and not withholding_reasons:
+            raise ValueError("withheld disposition requires withholding reasons")
+        total_target_reaching = sum(target_counts_by_feature.values())
         if status == "single_feature_path_identified" and not any(
             len(path.get("primary_action_features", [])) == 1 for path in paths
         ):
             raise ValueError("single-feature status requires a single-feature target path")
+        if (
+            status == "single_feature_path_identified"
+            and reviewer_disposition != "pending_review"
+        ):
+            raise ValueError("single-feature status requires pending_review disposition")
         if status == "joint_path_only_identified":
             if not paths or any(len(path.get("primary_action_features", [])) == 1 for path in paths):
                 raise ValueError("joint-only status requires only joint target paths")
+            if not single_feature_search_exhaustive:
+                raise ValueError(
+                    "joint-only status requires exhaustive single-feature search"
+                )
+            if reviewer_disposition != "pending_review":
+                raise ValueError("joint-only status requires pending_review disposition")
         if status in {
             "fixed_under_declared_action_set",
             "no_target_path_found_within_search",
             "not_assessed",
         } and paths:
             raise ValueError(f"{status} must not include identified paths")
+        if (
+            status
+            in {
+                "fixed_under_declared_action_set",
+                "no_target_path_found_within_search",
+                "not_assessed",
+            }
+            and total_target_reaching
+        ):
+            raise ValueError(f"{status} must not include target-reaching feature counts")
+        if status == "fixed_under_declared_action_set":
+            if not exhaustive:
+                raise ValueError("fixed_under_declared_action_set requires exhaustive search")
+            if uncertainty_reasons or withholding_reasons:
+                raise ValueError(
+                    "fixed_under_declared_action_set must not retain unresolved uncertainty"
+                )
+            if reviewer_disposition != "pending_review":
+                raise ValueError(
+                    "fixed_under_declared_action_set requires pending_review disposition"
+                )
+        if status == "no_target_path_found_within_search":
+            if exhaustive:
+                raise ValueError(
+                    "no_target_path_found_within_search requires incomplete search"
+                )
+            if reviewer_disposition != "pending_review":
+                raise ValueError("no-target-path status requires pending_review disposition")
+        if status == "inconclusive":
+            if not uncertainty_reasons or not withholding_reasons:
+                raise ValueError(
+                    "inconclusive status requires uncertainty and withholding reasons"
+                )
+            if reviewer_disposition != "withheld":
+                raise ValueError("inconclusive status requires withheld disposition")
+        if status == "not_assessed":
+            if exhaustive or single_feature_search_exhaustive or evaluated_states != 0:
+                raise ValueError(
+                    "not_assessed requires a zero-state non-exhaustive search"
+                )
+            if not withholding_reasons or reviewer_disposition != "not_assessed":
+                raise ValueError(
+                    "not_assessed requires a reason and not_assessed disposition"
+                )
+
         return cls(
             **cls._base_kwargs(payload),
             recourse_assessment_id=require_non_empty_string(
@@ -600,28 +757,18 @@ class RecourseAssessmentOutput(BaseRecord):
                 payload.get("action_set_version"), "action_set_version", 3
             ),
             input_fingerprints=input_fingerprints,
-            baseline_prediction=require_non_empty_string(
-                payload.get("baseline_prediction"), "baseline_prediction", 3
-            ),
-            target_prediction=require_non_empty_string(
-                payload.get("target_prediction"), "target_prediction", 3
-            ),
+            baseline_prediction=baseline_prediction,
+            target_prediction=target_prediction,
             overall_status=status,
             feature_results=feature_results,
             identified_paths=paths,
             search=search,
-            uncertainty_reasons=require_maybe_empty_string_list(
-                payload.get("uncertainty_reasons"), "uncertainty_reasons"
-            ),
-            withholding_reasons=require_maybe_empty_string_list(
-                payload.get("withholding_reasons"), "withholding_reasons"
-            ),
+            uncertainty_reasons=uncertainty_reasons,
+            withholding_reasons=withholding_reasons,
             limitation_references=require_string_list(
                 payload.get("limitation_references"), "limitation_references"
             ),
-            reviewer_disposition=require_non_empty_string(
-                payload.get("reviewer_disposition"), "reviewer_disposition", 3
-            ),
+            reviewer_disposition=reviewer_disposition,
             audience=require_non_empty_string(payload.get("audience"), "audience", 3),
             result_type=require_non_empty_string(payload.get("result_type"), "result_type", 10),
         )

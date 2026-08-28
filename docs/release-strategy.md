@@ -52,7 +52,7 @@ reviewability improvements that do not change the implementation phase.
 
 ## Unreleased Recourse Candidate Scope
 
-The working tree contains a prospective terminology correction and a separate
+Development `main` contains a prospective terminology correction and a separate
 reviewer-facing recourse sidecar. The terminology change retains every legacy
 programmatic identifier while defining its meaning narrowly as record-level
 traceability and reconciliation. The sidecar adds six closed mirrored schemas,
@@ -67,9 +67,12 @@ surface gates. No publication, adoption, independent validation, applicant
 usefulness, legal compliance, increased approval, or credit-access claim follows
 from the local implementation.
 
-While unreleased, package metadata uses `0.12.0.dev0`. The final `0.12.0`
-version, citation date, tag, release note, and archive record are assigned only
-through the publication workflow.
+While unreleased, package metadata uses `0.12.0.dev0`. The current working-tree
+hardening constrains the provider to one baseline-specific subject, validates
+the feature-schema link and executable withholding policy, and reconciles
+supplied outputs to recomputed bundle results. The final `0.12.0` version,
+citation date, tag, release note, and archive record are assigned only through
+the publication workflow.
 
 ## v0.11.0 Release Scope
 

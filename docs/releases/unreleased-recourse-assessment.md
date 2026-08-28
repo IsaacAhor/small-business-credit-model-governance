@@ -1,8 +1,9 @@
 # Unreleased: Adverse-Action Traceability Clarification And Recourse Sidecar
 
-Status: Unreleased working-tree candidate. No tag or release is represented by
-this note. Package metadata uses `0.12.0.dev0`; published citation metadata
-continues to describe the current `v0.11.0` release.
+Status: Unreleased development line on `main` with additional working-tree
+hardening. No tag or release is represented by this note. Package metadata uses
+`0.12.0.dev0`; published citation metadata continues to describe the current
+`v0.11.0` release.
 
 ## Scope
 
@@ -17,6 +18,10 @@ continues to describe the current `v0.11.0` release.
 - Adds synthetic valid and invalid fixtures, a deterministic eleven-file
   reviewer pack, protected-core hash checks, standalone and installed commands,
   documentation, and focused regression coverage.
+- The current working-tree hardening restricts the first provider to one
+  baseline-specific subject per bundle, links feature-schema versions,
+  constrains the executable withholding rule, and rejects internally or
+  bundle-relationally inconsistent output records.
 
 ## Compatibility
 

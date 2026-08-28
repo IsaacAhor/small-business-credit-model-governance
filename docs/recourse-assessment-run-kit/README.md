@@ -54,6 +54,11 @@ The report command refuses an output directory that equals, contains, or sits
 inside either input tree. It also rehashes five protected core files after the
 assessment and fails if any changed.
 
+The first-release provider accepts exactly one subject per bundle because every
+declared candidate state is relative to that subject's recorded baseline. A
+later multi-subject provider would require subject-scoped candidates rather than
+silently reusing one baseline-specific action set.
+
 ## Fixture Matrix
 
 | Fixture | Expected result |
@@ -75,7 +80,7 @@ vendor, underwriting model, deployment, or institutional policy.
 | Status | Minimum support required |
 | --- | --- |
 | `single_feature_path_identified` | At least one evaluated permitted state with one primary action feature returns the target prediction. |
-| `joint_path_only_identified` | Single-primary-feature search is exhaustive, none reaches the target, and an evaluated joint-primary-feature state does. |
+| `joint_path_only_identified` | The recorded single-primary-feature search is exhaustive, none reaches the target, and an evaluated joint-primary-feature state does. |
 | `fixed_under_declared_action_set` | Every declared supported state is exhaustively enumerated under the configured joint bound and none returns the target. |
 | `no_target_path_found_within_search` | No evaluated state returns the target, but search is not exhaustive. |
 | `inconclusive` | Feasibility, version, method, certificate, or other declared uncertainty prevents a stronger finding. |
@@ -108,7 +113,8 @@ The checked-in deterministic example is under
 The implementation demonstrates closed contracts, exact version linkage,
 baseline recomputation, explicit full-state candidates, linked-change handling,
 bounded and exhaustive status logic, visible uncertainty, deterministic
-reporting, output verification, and protected-core hash stability.
+reporting, bundle-relative output verification, and protected-core hash
+stability.
 
 It does not demonstrate action-set realism, causal feasibility, production
 model access, applicant usefulness, institutional adoption, independent

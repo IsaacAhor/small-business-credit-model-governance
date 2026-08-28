@@ -52,7 +52,7 @@
       "type": "array",
       "minItems": 1,
       "uniqueItems": true,
-      "items": {"type": "string", "minLength": 10}
+      "items": {"enum": ["withhold_on_inconclusive"]}
     },
     "audience": {"const": "reviewer_only"},
     "output_directory_policy": {"const": "separate_from_all_input_trees"},
