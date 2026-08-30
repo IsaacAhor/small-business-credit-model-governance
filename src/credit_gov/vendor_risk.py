@@ -304,7 +304,8 @@ def validate_vendor_relationships(vendor_dir: Path, core_dir: Path, payloads: di
     if review["review_status"] in {"accepted", "accepted_with_conditions"} and pending_material_events:
         raise ValueError("accepted vendor review cannot have pending material event assessment")
 
-    decision_ids = {item["decision_id"] for item in decisions}
+    decision_by_id = {item["decision_id"]: item for item in decisions}
+    decision_ids = set(decision_by_id)
     mapping_by_id = {item["mapping_id"]: item for item in reason_mappings}
     mapping_ids = set(mapping_by_id)
     reason_outputs_path = core_dir / "adverse-action-reason-outputs.json"
@@ -316,6 +317,18 @@ def validate_vendor_relationships(vendor_dir: Path, core_dir: Path, payloads: di
             raise ValueError(f"business-credit-notice-controls.json[{index}].component_id references unknown component")
         if control["decision_id"] not in decision_ids:
             raise ValueError(f"business-credit-notice-controls.json[{index}].decision_id references unknown decision")
+        linked_decision = decision_by_id[control["decision_id"]]
+        if control["application_date"] != linked_decision["application_date"]:
+            raise ValueError(
+                f"business-credit-notice-controls.json[{index}].application_date "
+                "must match the linked decision application_date"
+            )
+        linked_action_date = linked_decision["underwriting"]["decision_timestamp"][:10]
+        if control["action_date"] != linked_action_date:
+            raise ValueError(
+                f"business-credit-notice-controls.json[{index}].action_date "
+                "must match the linked decision timestamp date"
+            )
         unknown_mapping_ids = sorted(set(control["reason_mapping_ids"]) - mapping_ids)
         if unknown_mapping_ids:
             raise ValueError(

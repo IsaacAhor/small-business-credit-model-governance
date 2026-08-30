@@ -11,6 +11,7 @@ import uuid
 from pathlib import Path
 from typing import Any
 
+from .schemas.validators import ROOT
 from .vendor_risk import (
     CORE_CONTEXT_FILENAMES,
     VENDOR_INPUT_FILENAMES,
@@ -368,7 +369,7 @@ def supporting_evidence_manifest_entries(
             filename = resolved.relative_to(core_dir).as_posix()
         else:
             source = "repository_evidence"
-            filename = reference
+            filename = resolved.relative_to(ROOT.resolve()).as_posix()
         entries.append(
             {
                 "source": source,
