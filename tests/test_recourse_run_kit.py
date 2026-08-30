@@ -28,7 +28,9 @@ from credit_gov.recourse import (  # noqa: E402
     validate_recourse_output_record,
 )
 from credit_gov.recourse_reporting import (  # noqa: E402
+    MANIFEST_FILENAME,
     OUTPUT_FILENAMES,
+    OUTPUT_FINGERPRINTS_FILENAME,
     generate_recourse_evidence_pack,
     main as report_main,
     validate_distinct_paths,
@@ -412,6 +414,33 @@ class RecourseRunKitTests(unittest.TestCase):
         self.assertTrue(any("hash mismatch" in error for error in tampered["errors"]))
         self.assertFalse(undeclared["ok"])
         self.assertTrue(any("declared output set" in error for error in undeclared["errors"]))
+
+    def test_verifier_rejects_incomplete_declared_output_sets(self) -> None:
+        cases = (
+            (MANIFEST_FILENAME, "outputs", "manifest outputs filenames"),
+            (
+                OUTPUT_FINGERPRINTS_FILENAME,
+                "files",
+                "output fingerprints filenames",
+            ),
+        )
+        for filename, field, expected_error in cases:
+            with self.subTest(filename=filename):
+                with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+                    output = Path(temporary) / "pack"
+                    generate_recourse_evidence_pack(
+                        CORE_DATASET, FIXTURE_ROOT / "baseline", output
+                    )
+                    self.update_json(
+                        output / filename,
+                        lambda payload, field=field: payload.update({field: []}),
+                    )
+                    result = verify_recourse_evidence_pack(output)
+                self.assertFalse(result["ok"])
+                self.assertTrue(
+                    any(expected_error in error for error in result["errors"]),
+                    result["errors"],
+                )
 
     def test_generated_language_and_fields_remain_bounded(self) -> None:
         with LocalTemporaryDirectory(TEMP_ROOT) as temporary:

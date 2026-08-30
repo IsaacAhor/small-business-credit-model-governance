@@ -18,7 +18,7 @@ The design keeps three source propositions separate:
   and its official interpretations govern adverse-action notice reasons. The
   recourse sidecar does not reinterpret or replace that required-reason layer.
 - Cheon, Wernerfelt, Friedler, and Ustun,
-  [*Feature Responsiveness Scores: Model-Agnostic Explanations for Recourse*](https://openreview.net/forum?id=W3wEGGKjOc),
+  [*Feature Responsiveness Scores: Model-Agnostic Explanations for Recourse*](https://openreview.net/forum?id=wsWCVrH9dv),
   distinguishes feature-attribution importance from responsiveness under an
   action set. This repository cites the research concept but does not claim
   that its small finite enumerator is the authors' official implementation.

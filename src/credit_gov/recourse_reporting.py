@@ -301,6 +301,47 @@ def _build_manifest(
     }
 
 
+def _verify_output_hashes(
+    *,
+    entries: Any,
+    expected_filenames: tuple[str, ...],
+    label: str,
+    output_dir: Path,
+    errors: list[str],
+) -> None:
+    if not isinstance(entries, list):
+        errors.append(f"{label} must be a list")
+        return
+
+    hashes_by_filename: dict[str, str] = {}
+    for index, entry in enumerate(entries):
+        if not isinstance(entry, dict):
+            errors.append(f"{label}[{index}] must be an object")
+            continue
+        filename = entry.get("filename")
+        expected_hash = entry.get("sha256")
+        if not isinstance(filename, str) or not isinstance(expected_hash, str):
+            errors.append(
+                f"{label}[{index}] must contain string filename and sha256 values"
+            )
+            continue
+        if filename in hashes_by_filename:
+            errors.append(f"{label} contains duplicate filename: {filename}")
+            continue
+        hashes_by_filename[filename] = expected_hash
+
+    if sorted(hashes_by_filename) != sorted(expected_filenames):
+        errors.append(f"{label} filenames do not exactly match the expected output set")
+
+    for filename in expected_filenames:
+        expected_hash = hashes_by_filename.get(filename)
+        if expected_hash is None:
+            continue
+        path = output_dir / filename
+        if not path.is_file() or sha256_file(path) != expected_hash:
+            errors.append(f"{label} hash mismatch: {filename}")
+
+
 def verify_recourse_evidence_pack(output_dir: Path) -> dict[str, Any]:
     output_dir = output_dir.resolve()
     errors: list[str] = []
@@ -326,15 +367,25 @@ def verify_recourse_evidence_pack(output_dir: Path) -> dict[str, Any]:
         )
         if manifest["inputs"] != input_fingerprints["files"]:
             errors.append("manifest inputs differ from input_fingerprints.json")
-        for entry in manifest["outputs"]:
-            path = output_dir / entry["filename"]
-            if not path.is_file() or sha256_file(path) != entry["sha256"]:
-                errors.append(f"manifest hash mismatch: {entry['filename']}")
-        for entry in output_fingerprints["files"]:
-            path = output_dir / entry["filename"]
-            if not path.is_file() or sha256_file(path) != entry["sha256"]:
-                errors.append(f"output fingerprint mismatch: {entry['filename']}")
-    except (KeyError, OSError, ValueError, json.JSONDecodeError) as exc:
+        _verify_output_hashes(
+            entries=manifest["outputs"],
+            expected_filenames=tuple(
+                filename
+                for filename in OUTPUT_FILENAMES
+                if filename != MANIFEST_FILENAME
+            ),
+            label="manifest outputs",
+            output_dir=output_dir,
+            errors=errors,
+        )
+        _verify_output_hashes(
+            entries=output_fingerprints["files"],
+            expected_filenames=FINGERPRINTED_OUTPUT_FILENAMES,
+            label="output fingerprints",
+            output_dir=output_dir,
+            errors=errors,
+        )
+    except (KeyError, OSError, TypeError, ValueError, json.JSONDecodeError) as exc:
         errors.append(f"evidence pack verification failed: {exc}")
     return {
         "ok": not errors,

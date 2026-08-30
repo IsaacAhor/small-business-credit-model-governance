@@ -274,6 +274,36 @@ class VendorRiskRunKitTests(unittest.TestCase):
             result.errors,
         )
 
+    def test_notice_dates_match_the_linked_decision(self) -> None:
+        cases = (
+            (
+                "application_date",
+                "2025-05-04",
+                "application_date must match the linked decision application_date",
+            ),
+            (
+                "action_date",
+                "2026-05-05",
+                "action_date must match the linked decision timestamp date",
+            ),
+        )
+        for field, value, expected_error in cases:
+            with self.subTest(field=field):
+                with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+                    fixture = self.copy_fixture("baseline-complete", Path(temporary))
+                    self.update_json(
+                        fixture / "business-credit-notice-controls.json",
+                        lambda payload, field=field, value=value: payload[0].update(
+                            {field: value}
+                        ),
+                    )
+                    result = validate_vendor_risk_dataset(fixture, CORE_DATASET)
+                self.assertFalse(result.ok)
+                self.assertTrue(
+                    any(expected_error in error for error in result.errors),
+                    result.errors,
+                )
+
     def test_empty_findings_limitations_and_notice_records_remain_reviewable(self) -> None:
         with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
             fixture = self.copy_fixture("baseline-complete", Path(temporary))
@@ -364,6 +394,32 @@ class VendorRiskRunKitTests(unittest.TestCase):
             self.assertEqual(
                 sha256_manifest_input(text_lf), sha256_manifest_input(text_crlf)
             )
+
+    def test_manifest_normalizes_absolute_repository_evidence_references(self) -> None:
+        with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
+            root = Path(temporary)
+            fixture = self.copy_fixture("baseline-complete", root / "fixture")
+            absolute_reference = str((ROOT / "README.md").resolve())
+            self.update_json(
+                fixture / "vendor-risk-review-record.json",
+                lambda payload: payload["evidence_references"].append(
+                    absolute_reference
+                ),
+            )
+            manifest = generate_vendor_oversight_report(
+                fixture, CORE_DATASET, root / "report"
+            )
+
+        repository_entries = [
+            item
+            for item in manifest["inputs"]
+            if item["source"] == "repository_evidence"
+        ]
+        self.assertIn("README.md", {item["filename"] for item in repository_entries})
+        self.assertNotIn(str(ROOT.resolve()), json.dumps(manifest))
+        self.assertTrue(
+            all(not Path(item["filename"]).is_absolute() for item in repository_entries)
+        )
 
     def test_existing_outputs_require_explicit_overwrite(self) -> None:
         with LocalTemporaryDirectory(TEMP_ROOT) as temporary:
