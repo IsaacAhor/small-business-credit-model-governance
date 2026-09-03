@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import gzip
 import re
 import stat
 import tarfile
 import unicodedata
 import zipfile
 from dataclasses import dataclass
+from io import BytesIO
 from pathlib import Path, PurePosixPath
 from typing import Iterable, Iterator
 
@@ -400,6 +402,101 @@ def _iter_files(path: Path) -> Iterator[Path]:
             candidate.is_symlink() or candidate.is_dir() or candidate.is_file()
         ):
             yield candidate
+
+
+def normalize_source_distribution(path: Path) -> None:
+    """Remove host ownership fields while preserving a source archive's payload."""
+
+    if not path.is_file() or not path.name.lower().endswith((".tar.gz", ".tgz")):
+        raise ValueError("input is not a gzip-compressed source archive")
+    temporary_path = path.with_name(f".{path.name}.normalized")
+    temporary_path.unlink(missing_ok=True)
+    try:
+        with tarfile.open(path, mode="r:gz") as source:
+            members = source.getmembers()
+            if len(members) > MAX_ARCHIVE_MEMBERS:
+                raise ValueError("archive member limit exceeded")
+            total_size = 0
+            payloads: list[tuple[tarfile.TarInfo, bytes | None]] = []
+            for member in members:
+                if _is_unsafe_member_name(member.name):
+                    raise ValueError("unsafe archive path")
+                if not member.isfile() and not member.isdir():
+                    raise ValueError("unsupported archive member")
+                if member.isdir():
+                    payloads.append((member, None))
+                    continue
+                total_size += member.size
+                if member.size > MAX_MEMBER_BYTES:
+                    raise ValueError("archive member limit exceeded")
+                if total_size > MAX_ARCHIVE_TOTAL_BYTES:
+                    raise ValueError("archive expanded-size limit exceeded")
+                extracted = source.extractfile(member)
+                if extracted is None:
+                    raise ValueError("unreadable archive member")
+                data = extracted.read(MAX_MEMBER_BYTES + 1)
+                if len(data) != member.size:
+                    raise ValueError("archive member size mismatch")
+                payloads.append((member, data))
+
+        with temporary_path.open("wb") as raw_output:
+            with gzip.GzipFile(
+                filename="",
+                mode="wb",
+                fileobj=raw_output,
+                mtime=0,
+            ) as compressed_output:
+                with tarfile.open(
+                    fileobj=compressed_output,
+                    mode="w",
+                    format=tarfile.PAX_FORMAT,
+                ) as normalized:
+                    for member, data in payloads:
+                        clean = tarfile.TarInfo(member.name)
+                        clean.mode = member.mode
+                        clean.mtime = int(member.mtime)
+                        clean.uid = 0
+                        clean.gid = 0
+                        clean.uname = ""
+                        clean.gname = ""
+                        clean.type = (
+                            tarfile.DIRTYPE if member.isdir() else tarfile.REGTYPE
+                        )
+                        clean.size = 0 if data is None else len(data)
+                        normalized.addfile(
+                            clean,
+                            None if data is None else BytesIO(data),
+                        )
+
+        with tarfile.open(temporary_path, mode="r:gz") as check:
+            normalized_members = check.getmembers()
+            if len(normalized_members) != len(payloads):
+                raise ValueError("normalized archive member count mismatch")
+            for (source_member, source_data), normalized_member in zip(
+                payloads,
+                normalized_members,
+                strict=True,
+            ):
+                if (
+                    normalized_member.name != source_member.name
+                    or normalized_member.mode != source_member.mode
+                    or normalized_member.mtime != int(source_member.mtime)
+                    or normalized_member.isdir() != source_member.isdir()
+                    or normalized_member.size
+                    != (0 if source_data is None else len(source_data))
+                ):
+                    raise ValueError("normalized archive metadata mismatch")
+                if source_data is not None:
+                    extracted = check.extractfile(normalized_member)
+                    if extracted is None or extracted.read() != source_data:
+                        raise ValueError("normalized archive payload mismatch")
+
+        if validate_public_artifacts([temporary_path]):
+            raise ValueError("normalized archive did not pass validation")
+        temporary_path.replace(path)
+    except Exception:
+        temporary_path.unlink(missing_ok=True)
+        raise
 
 
 def validate_public_artifacts(paths: Iterable[Path]) -> list[ArtifactFinding]:

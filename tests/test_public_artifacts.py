@@ -22,7 +22,10 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 import credit_gov.public_artifacts as public_artifacts  # noqa: E402
-from credit_gov.public_artifacts import validate_public_artifacts  # noqa: E402
+from credit_gov.public_artifacts import (  # noqa: E402
+    normalize_source_distribution,
+    validate_public_artifacts,
+)
 from scripts import validate_public_artifacts as validator_script  # noqa: E402
 from scripts import validate_repository as repository_validator  # noqa: E402
 
@@ -414,6 +417,69 @@ class PublicArtifactValidationTests(unittest.TestCase):
             findings[0].category,
             "archive ownership metadata requires separate inspection",
         )
+
+    def test_source_distribution_normalization_preserves_payload(self) -> None:
+        TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+        with LocalTemporaryDirectory(TEMP_ROOT) as temp_dir:
+            path = Path(temp_dir) / "package.tar.gz"
+            payload = b"relative content\n"
+            with tarfile.open(path, mode="w:gz") as archive:
+                directory = tarfile.TarInfo("package/reports")
+                directory.type = tarfile.DIRTYPE
+                directory.mode = 0o755
+                directory.uid = 1001
+                directory.uname = "builder"
+                archive.addfile(directory)
+                member = tarfile.TarInfo("package/reports/run.txt")
+                member.size = len(payload)
+                member.mode = 0o640
+                member.uid = 1001
+                member.gid = 1001
+                member.uname = "builder"
+                member.gname = "builder"
+                archive.addfile(member, BytesIO(payload))
+
+            self.assertTrue(validate_public_artifacts([path]))
+            normalize_source_distribution(path)
+            findings = validate_public_artifacts([path])
+            with tarfile.open(path, mode="r:gz") as normalized:
+                members = normalized.getmembers()
+                restored = normalized.extractfile("package/reports/run.txt")
+                restored_payload = None if restored is None else restored.read()
+
+        self.assertEqual(findings, [])
+        self.assertEqual(restored_payload, payload)
+        self.assertEqual(
+            [(member.name, member.mode) for member in members],
+            [("package/reports", 0o755), ("package/reports/run.txt", 0o640)],
+        )
+        self.assertTrue(
+            all(
+                member.uid == 0
+                and member.gid == 0
+                and not member.uname
+                and not member.gname
+                for member in members
+            )
+        )
+
+    def test_source_distribution_normalization_preserves_rejected_archive(self) -> None:
+        TEMP_ROOT.mkdir(parents=True, exist_ok=True)
+        with LocalTemporaryDirectory(TEMP_ROOT) as temp_dir:
+            path = Path(temp_dir) / "package.tar.gz"
+            with tarfile.open(path, mode="w:gz") as archive:
+                member = tarfile.TarInfo("package/latest")
+                member.type = tarfile.SYMTYPE
+                member.linkname = "reports/run.txt"
+                archive.addfile(member)
+            original = path.read_bytes()
+
+            with self.assertRaises(ValueError):
+                normalize_source_distribution(path)
+
+            preserved = path.read_bytes()
+
+        self.assertEqual(preserved, original)
 
     def test_tar_link_fails_closed(self) -> None:
         TEMP_ROOT.mkdir(parents=True, exist_ok=True)

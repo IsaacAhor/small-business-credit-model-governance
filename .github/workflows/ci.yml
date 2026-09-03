@@ -44,6 +44,9 @@ jobs:
       - name: Build distribution artifacts
         run: python -m build
 
+      - name: Normalize source distribution metadata
+        run: python scripts/normalize_sdist.py dist/*.tar.gz
+
       - name: Check distribution portability
         run: python scripts/validate_public_artifacts.py dist
 
