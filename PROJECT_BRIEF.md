@@ -3,9 +3,10 @@
 ## Problem
 
 Small business credit underwriting increasingly uses automated or
-machine-learning-assisted systems, but governance controls for explainability,
-adverse-action reason review, fair-lending monitoring, and model-risk oversight
-remain difficult to operationalize.
+machine-learning-assisted systems, but model-risk oversight, adverse-action
+reason traceability, ongoing monitoring, and reviewer-ready documentation remain
+difficult to operationalize. Disparity screening presents an additional,
+supporting risk-review need.
 
 ## Project Contribution
 
@@ -18,9 +19,9 @@ credit underwriting systems.
 - model registry and version-control records
 - threshold-based monitoring
 - adverse-action reason QA and synthetic reason-accuracy benchmarking
-- fair-lending screening triggers
 - issue and escalation records
 - reviewer-ready evidence packs
+- supporting fair-lending screening triggers
 
 ## Current Limitations
 
@@ -32,8 +33,8 @@ credit underwriting systems.
 ## Intended Users
 
 - model-risk teams
-- fair-lending monitoring teams
 - credit policy teams
 - credit-union vendor-management and member-business lending reviewers
 - fintech governance teams
 - researchers and practitioners
+- compliance or fair-lending teams reviewing the supporting screening module

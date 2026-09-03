@@ -1,5 +1,9 @@
 # Interpretable model risk monitoring for machine-learning-based small business credit underwriting
 
+> Superseded working draft. For the current, source-updated version and its
+> narrower synthetic-demonstration claims, see
+> `docs/practitioner-article-publish-ready.md`.
+
 ## Why this topic matters
 
 Machine-learning underwriting is usually sold as a speed story. In small business credit, that misses the harder part, which is governance. Once a system is live, the institution has to keep checking whether it stays interpretable enough to review, stable enough to trust, and disciplined enough to support fair and accountable credit decisions over time.
@@ -59,7 +63,7 @@ The point is not to promise an automatic answer. It is to define a review path, 
 
 ## Why synthetic demonstrations still matter
 
-This topic is concrete enough to support a public demonstration even when production data cannot be used. A synthetic notebook can show how to monitor drift, explanation stability, fairness indicators, and breach escalation in one workflow. That does not prove production adoption. It does prove the framework is operational rather than theoretical.
+This topic is concrete enough to support a public demonstration even when production data cannot be used. A synthetic notebook can show how to monitor drift, explanation stability, supporting disparity indicators, and breach escalation in one workflow. It demonstrates execution against declared synthetic inputs; it does not establish production readiness, operational effectiveness, adoption, or external validation.
 
 Used carefully, a synthetic demonstration bridges concept and implementation. It also creates a reusable public asset that can support later articles, talks, expert feedback, and further work on the repository.
 

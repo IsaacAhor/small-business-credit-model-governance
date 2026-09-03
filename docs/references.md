@@ -26,7 +26,7 @@ institution-specific review.
   of the Currency, Supervisory Guidance on Model Risk Management, SR 11-7
   (April 4, 2011; superseded April 17, 2026 by SR 26-2, retained here for
   historical reference):
-  <https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm>
+  <https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf>
 
 ## Practitioner Frameworks for ML Underwriting
 

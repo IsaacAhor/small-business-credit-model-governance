@@ -12,8 +12,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from credit_gov.public_artifacts import validate_public_artifacts  # noqa: E402
 
 REQUIRED_FILES = [
     "README.md",
@@ -44,6 +48,11 @@ REQUIRED_FILES = [
     "docs/releases/v0.4.1.md",
     "docs/references.md",
     "docs/repository-roadmap.md",
+    ".github/dependabot.yml",
+    ".github/workflows/release.yml",
+    "scripts/validate_public_artifacts.py",
+    "src/credit_gov/public_artifacts.py",
+    "tests/test_public_artifacts.py",
     "examples/evidence-packs/monthly-demo/README.md",
     "examples/evidence-packs/model-governance-review/README.md",
     "examples/evidence-packs/credit-union-vendor-risk/README.md",
@@ -64,7 +73,8 @@ REQUIRED_TERMS = {
         "Reproducibility",
         "Evidence Standard",
         "Data Policy",
-        "fair-lending monitoring",
+        "adverse-action reason accuracy and traceability",
+        "supporting fair-lending risk screening",
     ],
     "START_HERE.md": [
         "Fast Review Path",
@@ -320,7 +330,34 @@ def check_packaged_resources() -> None:
             fail(f"Packaged BISG reference resource is stale: {packaged_path.relative_to(ROOT)}")
 
 
+def check_public_artifact_portability() -> None:
+    tracked = subprocess.run(
+        [
+            "git",
+            "ls-files",
+            "-z",
+            "--cached",
+            "--others",
+            "--exclude-standard",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        check=True,
+    ).stdout.decode("utf-8").split("\0")
+    paths = [ROOT / relative for relative in tracked if relative]
+    findings = validate_public_artifacts(paths)
+    if findings:
+        summary = ", ".join(
+            f"{finding.category}: {finding.location}"
+            for finding in findings[:20]
+        )
+        if len(findings) > 20:
+            summary += f", and {len(findings) - 20} more"
+        fail("Non-portable public content found: " + summary)
+
+
 def main() -> None:
+    check_public_artifact_portability()
     check_required_files()
     check_required_terms()
     check_local_markdown_links()
@@ -330,5 +367,21 @@ def main() -> None:
     print("Repository guardrails passed.")
 
 
+def guarded_main() -> int:
+    """Fail without exposing exception values or machine-local paths."""
+
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception:
+        print(
+            "Repository validation failed: internal error details suppressed.",
+            file=sys.stderr,
+        )
+        return 2
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    raise SystemExit(guarded_main())

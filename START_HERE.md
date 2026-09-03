@@ -19,26 +19,24 @@ Use this path if you have limited time and want the clearest view of the work:
 4. Read `docs/model-governance-validation-run-kit/README.md` and inspect
    `examples/evidence-packs/model-governance-review/README.md` for the formal
    risk, explainability, validation, monitoring, and gap records.
-5. Inspect `examples/evidence-packs/monthly-portfolio/README.md` for the
-   curated portfolio-scale evidence-pack outputs (320 synthetic decisions,
-   including statistical significance results, BISG proxy screening, and the
-   LDA assessment).
-6. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
+5. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
    adverse-action reason accuracy benchmark, run command, evidence-pack review
    path, and public-data limits.
-7. Read `docs/recourse-assessment-run-kit/README.md` to inspect the separate
+6. Read `docs/recourse-assessment-run-kit/README.md` to inspect the separate
    optional action-set assessment, conservative statuses, and curated reviewer
    pack without conflating it with required adverse-action reasons.
-8. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
+7. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
    reviewing an AI-enabled credit-union underwriting vendor, CUSO relationship,
    or third-party small-business/member-business lending tool. Inspect
    `examples/evidence-packs/credit-union-vendor-risk/README.md` for the
    deterministic synthetic vendor-oversight output.
-9. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
+8. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
    the plain-language output of a synthetic monthly governance review at
-   portfolio scale. A minimal controlled-breach scenario is also available
-   under `examples/evidence-packs/monthly-demo/`.
-10. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
+   portfolio scale. Its significance, proxy-screening, and LDA outputs are
+   supporting risk screens rather than the primary review path. A minimal
+   controlled-breach scenario is also available under
+   `examples/evidence-packs/monthly-demo/`.
+9. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
    could adapt the workflow.
 
 ## Role-Based Paths

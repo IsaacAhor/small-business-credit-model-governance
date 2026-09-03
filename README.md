@@ -223,9 +223,11 @@ It does not assume a fixed modeling stack at this stage.
 
 The first phase of this repository is structured around six deliverables:
 
-1. A flagship framework for model governance and fair-lending monitoring.
+1. A flagship framework for model-risk governance, adverse-action reason
+   traceability, and ongoing monitoring.
 2. A practitioner-facing article aligned to the repository scope.
-3. Reusable governance and fair-lending monitoring checklists.
+3. Reusable governance, documentation, and monitoring checklists, including
+   supporting disparity-risk screens.
 4. A path toward executable tooling using synthetic or appropriately described
    demonstration data.
 5. A Phase 0 system design layer for a governance evidence engine.
@@ -237,9 +239,10 @@ This repository should remain narrowly focused on:
 
 - small business credit underwriting
 - model governance
-- explainability
-- fair-lending monitoring
-- interpretable risk oversight
+- adverse-action reason accuracy and traceability
+- ongoing monitoring and reviewer-ready documentation
+- explainability-method governance
+- supporting fair-lending risk screening
 
 It should avoid drifting into:
 
