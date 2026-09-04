@@ -374,10 +374,14 @@ The first release milestone was `v0.4.0`, covering Phases 0 through 4: system
 design, data contracts, evidence integrity, monthly monitoring, adverse-action
 reason QA, fair-lending screening, and reviewer-facing project packaging.
 
-The latest documented milestone is `v0.11.0`. It adds a formal governance-
-validation bundle and an executable vendor-model oversight workflow with linked
-records, evidence checks, synthetic scenarios, deterministic reviewer reports,
-and installed package commands. The prior `v0.10.0` milestone repaired the SBA
+The latest documented milestone is `v0.12.0`. It clarifies source-to-notice
+traceability terminology and adds a separate executable synthetic recourse-
+assessment sidecar with strict linked contracts, deterministic finite
+enumeration, conservative statuses, and a reviewer pack. The prior `v0.11.0`
+milestone added a formal governance-validation bundle and an executable vendor-
+model oversight workflow with linked records, evidence checks, synthetic
+scenarios, deterministic reviewer reports, and installed package commands. The
+prior `v0.10.0` milestone repaired the SBA
 public-data adapter against the current official file layout and added fixed-
 horizon outcome construction, explicit censoring and row dispositions, pre-
 monitoring model development, out-of-time performance review, drift measures,
@@ -426,8 +430,8 @@ See `docs/release-strategy.md`, `docs/releases/v0.4.0.md`,
 `docs/releases/v0.7.0.md`, `docs/releases/v0.8.0.md`,
 `docs/releases/v0.9.0.md`, `docs/releases/v0.9.1.md`,
 `docs/releases/v0.9.2.md`, `docs/releases/v0.9.3.md`,
-`docs/releases/v0.9.4.md`, `docs/releases/v0.10.0.md`, and
-`docs/releases/v0.11.0.md`.
+`docs/releases/v0.9.4.md`, `docs/releases/v0.10.0.md`,
+`docs/releases/v0.11.0.md`, and `docs/releases/v0.12.0.md`.
 
 ## Data Policy
 
@@ -497,7 +501,7 @@ This repository now contains:
   underwriting vendor due diligence, monitoring, adverse-action reason review,
   model-change review, issue tracking, and reviewer signoff, now paired with an
   executable synthetic vendor-oversight workflow
-- release strategy documentation and versioned release notes through `v0.11.0` for stable milestone preservation
+- release strategy documentation and versioned release notes through `v0.12.0` for stable milestone preservation
 - `v0.4.1` outsider-packaging notes and reviewer entry points
 - repository guardrails that check required governance artifacts and data discipline
 

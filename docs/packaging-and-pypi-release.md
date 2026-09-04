@@ -9,9 +9,9 @@ regulatory approval, or independent validation by itself.
 
 ## Current Release Status
 
-`v0.11.0` remains a historical tagged checkpoint. Do not reuse its prior
-download bundle as a release source. A later release must be rebuilt and
-verified through the controlled workflow described below.
+`v0.12.0` is the current release. Its assets are built and verified through the
+controlled workflow described below. Do not reuse a prior release bundle as a
+source for a later release.
 
 TestPyPI and PyPI upload have not been performed. The steps below are the
 controlled process for a future package-index upload.
@@ -104,7 +104,7 @@ Use TestPyPI before uploading to the real package index:
 
 ```bash
 python -m twine upload --repository testpypi dist/*
-python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ credit-gov==0.11.0
+python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ credit-gov==0.12.0
 ```
 
 Run the same installed-command smoke checks after the TestPyPI install.

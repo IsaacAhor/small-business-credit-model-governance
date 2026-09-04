@@ -54,7 +54,7 @@ Use semantic-style version numbers for public milestones:
 - `v0.9.4`: curated evidence-pack verification completeness patch
 - `v0.10.0`: fixed-horizon SBA public-data monitoring, out-of-time performance, drift, provenance, and applicability controls
 - `v0.11.0`: executable formal governance review and vendor-model oversight
-- `v0.12.0` candidate: prospective reason-traceability terminology correction
+- `v0.12.0`: reason-traceability terminology correction
   and a separate executable synthetic recourse-assessment sidecar
 
 The `0.x` version line signals that this is still a public demonstration and
@@ -63,10 +63,10 @@ governance evidence engine under active development, not a production release.
 Patch releases can be used for material packaging, documentation, or
 reviewability improvements that do not change the implementation phase.
 
-## Unreleased Recourse Candidate Scope
+## v0.12.0 Release Scope
 
-Development `main` contains a prospective terminology correction and a separate
-reviewer-facing recourse sidecar. The terminology change retains every legacy
+Version 0.12.0 contains a terminology correction and a separate reviewer-facing
+recourse sidecar. The terminology change retains every legacy
 programmatic identifier while defining its meaning narrowly as record-level
 traceability and reconciliation. The sidecar adds six closed mirrored schemas,
 five-input bundle validation, a transparent dependency-free prediction
@@ -74,18 +74,11 @@ provider, deterministic finite enumeration, conservative status logic,
 synthetic valid/invalid fixtures, protected-core hashes, an eleven-file
 reviewer pack, package commands, and regression tests.
 
-`v0.12.0` remains a candidate label until the exact tree passes the full test,
-repository, documentation, build, installed-wheel, compatibility, and public-
-surface gates. No publication, adoption, independent validation, applicant
-usefulness, legal compliance, increased approval, or credit-access claim follows
-from the local implementation.
-
-While unreleased, package metadata uses `0.12.0.dev0`. The current working-tree
-hardening constrains the provider to one baseline-specific subject, validates
+The release hardens the provider to one baseline-specific subject, validates
 the feature-schema link and executable withholding policy, and reconciles
-supplied outputs to recomputed bundle results. The final `0.12.0` version,
-citation date, tag, release note, and archive record are assigned only through
-the publication workflow.
+supplied outputs to recomputed bundle results. Publication does not establish
+adoption, independent validation, applicant usefulness, legal compliance,
+increased approval, or improved credit access.
 
 ## v0.11.0 Release Scope
 
@@ -115,9 +108,11 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current documented milestone is `v0.11.0`. It adds the formal governance-
-validation and executable vendor-model oversight capabilities described above.
-The prior documented milestone is `v0.10.0`. It repairs the SBA public-data
+The current documented milestone is `v0.12.0`. It clarifies reason-traceability
+terminology and adds the separate synthetic recourse-assessment sidecar
+described above. The prior documented milestone is `v0.11.0`; it adds the
+formal governance-validation and executable vendor-model oversight capabilities
+described above. Version `v0.10.0` repairs the SBA public-data
 workflow against the current official 7(a)/504 file layout. The adapter now
 normalizes current status values, constructs fixed-horizon outcomes from event
 and as-of dates, separates row dispositions, fits only a pre-monitoring
