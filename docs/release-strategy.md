@@ -20,6 +20,19 @@ they package the state of the work at meaningful implementation milestones.
   not prove.
 - Future phases should be released only after tests and repository guardrails
   pass through the normal GitHub workflow.
+- Every distribution and verification archive should pass
+  `scripts/validate_public_artifacts.py`; publish only derived run records with
+  repository-relative paths.
+- Artifact inspection fails closed. An unreadable, encrypted, unsupported,
+  binary, oversized, or otherwise uninspected file or archive member blocks the
+  release until it receives an appropriate separate review and the final derived
+  artifact is scanned again.
+- GitHub releases are created only by the `Controlled release` workflow from an
+  existing annotated semantic-version tag. The protected `release` environment
+  supplies the separate publication approval.
+- The workflow publishes only after a draft download matches its SHA-256
+  manifest and passes the artifact scanner, then repeats both checks against the
+  served assets.
 
 ## Version Naming
 

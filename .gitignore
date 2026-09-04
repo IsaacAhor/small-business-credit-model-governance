@@ -5,6 +5,25 @@ Thumbs.db
 # Editors
 .idea/
 .vscode/
+*.bak
+*.swp
+
+# Local credentials and environment captures
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+*.kdbx
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+credentials.json
+secrets.json
+*.log
 
 # Python
 __pycache__/
@@ -32,3 +51,5 @@ dist/
 /tmp/
 .tmp-*/
 .pytest_cache/
+.coverage
+htmlcov/

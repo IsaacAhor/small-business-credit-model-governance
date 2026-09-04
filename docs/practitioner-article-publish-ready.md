@@ -45,7 +45,7 @@ The first layer covers basic model health: performance indicators, population dr
 
 The second layer covers explanation quality. Governance teams should check whether explanation outputs stay stable enough to challenge, whether they line up with the decision logic, and whether the reason mapping still makes sense after updates or threshold changes. This is governance evidence, not just a technical exercise. In the engine, a reason quality workflow checks the generated adverse-action reason outputs for mapping quality, specificity, and traceability, and records any exception it finds.
 
-### 3. Fair-lending screening
+### 3. Supporting disparity-risk screening
 
 The third layer covers disparity monitoring. The goal is not to replace legal analysis. It is to surface signals that need a closer look. So the monitoring has to define the population under review, the relevant segments, the threshold logic for escalation, and the path for documenting what it finds. In the engine, a screening workflow applies configured comparison groups and creates escalation findings. Those findings are review triggers, not fair-lending conclusions.
 
@@ -59,7 +59,7 @@ One of the more practical questions here is how explanation outputs connect to h
 
 So explanation monitoring should not be a one-time documentation step. Review it on a schedule, and review it again after redevelopment, recalibration, a threshold update, or a material change in the applicant population. An explanation process that was reasonable at launch can get less reliable as things change.
 
-## Less discriminatory alternatives as a triggered review
+## Optional alternative assessment as a supporting review
 
 Institutions do not need to run a full alternatives exercise every time a dashboard moves. They do need to define when a deeper alternatives review is appropriate. Reasonable triggers include recurring disparity signals, material model redevelopment, expansion into new applicant segments, or repeated explanation and fairness concerns that routine monitoring cannot resolve.
 
@@ -69,7 +69,7 @@ A note on the legal backdrop, current as of mid-2026. In a final rule issued Apr
 
 ## Why synthetic demonstrations still matter
 
-This topic is concrete enough to support a public demonstration even when production data cannot be used. A synthetic notebook can show how to monitor drift, explanation stability, fairness indicators, and breach escalation in one workflow. That does not prove production adoption. It does prove the framework is operational rather than theoretical. This is also where general AI risk-management guidance helps: the NIST AI Risk Management Framework gives a common vocabulary for documenting and governing AI systems, though it is general guidance and not credit-specific legal authority, so it should be used as context rather than as a compliance test.
+This topic is concrete enough to support a public demonstration even when production data cannot be used. A synthetic notebook can show executable examples of drift review, explanation stability checks, supporting disparity indicators, and breach escalation in one workflow. It demonstrates that the documented workflow can be executed against its declared synthetic inputs; it does not establish production readiness, operational effectiveness, institutional adoption, or external validation. This is also where general AI risk-management guidance helps: the NIST AI Risk Management Framework gives a common vocabulary for documenting and governing AI systems, though it is general guidance and not credit-specific legal authority, so it should be used as context rather than as a compliance test.
 
 Used carefully, a synthetic demonstration bridges concept and implementation. It also creates a reusable public asset that can support later articles, talks, expert feedback, and further work on the repository.
 
@@ -81,9 +81,9 @@ That is the standard worth building toward. In small business underwriting, the 
 
 ## Conclusion
 
-Small business underwriting needs a monitoring framework that treats performance, explainability, fair-lending review, and escalation as one control system. Institutions that split those functions too far apart risk missing the signals that matter most. The practical path is to define a governance structure you can monitor, challenge, document, and improve. That gives an institution a concrete basis for oversight in a use case that directly affects access to credit.
+Small business underwriting needs a monitoring framework that connects model performance, adverse-action reason traceability, explanation-method review, documentation, and escalation. Supporting disparity-risk screening can surface additional questions without becoming a legal conclusion or displacing the core model-risk workflow. The practical path is to define a governance structure an institution can monitor, challenge, document, and improve.
 
-The framework in this article is implemented as an open-source governance evidence engine that runs the full monitoring loop on synthetic data, at [github.com/IsaacAhor/small-business-credit-model-governance](https://github.com/IsaacAhor/small-business-credit-model-governance). It is a demonstration built on synthetic data, so it does not claim production deployment or regulatory approval. Feedback from model-risk, fair-lending, and compliance practitioners is welcome.
+The framework in this article is implemented as an open-source governance evidence engine that runs the documented workflow on synthetic data, at [github.com/IsaacAhor/small-business-credit-model-governance](https://github.com/IsaacAhor/small-business-credit-model-governance). It is a demonstration built on synthetic data, so it does not claim production deployment, operational effectiveness, external validation, or regulatory approval. Feedback from model-risk, credit-risk, adverse-action, and compliance practitioners is welcome.
 
 ## References
 
