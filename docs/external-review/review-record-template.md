@@ -21,6 +21,8 @@ pending when the reviewer returns the review.
 - Review question, included workflows, exclusions, and agreed deliverables:
 - Agreed effort cap, stopping conditions, and separately agreed retest scope:
 - Reviewer identifier and relevant expertise:
+- Reviewer group(s) from the [shared definitions](reviewer-groups.md), and
+  the work assigned to each participant:
 - Personal or organizational capacity, where authorized:
 - Material relationships, compensation, assistance, and implementation
   involvement affecting independence; limits on the conclusions supported:

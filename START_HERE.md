@@ -8,6 +8,10 @@ how the pieces fit together, and which artifacts to inspect first.
 
 ## External review assignments
 
+The [reviewer groups](docs/external-review/reviewer-groups.md) define the
+expertise and scope for implementation, credit-governance/adverse-action,
+and methodology/evaluation assessment.
+
 For external review, choose a [scoped technical review](docs/external-review/technical-review.md)
 with execution and challenge cases, or a
 [practitioner assessment](docs/external-review/practitioner-assessment.md)

@@ -11,6 +11,9 @@ supporting risk-review module.
 
 ## For Reviewers
 
+See [reviewer groups](docs/external-review/reviewer-groups.md) for the three
+review functions, relevant experience, and links to scoped assignments.
+
 This repository demonstrates repeatable governance methods for
 machine-learning-based small business credit underwriting systems. It shows how
 a lender, validator, auditor, regulator-facing reviewer, or policy/compliance

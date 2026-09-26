@@ -6,6 +6,11 @@ The procedure and blank records do not establish that a review has occurred.
 
 ## Choose an assignment
 
+Use the [reviewer groups](reviewer-groups.md) to match relevant expertise to
+the work: Technical Implementation Reviewers, Credit Governance and
+Adverse-Action Reviewers, and Methodology and Evaluation Reviewers. Group
+membership and assignment scope are recorded separately.
+
 | Route | Work | Result within the agreed scope |
 | --- | --- | --- |
 | [Scoped technical review](technical-review.md) | Execute workflows, trace records, and challenge controls | Findings about tested implementation behavior |
