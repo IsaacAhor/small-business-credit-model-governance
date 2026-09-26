@@ -41,6 +41,13 @@ Use this path if you have limited time and want the clearest view of the work:
 
 ## Role-Based Paths
 
+For a scoped external review, use the
+[technical review protocol](docs/external-review/protocol.md) and
+[blank review record](docs/external-review/review-record-template.md).
+The protocol identifies the existing v0.12.0 source target, reproducible
+commands, challenge cases, known limitations, and findings/retest procedures.
+These documents do not establish that an external review has occurred.
+
 Use `USE_CASES.md` if you are reviewing from a specific role, including a
 credit-union vendor-risk review role:
 
