@@ -1,54 +1,279 @@
 # Scoped technical review
 
-Assess whether selected model-governance and adverse-action traceability
-controls behave as described. This assignment includes software execution and
-reviewer-designed challenges. It covers the agreed workflows, not every part
-of the project.
+**Packet for Technical Implementation Reviewers.** Assess whether selected
+model-governance and adverse-action traceability controls behave as described.
+This assignment requires source inspection, software execution, and independent
+challenge design. It covers the agreed workflows, not the whole repository.
+The data and examples are synthetic; disclosed defects remain part of the target.
 
-This is the execution assignment for
-[Technical Implementation Reviewers](reviewer-groups.md). Other qualified
-reviewers may contribute a separately agreed domain or methods assessment.
+On this page: [agreement](#agree-before-starting),
+[known issues](#known-issues-in-this-target), [setup](#obtain-the-fixed-source),
+[reproduction](#reproduce-and-inspect), [challenges](#design-and-run-challenges),
+and [return checklist](#work-and-return).
 
 ## Agree before starting
 
-- [Select a review target](current.md) and record its exact source and
-  instruction revisions, including disclosed unresolved issues.
-- Read the [common agreement](protocol.md#target-and-common-agreement), including
-  expertise, independence, compensation, source identity, and scope limits.
-- Agree deliverables, an effort cap, and a stopping point. No project-specific
-  duration has been established from completed external reviews. Record actual
-  effort; stop and report unfinished work at the cap.
-- Agree any narrower scope explicitly. Retesting is a separate commitment.
+You should be able to execute and inspect Python workflows and assess credit-model
+governance or reason traceability. If expertise is split, identify each person's
+assigned work and conclusion. The [reviewer groups](reviewer-groups.md) describe
+qualifications; a second role held by one person is not a second independent review.
 
-The reviewer should be able to execute and inspect Python workflows and assess
-credit-model governance or reason traceability. If expertise is split across
-reviewers, identify each person's work and conclusion separately.
+- **Software:** v0.12.0, commit `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`,
+  tree `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
+- **Instructions:** record this packet's commit-pinned URL. The companion
+  protocol and target sheet use that documentation revision unless a different
+  revision is explicitly agreed and recorded. The instructions postdate the
+  software release and are absent from its archive. Resolve identity mismatches
+  before claiming reproduction; a later release does not change this assignment.
+- **Scope:** reproduction, source-to-notice tracing, and reviewer-designed
+  challenges below. Agree any narrower scope, included artifacts, exclusions,
+  deliverables, return method, effort cap, and stopping point before starting.
+  Portfolio monitoring, vendor oversight, recourse, public-data analysis, and
+  comparison studies require separate scope.
+- **Effort:** no project-specific duration has been established by completed
+  external technical reviews. Record actual time; stop at the agreed cap and
+  report unfinished work. A partial review is valid. Any extension or retest
+  is a separate agreement, not a requirement for completing this review.
+- **Independence:** record relevant relationships, compensation, assistance,
+  implementation involvement, and personal or organizational capacity. Payment,
+  if any, must not depend on a favorable result. Affiliation is not endorsement.
+
+This packet includes the routine instructions. The [shared protocol](protocol.md)
+remains the full reference for agreements, findings, response, retest, and sharing;
+the [fixed target sheet](targets/v0.12.0.md) preserves the source-specific record.
+
+## Known issues in this target
+
+These are maintainer-disclosed observations, not external reviewer discoveries.
+They do not exhaust possible defects. Assess their consequences and challenge
+the intended behavior or severity where justified.
+
+| ID | Behavior or limitation | Required treatment within scope |
+| --- | --- | --- |
+| KI-01 | Generation skips an unmapped driver; a lower-ranked mapped reason can be emitted without flagging the omitted principal driver. | Open. Exercise mixed mapped/unmapped drivers and establish the coverage rule. |
+| KI-02 | Mapping and notice-template lifecycle checks use application date as decision date. Different dates can hide expiry or wrongly flag a newly active artifact. | Open. Test both directions and exact activation/retirement boundaries. |
+| KI-03 | Repository validation requires Git metadata and fails in an extracted source archive. | Open. The archive-compatible commands below exclude `scripts/validate_repository.py`. |
+| KI-04 | Deep Windows paths have caused execution failures that disappeared with shorter paths. | Environment-dependent. Use a short extraction path and record the constraint; a workaround does not prove portability. |
+| KI-05 | Benchmark acceptance checks whether expected exception types appear somewhere, not per-case accuracy or false-alarm performance. | Inspect results for the intended records independently of aggregate success. |
+
+Reproducing a disclosed defect can complete a task while confirming a failing
+control. Do not mark the control as passing because the failure was expected.
+
+## Obtain the fixed source
+
+Use a fresh isolated directory with Python 3.10 or later. The scoped commands
+were checked with Python 3.13.3; record your actual environment. They use the
+source and standard library, not an installed wheel or optional public-data tools.
+
+For a Git checkout, run these commands one at a time from a short parent path:
+
+```text
+git clone --no-checkout https://github.com/IsaacAhor/small-business-credit-model-governance.git review-source
+cd review-source
+git checkout --detach 3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
+git rev-parse HEAD
+```
+
+The last result must match the commit above. Alternatively, download the
+[fixed source archive][archive], extract it to a short path, and work from its
+source root. Record archive origin, acquisition date, SHA-256, and how the
+extracted source identity was verified. Resolve uncertainty before claiming
+reproduction. Keep these later review instructions available separately.
+
+### Required source inspection
+
+Read these files in the fixed source; the links open that exact revision.
+They are source material for implementation review, not a second assignment.
+
+| File | Inspect for |
+| --- | --- |
+| [PROJECT_BRIEF.md][project] | Intended contribution and scope |
+| [METHOD.md][method] | Supplied-driver ranking, mapping, and record reconciliation |
+| [LIMITATIONS.md][limits] | Synthetic boundary and claims that the results cannot establish |
+| [TERMINOLOGY.md][terminology] | Traceability versus model-explanation faithfulness, actionability, and recourse |
+| [EVIDENCE_PACK_REVIEW.md][pack-guide] | Evidence inventory and interpretation; use this packet's fresh-output commands, not the guide's overwrite example |
+| [Governance run-kit README][governance-guide] | Risk, validation, monitoring, and promotion records |
+
+In brief, the controls compare supplied decision components and drivers with
+governed mappings, recorded reasons, rendered notice segments, and version
+references. Consistent records do not prove the drivers faithfully explain a
+trained model. Inspect the implementation behind any conclusion about behavior.
+
+## Reproduce and inspect
+
+Run from the fixed source root, one command at a time. Preserve stdout, stderr,
+exit codes, elapsed time, errors, outputs, and assistance. Record OS, Python and
+dependency versions, setup changes, and source versus installed-package execution.
+Use fresh output directories; preserve failed runs before retrying. Do not
+overwrite curated examples.
+
+```text
+python --version
+python scripts/validate_phase1.py data/synthetic/adverse-action-reason-benchmark
+python -m unittest discover -s tests -p test_phase3_reason_qa.py
+python -m unittest discover -s tests -p test_adverse_action_reason_benchmark.py
+python scripts/run_adverse_action_reason_benchmark.py --output-dir review-output/reason-benchmark
+python scripts/run_governance_review.py data/synthetic/monthly-demo review-output/governance
+```
+
+The two test files contain six tests at this source commit. The benchmark also
+writes scratch records under `evidence/` in the isolated source directory.
+These scoped commands do not evaluate all project functions.
+
+### Expected observations and inspection
+
+The prepared baseline benchmark covers 11 decisions, 10 declined decisions,
+15 recorded reason outputs, and 14 regenerated outputs. Expected seeded
+exception types are present. This is a reproduction reference, not a statement
+that the controls are correct. Compare substantive results and explain differences;
+generated timestamps and run identifiers can differ.
+
+Inspect these files in `review-output/reason-benchmark/`:
+
+- `adverse_action_reason_benchmark_report.md` and
+  `adverse_action_reason_benchmark_results.json`: reported counts, seeded
+  conditions, aggregate coverage, and missing expected exception types.
+- `reason_qa_results.json`: decision-level exceptions. The separate
+  `rendered_notice_qa_results.json` contains an aggregate notice-QA summary;
+  it cannot identify the affected decision on its own.
+- `manifest.json`, `input_fingerprints.json`, and `output_fingerprints.json`:
+  provenance, expected files, and integrity records.
+
+Inspect `review-output/governance/governance-review-report.md` for open findings,
+limitations, and promotion posture. The prepared example reports
+`developer_self_review`, `pending_independent_review`, promotion `false`, and
+two open validation findings. Its synthetic approvals or signoffs do not
+establish an actual independent assessment or permission to deploy.
+
+Recompute at least one input and one output SHA-256. For an input, normalize
+CRLF to LF, then remaining CR to LF, and compare with its entry in
+`input_fingerprints.json`. Hash output file bytes without normalization and
+compare with `output_fingerprints.json`; the fingerprint file itself is excluded.
+The implementation is in [monitoring.py][monitoring]. Record files, procedure,
+expected hashes, and observed hashes. Integrity is not correctness or authenticity.
+
+Trace one consistent decision and one defective decision through supplied
+driver, mapping, recorded reason, rendered notice segment, and QA assessment.
+Use source files under `data/synthetic/adverse-action-reason-benchmark/`:
+`application-decision-records.json`, `adverse-action-driver-contributions.json`,
+`reason-code-mappings.json`, `adverse-action-reason-outputs.json`, and
+`rendered-adverse-action-notices.json`. Record exact IDs and establish the
+expected result independently. The disclosed defective example `dec-0002`
+includes `rso-0002-2` with recorded reason text inconsistent with its mapping
+and rendered notice. It is a starting reference, not a fresh challenge case.
+
+## Design and run challenges
+
+Before execution, preserve each case's input files or controlled delta, hashes,
+expected outcome, and independently reasoned technical basis. Date amendments
+to expectations. If the intended rule is ambiguous, record a specification
+finding and both interpretations. You control case design and conclusions.
+
+Cover each family below or explain its omission. Pair defects with clean
+controls and include at least one additional reviewer-designed scenario.
+
+| Family | Question to test |
+| --- | --- |
+| Consistent chain | Does a valid chain produce an unexpected alarm? |
+| Driver coverage | Is an unmapped principal driver visible when a lower-ranked mapped driver can still produce a reason? |
+| Lifecycle boundaries | What happens when application and decision dates differ, including activation and retirement boundaries? |
+| Record consistency | Are altered reason text, notice text, versions, or component links attributed to the correct affected record? |
+| Missing or invalid input | Are rejected input, incomplete execution, and an unassessed control distinguished? |
+| Scope boundary | Are limits clear when records agree but the supplied explanation has not been justified against a model? |
+
+Copy the relevant synthetic dataset to a new directory under `review-inputs/`
+inside the isolated source root. Keep the original and record every controlled
+change. For a dataset at `review-inputs/case-001`, use:
+
+```text
+python scripts/validate_phase1.py review-inputs/case-001
+python scripts/run_monthly_monitoring.py review-inputs/case-001 --evidence-root review-output/case-001
+python scripts/run_adverse_action_reason_benchmark.py review-inputs/case-001 --output-dir review-output/case-001-benchmark
+```
+
+Preserve validation errors and run later stages only where meaningful. The
+monthly command reports its generated directory. The benchmark adds supplemental
+checks but retains the curated suite's fixed expectation of 20 exception types.
+A clean or small custom case can return exit code 1 because it lacks that entire
+suite. Inspect `missing_expected_exception_types` and the target record's findings;
+distinguish incomplete aggregate coverage from an execution failure. Aggregate
+success does not prove detection of the intended defect.
+
+Report execution outcome, correct target detection, missed defects, unexpected
+alarms, and unassessed controls separately. State denominators for rates; rejected
+inputs and out-of-scope cases are not correct detections. Label author-derived
+cases and disclosed-issue reproductions. Neither is a wholly new reviewer
+discovery. Preserve failures before remediation and use fresh variations beyond
+known regression cases.
 
 ## Work and return
 
-1. Follow the target sheet's setup, reading list, and commands. Record source
-   identity, environment, execution outcomes, errors, and assistance.
-2. Apply the procedure's [reproduction and inspection requirements](protocol.md#reproduce-and-inspect):
-   inspect the reports, check input/output integrity, and trace a consistent
-   decision and a defective decision through their records.
-3. Apply the [challenge requirements](protocol.md#challenge-cases): establish
-   expectations before execution, pair defects with clean controls, and include
-   a fresh reviewer-designed case. Explain any omitted families.
-4. Return the [technical review record](review-record-template.md), or an
-   equivalent account of materials, results, findings, and your own conclusion.
+Return your own dated account through the agreed return method. The checklist
+below is sufficient to structure it; the [technical review record](review-record-template.md)
+is an optional ready-made format for the same information. An equivalent
+reviewer-authored format is welcome. Use reviewer identifiers where naming is
+not authorized and exclude confidential client or unnecessary personal details.
 
-Distinguish a command that ran, a correctly detected target defect, a missed
-defect, an unexpected alarm, and an unassessed control. A reproduced disclosed
-defect remains a failing product behavior. Prepared examples and existing tests
-do not replace independent case design.
+1. **Assignment and identity:** review ID/date; expertise and group(s); each
+   participant's work and capacity; relationships, compensation, assistance,
+   implementation involvement, and limits on independence; agreed questions,
+   artifacts, exclusions, deliverables, effort cap, stopping point, actual effort,
+   omissions, and scope changes. Record this packet URL/revision, companion
+   instruction revisions if different, and software commit/tree or verified
+   archive provenance and hash.
+2. **Execution and inspection:** exact files/record IDs examined, OS and
+   environment, setup changes, commands, exit codes, elapsed time, preserved
+   stdout/stderr and outputs; independent hash recomputations; consistent and
+   defective traces; observations versus expectations and unresolved differences.
+3. **Challenges:** case IDs and origins, original inputs and deltas/hashes,
+   dated expectations and rationale before execution, observations after execution,
+   paired clean controls, the fresh reviewer-designed scenario, omitted families
+   and reasons, findings for target records, misses, unexpected alarms, and
+   unassessed controls. Give counts and denominators for reported rates.
+4. **Findings and your conclusion:** for each finding, stable ID/date/origin,
+   type (defect, specification ambiguity, limitation, observation), affected
+   candidate/workflow/records, reproduction steps, expected versus observed
+   result and technical basis, consequence, scope, uncertainty, restriction,
+   and proposed acceptance condition. State what worked, failed, was not tested,
+   and cannot be concluded. Zero new findings is valid with coverage recorded.
+5. **Status and permission:** completed within scope / partial / blocked /
+   withdrawn, date, and confirmation that the account describes your work.
+   Specify intended sharing recipients/destination, permitted attribution and
+   excerpts, material qualifications, restrictions, and dated permission.
+   Completion grants no sharing permission by itself.
 
-Completion means the agreed work and omissions are recorded. It does not
-require a favorable conclusion or correction of every finding. The maintainer
-responds separately under the [findings and verification procedure](protocol.md#findings-response-and-verification).
-Any later retest identifies the exact candidate, acceptance condition, work
-performed, verifier, and implementation involvement. A release or tag is not
-required.
+Use these defect severities and preserve disagreements: **Critical** is broad
+silent failure or invalidation of the scoped conclusion; **High** is a material
+miss or incorrect core-control result; **Moderate** is a bounded correctness,
+reproducibility, or reviewability problem with a workable restriction;
+**Low** is local clarity/usability without demonstrated material effect.
+An observation need not have defect severity.
+
+Completion means the agreed work and omissions are recorded. It does not depend
+on a favorable result, maintainer response, correction, or later retest. The
+maintainer preserves your original findings and conclusion, then separately
+agrees, disputes with evidence, or defers with a reason and owner. Unresolved,
+disputed, deferred, or accepted-risk findings are not fixed findings.
+
+A changed candidate or retest needs a separate agreement, exact commit or
+inspected source manifest and patch hash, affected findings, acceptance
+conditions, work performed, verifier, and implementation involvement. Preserve
+the baseline, original results, and finding IDs; do not transfer conclusions
+automatically. Label `maintainer-verified only` or `not retested` when applicable.
+Neither review nor retest requires a release or tag. Shared summaries preserve
+adverse findings, qualifications, conflicts/compensation, assistance, and actual
+independent scope; permission is required for attribution and third-party material.
 
 These synthetic record checks do not establish model-explanation faithfulness,
-real-notice accuracy, institutional adoption, or legal compliance. Sharing a
-review or identifying its reviewer requires the permissions in the procedure.
+causal truth, actionability, real-notice accuracy, institutional adoption,
+production readiness, or legal compliance. Full follow-up rules are in the
+[shared procedure](protocol.md#findings-response-and-verification).
+
+[archive]: https://github.com/IsaacAhor/small-business-credit-model-governance/archive/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca.zip
+[project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/PROJECT_BRIEF.md
+[method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/METHOD.md
+[limits]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/LIMITATIONS.md
+[terminology]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/TERMINOLOGY.md
+[pack-guide]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/EVIDENCE_PACK_REVIEW.md
+[governance-guide]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/model-governance-validation-run-kit/README.md
+[monitoring]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/src/credit_gov/monitoring.py

@@ -8,20 +8,22 @@ how the pieces fit together, and which artifacts to inspect first.
 
 ## External review assignments
 
-The [reviewer groups](docs/external-review/reviewer-groups.md) define the
-expertise and scope for implementation, credit-governance/adverse-action,
-and methodology/evaluation assessment.
+Open the [external review packets](docs/external-review/README.md), or go
+directly to the packet you received:
 
-For external review, choose a [scoped technical review](docs/external-review/technical-review.md)
-with execution and challenge cases, or a
-[practitioner assessment](docs/external-review/practitioner-assessment.md)
-of prepared artifacts with no installation required. Both use the
-[shared procedure](docs/external-review/protocol.md) and an agreed
-[source target](docs/external-review/current.md). Each route records
-its actual scope and limitations; these documents do not establish that an
-external review has occurred.
+- [Technical Implementation Reviewers](docs/external-review/technical-review.md):
+  source inspection, execution, and independent challenges.
+- [Credit Governance and Adverse-Action Reviewers](docs/external-review/practitioner-assessment.md):
+  prepared reason-trace and governance records; no installation required.
+- [Methodology and Evaluation Reviewers](docs/external-review/methodology-assessment.md):
+  claims, assumptions, and evaluation critique; execution is separately agreed.
 
-For an agreed external review, follow the selected brief and target sheet.
+Each packet contains the assignment, exact source, essential materials or
+instructions, limitations, and what to return. The
+[group definitions](docs/external-review/reviewer-groups.md) describe fit.
+Keep the source and packet revisions agreed for the review. These documents
+do not establish that an external review has occurred. The browsing paths below
+are optional wider context for an agreed packet assignment.
 The general project tour and commands below are optional background; they are
 not the assignment checklist and do not replace its version-specific commands.
 

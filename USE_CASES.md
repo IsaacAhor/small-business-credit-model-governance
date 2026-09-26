@@ -4,8 +4,10 @@ This file explains how different outside reviewers or potential adopters can use
 the repository without needing to understand every implementation detail first.
 
 These are browsing paths for different interests. For an agreed external
-assessment, use the [reviewer groups](docs/external-review/reviewer-groups.md)
-and their scoped assignment links.
+assessment, use the [external review packets](docs/external-review/README.md).
+The [reviewer groups](docs/external-review/reviewer-groups.md) define the
+qualifications and scope for each packet. An invited reviewer can start with
+the selected packet without following the broader browsing lists below.
 
 ## Model-Risk or Validation Reviewer
 

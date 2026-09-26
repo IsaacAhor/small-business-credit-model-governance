@@ -11,8 +11,11 @@ supporting risk-review module.
 
 ## For Reviewers
 
-See [reviewer groups](docs/external-review/reviewer-groups.md) for the three
-review functions, relevant experience, and links to scoped assignments.
+Start with the [external review packets](docs/external-review/README.md):
+technical execution, credit governance and adverse-action assessment, or
+methodology and evaluation. Each packet gives its source, tasks, limitations,
+and requested response. The [reviewer groups](docs/external-review/reviewer-groups.md)
+define relevant expertise. If you received a particular packet, start there.
 
 This repository demonstrates repeatable governance methods for
 machine-learning-based small business credit underwriting systems. It shows how

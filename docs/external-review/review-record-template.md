@@ -3,7 +3,10 @@
 Use for the [scoped technical route](technical-review.md) under the
 [shared procedure](protocol.md). Practitioner-only assessments use the short
 response in the [practitioner brief](practitioner-assessment.md). This is a blank
-record, not a completed review or approval. An equivalent reviewer-authored
+record, not a completed review or approval. Methods-only reviewers use the
+[methods packet's short response](methodology-assessment.md#short-methods-response).
+The technical packet also supplies a complete return checklist; this template
+is a ready-made format for the same requirements. An equivalent reviewer-authored
 format is welcome. Keep original conclusions and later responses separately
 identifiable. Include only information authorized for the intended recipients.
 

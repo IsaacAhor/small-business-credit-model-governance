@@ -60,8 +60,25 @@ existing tag, checkout, and package-version checks. It does not write files or
 release notes. Normal release approval and publication remain unchanged.
 
 The check does not assess the sheet's technical completeness or correctness.
-Maintainers still verify the instructions. The existing v0.12.0 sheet and
-release remain historical and use the entry page's explicit fallback.
+Maintainers still verify the instructions. Before advertising a new review
+target, update and check the three [review packets](external-review/README.md):
+
+- Verify that source identity, commands, selected record IDs, excerpt values,
+  expected observations, and known-issue status apply to the new target.
+- Update the overview and target selector together. Resolve any packet/source
+  mismatch before inviting an assignment; do not silently reuse old results.
+- Check packet and source links, section anchors, rendered tables, required
+  response fields, and agreement/finding/permission rules against the protocol.
+- Walk through each packet from its direct link. Prepared-record and methods
+  tasks must have their essential evidence on the page; technical tasks retain
+  source inspection, execution, integrity checks, and independent challenges.
+- Send an agreed assignment with a commit-pinned packet URL and separately
+  recorded software identity. Preserve earlier packet revisions and review
+  conclusions; changed source or retests need a new agreement.
+
+The release check does not automate these packet-content checks. The existing
+v0.12.0 sheet and release remain historical and use the entry page's explicit
+fallback. Later instructions are not retroactively added to that release archive.
 
 ## Version Naming
 
