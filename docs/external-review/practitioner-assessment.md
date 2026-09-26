@@ -5,6 +5,11 @@ an adverse-action reason, recognize a review gap, and decide what to examine
 next. Work with prepared synthetic records. No Python installation or software
 execution is required.
 
+This assignment matches the
+[Credit Governance and Adverse-Action Reviewers](reviewer-groups.md) group.
+Relevant expertise and the agreed work determine fit, rather than job title
+or institutional affiliation.
+
 ## Agree a bounded assignment
 
 Use the [common agreement](protocol.md#target-and-common-agreement) and
@@ -51,6 +56,8 @@ Use this form or an equivalent response. The long technical execution record
 is not required. A reviewer can return their own dated notes with these facts.
 
 - Review ID/date, reviewer identifier, and relevant expertise:
+- Reviewer group(s) from the [shared definitions](reviewer-groups.md), and
+  the work assigned to each participant:
 - Personal or organizational capacity; relevant relationships, compensation,
   assistance, and implementation involvement affecting independence:
 - Protocol, brief, and target-sheet revisions; software commit or source

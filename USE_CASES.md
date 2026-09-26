@@ -3,6 +3,10 @@
 This file explains how different outside reviewers or potential adopters can use
 the repository without needing to understand every implementation detail first.
 
+These are browsing paths for different interests. For an agreed external
+assessment, use the [reviewer groups](docs/external-review/reviewer-groups.md)
+and their scoped assignment links.
+
 ## Model-Risk or Validation Reviewer
 
 Use the repository to inspect how a model governance workflow can organize

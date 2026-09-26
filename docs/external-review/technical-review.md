@@ -5,6 +5,10 @@ controls behave as described. This assignment includes software execution and
 reviewer-designed challenges. It covers the agreed workflows, not every part
 of the project.
 
+This is the execution assignment for
+[Technical Implementation Reviewers](reviewer-groups.md). Other qualified
+reviewers may contribute a separately agreed domain or methods assessment.
+
 ## Agree before starting
 
 - [Select a review target](current.md) and record its exact source and
