@@ -46,7 +46,7 @@ with execution and challenge cases, or a
 [practitioner assessment](docs/external-review/practitioner-assessment.md)
 of prepared artifacts with no installation required. Both use the
 [shared procedure](docs/external-review/protocol.md) and an agreed
-[source target](docs/external-review/targets/v0.12.0.md). Each route records
+[source target](docs/external-review/current.md). Each route records
 its actual scope and limitations; these documents do not establish that an
 external review has occurred.
 

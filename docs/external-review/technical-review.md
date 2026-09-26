@@ -7,8 +7,8 @@ of the project.
 
 ## Agree before starting
 
-- Select an exact source using a target sheet. The initial option is
-  [v0.12.0](targets/v0.12.0.md), with disclosed unresolved issues.
+- [Select a review target](current.md) and record its exact source and
+  instruction revisions, including disclosed unresolved issues.
 - Read the [common agreement](protocol.md#target-and-common-agreement), including
   expertise, independence, compensation, source identity, and scope limits.
 - Agree deliverables, an effort cap, and a stopping point. No project-specific

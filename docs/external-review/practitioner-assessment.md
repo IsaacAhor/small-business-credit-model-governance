@@ -7,8 +7,8 @@ execution is required.
 
 ## Agree a bounded assignment
 
-Use the [common agreement](protocol.md#target-and-common-agreement) and an exact
-target sheet. The initial [v0.12.0 sheet](targets/v0.12.0.md#practitioner-reading-and-task-materials)
+Use the [common agreement](protocol.md#target-and-common-agreement) and
+[select an exact review target](current.md). Its target sheet
 provides pinned reading and task links, followed by disclosed limitations.
 Agree the review context, included artifacts, deliverables, and effort cap.
 A cap of two to four hours can be proposed for a first assessment; this is an
