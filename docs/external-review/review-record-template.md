@@ -7,6 +7,11 @@ record, not a completed review or approval. An equivalent reviewer-authored
 format is welcome. Keep original conclusions and later responses separately
 identifiable. Include only information authorized for the intended recipients.
 
+Reviewers complete the assignment, execution, findings, conclusion, and sharing
+sections. The maintainer adds responses separately. Complete verification and
+disposition only when the corresponding follow-up occurs; they may remain
+pending when the reviewer returns the review.
+
 ## Assignment and provenance
 
 - Review identifier and dates:

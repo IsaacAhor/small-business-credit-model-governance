@@ -146,9 +146,12 @@ condition. State who retested and whether they helped implement the change.
 Use `maintainer-verified only` or `not retested` where appropriate; do not imply
 independent verification.
 
-A completed review documents the agreed work, omissions, reviewer conclusion,
-and disposition of findings. It does not require a favorable result or mean
-that unresolved, disputed, deferred, or accepted-risk findings are fixed.
+The reviewer completes the agreed review by returning the work performed,
+omissions, findings, and their own conclusion. Completion does not depend on
+the maintainer's response or a later retest. The maintainer records each
+finding's disposition separately, including any response still pending.
+A completed review does not require a favorable result or mean that unresolved,
+disputed, deferred, or accepted-risk findings are fixed.
 Neither a review nor a retest requires a new software release or tag.
 
 Use synthetic inputs. Avoid confidential client information and unnecessary

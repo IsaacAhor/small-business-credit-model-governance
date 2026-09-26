@@ -6,9 +6,24 @@ machine-learning-based small business credit underwriting systems.
 It is intended for reviewers who need to understand what the repository shows,
 how the pieces fit together, and which artifacts to inspect first.
 
+## External review assignments
+
+For external review, choose a [scoped technical review](docs/external-review/technical-review.md)
+with execution and challenge cases, or a
+[practitioner assessment](docs/external-review/practitioner-assessment.md)
+of prepared artifacts with no installation required. Both use the
+[shared procedure](docs/external-review/protocol.md) and an agreed
+[source target](docs/external-review/current.md). Each route records
+its actual scope and limitations; these documents do not establish that an
+external review has occurred.
+
+For an agreed external review, follow the selected brief and target sheet.
+The general project tour and commands below are optional background; they are
+not the assignment checklist and do not replace its version-specific commands.
+
 ## Fast Review Path
 
-Use this path if you have limited time and want the clearest view of the work:
+Use these references for a broader overview of the project:
 
 1. Read `PROJECT_BRIEF.md` for the problem, contribution, users, and current
    limitations.
@@ -40,15 +55,6 @@ Use this path if you have limited time and want the clearest view of the work:
    could adapt the workflow.
 
 ## Role-Based Paths
-
-For external review, choose a [scoped technical review](docs/external-review/technical-review.md)
-with execution and challenge cases, or a
-[practitioner assessment](docs/external-review/practitioner-assessment.md)
-of prepared artifacts with no installation required. Both use the
-[shared procedure](docs/external-review/protocol.md) and an agreed
-[source target](docs/external-review/current.md). Each route records
-its actual scope and limitations; these documents do not establish that an
-external review has occurred.
 
 Use `USE_CASES.md` if you are reviewing from a specific role, including a
 credit-union vendor-risk review role:
