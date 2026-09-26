@@ -1,87 +1,73 @@
-# External technical review protocol
+# External review protocol
 
-This procedure supports a scoped review of model-governance records and
-adverse-action reason traceability. It asks a reviewer to run the software,
-trace results to inputs, challenge controls, and report limitations. The
-procedure and its blank record do not establish that an external review has
-occurred.
+This procedure supports scoped review of model-governance records and
+adverse-action reason traceability. Choose an assignment before starting.
+The procedure and blank records do not establish that a review has occurred.
 
-## Review target and scope
+## Choose an assignment
 
-The initial target is the existing **v0.12.0** source snapshot:
+| Route | Work | Result within the agreed scope |
+| --- | --- | --- |
+| [Scoped technical review](technical-review.md) | Execute workflows, trace records, and challenge controls | Findings about tested implementation behavior |
+| [Practitioner assessment](practitioner-assessment.md) | Inspect artifacts and work through a review task; installation is not required | Assessment of reviewability, practical barriers, and potential usefulness |
 
-- Commit: `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`.
-- Tree: `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
-- [Pinned source](https://github.com/IsaacAhor/small-business-credit-model-governance/tree/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca).
-- Data: synthetic demonstration records.
+Read the selected brief, this section, the common agreement and findings rules,
+and the agreed target sheet. The reproduction and challenge sections apply to
+the technical route. Practitioner reviewers use the short response in their
+brief; they do not need to complete the technical execution record. A combined
+assignment requires explicit agreement on both scopes and effort.
 
-Record the URL and revision of this protocol separately: these instructions
-were added after the target software snapshot. A documentation update does
-not change that snapshot. A changed software candidate needs its own commit
-or source manifest and patch hash; never label it unchanged v0.12.0.
+## Target and common agreement
 
-The default assignment covers reproduction, source-to-notice tracing, and
-reviewer-designed challenge cases. Agree any narrower scope before work
-starts. Portfolio monitoring, vendor oversight, recourse, public-data
-analysis, comparison studies, and observed user tasks require separate scope.
+The initial [v0.12.0 target sheet](targets/v0.12.0.md) pins the source,
+reading materials, commands, expected results, and known limitations.
+Instructions may be revised separately from software: record the protocol,
+brief, and target-sheet revisions as well as the source commit or manifest.
+Resolve any identity mismatch before claiming reproduction or assessment of
+that source. Prepared outputs must identify their source and whether the
+reviewer independently regenerated them.
 
-The controls compare supplied records. Agreement among those records cannot
-establish that the supplied drivers faithfully explain a trained model or
-that real notices are correct. This review does not establish production
-readiness, institutional adoption, or legal compliance. Synthetic approvals
-and signoffs in example outputs are separate from an actual review conclusion.
+Agree the questions, included workflows, exclusions, relevant expertise,
+deliverables, effort cap, and stopping conditions. Record actual time and
+unfinished work. Pause at the agreed cap; any extension or retest needs a new
+agreement. A partial review is a valid outcome with its limits recorded.
+Effort estimates are planning assumptions until checked in actual reviews.
 
-Use the [technical review record](review-record-template.md), or an equivalent
-record in the reviewer's own format. Agree the questions, expertise needed,
-effort, deliverables, and completion conditions. Record relevant relationships,
-compensation, and assistance when assessing independence. Compensation must
-not depend on a favorable conclusion. Affiliation alone is not organizational
-endorsement.
+Record relevant relationships, compensation, assistance, and implementation
+involvement when assessing independence. Either route may be paid or unpaid;
+payment must not depend on a favorable conclusion. Affiliation alone does not
+establish organizational endorsement. Use a reviewer identifier where public
+attribution is not authorized. Accept an equivalent reviewer-authored format.
+
+The default technical assignment covers reproduction, source-to-notice tracing,
+and reviewer-designed challenges. Agree any narrower scope first. Portfolio
+monitoring, vendor oversight, recourse, public-data analysis, and comparison
+studies require separate scope. Practitioner tasks cover only the artifacts
+and context agreed in that assignment.
+
+The controls compare supplied records. Agreement cannot establish that the
+drivers faithfully explain a trained model or that real notices are correct.
+Neither route establishes production readiness, institutional adoption, or
+legal compliance. Synthetic approvals and signoffs in example outputs are
+separate from an actual review conclusion. Practitioner opinion alone does not
+establish successful use across institutions or verified software behavior.
 
 ## Reproduce and inspect
 
-Use a fresh checkout or source extraction of the pinned commit. Keep Windows
-paths short. In a checkout, verify `git rev-parse HEAD`. For an archive, record
-its origin, acquisition date, SHA-256, and how its source identity was checked.
-Resolve an uncertain source identity before claiming reproduction.
+For the technical route, obtain a fresh checkout or source extraction of the
+agreed source. In a checkout, verify its commit. For an archive, record its
+origin, acquisition date, SHA-256, and how source identity was checked.
+Follow the target sheet's environment, reading, execution, and inspection
+instructions. Preserve stdout, stderr, exit codes, elapsed time, outputs,
+errors, and assistance. Use fresh output directories and preserve failed runs
+before retrying. Do not overwrite curated examples.
 
-Read these files in that snapshot:
-
-- `PROJECT_BRIEF.md`.
-- `docs/adverse-action-reason-run-kit/METHOD.md`.
-- `docs/adverse-action-reason-run-kit/LIMITATIONS.md`.
-- `docs/adverse-action-reason-run-kit/TERMINOLOGY.md`.
-- `docs/adverse-action-reason-run-kit/EVIDENCE_PACK_REVIEW.md`.
-- `docs/model-governance-validation-run-kit/README.md`.
-
-Run the following from the source root, one command at a time. Record the
-operating system, Python version, commands, exit codes, elapsed time, outputs,
-errors, and assistance. These scoped source commands were checked with Python
-3.13.3; report the environment actually used. They do not test an installed
-wheel. Use fresh output directories and preserve failed runs before retrying.
-
-```text
-python --version
-python scripts/validate_phase1.py data/synthetic/adverse-action-reason-benchmark
-python -m unittest discover -s tests -p test_phase3_reason_qa.py
-python -m unittest discover -s tests -p test_adverse_action_reason_benchmark.py
-python scripts/run_adverse_action_reason_benchmark.py --output-dir review-output/reason-benchmark
-python scripts/run_governance_review.py data/synthetic/monthly-demo review-output/governance
-```
-
-The two test files contain six tests at the target commit. The benchmark also
-writes scratch records under `evidence/` in the isolated source directory.
-Do not overwrite curated examples. `scripts/validate_repository.py` requires
-Git metadata at this version and is excluded from this archive-compatible
-sequence.
-
-Inspect the benchmark report, `reason_qa_results.json`,
-`rendered_notice_qa_results.json`, `manifest.json`, and
-`input_fingerprints.json` in `review-output/reason-benchmark/`. Inspect
-`review-output/governance/governance-review-report.md` for open findings,
-limitations, and promotion posture. Recompute at least one input and output
-hash using the documented normalization policy. Hash agreement verifies
-integrity under that policy; it does not prove correctness or authenticity.
+Inspect the specified results, manifests, fingerprints, and governance report.
+Recompute at least one input and output hash under the documented normalization
+policy. Hash agreement verifies integrity under that policy; it does not prove
+correctness or authenticity. Record operating system, Python/dependency
+versions, setup changes, and whether execution used source or an installed
+package. Use the [technical review record](review-record-template.md).
 
 Trace one consistent decision and one defective decision through supplied
 driver, mapping, recorded reason, rendered notice segment, and assessment.
@@ -108,23 +94,9 @@ controls and include at least one additional reviewer-designed scenario.
 | Missing or invalid input | Does the result distinguish rejected input, incomplete execution, and a control that was not assessed? |
 | Scope boundary | Are limits clear when records agree but the supplied explanation has not been justified against a model? |
 
-Place synthetic challenge data in a new directory under `review-inputs/` inside
-the isolated source root. Preserve the original inputs and controlled changes.
-For a dataset at `review-inputs/case-001`, use:
-
-```text
-python scripts/validate_phase1.py review-inputs/case-001
-python scripts/run_monthly_monitoring.py review-inputs/case-001 --evidence-root review-output/case-001
-python scripts/run_adverse_action_reason_benchmark.py review-inputs/case-001 --output-dir review-output/case-001-benchmark
-```
-
-Preserve validation errors and run later stages only where meaningful. The
-monthly command reports the generated run directory. The benchmark adds
-supplemental checks but retains the curated suite's fixed expectation of 20
-exception types. A clean or small custom case may return exit code 1 because
-it lacks that entire suite. Inspect `missing_expected_exception_types` and
-findings for the target decision; distinguish that condition from an execution
-failure. Aggregate success is not proof that the target defect was detected.
+Use the target sheet's case directories and execution interfaces. Preserve
+original inputs and controlled deltas. Follow its rules for invalid inputs,
+incomplete runs, supplemental checks, and aggregate benchmark interpretation.
 
 Report execution outcome, correct target detection, missed defects, unexpected
 alarms, and unassessed controls separately. State denominators for any rates;
@@ -133,23 +105,20 @@ Identify author-derived cases and reproductions of disclosed issues. Neither
 is a wholly new reviewer discovery. Preserve failures before remediation and
 use fresh variations to assess claims beyond a known regression case.
 
-## Disclosed target limitations
+## Changing the review target
 
-These are maintainer observations for the pinned target, not external review
-findings. They remain open or limited as described. The reviewer should assess
-their consequences and can dispute the intended behavior or severity.
+Preserve the agreed baseline and every original review. A changed candidate
+needs a separate commit or inspected source manifest and patch hash. Document
+what changed, which findings or conclusions may be affected, and the proposed
+retest scope. Verify target-specific commands, artifacts, expected results,
+and issue status before using a target sheet with another candidate.
 
-| ID | Behavior or limitation | Review treatment |
-| --- | --- | --- |
-| KI-01 | Generation skips an unmapped driver. A lower-ranked mapped reason can be emitted without a finding for the omitted principal driver. | Open. Exercise mixed mapped/unmapped cases and define the coverage rule. |
-| KI-02 | Mapping and notice-template lifecycle checks use application date as decision date. A later decision can miss expiry or incorrectly flag a newly active artifact. | Open. Test both directions and exact date boundaries. |
-| KI-03 | Repository validation requires Git metadata and fails in an extracted source archive. | Open. Distinguish checkout validation from the scoped source commands above. |
-| KI-04 | Deep Windows paths have caused execution failures that disappeared with a shorter path. | Environment-dependent. Report setup constraints; a workaround does not establish general portability. |
-| KI-05 | Benchmark acceptance checks whether expected exception types appear somewhere, not per-case accuracy or false-alarm performance. | Metric limitation. Inspect record-level outcomes independently. |
-
-Reproducing a known defect can complete a review task while confirming a
-failing control. Do not report that control as passing because its failure was
-expected. The disclosed issues do not exhaust possible defects.
+Do not transfer an earlier conclusion to changed source automatically. Carry
+unresolved findings forward with their original IDs and origins. Known defects
+can be corrected while review arrangements proceed; preserving a baseline does
+not require delaying fixes. Reviewers may compare that baseline with a corrected
+candidate. Reproducing a disclosed issue confirms it without changing its
+maintainer origin. Use fresh cases as well as regressions in a scoped retest.
 
 ## Findings, response, and verification
 
@@ -186,11 +155,19 @@ reviewer attribution and third-party material before sharing. A public summary
 must preserve material qualifications, relevant conflicts or compensation,
 unresolved findings, and the actual scope of independent work.
 
+For practitioner assessments, report observed task outcomes separately from
+opinions about potential usefulness. Document-only comments must be labeled
+as such. Findings still need artifact references, consequences, and a proposed
+acceptance condition; severity can be omitted for an observation. Maintainer
+responses and any follow-up remain separate dated records under these rules.
+
 ## Method references
 
 The distinction between availability, evaluation, and reproduced results is
 informed by [ACM's artifact-review policy](https://www.acm.org/publications/policies/artifact-review-and-badging-current).
 Reviewer-designed use cases and follow-up are informed by
 [rOpenSci's reviewer guide](https://devguide.ropensci.org/softwarereview_reviewer.html).
-This is a project-specific procedure; neither organization has evaluated or
-endorsed the project through this protocol.
+Representative tasks and observation of completion, errors, and effort are
+informed by [NIST's usability-testing guidance](https://www.nist.gov/programs-projects/usability-testing).
+These references inform a project-specific procedure. None of these
+organizations has evaluated or endorsed the project through this procedure.

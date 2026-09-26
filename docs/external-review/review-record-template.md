@@ -1,6 +1,8 @@
 # Technical review record template
 
-Use with the [external technical review protocol](protocol.md). This is a blank
+Use for the [scoped technical route](technical-review.md) under the
+[shared procedure](protocol.md). Practitioner-only assessments use the short
+response in the [practitioner brief](practitioner-assessment.md). This is a blank
 record, not a completed review or approval. An equivalent reviewer-authored
 format is welcome. Keep original conclusions and later responses separately
 identifiable. Include only information authorized for the intended recipients.
@@ -8,10 +10,11 @@ identifiable. Include only information authorized for the intended recipients.
 ## Assignment and provenance
 
 - Review identifier and dates:
-- Protocol URL and exact revision:
+- Protocol, assignment brief, and target-sheet URLs and exact revisions:
 - Software commit, version, and tree or source manifest:
 - Archive origin, SHA-256, and source-identity verification, if applicable:
 - Review question, included workflows, exclusions, and agreed deliverables:
+- Agreed effort cap, stopping conditions, and separately agreed retest scope:
 - Reviewer identifier and relevant expertise:
 - Personal or organizational capacity, where authorized:
 - Material relationships, compensation, assistance, and implementation
