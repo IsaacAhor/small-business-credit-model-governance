@@ -1,20 +1,31 @@
 # Select a review target
 
-Use this page when agreeing a new review. If a review is already agreed,
-continue with its recorded source and instructions.
+The maintainer uses this page before sending a new invitation. A recipient
+starts with the selected [review packet](README.md). If a review is already
+agreed, continue with its recorded source and instructions.
 
 1. Open the [latest published release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest).
 2. If it is **v0.12.0**, use the [preserved v0.12.0 target sheet](targets/v0.12.0.md).
    That release predates the Review target link in release notes.
    For a later release, open the **Review target** link in its notes to reach
    the matching sheet in the tagged source.
-3. Use that sheet with the [technical brief](technical-review.md) or
-   [practitioner brief](practitioner-assessment.md). Agree and record the exact
-   software source and revisions of the review instructions before starting.
+3. Select the [technical](technical-review.md),
+   [credit governance and adverse-action](practitioner-assessment.md), or
+   [methodology](methodology-assessment.md) packet. Confirm that its stated
+   source, excerpts, commands, expected observations, and known issues match
+   the chosen target. The packets currently describe **v0.12.0**; do not use
+   their examples or results as evidence for a later source.
+4. Send the chosen packet directly using its commit-pinned URL. Agree and
+   record the exact software source, packet and companion instruction revisions,
+   scope, effort cap, and return method before starting. Packet links to the
+   protocol and target sheet use the packet revision unless otherwise recorded.
 
 If a later release lacks a Review target link, ask the maintainer to resolve
 the missing instructions before starting. Do not substitute another version's
-sheet or assume that a newer release has corrected earlier findings.
+sheet or assume that a newer release has corrected earlier findings. A newer
+target also needs a checked matching packet. If one is missing, resolve that
+gap before inviting a review of it. An older baseline may be reviewed only as
+an explicitly agreed older target, with its original limitations retained.
 
 ## Earlier release
 

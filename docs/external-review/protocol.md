@@ -1,7 +1,9 @@
 # External review protocol
 
 This procedure supports scoped review of model-governance records and
-adverse-action reason traceability. Choose an assignment before starting.
+adverse-action reason traceability. Start with a selected
+[review packet](README.md), which includes the routine instructions and return
+requirements. This document preserves the full shared rules.
 The procedure and blank records do not establish that a review has occurred.
 
 ## Choose an assignment
@@ -15,12 +17,17 @@ membership and assignment scope are recorded separately.
 | --- | --- | --- |
 | [Scoped technical review](technical-review.md) | Execute workflows, trace records, and challenge controls | Findings about tested implementation behavior |
 | [Practitioner assessment](practitioner-assessment.md) | Inspect artifacts and work through a review task; installation is not required | Assessment of reviewability, practical barriers, and potential usefulness |
+| [Methodology and evaluation assessment](methodology-assessment.md) | Assess claims, assumptions, reference answers, and evaluation design; execution is not required | Methods critique and proposed evaluation improvements, without implying verified software behavior |
 
-Read the selected brief, this section, the common agreement and findings rules,
-and the agreed target sheet. The reproduction and challenge sections apply to
-the technical route. Practitioner reviewers use the short response in their
-brief; they do not need to complete the technical execution record. A combined
-assignment requires explicit agreement on both scopes and effort.
+Each packet includes its assignment, source identity, applicable common
+agreement and findings rules, essential instructions or prepared evidence, and
+response requirements. Consult this protocol and the agreed target sheet for
+the full reference or to resolve a discrepancy before starting. The reproduction
+and challenge sections apply to the technical route. Practitioner and methods
+reviewers use their packet's short response; neither needs the technical
+execution record unless execution is separately agreed. A combined assignment
+requires explicit agreement on its scopes and effort. Reading a methods
+description does not constitute a software execution review.
 
 ## Target and common agreement
 
@@ -49,12 +56,12 @@ attribution is not authorized. Accept an equivalent reviewer-authored format.
 The default technical assignment covers reproduction, source-to-notice tracing,
 and reviewer-designed challenges. Agree any narrower scope first. Portfolio
 monitoring, vendor oversight, recourse, public-data analysis, and comparison
-studies require separate scope. Practitioner tasks cover only the artifacts
-and context agreed in that assignment.
+studies require separate scope. Practitioner and methods tasks cover only the
+artifacts, claims, and context agreed in that assignment.
 
 The controls compare supplied records. Agreement cannot establish that the
 drivers faithfully explain a trained model or that real notices are correct.
-Neither route establishes production readiness, institutional adoption, or
+No route establishes production readiness, institutional adoption, or
 legal compliance. Synthetic approvals and signoffs in example outputs are
 separate from an actual review conclusion. Practitioner opinion alone does not
 establish successful use across institutions or verified software behavior.
@@ -170,6 +177,12 @@ opinions about potential usefulness. Document-only comments must be labeled
 as such. Findings still need artifact references, consequences, and a proposed
 acceptance condition; severity can be omitted for an observation. Maintainer
 responses and any follow-up remain separate dated records under these rules.
+
+For methods assessments, distinguish a critique of described methods or supplied
+evidence from source inspection, independently executed tests, and proposed
+future evaluation. Do not report a proposed comparison or unrun case as a result.
+Preserve unsupported claims, adverse findings, omissions, and disagreements.
+The same finding, completion, response, permission, and retest rules apply.
 
 ## Method references
 
