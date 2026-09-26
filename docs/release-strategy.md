@@ -34,6 +34,35 @@ they package the state of the work at meaningful implementation milestones.
   manifest and passes the artifact scanner, then repeats both checks against the
   served assets.
 
+## Review target routing
+
+The [review entry page](external-review/current.md) points new assignments to
+GitHub's latest published release. The link follows a new release when it is
+marked latest. Existing reviews keep their agreed source and instructions.
+
+For each future release, prepare its sheet at
+`docs/external-review/targets/vMAJOR.MINOR.PATCH.md` before tagging. The first
+heading must be `# Review target: vMAJOR.MINOR.PATCH`, with the actual version.
+Verify that its source instructions, commands, expected results, and limitations
+apply to that version. Relative links keep reading materials in the same tagged
+source. Reviewers record the exact commit when agreeing the assignment.
+
+Add this link to that version's authored release notes, substituting its tag:
+
+```text
+[Review target](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/vMAJOR.MINOR.PATCH/docs/external-review/targets/vMAJOR.MINOR.PATCH.md)
+```
+
+The existing controlled workflow checks the matching sheet, heading, and link
+with `scripts/validate_review_target.py --tag vMAJOR.MINOR.PATCH --repository
+IsaacAhor/small-business-credit-model-governance`. It runs after the workflow's
+existing tag, checkout, and package-version checks. It does not write files or
+release notes. Normal release approval and publication remain unchanged.
+
+The check does not assess the sheet's technical completeness or correctness.
+Maintainers still verify the instructions. The existing v0.12.0 sheet and
+release remain historical and use the entry page's explicit fallback.
+
 ## Version Naming
 
 Use semantic-style version numbers for public milestones:

@@ -57,6 +57,11 @@ jobs:
           echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "tag_object=$(git rev-parse "refs/tags/${RELEASE_TAG}")" >> "$GITHUB_OUTPUT"
 
+      - name: Check review target
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: python scripts/validate_review_target.py --tag "$RELEASE_TAG" --repository "$GITHUB_REPOSITORY"
+
       - name: Lint Markdown
         uses: DavidAnson/markdownlint-cli2-action@eb5ca3ab411449c66620fe7f1b3c9e10547144b0 # v18
         with:

@@ -19,8 +19,10 @@ assignment requires explicit agreement on both scopes and effort.
 
 ## Target and common agreement
 
-The initial [v0.12.0 target sheet](targets/v0.12.0.md) pins the source,
-reading materials, commands, expected results, and known limitations.
+[Select a review target](current.md) for a new assignment. Its target sheet
+identifies the source, reading materials, commands, expected results, and
+known limitations. Future release notes link to their sheet in the tagged source.
+Record the exact commit; a latest-release link does not change an agreed review.
 Instructions may be revised separately from software: record the protocol,
 brief, and target-sheet revisions as well as the source commit or manifest.
 Resolve any identity mismatch before claiming reproduction or assessment of
