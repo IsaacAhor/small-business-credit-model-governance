@@ -38,6 +38,9 @@ jobs:
           globs: |
             **/*.md
 
+      - name: Check review packet references
+        run: python scripts/validate_review_target.py --packets-only --repository IsaacAhor/small-business-credit-model-governance
+
       - name: Install build backend
         run: python -m pip install "pip==25.1.1" "build==1.5.0"
 

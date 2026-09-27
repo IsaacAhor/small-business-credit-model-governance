@@ -1,47 +1,23 @@
-# Select a review target
+# Start a review
 
-The maintainer uses this page before sending a new invitation. A recipient
-starts with the selected [review packet](README.md). If a review is already
-agreed, continue with its recorded source and instructions.
+**New review:** open the [latest published release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
+and choose one of its three links under **Review this release**. The packet
+provides the source, tasks, required materials, limitations and a **Write your
+review** link. Complete that shared form directly; the submitted issue is your
+report. Private/offline work uses the same report headings and an agreed channel.
+You can start a voluntary review without a maintainer choosing an assignment.
 
-1. Open the [latest published release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest).
-2. If it is **v0.12.0**, use the [preserved v0.12.0 target sheet](targets/v0.12.0.md).
-   That release predates the Review target link in release notes.
-   For a later release, open the **Review target** link in its notes to reach
-   the matching sheet in the tagged source.
-3. Select the [technical](technical-review.md),
-   [credit governance and adverse-action](practitioner-assessment.md), or
-   [methodology](methodology-assessment.md) packet. Confirm that its stated
-   source, excerpts, commands, expected observations, and known issues match
-   the chosen target. The packets currently describe **v0.12.0**; do not use
-   their examples or results as evidence for a later source.
-4. Send the chosen packet directly using its commit-pinned URL. Agree and
-   record the exact software source, packet and companion instruction revisions,
-   scope, effort cap, and return method before starting. Packet links to the
-   protocol and target sheet use the packet revision unless otherwise recorded.
+**Continuing a review:** reopen your saved packet permalink and use its recorded
+software source. A new release does not change work already started or transfer
+an earlier conclusion. An invited review retains its agreed scope and terms.
 
-If a later release lacks a Review target link, ask the maintainer to resolve
-the missing instructions before starting. Do not substitute another version's
-sheet or assume that a newer release has corrected earlier findings. A newer
-target also needs a checked matching packet. If one is missing, resolve that
-gap before inviting a review of it. An older baseline may be reviewed only as
-an explicitly agreed older target, with its original limitations retained.
+The [packet overview](README.md) explains the three choices. The source archive,
+target sheet and full protocol are supporting references; start with one packet.
+If you intentionally review an older release, use its own packet links and
+record that version. A version with no matching packet is not a prepared review
+target; report the missing link in a repository issue rather than substitute
+instructions for another version.
 
-## Earlier release
-
-The v0.12.0 sheet and review instructions were added after the software release.
-Its release archive is unchanged, and its disclosed limitations remain part
-of the assignment.
-
-## Reviews already agreed
-
-The latest-release link follows the release GitHub marks **Latest**. It does
-not change an agreed review or rewrite a historical target sheet. A switch or
-retest requires a separate agreement under the
-[target-change procedure](protocol.md#changing-the-review-target).
-Preserve original results, unresolved findings, and historical links.
-
-Maintainers prepare and verify each future target sheet and its release-note
-link under the [release procedure](../release-strategy.md#review-target-routing).
-The automated check verifies the sheet's presence, version heading, and link;
-it does not verify technical correctness or constitute an external assessment.
+GitHub's **Latest** release resolves the new-review version. The default branch
+may contain unreleased work. Release preparation and automated checks are
+described in the [release procedure](../release-strategy.md#review-target-routing).

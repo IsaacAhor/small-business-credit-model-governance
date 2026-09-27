@@ -6,12 +6,22 @@ conclusions. This methods-only assignment uses the evidence below and requires
 no installation or software execution. It does not establish independently
 verified software behavior. All examples are synthetic and maintainer-prepared.
 
-On this page: [agreement](#agree-a-methods-assignment),
+If you arrived by browsing the repository, choose a packet from the
+[latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
+before starting. If you already received or started this packet, keep its
+recorded version and scope.
+
+On this page: [start](#choose-scope-and-start),
 [method and evidence](#method-and-evidence-to-assess),
 [known limitations](#known-limitations), [questions](#assessment-questions),
 and [response](#short-methods-response).
 
-## Agree a methods assignment
+## Choose scope and start
+
+For a voluntary review, use the questions below, choose and record an effort
+cap, and begin. No maintainer agreement is required. Record any narrower scope
+and omissions; partial work is welcome. An invited or commissioned review
+follows its agreed scope, effort and return method.
 
 Relevant experience includes credit ML, explanation evaluation, statistics,
 econometrics, or empirical model-governance research. Academic and applied
@@ -21,19 +31,22 @@ scope rather than infer them from a title or institutional affiliation.
 
 - **Source:** v0.12.0, commit `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`,
   tree `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
-- **Instructions:** record this packet's commit-pinned URL. Its companion
+- **Instructions:** save this packet's permalink: on GitHub, press **y** and
+  copy the resulting URL. Its companion
   protocol and target sheet use the same documentation revision unless
   separately agreed and recorded. These later instructions are absent from
   the software release archive. Resolve identity mismatches before starting;
   do not silently substitute a newer source or packet.
 - **Work:** critique the four questions below for the identified claims and
-  materials. Agree any narrower selection, context, exclusions, deliverables,
-  return method, effort cap, and stopping point before starting. No duration
+  materials. Record any narrower selection, context, exclusions, deliverables,
+  effort cap and stopping point before starting. An invited review retains its
+  agreed terms. No duration
   has been established from completed external methods reviews.
-- **Limits:** stop at the agreed cap and return actual effort, omissions, and
+- **Limits:** stop at your recorded cap and return actual effort, omissions, and
   your conclusion. A partial or inconclusive response is valid. Execution,
   broader comparison studies, public-data analysis, or a retest require an
-  additional explicit scope; use the technical packet if execution is added.
+  additional recorded scope and agreement for an invited assignment; use the
+  technical packet if execution is added.
 - **Independence:** record relationships, compensation, assistance,
   implementation involvement, each participant's work, and personal or
   organizational capacity. Payment must not depend on favorable conclusions;
@@ -55,7 +68,7 @@ method checks consistency from supplied decision drivers through recorded
 reasons to rendered notice segments. Governance records separately describe
 validation independence, open findings, explanation-method review, and
 promotion posture. The [project brief][project] and [method note][method]
-describe the wider context; this assessment remains within the agreed subset.
+describe the wider context; this assessment remains within the selected subset.
 
 For the synthetic scoring path, the declared method ranks recorded adverse
 contribution magnitude and maps eligible drivers to governed reason codes.
@@ -162,52 +175,37 @@ are not required; keep criticism, uncertainty, and negative findings intact.
 
 ## Short methods response
 
-Return dated notes through the agreed return method using these fields or an
-equivalent reviewer-authored format. No technical execution record is required
-for methods-only work. Use an identifier where naming is not authorized; avoid
-confidential client information and unnecessary personal details.
+**[Write your review][review-form].** Complete the shared form directly; the
+submitted issue is your report. Confirm its prefilled software identity, paste
+your saved packet permalink, and select your reviewer group. Keep the version
+you actually reviewed even if a newer release is available.
 
-- Review ID/date, reviewer identifier, expertise, and group(s):
-- Each participant's work and capacity; relevant relationships, compensation,
-  assistance, implementation involvement, and limits on independence:
-- Software: v0.12.0 / `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`.
-  Packet URL/revision and companion instruction revisions if different:
-- Agreed question, context, scope, exclusions, deliverables, effort cap,
-  actual effort, omissions, and additional work separately agreed:
-- Materials actually examined: excerpt / full source / independently executed
-  work, with exact references; identify who performed any added execution:
+In **Assessment and evidence**, answer the four questions above: contribution
+and assumptions, reference answers, evaluation design with a proposed paired
+case, and comparison/transfer. Cite the excerpts or full sources actually
+examined. Distinguish proposed studies and unrun cases from results; no execution
+record is required for methods-only work.
 
-| Question | Evidence and reasoning | Conclusion, uncertainty, or proposed improvement |
-| --- | --- | --- |
-| Contribution and assumptions | [references] | [assessment] |
-| Reference answers | [references] | [assessment] |
-| Evaluation design and proposed paired case | [references] | [design; distinguish unrun work] |
-| Comparison and transfer | [references] | [assessment; evidence still needed] |
+Use **Findings** for evidence-backed observations or defects and **Conclusion
+and limitations** for your own assessment, omissions and completion status.
+Record reviewer context and sharing permissions in the form. Partial, negative
+and inconclusive reviews are valid; completing a review does not depend on a
+maintainer reply, corrected findings or a later retest.
 
-- Findings, if any: stable ID/date, origin, type, affected claim/source/record,
-  expected versus observed condition, rationale, consequence, uncertainty,
-  and acceptance condition. For defects, Critical means broad silent failure
-  or invalidation of the scoped conclusion; High a material core-control miss;
-  Moderate a bounded correctness/reproducibility/reviewability problem with a
-  workable restriction; Low local clarity/usability without demonstrated
-  material effect. Observations need not have severity; retain disagreements.
-- Your conclusion: what is supported, unsupported, unexamined, or unresolved:
-- Status: completed within scope / partial / blocked / withdrawn; date and
-  confirmation that the account accurately describes the work:
-- Sharing permission: recipients/destination, attribution or excerpts,
-  qualifications, restrictions, and permission date. Leave ungranted permissions
-  explicit; a completed assessment does not grant permission to share it.
+Submission requires a GitHub account and creates a public issue. Save its URL.
+For private or offline work, use the [same report headings](review-record-template.md)
+and an agreed private channel. This is an alternative way to write the same
+report; no second report or pull request is required. Share only permitted
+material and exclude confidential client information and unnecessary details.
 
-Completion depends on recording the agreed work and omissions, not a favorable
-result, corrected findings, a maintainer response, or retesting. Zero new findings
-is valid with scope recorded. The maintainer preserves your original conclusion
-and separately agrees, disputes with evidence, or defers findings with a reason
-and owner. A changed source or follow-up needs its own agreement, exact identity,
-acceptance conditions, verifier, and implementation-involvement record; prior
-conclusions do not transfer automatically. Neither review nor retest needs a
-release or tag. Shared summaries preserve adverse findings, qualifications,
-conflicts/compensation, assistance, and actual scope. Full rules:
-[shared procedure](protocol.md#findings-response-and-verification).
+The maintainer preserves your original conclusion and records responses
+separately. Retests identify the changed source, scope, acceptance conditions,
+verifier and implementation involvement, with separate agreement for invited
+work. Earlier conclusions do not transfer automatically. Neither review nor
+retest requires a release or tag. Full [response, sharing and retest rules](protocol.md#findings-response-and-verification)
+remain applicable.
+
+[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.12.0+%2F+3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
 
 [project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/PROJECT_BRIEF.md
 [method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/METHOD.md

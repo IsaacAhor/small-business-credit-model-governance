@@ -11,11 +11,14 @@ supporting risk-review module.
 
 ## For Reviewers
 
-Start with the [external review packets](docs/external-review/README.md):
-technical execution, credit governance and adverse-action assessment, or
-methodology and evaluation. Each packet gives its source, tasks, limitations,
-and requested response. The [reviewer groups](docs/external-review/reviewer-groups.md)
-define relevant expertise. If you received a particular packet, start there.
+For a new review, open the [latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
+and choose one of the three packets under **Review this release**: technical
+execution, credit governance and adverse-action assessment, or methodology
+and evaluation. Each packet gives its source, tasks, materials, limitations
+and response format; voluntary reviewers can start without prior coordination.
+The [packet overview](docs/external-review/README.md) explains the choices.
+If you already started or received a packet, keep its original instructions
+and software version.
 
 This repository demonstrates repeatable governance methods for
 machine-learning-based small business credit underwriting systems. It shows how

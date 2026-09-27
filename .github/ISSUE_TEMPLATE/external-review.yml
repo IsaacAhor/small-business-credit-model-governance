@@ -1,0 +1,111 @@
+name: External review
+description: Write and submit a review of implementation, credit governance or methodology.
+title: "[Review] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Write your report here using the tasks in your selected packet. Concise answers are welcome; state what was not assessed. No separate report is required. Link or attach supporting evidence in the text fields.
+
+        Submission creates a **public issue under your GitHub account**. Use only material you may share, with no confidential client information or unnecessary personal details. For private or offline work, use the [same report headings](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/main/docs/external-review/review-record-template.md) and an agreed private channel.
+
+        Keep the packet and software version you actually reviewed, even if a newer release exists. Partial, negative and inconclusive reviews are welcome. Save the issue URL after submission; maintainer responses and retests are recorded separately.
+  - type: input
+    id: reviewer-name
+    attributes:
+      label: Name or reviewer identifier
+      description: Enter the professional name you authorize for this public report, or use a reviewer identifier if public naming is not authorized. Do not include private contact details.
+      placeholder: Your professional name or reviewer identifier
+    validations:
+      required: true
+  - type: textarea
+    id: qualifications
+    attributes:
+      label: Role, affiliation and relevant qualifications
+      description: Briefly describe your role, affiliation if shareable, and experience or credentials relevant to this review. Independent reviewers are welcome; no institutional affiliation is required. These details are self-reported, not verified by submission.
+      placeholder: Role; organization or independent capacity; relevant experience, research or credentials
+    validations:
+      required: true
+  - type: input
+    id: profile
+    attributes:
+      label: Professional profile (optional)
+      description: You may link a public professional profile, institutional page, publication profile or other source supporting your relevant qualifications. Leave blank if you prefer.
+      placeholder: Public profile URL, if you wish to share one
+    validations:
+      required: false
+  - type: input
+    id: packet
+    attributes:
+      label: Packet permalink
+      description: Paste the saved instruction URL. On the GitHub packet page, press y to obtain a commit-pinned link. Record companion revisions only if different.
+      placeholder: "https://github.com/owner/repository/blob/<commit>/docs/external-review/<packet>.md"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Software version and source
+      description: Confirm the version and source ref from your packet. For an archive, also record its origin, acquisition date, SHA-256 and identity check in your evidence.
+      placeholder: Version and source commit or release tag
+    validations:
+      required: true
+  - type: dropdown
+    id: group
+    attributes:
+      label: Reviewer group
+      description: Select the work you performed. For multiple groups, distinguish each scope and each participant's work in your report.
+      multiple: true
+      options:
+        - Technical Implementation Reviewers
+        - Credit Governance and Adverse-Action Reviewers
+        - Methodology and Evaluation Reviewers
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and work performed
+      description: Record review dates, voluntary or invited mode, selected questions, materials and exact record IDs, exclusions, effort cap, actual effort, omissions and scope changes. Note agreed terms for invited work without confidential contractual details.
+      placeholder: What did you examine or do, and what did you leave out?
+    validations:
+      required: true
+  - type: textarea
+    id: assessment
+    attributes:
+      label: Assessment and evidence
+      description: Answer your packet's tasks with references. Distinguish prepared excerpts, source inspection, independent execution and proposed unrun work. Attach or link supporting files here; identify each file and relevant record or run IDs.
+      placeholder: Answer each task in your packet, with references to supporting evidence. State what was not assessed.
+    validations:
+      required: true
+  - type: textarea
+    id: findings
+    attributes:
+      label: Findings
+      description: Give each finding an ID, date/origin, type (defect, ambiguity, limitation or observation), affected records, evidence/reproduction, expected versus observed condition, consequence, uncertainty and acceptance condition. For defects, use Critical (broad silent failure), High (material core-control failure), Moderate (bounded problem with a workable restriction) or Low (local clarity/usability). Observations need no severity. Identify disclosed-issue reproductions separately from new findings.
+      placeholder: State findings with their basis, or explicitly record no findings within the scope examined.
+    validations:
+      required: true
+  - type: textarea
+    id: conclusion
+    attributes:
+      label: Conclusion and limitations
+      description: Give your own conclusion, what worked or failed, and what remains untested or unsupported. State completed within scope, partial, blocked or withdrawn. Completion does not require favorable findings, a maintainer response, a correction or a retest.
+      placeholder: What does your work support, and what does it not establish?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Reviewer context and sharing
+      description: Identify each participant's work/capacity and relationships, compensation, assistance or implementation involvement affecting independence. State further attribution, quotation or circulation permissions, date and restrictions. Submission is not blanket permission or organizational endorsement.
+      placeholder: Personal or organizational capacity; relationships and assistance; sharing permissions and restrictions. Do not repeat your details above.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: This report accurately describes the work performed and includes only material I may share publicly.
+          required: true

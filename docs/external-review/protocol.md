@@ -13,51 +13,64 @@ the work: Technical Implementation Reviewers, Credit Governance and
 Adverse-Action Reviewers, and Methodology and Evaluation Reviewers. Group
 membership and assignment scope are recorded separately.
 
-| Route | Work | Result within the agreed scope |
+| Route | Work | Result within the recorded scope |
 | --- | --- | --- |
 | [Scoped technical review](technical-review.md) | Execute workflows, trace records, and challenge controls | Findings about tested implementation behavior |
 | [Practitioner assessment](practitioner-assessment.md) | Inspect artifacts and work through a review task; installation is not required | Assessment of reviewability, practical barriers, and potential usefulness |
 | [Methodology and evaluation assessment](methodology-assessment.md) | Assess claims, assumptions, reference answers, and evaluation design; execution is not required | Methods critique and proposed evaluation improvements, without implying verified software behavior |
 
 Each packet includes its assignment, source identity, applicable common
-agreement and findings rules, essential instructions or prepared evidence, and
-response requirements. Consult this protocol and the agreed target sheet for
+scope and findings rules, essential instructions or prepared evidence, and
+response requirements. Consult this protocol and the selected target sheet for
 the full reference or to resolve a discrepancy before starting. The reproduction
 and challenge sections apply to the technical route. Practitioner and methods
-reviewers use their packet's short response; neither needs the technical
-execution record unless execution is separately agreed. A combined assignment
-requires explicit agreement on its scopes and effort. Reading a methods
+reviewers answer their packet's questions in the same shared report form;
+execution records are needed only when execution is separately scoped. A combined assignment
+requires separately recorded scopes and effort, plus agreement for an invited
+review. Reading a methods
 description does not constitute a software execution review.
 
 ## Target and common agreement
 
-[Select a review target](current.md) for a new assignment. Its target sheet
-identifies the source, reading materials, commands, expected results, and
-known limitations. Future release notes link to their sheet in the tagged source.
-Record the exact commit; a latest-release link does not change an agreed review.
+[Start with the latest release](current.md) for a new voluntary review, then
+choose one of its three packets. You do not need a maintainer to assign the
+listed tasks. The target sheet is a supporting source and known-issue record.
+Record the exact commit; a latest-release link does not change an existing review.
 Instructions may be revised separately from software: record the protocol,
 brief, and target-sheet revisions as well as the source commit or manifest.
 Resolve any identity mismatch before claiming reproduction or assessment of
 that source. Prepared outputs must identify their source and whether the
 reviewer independently regenerated them.
 
-Agree the questions, included workflows, exclusions, relevant expertise,
-deliverables, effort cap, and stopping conditions. Record actual time and
-unfinished work. Pause at the agreed cap; any extension or retest needs a new
-agreement. A partial review is a valid outcome with its limits recorded.
+For a voluntary review, choose and record the questions, included workflows,
+exclusions, relevant expertise, deliverables, effort cap and stopping conditions.
+Use the packet's listed tasks as the default. For an invited or commissioned
+review, agree these terms with the organizer before starting. Record actual
+time and unfinished work. Pause at the recorded cap; an extension or retest
+needs its own recorded scope and agreement for an invited assignment.
+A partial review is a valid outcome with its limits recorded.
 Effort estimates are planning assumptions until checked in actual reviews.
 
+Save the packet permalink before starting: on GitHub, press **y**, then copy
+the URL. Its companion documents use that revision unless recorded otherwise.
+Write directly in the [shared review form](https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml);
+the submitted issue is the report. A GitHub account is required and submission
+is public. For offline or private work, use the [same report headings](review-record-template.md)
+and an agreed private channel. Share only permitted technical content. No maintainer reply is needed
+to complete the listed work. Private arrangements, compensation or additional
+commissioned work require coordination; they are not implied by an open packet.
+
 Record relevant relationships, compensation, assistance, and implementation
-involvement when assessing independence. Either route may be paid or unpaid;
+involvement when assessing independence. Any route may be paid or unpaid;
 payment must not depend on a favorable conclusion. Affiliation alone does not
 establish organizational endorsement. Use a reviewer identifier where public
 attribution is not authorized. Accept an equivalent reviewer-authored format.
 
 The default technical assignment covers reproduction, source-to-notice tracing,
-and reviewer-designed challenges. Agree any narrower scope first. Portfolio
+and reviewer-designed challenges. Record any narrower scope first. Portfolio
 monitoring, vendor oversight, recourse, public-data analysis, and comparison
 studies require separate scope. Practitioner and methods tasks cover only the
-artifacts, claims, and context agreed in that assignment.
+artifacts, claims, and context recorded in that review.
 
 The controls compare supplied records. Agreement cannot establish that the
 drivers faithfully explain a trained model or that real notices are correct.
@@ -69,7 +82,7 @@ establish successful use across institutions or verified software behavior.
 ## Reproduce and inspect
 
 For the technical route, obtain a fresh checkout or source extraction of the
-agreed source. In a checkout, verify its commit. For an archive, record its
+recorded source. In a checkout, verify its commit. For an archive, record its
 origin, acquisition date, SHA-256, and how source identity was checked.
 Follow the target sheet's environment, reading, execution, and inspection
 instructions. Preserve stdout, stderr, exit codes, elapsed time, outputs,
@@ -81,7 +94,7 @@ Recompute at least one input and output hash under the documented normalization
 policy. Hash agreement verifies integrity under that policy; it does not prove
 correctness or authenticity. Record operating system, Python/dependency
 versions, setup changes, and whether execution used source or an installed
-package. Use the [technical review record](review-record-template.md).
+package. Include these records in **Assessment and evidence** or linked attachments.
 
 Trace one consistent decision and one defective decision through supplied
 driver, mapping, recorded reason, rendered notice segment, and assessment.
@@ -121,7 +134,7 @@ use fresh variations to assess claims beyond a known regression case.
 
 ## Changing the review target
 
-Preserve the agreed baseline and every original review. A changed candidate
+Preserve the recorded baseline and every original review. A changed candidate
 needs a separate commit or inspected source manifest and patch hash. Document
 what changed, which findings or conclusions may be affected, and the proposed
 retest scope. Verify target-specific commands, artifacts, expected results,
@@ -140,7 +153,7 @@ Give each finding a stable ID, evidence, expected and observed behavior,
 affected scope, consequence, and proposed acceptance condition. Use these
 working severities; retain disagreements and their rationale:
 
-| Severity | Meaning within the agreed scope |
+| Severity | Meaning within the recorded scope |
 | --- | --- |
 | Critical | Broad silent failure or invalidation of the central scoped conclusion. |
 | High | A material missed defect or incorrect result in a core control. |
@@ -158,7 +171,7 @@ condition. State who retested and whether they helped implement the change.
 Use `maintainer-verified only` or `not retested` where appropriate; do not imply
 independent verification.
 
-The reviewer completes the agreed review by returning the work performed,
+The reviewer completes the scoped review by returning the work performed,
 omissions, findings, and their own conclusion. Completion does not depend on
 the maintainer's response or a later retest. The maintainer records each
 finding's disposition separately, including any response still pending.

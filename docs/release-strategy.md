@@ -36,49 +36,73 @@ they package the state of the work at meaningful implementation milestones.
 
 ## Review target routing
 
-The [review entry page](external-review/current.md) points new assignments to
-GitHub's latest published release. The link follows a new release when it is
-marked latest. Existing reviews keep their agreed source and instructions.
+The repository's reviewer entry points use GitHub's latest published release.
+A new reviewer opens that release, chooses one packet under **Review this
+release**, and follows its tasks and response instructions. GitHub selects the
+published version even while the default branch contains unreleased work.
+An existing review keeps its saved packet permalink and original software
+source; neither new documentation nor a release transfers earlier conclusions.
 
-For each future release, prepare its sheet at
-`docs/external-review/targets/vMAJOR.MINOR.PATCH.md` before tagging. The first
-heading must be `# Review target: vMAJOR.MINOR.PATCH`, with the actual version.
-Verify that its source instructions, commands, expected results, and limitations
-apply to that version. Relative links keep reading materials in the same tagged
-source. Reviewers record the exact commit when agreeing the assignment.
+Keep the same three packet filenames. The packet overview's `Review target`
+and `Source ref` lines identify the packet set in that source revision. Before
+preparing a future release, update the packet identities, source links,
+checkout command and form-link source prefills together. Use the release tag as the
+source ref, or a full commit hash that the release check verifies against it.
 
-Add this link to that version's authored release notes, substituting its tag:
+Prepare `docs/external-review/targets/vMAJOR.MINOR.PATCH.md` with the heading
+`# Review target: vMAJOR.MINOR.PATCH` and its matching `Pinned source` link.
+Check its commands, expected results and disclosed limitations against the
+candidate. Do not overwrite historical target sheets or original findings.
 
-```text
+Include this section in the authored release notes, substituting the actual
+release tag in all four links:
+
+```markdown
+## Review this release
+
+Choose one packet. Voluntary reviewers can start with its listed tasks,
+record their own effort cap, and use its response format.
+
+- [Technical Implementation Reviewers](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/vMAJOR.MINOR.PATCH/docs/external-review/technical-review.md): inspect code, execute workflows and challenge controls.
+- [Credit Governance and Adverse-Action Reviewers](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/vMAJOR.MINOR.PATCH/docs/external-review/practitioner-assessment.md): inspect prepared records; no installation required.
+- [Methodology and Evaluation Reviewers](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/vMAJOR.MINOR.PATCH/docs/external-review/methodology-assessment.md): critique methods and evaluation; execution is optional and separately scoped.
+
 [Review target](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/vMAJOR.MINOR.PATCH/docs/external-review/targets/vMAJOR.MINOR.PATCH.md)
+contains the source identity and known limitations. Already reviewing? Keep
+your original packet and source; a later release does not replace them.
 ```
 
-The existing controlled workflow checks the matching sheet, heading, and link
-with `scripts/validate_review_target.py --tag vMAJOR.MINOR.PATCH --repository
-IsaacAhor/small-business-credit-model-governance`. It runs after the workflow's
-existing tag, checkout, and package-version checks. It does not write files or
-release notes. Normal release approval and publication remain unchanged.
+Ordinary CI runs this read-only check against `pyproject.toml`:
 
-The check does not assess the sheet's technical completeness or correctness.
-Maintainers still verify the instructions. Before advertising a new review
-target, update and check the three [review packets](external-review/README.md):
+```text
+python scripts/validate_review_target.py --packets-only --repository IsaacAhor/small-business-credit-model-governance
+```
 
-- Verify that source identity, commands, selected record IDs, excerpt values,
-  expected observations, and known-issue status apply to the new target.
-- Update the overview and target selector together. Resolve any packet/source
-  mismatch before inviting an assignment; do not silently reuse old results.
-- Check packet and source links, section anchors, rendered tables, required
-  response fields, and agreement/finding/permission rules against the protocol.
-- Walk through each packet from its direct link. Prepared-record and methods
-  tasks must have their essential evidence on the page; technical tasks retain
-  source inspection, execution, integrity checks, and independent challenges.
-- Send an agreed assignment with a commit-pinned packet URL and separately
-  recorded software identity. Preserve earlier packet revisions and review
-  conclusions; changed source or retests need a new agreement.
+It checks the latest-release route in entry pages and packet versions, target
+links, source/archive references, hashes, the technical checkout command and
+the direct links to the shared external-review form and their source prefills.
+The form and offline report retain matching field headings.
+The existing controlled-release workflow additionally requires the matching
+target sheet and all three direct packet links in **Review this release**.
+It runs `scripts/validate_review_target.py --tag vMAJOR.MINOR.PATCH --repository
+IsaacAhor/small-business-credit-model-governance` after its existing tag,
+checkout and package-version checks. A missing, moving or mismatched packet
+link fails release validation. Normal release approval remains unchanged.
 
-The release check does not automate these packet-content checks. The existing
-v0.12.0 sheet and release remain historical and use the entry page's explicit
-fallback. Later instructions are not retroactively added to that release archive.
+These checks use the standard library and need no network, generated packet
+set, duplicate version folders or scheduled service. They do not write release
+notes or assess technical correctness. Before publishing, walk through all
+three packet links, check section anchors and essential materials, and verify
+excerpt values, record IDs, commands, expected observations, limitations and
+response requirements. Preserve unresolved findings and distinguish prepared
+outputs from independent execution. Inspect the served release links after
+publication and ensure the intended release is marked **Latest**.
+
+The v0.12.0 software predates these packets. Its release-page review links use
+an explicitly identified later documentation commit, separate from the fixed
+software source. The tag, source archive and original authored release notes
+remain unchanged; the later instructions do not become part of that archive.
+Existing reviewers can continue using their original documentation revision.
 
 ## Version Naming
 
@@ -252,3 +276,30 @@ Versioned releases can support the record by showing execution history,
 implementation maturity, and stable public artifacts. They do not by themselves
 prove external recognition, production deployment, institutional adoption, or
 regulatory acceptance.
+
+## Receiving review reports
+
+Reviewers write directly in the native **External review** Issue Form; the
+submitted issue is the report. All three groups use the same fields. The
+[offline report](external-review/review-record-template.md) is an alternative
+with matching headings for private or offline work. Keep these headings aligned
+when editing the form. Preserve field IDs and the form filename so older packet
+links keep working. The shared form has no default software version: packet
+links prefill the source they reviewed, including older releases. A reviewer
+confirms the prefill and records the saved instruction permalink.
+
+For notifications, on the repository choose **Watch > Custom > Issues**. In
+personal notification settings, enable **Email** and **On GitHub** for watched
+activity. These are account settings; publishing this form does not enable
+them. See [GitHub's notification instructions](https://docs.github.com/en/subscriptions-and-notifications/get-started/configuring-notifications).
+This subscribes to all issues, not just reviews. Reports use the `[Review]`
+title prefix and can be found in the [review report list](https://github.com/IsaacAhor/small-business-credit-model-governance/issues?q=is%3Aissue+%22%5BReview%5D%22+in%3Atitle).
+The list is a convenience filter; authors can change titles.
+
+After receipt, preserve a dated copy of the original report and its evidence
+with the stated sharing permissions; issues are editable. Respond separately
+with finding IDs, agreement/dispute/deferral and reasons, owners and correction
+references. Record retests and remaining limitations separately. Closing an
+issue does not establish that every finding was fixed or independently verified.
+Private submissions use an agreed channel; never copy them into a public issue
+without permission. No notification bot or new workflow is required.

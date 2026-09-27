@@ -3,15 +3,25 @@
 **Packet for Technical Implementation Reviewers.** Assess whether selected
 model-governance and adverse-action traceability controls behave as described.
 This assignment requires source inspection, software execution, and independent
-challenge design. It covers the agreed workflows, not the whole repository.
+challenge design. It covers the recorded workflows, not the whole repository.
 The data and examples are synthetic; disclosed defects remain part of the target.
 
-On this page: [agreement](#agree-before-starting),
+If you arrived by browsing the repository, choose a packet from the
+[latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
+before starting. If you already received or started this packet, keep its
+recorded version and scope.
+
+On this page: [start](#choose-scope-and-start),
 [known issues](#known-issues-in-this-target), [setup](#obtain-the-fixed-source),
 [reproduction](#reproduce-and-inspect), [challenges](#design-and-run-challenges),
-and [return checklist](#work-and-return).
+and [write your review](#work-and-return).
 
-## Agree before starting
+## Choose scope and start
+
+For a voluntary review, use the tasks below, choose and record an effort cap,
+and begin. No maintainer agreement is required. Record any narrower scope and
+omissions; partial work is welcome. An invited or commissioned review follows
+its agreed scope, effort and return method.
 
 You should be able to execute and inspect Python workflows and assess credit-model
 governance or reason traceability. If expertise is split, identify each person's
@@ -20,20 +30,23 @@ qualifications; a second role held by one person is not a second independent rev
 
 - **Software:** v0.12.0, commit `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`,
   tree `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
-- **Instructions:** record this packet's commit-pinned URL. The companion
+- **Instructions:** save this packet's permalink: on GitHub, press **y** and
+  copy the resulting URL. The companion
   protocol and target sheet use that documentation revision unless a different
   revision is explicitly agreed and recorded. The instructions postdate the
   software release and are absent from its archive. Resolve identity mismatches
   before claiming reproduction; a later release does not change this assignment.
 - **Scope:** reproduction, source-to-notice tracing, and reviewer-designed
-  challenges below. Agree any narrower scope, included artifacts, exclusions,
-  deliverables, return method, effort cap, and stopping point before starting.
+  challenges below. Record the included artifacts, exclusions, deliverables,
+  effort cap and stopping point before starting; agree changes to an invited
+  assignment with its organizer.
   Portfolio monitoring, vendor oversight, recourse, public-data analysis, and
   comparison studies require separate scope.
 - **Effort:** no project-specific duration has been established by completed
-  external technical reviews. Record actual time; stop at the agreed cap and
+  external technical reviews. Record actual time; stop at the recorded cap and
   report unfinished work. A partial review is valid. Any extension or retest
-  is a separate agreement, not a requirement for completing this review.
+  needs a separate recorded scope and agreement for an invited assignment;
+  it is not a requirement for completing this review.
 - **Independence:** record relevant relationships, compensation, assistance,
   implementation involvement, and personal or organizational capacity. Payment,
   if any, must not depend on a favorable result. Affiliation is not endorsement.
@@ -208,66 +221,41 @@ known regression cases.
 
 ## Work and return
 
-Return your own dated account through the agreed return method. The checklist
-below is sufficient to structure it; the [technical review record](review-record-template.md)
-is an optional ready-made format for the same information. An equivalent
-reviewer-authored format is welcome. Use reviewer identifiers where naming is
-not authorized and exclude confidential client or unnecessary personal details.
+**[Write your review][review-form].** Complete the shared form directly; the
+submitted issue is your report. Confirm its prefilled software identity, paste
+your saved packet permalink, and select your reviewer group. Keep the version
+you actually reviewed even if a newer release is available.
 
-1. **Assignment and identity:** review ID/date; expertise and group(s); each
-   participant's work and capacity; relationships, compensation, assistance,
-   implementation involvement, and limits on independence; agreed questions,
-   artifacts, exclusions, deliverables, effort cap, stopping point, actual effort,
-   omissions, and scope changes. Record this packet URL/revision, companion
-   instruction revisions if different, and software commit/tree or verified
-   archive provenance and hash.
-2. **Execution and inspection:** exact files/record IDs examined, OS and
-   environment, setup changes, commands, exit codes, elapsed time, preserved
-   stdout/stderr and outputs; independent hash recomputations; consistent and
-   defective traces; observations versus expectations and unresolved differences.
-3. **Challenges:** case IDs and origins, original inputs and deltas/hashes,
-   dated expectations and rationale before execution, observations after execution,
-   paired clean controls, the fresh reviewer-designed scenario, omitted families
-   and reasons, findings for target records, misses, unexpected alarms, and
-   unassessed controls. Give counts and denominators for reported rates.
-4. **Findings and your conclusion:** for each finding, stable ID/date/origin,
-   type (defect, specification ambiguity, limitation, observation), affected
-   candidate/workflow/records, reproduction steps, expected versus observed
-   result and technical basis, consequence, scope, uncertainty, restriction,
-   and proposed acceptance condition. State what worked, failed, was not tested,
-   and cannot be concluded. Zero new findings is valid with coverage recorded.
-5. **Status and permission:** completed within scope / partial / blocked /
-   withdrawn, date, and confirmation that the account describes your work.
-   Specify intended sharing recipients/destination, permitted attribution and
-   excerpts, material qualifications, restrictions, and dated permission.
-   Completion grants no sharing permission by itself.
+In **Assessment and evidence**, include the execution record, consistent and
+defective traces, input/output integrity checks and challenge results from the
+tasks above. Preserve commands, environment, exit codes, elapsed time, logs,
+original inputs and controlled deltas/hashes, dated expectations and technical
+basis, observations, clean controls and the additional reviewer-designed case.
+Distinguish correct target detection, missed defects, unexpected alarms and
+unassessed controls; give denominators for rates and explain omitted work.
+Link or attach supporting evidence with run/case IDs. Archive users also record
+origin, acquisition date, SHA-256 and source-identity verification.
 
-Use these defect severities and preserve disagreements: **Critical** is broad
-silent failure or invalidation of the scoped conclusion; **High** is a material
-miss or incorrect core-control result; **Moderate** is a bounded correctness,
-reproducibility, or reviewability problem with a workable restriction;
-**Low** is local clarity/usability without demonstrated material effect.
-An observation need not have defect severity.
+Use **Findings** for evidence-backed observations or defects and **Conclusion
+and limitations** for your own assessment, omissions and completion status.
+Record reviewer context and sharing permissions in the form. Partial, negative
+and inconclusive reviews are valid; completing a review does not depend on a
+maintainer reply, corrected findings or a later retest.
 
-Completion means the agreed work and omissions are recorded. It does not depend
-on a favorable result, maintainer response, correction, or later retest. The
-maintainer preserves your original findings and conclusion, then separately
-agrees, disputes with evidence, or defers with a reason and owner. Unresolved,
-disputed, deferred, or accepted-risk findings are not fixed findings.
+Submission requires a GitHub account and creates a public issue. Save its URL.
+For private or offline work, use the [same report headings](review-record-template.md)
+and an agreed private channel. This is an alternative way to write the same
+report; no second report or pull request is required. Share only permitted
+material and exclude confidential client information and unnecessary details.
 
-A changed candidate or retest needs a separate agreement, exact commit or
-inspected source manifest and patch hash, affected findings, acceptance
-conditions, work performed, verifier, and implementation involvement. Preserve
-the baseline, original results, and finding IDs; do not transfer conclusions
-automatically. Label `maintainer-verified only` or `not retested` when applicable.
-Neither review nor retest requires a release or tag. Shared summaries preserve
-adverse findings, qualifications, conflicts/compensation, assistance, and actual
-independent scope; permission is required for attribution and third-party material.
+The maintainer preserves your original conclusion and records responses
+separately. Retests identify the changed source, scope, acceptance conditions,
+verifier and implementation involvement, with separate agreement for invited
+work. Earlier conclusions do not transfer automatically. Neither review nor
+retest requires a release or tag. Full [response, sharing and retest rules](protocol.md#findings-response-and-verification)
+remain applicable.
 
-These synthetic record checks do not establish model-explanation faithfulness,
-causal truth, actionability, real-notice accuracy, institutional adoption,
-production readiness, or legal compliance. Full follow-up rules are in the
-[shared procedure](protocol.md#findings-response-and-verification).
+[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.12.0+%2F+3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
 
 [archive]: https://github.com/IsaacAhor/small-business-credit-model-governance/archive/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca.zip
 [project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/PROJECT_BRIEF.md
