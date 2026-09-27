@@ -28,13 +28,13 @@ instructions or evidence, limitations, and requested response. The
   testing. Where technical and domain expertise are split, identify each
   participant's responsibility.
 - Credit Governance and Adverse-Action Reviewers use the
-  [practitioner assessment](practitioner-assessment.md) for prepared-record
+  [credit governance and adverse-action assessment](practitioner-assessment.md) for prepared-record
   inspection and review tasks. Distinguish professional opinion from observed
   task performance, and record any assistance.
 - Methodology and Evaluation Reviewers use the
-  [methodology and evaluation packet](methodology-assessment.md), agreeing its
-  claims, materials, questions, and response under the
-  [common agreement](protocol.md#target-and-common-agreement). Use the
+  [methodology and evaluation packet](methodology-assessment.md) for its listed
+  claims, materials and questions. An invited review follows its agreed terms
+  under the [common agreement](protocol.md#target-and-common-agreement). Use the
   technical brief when software execution is included; a methods-only
   assessment does not establish independently verified software behavior.
 

@@ -60,8 +60,10 @@ release tag in all four links:
 ```markdown
 ## Review this release
 
-Choose one packet. Voluntary reviewers can start with its listed tasks,
-record their own effort cap, and use its response format.
+Choose one packet, complete its tasks, then use its **Write your review** link.
+Submit the shared form once; the resulting issue is your report. A GitHub
+account is required for public submission. Voluntary reviewers can start with
+the listed tasks and record their own effort cap.
 
 - [Technical Implementation Reviewers](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/vMAJOR.MINOR.PATCH/docs/external-review/technical-review.md): inspect code, execute workflows and challenge controls.
 - [Credit Governance and Adverse-Action Reviewers](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/vMAJOR.MINOR.PATCH/docs/external-review/practitioner-assessment.md): inspect prepared records; no installation required.
@@ -81,7 +83,9 @@ python scripts/validate_review_target.py --packets-only --repository IsaacAhor/s
 It checks the latest-release route in entry pages and packet versions, target
 links, source/archive references, hashes, the technical checkout command and
 the direct links to the shared external-review form and their source prefills.
-The form and offline report retain matching field headings.
+The form and offline report retain matching field headings. Direct form arrivals
+have a link back to the release's packet chooser; there is no default software
+version that could silently replace a review already underway.
 The existing controlled-release workflow additionally requires the matching
 target sheet and all three direct packet links in **Review this release**.
 It runs `scripts/validate_review_target.py --tag vMAJOR.MINOR.PATCH --repository

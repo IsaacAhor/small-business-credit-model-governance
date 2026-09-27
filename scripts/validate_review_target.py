@@ -86,6 +86,8 @@ def validate_review_packets(root: Path, tag: str, repository: str) -> str:
     latest = f"https://github.com/{repository}/releases/latest"
     return_path = f"https://github.com/{repository}/issues/new"
     validate_review_form(root)
+    if latest not in _read(root, FORM):
+        raise ValueError("The review form must link new reviewers to the latest published release.")
     for entry in ("README.md", "START_HERE.md", folder + "current.md"):
         if latest not in _read(root, entry):
             raise ValueError(f"{entry}: new reviews must route to the latest published release.")
