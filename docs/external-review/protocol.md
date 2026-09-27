@@ -16,7 +16,7 @@ membership and assignment scope are recorded separately.
 | Route | Work | Result within the recorded scope |
 | --- | --- | --- |
 | [Scoped technical review](technical-review.md) | Execute workflows, trace records, and challenge controls | Findings about tested implementation behavior |
-| [Practitioner assessment](practitioner-assessment.md) | Inspect artifacts and work through a review task; installation is not required | Assessment of reviewability, practical barriers, and potential usefulness |
+| [Credit governance and adverse-action assessment](practitioner-assessment.md) | Inspect artifacts and work through a review task; installation is not required | Assessment of reviewability, practical barriers, and potential usefulness |
 | [Methodology and evaluation assessment](methodology-assessment.md) | Assess claims, assumptions, reference answers, and evaluation design; execution is not required | Methods critique and proposed evaluation improvements, without implying verified software behavior |
 
 Each packet includes its assignment, source identity, applicable common

@@ -5,11 +5,11 @@ body:
   - type: markdown
     attributes:
       value: |
-        Write your report here using the tasks in your selected packet. Concise answers are welcome; state what was not assessed. No separate report is required. Link or attach supporting evidence in the text fields.
+        **Write one report.** Keep your packet open in another tab and number answers to match its tasks. Attach or link evidence. Concise, partial, negative and inconclusive reviews are welcome; no separate document or pull request is required.
 
-        Submission creates a **public issue under your GitHub account**. Use only material you may share, with no confidential client information or unnecessary personal details. For private or offline work, use the [same report headings](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/main/docs/external-review/review-record-template.md) and an agreed private channel.
+        **Need a packet?** [Choose one from the latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest), complete its tasks, then use its **Write your review** link. An existing review keeps its original packet and software version.
 
-        Keep the packet and software version you actually reviewed, even if a newer release exists. Partial, negative and inconclusive reviews are welcome. Save the issue URL after submission; maintainer responses and retests are recorded separately.
+        Submission is **public under your GitHub account**. Share only permitted material, excluding confidential client information and unnecessary personal details. Private/offline work uses the [same report headings](https://github.com/IsaacAhor/small-business-credit-model-governance/blob/main/docs/external-review/review-record-template.md) and an agreed channel.
   - type: input
     id: reviewer-name
     attributes:
@@ -75,7 +75,7 @@ body:
     attributes:
       label: Assessment and evidence
       description: Answer your packet's tasks with references. Distinguish prepared excerpts, source inspection, independent execution and proposed unrun work. Attach or link supporting files here; identify each file and relevant record or run IDs.
-      placeholder: Answer each task in your packet, with references to supporting evidence. State what was not assessed.
+      placeholder: "1. Task and answer, with evidence references. Repeat for the remaining tasks; mark anything not assessed."
     validations:
       required: true
   - type: textarea
@@ -83,7 +83,7 @@ body:
     attributes:
       label: Findings
       description: Give each finding an ID, date/origin, type (defect, ambiguity, limitation or observation), affected records, evidence/reproduction, expected versus observed condition, consequence, uncertainty and acceptance condition. For defects, use Critical (broad silent failure), High (material core-control failure), Moderate (bounded problem with a workable restriction) or Low (local clarity/usability). Observations need no severity. Identify disclosed-issue reproductions separately from new findings.
-      placeholder: State findings with their basis, or explicitly record no findings within the scope examined.
+      placeholder: Reference evidence already given above rather than copying it. Record findings with their basis, or explicitly state no findings within the scope examined.
     validations:
       required: true
   - type: textarea
@@ -109,3 +109,7 @@ body:
       options:
         - label: This report accurately describes the work performed and includes only material I may share publicly.
           required: true
+  - type: markdown
+    attributes:
+      value: |
+        **Submit once and save the issue URL: that issue is your report.** Maintainer responses and retests are recorded separately from your original conclusion.

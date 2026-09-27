@@ -45,7 +45,9 @@ class ReviewTargetTests(unittest.TestCase):
         template = self.root / ".github/ISSUE_TEMPLATE/external-review.yml"
         template.parent.mkdir(parents=True, exist_ok=True)
         project = Path(__file__).resolve().parents[1]
-        template.write_bytes((project / ".github/ISSUE_TEMPLATE/external-review.yml").read_bytes())
+        template.write_text((project / ".github/ISSUE_TEMPLATE/external-review.yml").read_text(
+            encoding="utf-8").replace("IsaacAhor/small-business-credit-model-governance", self.repository),
+            encoding="utf-8")
         (folder / "review-record-template.md").write_bytes(
             (project / "docs/external-review/review-record-template.md").read_bytes())
         (template.parent / "config.yml").write_text("blank_issues_enabled: false\n", encoding="utf-8")
@@ -315,6 +317,14 @@ class ReviewTargetTests(unittest.TestCase):
             "## Conclusion and limitations", "## Summary"), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "headings must match"):
             validate_review_form(self.root)
+
+    def test_direct_form_arrivals_have_a_route_to_the_release_packets(self):
+        self.files("v0.13.0")
+        path = self.root / ".github/ISSUE_TEMPLATE/external-review.yml"
+        path.write_text(path.read_text(encoding="utf-8").replace(
+            "/releases/latest", "/tree/main"), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "form must link new reviewers"):
+            self.check("v0.13.0")
 
     def test_form_preserves_identity_fields_and_explicit_answers(self):
         self.files("v0.13.0")

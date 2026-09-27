@@ -1,4 +1,4 @@
-# Practitioner assessment
+# Credit governance and adverse-action assessment
 
 **Packet for Credit Governance and Adverse-Action Reviewers.** Assess whether
 the prepared records below help you trace an adverse-action reason, recognize
@@ -6,10 +6,12 @@ a governance gap, and decide what to inspect next. No Python installation or
 software execution is required. All examples are synthetic and prepared by the
 maintainer; inspecting them does not establish independently verified behavior.
 
-If you arrived by browsing the repository, choose a packet from the
-[latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
-before starting. If you already received or started this packet, keep its
-recorded version and scope.
+**From a release or invitation? You are in the right place.** Inspect the
+materials and complete the [four tasks](#inspect-and-assess), then
+[write your review](#short-response). Keep this page open while completing the
+form. If you are browsing the repository and have not selected a version,
+[choose a packet from the latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest).
+An existing review keeps its recorded version and scope.
 
 On this page: [start](#choose-scope-and-start),
 [materials](#prepared-review-materials), [tasks](#inspect-and-assess),
@@ -187,30 +189,34 @@ submitted issue is your report. Confirm its prefilled software identity, paste
 your saved packet permalink, and select your reviewer group. Keep the version
 you actually reviewed even if a newer release is available.
 
-In **Assessment and evidence**, answer the tasks above: the reason trace,
-governance gap and next action, and practical fit/barriers. Identify the
-artifacts and record IDs you examined, task completion, difficulty and help
-needed. Distinguish inspection of prepared outputs from any independent
-execution, and observed outcomes from opinions about potential usefulness.
+In **Assessment and evidence**, number your answers to match the four tasks:
 
-Use **Findings** for evidence-backed observations or defects and **Conclusion
-and limitations** for your own assessment, omissions and completion status.
-Record reviewer context and sharing permissions in the form. Partial, negative
-and inconclusive reviews are valid; completing a review does not depend on a
-maintainer reply, corrected findings or a later retest.
+1. Reason trace.
+2. Governance gap.
+3. Next action.
+4. Practical fit and barriers.
 
-Submission requires a GitHub account and creates a public issue. Save its URL.
-For private or offline work, use the [same report headings](review-record-template.md)
-and an agreed private channel. This is an alternative way to write the same
-report; no second report or pull request is required. Share only permitted
-material and exclude confidential client information and unnecessary details.
+Identify artifacts and record IDs, completion, difficulty and help needed.
+Distinguish prepared-output inspection from independent execution, and observed
+outcomes from opinions about potential usefulness.
 
-The maintainer preserves your original conclusion and records responses
-separately. Retests identify the changed source, scope, acceptance conditions,
-verifier and implementation involvement, with separate agreement for invited
-work. Earlier conclusions do not transfer automatically. Neither review nor
-retest requires a release or tag. Full [response, sharing and retest rules](protocol.md#findings-response-and-verification)
-remain applicable.
+Reference that evidence in **Findings** rather than copying it. Give your own
+conclusion, omissions and completion status in **Conclusion and limitations**;
+record relationships, assistance and sharing permissions in the form.
+
+**Submit once and save the issue URL.** A GitHub account is required and the
+report is public. Share only permitted material, excluding confidential client
+information and unnecessary details. For private/offline work, use the
+[same report headings](review-record-template.md) and an agreed private channel.
+
+Partial, negative and inconclusive reviews are valid. Your review is complete
+when you return the scoped work and its limits; no maintainer reply, correction
+or retest is required. Original conclusions are preserved, with responses and
+retests recorded separately under the [shared rules](protocol.md#findings-response-and-verification).
+Retests identify the candidate, scope, acceptance conditions, verifier and
+implementation involvement, with separate agreement for invited work. Earlier
+conclusions do not transfer automatically. Neither review nor retest requires
+a release or tag.
 
 [review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.12.0+%2F+3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
 

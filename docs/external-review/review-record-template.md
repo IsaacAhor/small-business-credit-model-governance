@@ -10,6 +10,10 @@ Use the tasks in your saved packet. This blank template is not a completed
 review. Keep the packet and software identities fixed. A newer form does not
 change an existing review's scope or conclusions.
 
+Starting from this template without an assignment? Choose one packet from the
+[latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
+and complete its tasks first. A review already underway keeps its original packet.
+
 ## Name or reviewer identifier
 
 Professional name authorized for the recipients, or a reviewer identifier if
@@ -50,7 +54,7 @@ Record applicable agreed terms without confidential contractual details.
 
 ## Assessment and evidence
 
-Answer the tasks in your selected packet with references. Identify excerpts,
+Number answers to match the tasks in your selected packet, with references. Identify excerpts,
 full sources, independent execution and unrun proposals accurately.
 Technical work includes execution, traces, integrity checks and dated challenge
 expectations/results; link or attach the supporting records with run/case IDs.
@@ -62,6 +66,7 @@ execution evidence is needed only for execution actually performed.
 For each finding: ID, date/origin, type, affected records, evidence or
 reproduction steps, expected versus observed condition, basis, consequence,
 uncertainty and acceptance condition. Identify disclosed-issue reproductions.
+Reference assessment evidence already given rather than copying it.
 For defects use Critical (broad silent failure), High (material core-control
 failure), Moderate (bounded problem with a workable restriction), or Low (local
 clarity/usability). Observations need no severity. Zero findings is valid when
