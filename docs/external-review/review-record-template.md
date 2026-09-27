@@ -1,141 +1,100 @@
-# Technical review record template
+# Review report template
 
-Use for the [scoped technical route](technical-review.md) under the
-[shared procedure](protocol.md). Practitioner-only assessments use the short
-response in the [practitioner brief](practitioner-assessment.md). This is a blank
-record, not a completed review or approval. Methods-only reviewers use the
-[methods packet's short response](methodology-assessment.md#short-methods-response).
-The technical packet also supplies a complete return checklist; this template
-is a ready-made format for the same requirements. An equivalent reviewer-authored
-format is welcome. Keep original conclusions and later responses separately
-identifiable. Include only information authorized for the intended recipients.
+All three reviewer groups use these same headings in the
+[online review form](https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml).
+Complete that form directly for public submission, or copy/download this file
+for offline work and return it through an agreed private channel. An equivalent
+reviewer-authored format is welcome. No duplicate report is required.
 
-Reviewers complete the assignment, execution, findings, conclusion, and sharing
-sections. The maintainer adds responses separately. Complete verification and
-disposition only when the corresponding follow-up occurs; they may remain
-pending when the reviewer returns the review.
+Use the tasks in your saved packet. This blank template is not a completed
+review. Keep the packet and software identities fixed. A newer form does not
+change an existing review's scope or conclusions.
 
-## Assignment and provenance
+## Name or reviewer identifier
 
-- Review identifier and dates:
-- Protocol, assignment brief, and target-sheet URLs and exact revisions:
-- Software commit, version, and tree or source manifest:
-- Archive origin, SHA-256, and source-identity verification, if applicable:
-- Review question, included workflows, exclusions, and agreed deliverables:
-- Agreed effort cap, stopping conditions, and separately agreed retest scope:
-- Reviewer identifier and relevant expertise:
-- Reviewer group(s) from the [shared definitions](reviewer-groups.md), and
-  the work assigned to each participant:
-- Personal or organizational capacity, where authorized:
-- Material relationships, compensation, assistance, and implementation
-  involvement affecting independence; limits on the conclusions supported:
-- Who designed cases, ran commands, and assessed results:
-- Actual effort, scope changes, and reasons:
+Professional name authorized for the recipients, or a reviewer identifier if
+naming is not authorized. No private contact details are needed.
 
-Use a reviewer identifier where public attribution has not been authorized.
-Do not include unnecessary contact details or confidential contractual terms.
-Do not claim independence without enough information to assess it.
+## Role, affiliation and relevant qualifications
 
-## Materials and execution
+Briefly describe your role, affiliation if shareable, and experience or credentials
+relevant to the review. Independent reviewers are welcome; no institutional
+affiliation is required. These details are self-reported, not verified by submission.
 
-| Material or workflow | Revision/hash and relevant record IDs | Action performed | Omitted or unavailable scope |
-| --- | --- | --- | --- |
-| [complete] | [complete] | [read / inspected output / executed / challenged] | [complete] |
+## Professional profile (optional)
 
-Operating system, Python/dependency versions, setup, and relevant constraints:
+An authorized public professional, institutional or publication profile, or another
+source supporting your relevant qualifications. You may leave this blank.
 
-| Run ID | Command | Input/configuration hashes | Exit code, elapsed time, assistance | Output reference/hash and outcome |
-| --- | --- | --- | --- | --- |
-| [complete] | [complete] | [complete] | [complete] | [complete / failed / not run; details] |
+## Packet permalink
 
-Consistent-decision trace: driver -> mapping -> reason -> notice -> assessment:
+Saved instruction URL pinned to a commit. On GitHub, press **y** on the packet
+page and copy the URL. Record companion revisions only if different.
 
-Defective-decision trace and correct target finding:
+## Software version and source
 
-Integrity check: selected input/output, normalization policy, calculated and
-recorded hashes, and result:
+Version and source commit or release tag. For an archive, include origin,
+acquisition date, SHA-256 and identity verification in the evidence below.
 
-Explain what successful execution and seeded-type coverage establish, and
-what remains unassessed:
+## Reviewer group
 
-## Expectations fixed before execution
+Technical Implementation Reviewers / Credit Governance and Adverse-Action
+Reviewers / Methodology and Evaluation Reviewers. Distinguish each scope and
+participant's work when more than one group applies.
 
-Preserve this table's date/hash before running the cases. Record later
-amendments and reasons without replacing the original expectations.
+## Scope and work performed
 
-| Case ID / family | Designer and origin | Input or delta hash / target IDs | Expected result and technical basis | Date |
-| --- | --- | --- | --- | --- |
-| [complete] | [reviewer-designed / author-derived / disclosed-issue reproduction] | [complete] | [complete; explain any disputed rule] | [complete] |
+Review dates; voluntary or invited mode; selected questions, materials and
+record IDs; exclusions; effort cap, actual effort, omissions and changes.
+Record applicable agreed terms without confidential contractual details.
 
-Additional reviewer-designed scenario, clean controls, omitted families and
-reasons:
+## Assessment and evidence
 
-## Observations after execution
+Answer the tasks in your selected packet with references. Identify excerpts,
+full sources, independent execution and unrun proposals accurately.
+Technical work includes execution, traces, integrity checks and dated challenge
+expectations/results; link or attach the supporting records with run/case IDs.
+Governance and methods reviewers use their packet's assessment questions;
+execution evidence is needed only for execution actually performed.
 
-| Case / run ID | Input validity and execution | Findings for target records | Comparison with expectation | Misses / unexpected alarms / not assessed |
-| --- | --- | --- | --- | --- |
-| [complete] | [complete] | [IDs and references] | [pass / fail / inconclusive / not tested / not applicable, with reason] | [complete] |
+## Findings
 
-Counts and denominators, if reporting rates:
+For each finding: ID, date/origin, type, affected records, evidence or
+reproduction steps, expected versus observed condition, basis, consequence,
+uncertainty and acceptance condition. Identify disclosed-issue reproductions.
+For defects use Critical (broad silent failure), High (material core-control
+failure), Moderate (bounded problem with a workable restriction), or Low (local
+clarity/usability). Observations need no severity. Zero findings is valid when
+scope and limits are recorded.
 
-Disclosed issues reproduced, new findings, and untested assumptions:
+## Conclusion and limitations
 
-## Reviewer findings and conclusion
+Your own conclusion, what worked or failed, and what remains untested or
+unsupported. Status: completed within scope / partial / blocked / withdrawn.
+Completion does not require favorable findings, a response, a fix or a retest.
 
-Repeat for each finding; zero new findings is permitted.
+## Reviewer context and sharing
 
-- Finding ID, title, date, and origin:
-- Type: defect / specification ambiguity / limitation / observation:
-- Severity: Critical / High / Moderate / Low, or not applicable:
-- Affected claim, candidate, workflow, files, and record IDs:
-- Reproduction steps and input/output references:
-- Expected versus observed behavior and technical basis:
-- Consequence, scope, uncertainty, and any use restriction:
-- Proposed acceptance condition:
+Identify each participant's work/capacity,
+relationships, compensation, assistance and implementation involvement affecting
+independence. State intended recipients/destination, permissions for further
+attribution, quotations or circulation, date and restrictions. Leave ungranted
+permissions explicit. A review is not blanket permission or organizational
+endorsement. Include only
+details authorized for the recipients; a public submission needs public sharing
+permission. No private contact details or confidential client information are needed.
+Do not repeat your reviewer details above.
 
-Reviewer conclusion in the reviewer's own words:
+## Confirmation
 
-What worked, what failed, what was not tested, and conclusions not supported:
+Confirm and date that this account accurately describes the work performed
+and includes only material you may share with the stated recipients. Online
+submission is public under your GitHub account.
 
-Review status: completed within scope / partial / blocked / withdrawn;
-date and explanation:
-
-Reviewer confirmation that this accurately describes the work performed:
-
-## Maintainer response
-
-Preserve the original review. Add dated responses without rewriting its
-findings, severity assessments, or conclusion.
-
-| Finding ID | Response and evidence | Owner / target date | Implementation status | Exact correction and regression reference | Residual limitation |
-| --- | --- | --- | --- | --- | --- |
-| [complete] | [agree / dispute / defer; rationale] | [complete] | [open / planned / implemented / deferred / disputed] | [reference or none] | [complete] |
-
-Severity disagreements, accepted-risk decisions, and review dates/triggers:
-
-## Verification and disposition
-
-| Finding ID | Exact candidate identity | Verifier, date, implementation involvement | Tests and observed results | Verification status | Acceptance condition met? |
-| --- | --- | --- | --- | --- | --- |
-| [complete] | [commit or source manifest plus patch hash] | [complete] | [references] | [not retested / maintainer-verified only / independently verified / retest failed / inconclusive] | [result and remaining gap] |
-
-Closure decision and supporting evidence, or unresolved disposition:
-
-Remaining limitations, failed retests, and scope of any independent verification:
-
-## Sharing and attribution
-
-Intended recipients or destination and approved scope of sharing:
-
-Authorized reviewer attribution and third-party material, if any:
-
-Material qualifications, conflicts or compensation that must accompany a
-shared conclusion:
-
-Permission reference/date and restrictions:
-
-A completed review does not itself grant permission to identify a reviewer,
-circulate their response, or imply an organization's endorsement. Sharing a
-summary must not omit adverse findings or qualifications that change its
-meaning. Keep detailed administrative records separate from this technical
-record.
+The maintainer adds dated responses separately, preserving the original review.
+Follow-up records identify finding IDs, response/rationale, owner, implementation
+status and correction references. Retests also record the candidate, verifier,
+date, evidence, implementation involvement, acceptance condition and remaining
+limitations. Distinguish not retested, maintainer-verified only, independently
+verified, retest failed and inconclusive. Do not transfer conclusions to a new
+version. See the [shared protocol](protocol.md#findings-response-and-verification).

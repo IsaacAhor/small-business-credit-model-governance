@@ -8,22 +8,17 @@ how the pieces fit together, and which artifacts to inspect first.
 
 ## External review assignments
 
-Open the [external review packets](docs/external-review/README.md), or go
-directly to the packet you received:
+Open the [latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
+and choose a packet under **Review this release**. The
+[packet overview](docs/external-review/README.md) explains the choices:
+technical execution, credit governance and adverse-action assessment, or
+methodology and evaluation. Each packet contains the exact source, tasks,
+materials, limitations and response format. Voluntary reviewers can start
+without prior coordination; invited reviews keep their agreed terms.
 
-- [Technical Implementation Reviewers](docs/external-review/technical-review.md):
-  source inspection, execution, and independent challenges.
-- [Credit Governance and Adverse-Action Reviewers](docs/external-review/practitioner-assessment.md):
-  prepared reason-trace and governance records; no installation required.
-- [Methodology and Evaluation Reviewers](docs/external-review/methodology-assessment.md):
-  claims, assumptions, and evaluation critique; execution is separately agreed.
-
-Each packet contains the assignment, exact source, essential materials or
-instructions, limitations, and what to return. The
-[group definitions](docs/external-review/reviewer-groups.md) describe fit.
-Keep the source and packet revisions agreed for the review. These documents
-do not establish that an external review has occurred. The browsing paths below
-are optional wider context for an agreed packet assignment.
+If a review is already underway, reopen its saved packet and keep the original
+source and instruction revisions. These documents do not establish that an
+external review has occurred. The browsing paths below are optional wider context.
 The general project tour and commands below are optional background; they are
 not the assignment checklist and do not replace its version-specific commands.
 

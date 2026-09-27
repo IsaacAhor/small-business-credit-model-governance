@@ -6,11 +6,21 @@ a governance gap, and decide what to inspect next. No Python installation or
 software execution is required. All examples are synthetic and prepared by the
 maintainer; inspecting them does not establish independently verified behavior.
 
-On this page: [agreement](#agree-a-bounded-assignment),
+If you arrived by browsing the repository, choose a packet from the
+[latest release](https://github.com/IsaacAhor/small-business-credit-model-governance/releases/latest)
+before starting. If you already received or started this packet, keep its
+recorded version and scope.
+
+On this page: [start](#choose-scope-and-start),
 [materials](#prepared-review-materials), [tasks](#inspect-and-assess),
 [limitations](#known-limitations), and [response](#short-response).
 
-## Agree a bounded assignment
+## Choose scope and start
+
+For a voluntary review, use the tasks below, choose and record an effort cap,
+and begin. No maintainer agreement is required. Record any narrower scope and
+omissions; partial work is welcome. An invited or commissioned review follows
+its agreed scope, effort and return method.
 
 Relevant experience includes credit-model risk, underwriting governance,
 adverse-action review, or review of credit-model documentation. Fit follows
@@ -20,17 +30,19 @@ expertise and the assigned work, not job title or affiliation. The
 - **Software and prepared records:** v0.12.0, commit
   `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`;
   tree `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
-- **Instructions:** record this packet's commit-pinned URL. Its companion
+- **Instructions:** save this packet's permalink: on GitHub, press **y** and
+  copy the resulting URL. Its companion
   protocol and target sheet use the same documentation revision unless
   separately agreed and recorded. These instructions postdate the software
   release and are not in its archive. Resolve any source or instruction
   mismatch before starting; do not switch to a newer version automatically.
 - **Scope:** the four tasks below, selected artifacts, and your stated review
-  context. Agree exclusions, deliverables, return method, and effort cap with
-  the maintainer. Two to four hours is an untested planning allowance for a
+  context. Record exclusions, deliverables and your effort cap; an invited
+  review uses its agreed terms. Two to four hours is an untested planning allowance for a
   first assessment, not a measured completion time. Narrow scope if needed.
-- **Stopping point:** stop at the agreed cap, record actual effort and unfinished
-  work, and agree any extension or retest separately. A partial assessment is
+- **Stopping point:** stop at your recorded cap and report actual effort and
+  unfinished work. An extension or retest needs a separate recorded scope and
+  agreement for an invited assignment. A partial assessment is
   valid. A broader portfolio, vendor, recourse, public-data, or comparison
   assessment needs its own scope.
 - **Independence:** record relevant relationships, compensation, assistance,
@@ -170,51 +182,37 @@ across institutions, adoption, production readiness, or legal compliance.
 
 ## Short response
 
-Return your own dated notes using the fields below, or an equivalent account,
-through the return method agreed with the maintainer. The long technical
-execution record is not required. Use a reviewer identifier if naming has not
-been authorized; exclude confidential client or unnecessary personal details.
+**[Write your review][review-form].** Complete the shared form directly; the
+submitted issue is your report. Confirm its prefilled software identity, paste
+your saved packet permalink, and select your reviewer group. Keep the version
+you actually reviewed even if a newer release is available.
 
-- Review ID/date, reviewer identifier, relevant expertise, and group(s):
-- Work assigned to each participant; personal or organizational capacity:
-- Relevant relationships, compensation, assistance, implementation involvement,
-  and resulting limits on independence:
-- Software target: v0.12.0 / `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`.
-  Packet URL/revision and companion instruction revisions, if different:
-- Materials examined, including excerpts versus originals; these prepared
-  outputs were not independently regenerated unless you separately did so:
-- Agreed context, scope, exclusions, effort cap, deliverables, actual effort,
-  and omissions:
+In **Assessment and evidence**, answer the tasks above: the reason trace,
+governance gap and next action, and practical fit/barriers. Identify the
+artifacts and record IDs you examined, task completion, difficulty and help
+needed. Distinguish inspection of prepared outputs from any independent
+execution, and observed outcomes from opinions about potential usefulness.
 
-| Task | Exact artifacts / record IDs examined | Outcome, difficulty, and help needed |
-| --- | --- | --- |
-| Reason trace | [references] | [completed / partial / not undertaken; observations] |
-| Review gap and next action | [references] | [observations and information still needed] |
-| Practical fit and barriers | [references] | [reasoned assessment; separate opinion from observed use] |
+Use **Findings** for evidence-backed observations or defects and **Conclusion
+and limitations** for your own assessment, omissions and completion status.
+Record reviewer context and sharing permissions in the form. Partial, negative
+and inconclusive reviews are valid; completing a review does not depend on a
+maintainer reply, corrected findings or a later retest.
 
-- Findings, if any: stable ID, type, artifact and record references, expected
-  versus observed behavior, technical basis, consequence, scope, uncertainty,
-  and what would resolve it. State severity for defects: Critical means broad
-  silent failure or invalidation of the scoped conclusion; High means a material
-  core-control miss; Moderate means a bounded material problem with a workable
-  restriction; Low means local clarity/usability without demonstrated material
-  effect. Observations need not receive defect severity. Retain disagreements.
-- Your conclusion: what worked, what did not, and what cannot be concluded:
-- Status: completed within scope / partial / blocked / withdrawn; confirm
-  that the record accurately describes your work:
-- Sharing permission: intended recipients/destination, permitted attribution
-  or excerpts, material qualifications, restrictions, and permission date.
-  Leave ungranted permissions explicit; completion does not grant permission.
+Submission requires a GitHub account and creates a public issue. Save its URL.
+For private or offline work, use the [same report headings](review-record-template.md)
+and an agreed private channel. This is an alternative way to write the same
+report; no second report or pull request is required. Share only permitted
+material and exclude confidential client information and unnecessary details.
 
-Completion means the agreed work and omissions are recorded, not that the result
-is favorable or all findings are fixed. Zero new findings is also valid with
-coverage and limits recorded. The maintainer preserves your original conclusion
-and separately agrees, disputes with evidence, or defers each finding. A later
-retest needs a new agreement, exact candidate, acceptance condition, verifier,
-and disclosure of implementation involvement. Neither review nor retest needs
-a release or tag. Shared summaries retain adverse findings, qualifications,
-assistance, relevant conflicts or compensation, and actual scope. Full rules:
-[shared procedure](protocol.md#findings-response-and-verification).
+The maintainer preserves your original conclusion and records responses
+separately. Retests identify the changed source, scope, acceptance conditions,
+verifier and implementation involvement, with separate agreement for invited
+work. Earlier conclusions do not transfer automatically. Neither review nor
+retest requires a release or tag. Full [response, sharing and retest rules](protocol.md#findings-response-and-verification)
+remain applicable.
+
+[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.12.0+%2F+3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
 
 [project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/PROJECT_BRIEF.md
 [method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/METHOD.md
