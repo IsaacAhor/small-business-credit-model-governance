@@ -2,9 +2,10 @@
 
 ## Purpose
 
-This document defines the charter for the repository's next implementation
-stage: a repeatable credit model governance evidence engine for machine-
-learning-based small business credit underwriting.
+This document defines the charter for the implemented batch governance workflow
+and its continuing development: bounded reliability assessment for
+machine-learning-based small-business credit underwriting, focused on adverse-action
+reason accuracy and traceability and ongoing model-risk oversight.
 
 The system is intended to support model-risk, validation, compliance, and
 governance review by turning structured inputs and monitoring logic into
@@ -26,11 +27,16 @@ still lack a repeatable way to:
 - record breaches and issues
 - produce evidence that can be reviewed consistently across time
 
-This system exists to close that gap.
+The implemented workflow addresses these record and review tasks. Its outputs
+require assessment against the declared method, data, version, and limitations;
+producing a report does not establish model reliability.
 
 ## Primary Goal
 
-Create a batch, configuration-driven workflow that can generate a monthly or periodic governance evidence pack for a small business underwriting model using structured records and deterministic monitoring logic.
+Maintain a batch, configuration-driven workflow for periodic governance review,
+using structured records, declared methods, monitoring protocols, documentation
+standards, and portable tools. Synthetic demonstrations and the separate SBA
+approved-loan monitoring adapter have distinct data and assessment boundaries.
 
 ## Intended Users
 
@@ -39,7 +45,8 @@ Create a batch, configuration-driven workflow that can generate a monthly or per
 - compliance and fair-lending reviewers
 - governance managers or committees
 - internal audit or documentation reviewers
-- researchers or practitioners evaluating governance workflows using synthetic data
+- researchers or practitioners evaluating synthetic demonstrations and bounded
+  public-data monitoring methods
 
 ## Core Capabilities
 
@@ -69,6 +76,15 @@ This system is not intended to:
 - explicit about limitations, especially for synthetic data
 - narrow in scope to small business underwriting governance
 
-## First Build Target
+## Implemented Baseline and Continuing Work
 
-The first serious build target is a one-command demo monitoring run that validates synthetic records, computes configured monitoring metrics, identifies threshold breaches, and emits a reviewer-ready evidence pack.
+The monthly demonstration workflow validates synthetic records, computes
+configured metrics, identifies threshold breaches, and emits a reviewable evidence
+pack. Linked governance records, reason QA, vendor oversight, and a separate SBA
+public-data adapter are also implemented.
+
+The [project overview](../README.md) identifies the current components and
+[known target limitations](external-review/targets/v0.12.0.md#disclosed-target-limitations).
+Reason-control defects, method-level validation, and scoped independent review
+remain substantive work. Supporting screening and optional recourse retain their
+separate roles and limitations.

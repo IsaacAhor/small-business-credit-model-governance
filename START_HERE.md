@@ -1,10 +1,9 @@
 # Start Here
 
-This repository is a public demonstration of a repeatable governance workflow for
-machine-learning-based small business credit underwriting systems.
-
-It is intended for reviewers who need to understand what the repository shows,
-how the pieces fit together, and which artifacts to inspect first.
+This repository provides methods and executable tools for bounded reliability
+assessment of machine-learning-based small-business credit underwriting. Start
+with adverse-action reason review and ongoing model-risk oversight, then inspect
+the records that document assumptions, findings, and follow-up.
 
 ## External review assignments
 
@@ -18,91 +17,90 @@ without prior coordination; invited reviews keep their agreed terms.
 
 If a review is already underway, reopen its saved packet and keep the original
 source and instruction revisions. These documents do not establish that an
-external review has occurred. The browsing paths below are optional wider context.
-The general project tour and commands below are optional background; they are
-not the assignment checklist and do not replace its version-specific commands.
+external review has occurred. The tour and commands below are general background;
+they do not replace a packet's version-specific assignment.
 
 ## Fast Review Path
 
-Use these references for a broader overview of the project:
+1. Read the [project brief](PROJECT_BRIEF.md) for the problem, contribution,
+   intended users, and current limits.
+2. Inspect the [adverse-action reason run kit](docs/adverse-action-reason-run-kit/README.md),
+   its [terminology](docs/adverse-action-reason-run-kit/TERMINOLOGY.md), and the
+   [known target limitations](docs/external-review/targets/v0.12.0.md#disclosed-target-limitations).
+   Follow the supplied driver-to-mapping-to-reason-to-notice chain and its
+   exceptions. Distinguish consistency from explanation faithfulness.
+3. Read the [model-risk oversight run kit](docs/model-risk-oversight-run-kit/README.md)
+   for SBA approved-loan monitoring, out-of-time performance, drift, source
+   provenance, and data exclusions. This is the separate public-data path.
+4. Inspect the [governance and validation run kit](docs/model-governance-validation-run-kit/README.md)
+   and [governance review pack](examples/evidence-packs/model-governance-review/README.md)
+   for risk, method assumptions, review status, monitoring plans, and open gaps.
+5. Read the [evidence map](docs/evidence-map.md) for artifact-level limits and
+   the [NIST AI RMF mapping](docs/ai-rmf-alignment.md) for framework context.
+6. Use the [implementation guide](IMPLEMENTATION_GUIDE.md) to assess adaptation
+   requirements after reviewing the methods and their limitations.
 
-1. Read `PROJECT_BRIEF.md` for the problem, contribution, users, and current
-   limitations.
-2. Read `docs/evidence-map.md` to see what each artifact supports and what it
-   does not prove.
-3. Read `docs/ai-rmf-alignment.md` for a NIST AI RMF-oriented view of how
-   the workflow maps to Govern, Map, Measure, and Manage.
-4. Read `docs/model-governance-validation-run-kit/README.md` and inspect
-   `examples/evidence-packs/model-governance-review/README.md` for the formal
-   risk, explainability, validation, monitoring, and gap records.
-5. Read `docs/adverse-action-reason-run-kit/README.md` for the synthetic
-   adverse-action reason accuracy benchmark, run command, evidence-pack review
-   path, and public-data limits.
-6. Read `docs/recourse-assessment-run-kit/README.md` to inspect the separate
-   optional action-set assessment, conservative statuses, and curated reviewer
-   pack without conflating it with required adverse-action reasons.
-7. Read `docs/credit-union-ai-vendor-risk-run-kit/README.md` if you are
-   reviewing an AI-enabled credit-union underwriting vendor, CUSO relationship,
-   or third-party small-business/member-business lending tool. Inspect
-   `examples/evidence-packs/credit-union-vendor-risk/README.md` for the
-   deterministic synthetic vendor-oversight output.
-8. Review `examples/evidence-packs/monthly-portfolio/monitoring_report.md` for
-   the plain-language output of a synthetic monthly governance review at
-   portfolio scale. Its significance, proxy-screening, and LDA outputs are
-   supporting risk screens rather than the primary review path. A minimal
-   controlled-breach scenario is also available under
-   `examples/evidence-packs/monthly-demo/`.
-9. Read `IMPLEMENTATION_GUIDE.md` if you want to understand how an institution
-   could adapt the workflow.
+For additional scope, inspect the [vendor-risk run kit](docs/credit-union-ai-vendor-risk-run-kit/README.md)
+and its [synthetic pack](examples/evidence-packs/credit-union-vendor-risk/README.md).
+The [monthly portfolio pack](examples/evidence-packs/monthly-portfolio/README.md)
+includes supporting significance, proxy-screening, and LDA outputs. The
+[recourse run kit](docs/recourse-assessment-run-kit/README.md) is a separate,
+optional synthetic assessment; its outputs are not required notice reasons.
 
 ## Role-Based Paths
 
-Use `USE_CASES.md` if you are reviewing from a specific role, including a
-credit-union vendor-risk review role:
+Use [Use Cases](USE_CASES.md) for model-risk, validation, credit policy,
+compliance, vendor-management, research, or supporting screening review.
+For an external assignment, use the settled [reviewer groups](docs/external-review/reviewer-groups.md):
 
-- model-risk or validation reviewer
-- recourse or explanation-method reviewer
-- fair-lending or compliance reviewer
-- credit policy or underwriting governance lead
-- credit-union vendor-management or CUSO reviewer
-- fintech governance or product risk lead
-- researcher or external reviewer
+- Technical Implementation Reviewers
+- Credit Governance and Adverse-Action Reviewers
+- Methodology and Evaluation Reviewers
+
+Select the packet based on the questions and work to be assessed. A role or title
+alone does not establish independent validation of any component.
 
 ## What To Run
 
-The repository can be reviewed without running code by inspecting the curated
-example outputs under `examples/evidence-packs/monthly-portfolio/` (portfolio
-scale) and `examples/evidence-packs/monthly-demo/` (minimal controlled
-scenario) and `docs/adverse-action-reason-run-kit/README.md`
-(adverse-action reason accuracy benchmark landing path). For a credit-union
-third-party underwriting-tool review, also inspect
-`docs/credit-union-ai-vendor-risk-run-kit/README.md` and
-`examples/evidence-packs/credit-union-vendor-risk/README.md`.
-For the separate recourse sidecar, inspect
-`examples/evidence-packs/recourse-assessment/`.
+No execution is required to browse the curated [reason benchmark](examples/evidence-packs/adverse-action-reason-benchmark/README.md),
+[governance pack](examples/evidence-packs/model-governance-review/README.md), or
+[monthly portfolio pack](examples/evidence-packs/monthly-portfolio/README.md).
+Inspecting those outputs is different from independently reproducing them.
 
-If you want to reproduce the synthetic workflow locally, run:
+For general exploration, use Python 3.10 or later and a Git checkout at the
+chosen revision. Follow the [installation instructions](README.md#installation)
+and use fresh output directories:
 
 ```bash
 python scripts/validate_repository.py
-python scripts/validate_phase1.py
-python scripts/validate_vendor_risk_run_kit.py data/synthetic/credit-union-vendor-risk/baseline-complete data/synthetic/monthly-demo
-python scripts/run_governance_review.py data/synthetic/monthly-demo review-output
-python scripts/run_monthly_monitoring.py data/synthetic/monthly-portfolio --evidence-root evidence
-python scripts/run_adverse_action_reason_benchmark.py --overwrite
-python scripts/validate_recourse_run_kit.py data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline
-python scripts/build_recourse_evidence_pack.py data/synthetic/adverse-action-reason-benchmark data/synthetic/recourse-assessment/baseline tmp/recourse-review-pack
-python -m unittest discover -s tests -p "test_*.py"
+python scripts/validate_phase1.py data/synthetic/monthly-demo
+python scripts/run_adverse_action_reason_benchmark.py --output-dir review-output/reason-benchmark
+python scripts/run_governance_review.py data/synthetic/monthly-demo review-output/governance
+python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-root review-output/monitoring
 ```
+
+Keep Windows paths short. Repository validation requires Git metadata at the
+current release; the [target setup notes](docs/external-review/targets/v0.12.0.md#technical-source-setup)
+provide a scoped archive-compatible sequence. Preserve failed runs before retrying.
+The benchmark also writes scratch records under `evidence/`; avoid overwriting
+curated examples. For SBA data acquisition, optional dependencies, fixture
+validation, and real-data execution, follow the
+[SBA run kit](docs/model-risk-oversight-run-kit/README.md).
 
 ## Important Limits
 
-This repository uses synthetic demonstration data. It does not claim production
-deployment, lender adoption, regulatory approval, independent recognition, or
-legal compliance certification.
+The reason benchmark and curated packs use synthetic data. The separate SBA
+workflow uses approved-loan public data and cannot assess declined applications,
+adverse-action reasons, or protected-class fairness. Each workflow has its own
+source, version, assumptions, and coverage limits.
 
-Fair-lending outputs are screening triggers for governance review, not legal
-conclusions. Adverse-action reason QA outputs are review checks, not legal
-advice. Recourse outputs are synthetic reviewer assessments under declared
-action sets, not applicant instructions, real-world feasibility findings, or
-future-outcome guarantees.
+Current reason checks establish only the consistency properties they test; they
+do not establish faithful model explanations or accurate live notices. The
+[disclosed target limitations](docs/external-review/targets/v0.12.0.md#disclosed-target-limitations)
+include open defects and incomplete benchmark metrics. A reproducible failure is
+still a failing control.
+
+The repository does not establish production deployment, institutional adoption,
+regulatory approval, or legal compliance. Supporting fair-lending outputs are
+review triggers, and recourse outputs are synthetic assessments under declared
+action sets, not applicant instructions or future-outcome guarantees.
