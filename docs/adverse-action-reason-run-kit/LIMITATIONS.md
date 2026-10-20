@@ -39,8 +39,9 @@ reason accuracy and transparency under Regulation B 12 CFR 1002.9.
 
 ## Public Data Boundary
 
-No current public small-business dataset supplies the full proof chain needed
-for adverse-action reason accuracy:
+This run uses synthetic records and makes no finding about the availability
+of suitable public datasets. The linked-record assessment described here calls
+for evidence connecting:
 
 - submitted application
 - declined action
@@ -49,15 +50,16 @@ for adverse-action reason accuracy:
 - reason-code mapping version
 - review label or ground-truth assessment
 
-SBA, PPP, and CRA data cannot close that gap. They can support public-data
-context or other monitoring exercises, but not adverse-action reason accuracy.
+Portfolio, lending-volume and other monitoring exercises do not by themselves
+establish the accuracy of actual reasons. Assess each proposed dataset against
+the particular claim, available fields, provenance and reference method.
 
 HMDA can be used only as an off-domain mortgage reason-code mechanics proxy if a
 future run is added. It should not be labeled as small-business credit proof.
 
-CFPB 1071 is useful future small-business application/action context. Until
-public 1071 data and its final disclosed fields are available and suitable, it
-should not be cited as proof of adverse-action reason accuracy.
+Any proposed Section 1071 dataset should be assessed using its exact released
+fields and version. Application/action context alone does not establish the
+accuracy of disclosed reasons.
 
 ## Candor Rules
 
@@ -76,7 +78,7 @@ Say instead:
 - "synthetic adverse-action reason accuracy benchmark"
 - "public method demonstration"
 - "reviewer-ready example evidence pack"
-- "private deidentified lender data is required for real-world validation"
+- "actual reason accuracy requires fit-for-purpose decision and reason evidence"
 
 ## Evidence Gap Closer
 

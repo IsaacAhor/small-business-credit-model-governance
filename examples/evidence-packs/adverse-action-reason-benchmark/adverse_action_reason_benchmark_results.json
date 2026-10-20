@@ -3,7 +3,7 @@
   "workstream": "Adverse-action reason accuracy and transparency under Regulation B 12 CFR 1002.9",
   "dataset": "data/synthetic/adverse-action-reason-benchmark",
   "regulatory_anchor": "Regulation B 12 CFR 1002.9 specific principal reasons tied to actual factors considered or scored.",
-  "public_data_status": "No current public small-business dataset provides declined applications, disclosed reasons or notices, actual decision drivers, mapping versions, and reviewer labels.",
+  "public_data_status": "This run uses synthetic small-business credit records. It does not evaluate real-world reason accuracy or establish whether a suitable public dataset exists.",
   "decision_count": 11,
   "declined_decision_count": 10,
   "recorded_reason_output_count": 15,
@@ -11,6 +11,11 @@
   "max_expected_reasons_per_declined_decision": 4,
   "generation_summary": {
     "label": "synthetic_reason_generation_not_a_notice_process",
+    "purpose": "diagnostic_reason_generation",
+    "final_use_status": "not_assessed",
+    "operational_authorization_status": "not_provided",
+    "authorized_for_operational_use": false,
+    "eligible_for_final_use": false,
     "declined_decision_count": 10,
     "declined_with_generated_reasons": 9,
     "declined_without_generated_reasons": [
@@ -18,9 +23,14 @@
     ],
     "reason_output_count": 14
   },
+  "purpose": "synthetic_seeded_failure_detection",
+  "final_use_status": "not_assessed",
+  "operational_authorization_status": "not_provided",
+  "authorized_for_operational_use": false,
+  "eligible_for_final_use": false,
   "monitoring_reason_qa": {
     "label": "qa_screening_only_not_legal_conclusion",
-    "exception_count": 18,
+    "exception_count": 20,
     "exception_types": [
       "decision_component_mismatch",
       "driver_mapping_mismatch",
@@ -32,6 +42,7 @@
       "notice_text_mapping_mismatch",
       "policy_version_mismatch",
       "principal_driver_omitted",
+      "principal_driver_unmapped",
       "reason_not_in_actual_contributors",
       "rendered_notice_text_mismatch",
       "selection_method_version_mismatch",
@@ -176,6 +187,22 @@
         "message": "Reason output selection-method identifier or version does not match its decision component."
       },
       {
+        "exception_id": "rex-dec-0010-principal_driver_unmapped",
+        "decision_id": "dec-0010",
+        "reason_output_id": null,
+        "reason_code": null,
+        "exception_type": "principal_driver_unmapped",
+        "message": "A principal source driver within the configured review limit has no governed mapping: scoring:external_vendor_watchlist_signal"
+      },
+      {
+        "exception_id": "rex-dec-0010-principal_driver_omitted",
+        "decision_id": "dec-0010",
+        "reason_output_id": null,
+        "reason_code": null,
+        "exception_type": "principal_driver_omitted",
+        "message": "A governed principal source driver is absent from the recorded reason outputs: scoring:external_vendor_watchlist_signal"
+      },
+      {
         "exception_id": "rex-dec-0002-rendered_notice_text_mismatch",
         "decision_id": "dec-0002",
         "reason_output_id": "rso-0002-2",
@@ -196,7 +223,7 @@
         "judgmental",
         "scoring"
       ],
-      "exception_count": 12,
+      "exception_count": 14,
       "exception_types": [
         "decision_component_mismatch",
         "mapping_effective_date_mismatch",
@@ -204,6 +231,7 @@
         "notice_text_mapping_mismatch",
         "policy_version_mismatch",
         "principal_driver_omitted",
+        "principal_driver_unmapped",
         "reason_not_in_actual_contributors",
         "rendered_notice_text_mismatch",
         "selection_method_version_mismatch",
@@ -285,6 +313,7 @@
     "notice_text_mapping_mismatch",
     "policy_version_mismatch",
     "principal_driver_omitted",
+    "principal_driver_unmapped",
     "reason_not_in_actual_contributors",
     "recorded_output_differs_from_regeneration",
     "rendered_notice_text_mismatch",
@@ -307,6 +336,7 @@
     "notice_text_mapping_mismatch",
     "policy_version_mismatch",
     "principal_driver_omitted",
+    "principal_driver_unmapped",
     "reason_not_in_actual_contributors",
     "recorded_output_differs_from_regeneration",
     "rendered_notice_text_mismatch",
@@ -325,8 +355,8 @@
     "Benchmark exceptions are governance review triggers.",
     "Synthetic source-to-rendered-notice checks reconcile controlled notice segments to recorded reason outputs; they do not assess real-world notice readability or legal sufficiency.",
     "The synthetic selection-method check verifies recorded method provenance and deterministic behavior, not a real creditor's selection-method sufficiency.",
-    "Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.",
-    "HMDA can support only off-domain denial-reason mechanics, not small-business proof."
+    "Evaluating actual reason accuracy requires evidence linking the relevant decision process to disclosed reasons, with a justified reference and stated limits; public or private status alone does not establish suitability.",
+    "An HMDA mortgage-denial mechanics exercise would not establish small-business reason accuracy."
   ],
   "primary_source_urls": [
     "https://www.consumerfinance.gov/rules-policy/regulations/1002/9/",

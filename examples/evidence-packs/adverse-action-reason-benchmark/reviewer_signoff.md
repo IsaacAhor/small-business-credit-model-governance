@@ -1,6 +1,6 @@
-# Reviewer Signoff
+# Reviewer Signoff Template
 
-This artifact supports governance workflow demonstration only.
+This artifact supports governance workflow demonstration only. The reviewer status below is copied from the input manifest and is not authenticated or verified by this run. Operational authorization is not provided.
 
 - Run ID: `run-2026-07-adverse-action`
 - Model ID: `mdl-adverse-reason-benchmark`

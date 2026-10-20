@@ -2,14 +2,15 @@
 
 ## Purpose
 
-This specification defines the deidentified private data needed to test
-real-world adverse-action reason accuracy and transparency for small-business
-credit decisions.
+This specification describes a prospective deidentified private-data evaluation
+of adverse-action reason accuracy and transparency for small-business credit
+decisions.
 
-The public repository can demonstrate the method with synthetic data. A
-real-world accuracy assessment requires a lender, CDFI, or fintech dataset that
-connects application records, decision factors, model drivers, reason mappings,
-notices, and reviewer labels.
+The repository currently demonstrates the method with synthetic data. This
+evaluation route would connect application records, decision factors, model
+drivers, reason mappings, notices, and reviewer labels supplied by a lender,
+CDFI, or fintech. Other proposed data sources should be assessed for the same
+claim-specific evidence needs; private status is not itself a suitability test.
 
 ## Required Application And Decision Fields
 

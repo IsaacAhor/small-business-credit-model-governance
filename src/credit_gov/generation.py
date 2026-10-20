@@ -9,6 +9,8 @@ risk or compliance reviewer would expect.
 
 The logic is deterministic and synthetic. It does not represent a production
 adverse-action notice process and encodes no legal conclusions.
+Candidates require reason-content review. A passed content assessment or local
+review export does not provide operational authorization.
 """
 
 from __future__ import annotations
@@ -16,6 +18,7 @@ from __future__ import annotations
 from typing import Any
 
 from .reason_fidelity import ReasonFidelityContext, rank_decision_contributions
+from .result_scope import diagnostic_scope
 
 DEFAULT_MAX_REASONS = 4
 
@@ -55,6 +58,10 @@ def generate_reasons_for_decision(
     Only drivers that resolve to a governed reason-code mapping are emitted.
     The absence of any mapped adverse driver yields no outputs, which the
     downstream reason QA step surfaces as a ``missing_reason_code`` exception.
+    With source-to-notice inputs, QA also flags each decision's unresolved
+    principal mapping coverage, including mixed mapped/unmapped cases. A
+    generated lower-ranked reason does not resolve that finding. Generation
+    never fabricates reason text for an unmapped driver.
     """
     decision_context = decision_context or {}
     decision_component = decision_context.get("decision_component", "scoring")
@@ -168,6 +175,7 @@ def summarize_generation(
     )
     return {
         "label": "synthetic_reason_generation_not_a_notice_process",
+        **diagnostic_scope("diagnostic_reason_generation"),
         "declined_decision_count": len(declined),
         "declined_with_generated_reasons": len(covered),
         "declined_without_generated_reasons": uncovered,

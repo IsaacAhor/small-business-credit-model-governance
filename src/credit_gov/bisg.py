@@ -90,23 +90,25 @@ def resolve_configured_reference_path(dataset_dir: Path, configured_path: str) -
         if len(parents) >= 3:
             candidates.append((parents[2] / configured).resolve())
     for candidate in candidates:
-        if candidate.is_file():
+        if (dataset_dir / candidate).is_file():
             return candidate
     return None
 
 
-def load_reference_json(dataset_dir: Path, configured_path: str) -> Any:
+def read_reference_bytes(dataset_dir: Path, configured_path: str) -> bytes:
     resolved = resolve_configured_reference_path(dataset_dir, configured_path)
     if resolved is not None:
-        with resolved.open(encoding="utf-8") as handle:
-            return json.load(handle)
+        return (dataset_dir / resolved).read_bytes()
 
     name = Path(configured_path).name
     resource = files("credit_gov.reference.bisg").joinpath(name)
     if resource.is_file():
-        with resource.open(encoding="utf-8") as handle:
-            return json.load(handle)
+        return resource.read_bytes()
     raise FileNotFoundError(f"Missing BISG reference file: {configured_path}")
+
+
+def load_reference_json(dataset_dir: Path, configured_path: str) -> Any:
+    return json.loads(read_reference_bytes(dataset_dir, configured_path).decode("utf-8"))
 
 
 def load_reference_table_from_config(dataset_dir: Path, configured_path: str) -> dict[str, dict[str, float]]:
@@ -557,6 +559,8 @@ def run_bisg_proxy_analysis(
     demographic_inputs: list[dict[str, Any]],
     config: dict[str, Any],
     dataset_dir: Path,
+    *,
+    reference_data: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Proxy-weighted fair-lending screening over BISG posteriors.
 
@@ -566,11 +570,16 @@ def run_bisg_proxy_analysis(
     reference-group comparisons. Rounded-count proportion tests are retained
     only as legacy diagnostics.
     """
-    surname_table = load_reference_table_from_config(dataset_dir, config["surname_reference_path"])
-    geography_table = load_reference_table_from_config(dataset_dir, config["geography_reference_path"])
+    if reference_data is None:
+        reference_data = {
+            field: load_reference_json(dataset_dir, config[field])
+            for field in ("surname_reference_path", "geography_reference_path", "national_marginals_path")
+        }
+    surname_table = normalize_reference_table(reference_data["surname_reference_path"])
+    geography_table = normalize_reference_table(reference_data["geography_reference_path"])
     national_marginals = {
         key: float(value)
-        for key, value in load_reference_json(dataset_dir, config["national_marginals_path"]).items()
+        for key, value in reference_data["national_marginals_path"].items()
     }
 
     reference_group = config.get("reference_group", "white")

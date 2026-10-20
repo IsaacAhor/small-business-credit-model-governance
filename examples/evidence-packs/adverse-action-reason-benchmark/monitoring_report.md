@@ -2,6 +2,8 @@
 
 This report is deterministic, synthetic, and intended only for governance workflow demonstration.
 
+Run completion and zero QA findings do not establish a passed reason-content review. Operational authorization is not provided.
+
 - Run ID: `run-2026-07-adverse-action`
 - Model ID: `mdl-adverse-reason-benchmark`
 - Version ID: `ver-2026-07-adverse-action`
@@ -15,7 +17,7 @@ This report is deterministic, synthetic, and intended only for governance workfl
 
 - Declined decisions reviewed: 10
 - Generated reason outputs reviewed: 15
-- QA exception count: 18
+- QA exception count: 20
 - Source-to-notice control status: `ran_synthetic_source_to_rendered_notice_controls`
 - Rendered-notice control status: `ran_synthetic_rendered_notice_controls` (1 exception(s))
 - Result type: screening only, not a legal conclusion
@@ -37,6 +39,8 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - dec-0008: source_driver_rank_mismatch (Reason output source-driver rank does not match deterministic source contribution ranking.)
 - dec-0008: notice_template_version_mismatch (Reason output does not pin the governed notice-template identifier and version.)
 - dec-0009: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
+- dec-0010: principal_driver_unmapped (A principal source driver within the configured review limit has no governed mapping: scoring:external_vendor_watchlist_signal)
+- dec-0010: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: scoring:external_vendor_watchlist_signal)
 - dec-0002: rendered_notice_text_mismatch (Rendered notice reason text does not match the recorded reason output.)
 
 ## Fair-Lending Screening
@@ -77,4 +81,6 @@ This report is deterministic, synthetic, and intended only for governance workfl
 - iss-0015: Reason QA exception for dec-0008: source_driver_rank_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
 - iss-0016: Reason QA exception for dec-0008: notice_template_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
 - iss-0017: Reason QA exception for dec-0009: selection_method_version_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
-- iss-0018: Reason QA exception for dec-0002: rendered_notice_text_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0018: Reason QA exception for dec-0010: principal_driver_unmapped. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0019: Reason QA exception for dec-0010: principal_driver_omitted. Owner: Model Risk Governance. Due: 2026-06-30.
+- iss-0020: Reason QA exception for dec-0002: rendered_notice_text_mismatch. Owner: Model Risk Governance. Due: 2026-06-30.

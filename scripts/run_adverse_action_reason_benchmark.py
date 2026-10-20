@@ -14,8 +14,11 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import logging
 import shutil
 import sys
+import uuid
+from tempfile import mkdtemp
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -31,7 +34,11 @@ from credit_gov.generation import (  # noqa: E402
     summarize_generation,
 )
 from credit_gov.monitoring import build_output_fingerprints, run_monthly_monitoring  # noqa: E402
+from credit_gov.monitoring import verify_evidence_pack  # noqa: E402
+from credit_gov.input_snapshot import DatasetSnapshot  # noqa: E402
 from credit_gov.reason_fidelity import build_reason_fidelity_context  # noqa: E402
+from credit_gov.result_scope import diagnostic_scope  # noqa: E402
+from credit_gov.source_provenance import check_source_unchanged  # noqa: E402
 
 
 WORKSTREAM_NAME = "Adverse-action reason accuracy and transparency under Regulation B 12 CFR 1002.9"
@@ -48,6 +55,7 @@ EXPECTED_EXCEPTION_TYPES = {
     "no_mapped_adverse_driver",
     "recorded_output_differs_from_regeneration",
     "principal_driver_omitted",
+    "principal_driver_unmapped",
     "notice_text_mapping_mismatch",
     "notice_template_version_mismatch",
     "mapping_effective_date_mismatch",
@@ -71,6 +79,7 @@ class BenchmarkRunResult:
     def to_dict(self) -> dict[str, Any]:
         return {
             "ok": self.ok,
+            **diagnostic_scope("synthetic_seeded_failure_detection"),
             "dataset_dir": self.dataset_dir,
             "output_dir": self.output_dir,
             "errors": self.errors,
@@ -130,6 +139,18 @@ def run_benchmark(
     dataset_dir = dataset_dir.resolve()
     output_dir = output_dir.resolve()
 
+    if dataset_dir.is_relative_to(output_dir) or any(
+        source.is_relative_to(output_dir) or output_dir.is_relative_to(source)
+        for source in (Path(__file__).resolve().parent, SRC.resolve(), (ROOT / "schemas").resolve())
+    ):
+        return BenchmarkRunResult(
+            ok=False,
+            dataset_dir=str(dataset_dir),
+            output_dir=None,
+            errors=["Output must not replace the input dataset, source directories, or their ancestors."],
+            benchmark_results={},
+        )
+
     if output_dir.exists() and not overwrite:
         return BenchmarkRunResult(
             ok=False,
@@ -142,9 +163,12 @@ def run_benchmark(
     scratch_suffix = hashlib.sha1(str(output_dir).encode("utf-8")).hexdigest()[:8]
     scratch_evidence_root = ROOT / "evidence" / f"_aarb_{scratch_suffix}"
     scratch_evidence_root.mkdir(parents=True, exist_ok=True)
+    inputs = DatasetSnapshot(dataset_dir)
     monitoring_result = run_monthly_monitoring(
         dataset_dir=dataset_dir,
         evidence_root=scratch_evidence_root,
+        source_entrypoint=Path(__file__),
+        input_snapshot=inputs,
     )
     if not monitoring_result.ok:
         return BenchmarkRunResult(
@@ -156,39 +180,94 @@ def run_benchmark(
         )
 
     source_output = Path(monitoring_result.output_dir)
-    if output_dir.exists():
-        shutil.rmtree(output_dir)
     output_dir.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(source_output, output_dir)
+    staging_root = Path(mkdtemp(prefix=".benchmark-", dir=output_dir.parent))
+    try:
+        staged_output = staging_root / "pack"
+        shutil.copytree(source_output, staged_output)
+        require_pack_integrity(staged_output)
+        benchmark_results = build_benchmark_results(
+            dataset_dir=inputs,
+            monitoring_reason_qa=monitoring_result.reason_qa,
+            max_reasons=max_reasons,
+        )
+        if not benchmark_results["acceptance"]["expected_seeded_failures_observed"]:
+            return BenchmarkRunResult(
+                ok=False,
+                dataset_dir=str(dataset_dir),
+                output_dir=None,
+                errors=["Expected benchmark exception types were not all observed; destination unchanged."],
+                benchmark_results=benchmark_results,
+            )
+        write_json(staged_output / "adverse_action_reason_benchmark_results.json", benchmark_results)
+        write_text(
+            staged_output / "adverse_action_reason_benchmark_report.md",
+            render_benchmark_report(benchmark_results),
+        )
+        write_text(staged_output / "README.md", render_example_readme(benchmark_results))
+        update_manifest(staged_output)
+        check_source_unchanged(load_json(staged_output / "execution_provenance.json"), Path(__file__))
+        require_pack_integrity(staged_output)
+        install_benchmark_pack(staged_output, output_dir, overwrite=overwrite)
+    finally:
+        cleanup_directory(staging_root, "Benchmark staging cleanup incomplete")
 
-    benchmark_results = build_benchmark_results(
-        dataset_dir=dataset_dir,
-        monitoring_reason_qa=monitoring_result.reason_qa,
-        max_reasons=max_reasons,
-    )
-    write_json(output_dir / "adverse_action_reason_benchmark_results.json", benchmark_results)
-    write_text(
-        output_dir / "adverse_action_reason_benchmark_report.md",
-        render_benchmark_report(benchmark_results),
-    )
-    write_text(
-        output_dir / "README.md",
-        render_example_readme(benchmark_results),
-    )
-    update_manifest(output_dir)
-
-    ok = benchmark_results["acceptance"]["expected_seeded_failures_observed"]
     return BenchmarkRunResult(
-        ok=ok,
+        ok=True,
         dataset_dir=str(dataset_dir),
         output_dir=str(output_dir),
-        errors=[] if ok else ["Expected benchmark exception types were not all observed."],
+        errors=[],
         benchmark_results=benchmark_results,
     )
 
 
+def require_pack_integrity(pack: Path) -> None:
+    verification = verify_evidence_pack(pack)
+    if not verification["ok"]:
+        raise ValueError("Benchmark pack integrity check failed: " + "; ".join(verification["errors"]))
+
+
+def cleanup_directory(path: Path, message: str) -> None:
+    """Cleanup must not change installation status or mask a recovery error."""
+    try:
+        shutil.rmtree(path)
+    except OSError as cleanup_error:
+        logging.getLogger(__name__).warning("%s at %s: %s", message, path, cleanup_error)
+
+
+def install_benchmark_pack(staged: Path, destination: Path, *, overwrite: bool) -> None:
+    """Retain the old pack until installation succeeds; recover on rename failure.
+
+    Backups live outside the staging temporary directory so failed restoration
+    cannot erase them. This is exception recovery, not a concurrent-writer lock.
+    """
+    backup = None
+    if destination.exists():
+        if not overwrite:
+            raise FileExistsError(f"Output directory appeared during the run: {destination}")
+        backup = destination.with_name(f".{destination.name}.backup-{uuid.uuid4().hex}")
+        destination.rename(backup)
+    try:
+        if destination.exists():
+            raise FileExistsError(f"Output directory appeared during installation: {destination}")
+        staged.rename(destination)
+    except BaseException:
+        if backup is not None:
+            try:
+                if destination.exists():
+                    raise FileExistsError(f"Recovery destination is occupied: {destination}")
+                backup.rename(destination)
+            except OSError as recovery_error:
+                raise RuntimeError(
+                    f"Benchmark installation and restoration failed; previous pack retained at {backup}"
+                ) from recovery_error
+        raise
+    if backup is not None:
+        cleanup_directory(backup, "New benchmark pack installed; old backup cleanup incomplete")
+
+
 def build_benchmark_results(
-    dataset_dir: Path,
+    dataset_dir: Path | DatasetSnapshot,
     monitoring_reason_qa: dict[str, Any],
     max_reasons: int,
 ) -> dict[str, Any]:
@@ -238,9 +317,9 @@ def build_benchmark_results(
         "dataset": dataset_dir.relative_to(ROOT).as_posix(),
         "regulatory_anchor": "Regulation B 12 CFR 1002.9 specific principal reasons tied to actual factors considered or scored.",
         "public_data_status": (
-            "No current public small-business dataset provides declined applications, "
-            "disclosed reasons or notices, actual decision drivers, mapping versions, "
-            "and reviewer labels."
+            "This run uses synthetic small-business credit records. It does not "
+            "evaluate real-world reason accuracy or establish whether a suitable "
+            "public dataset exists."
         ),
         "decision_count": len(decisions),
         "declined_decision_count": declined_count,
@@ -248,6 +327,7 @@ def build_benchmark_results(
         "generated_reason_output_count": len(generated),
         "max_expected_reasons_per_declined_decision": max_reasons,
         "generation_summary": generation_summary,
+        **diagnostic_scope("synthetic_seeded_failure_detection"),
         "monitoring_reason_qa": {
             "label": monitoring_reason_qa["label"],
             "exception_count": monitoring_reason_qa["exception_count"],
@@ -273,8 +353,8 @@ def build_benchmark_results(
             "Benchmark exceptions are governance review triggers.",
             "Synthetic source-to-rendered-notice checks reconcile controlled notice segments to recorded reason outputs; they do not assess real-world notice readability or legal sufficiency.",
             "The synthetic selection-method check verifies recorded method provenance and deterministic behavior, not a real creditor's selection-method sufficiency.",
-            "Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.",
-            "HMDA can support only off-domain denial-reason mechanics, not small-business proof.",
+            "Evaluating actual reason accuracy requires evidence linking the relevant decision process to disclosed reasons, with a justified reference and stated limits; public or private status alone does not establish suitability.",
+            "An HMDA mortgage-denial mechanics exercise would not establish small-business reason accuracy.",
         ],
         "primary_source_urls": [
             "https://www.consumerfinance.gov/rules-policy/regulations/1002/9/",
@@ -463,6 +543,8 @@ def render_benchmark_report(results: dict[str, Any]) -> str:
         "# Adverse-Action Reason Accuracy Benchmark Report\n\n"
         "This report is synthetic governance evidence only. It does not provide legal advice, "
         "certify Regulation B compliance, or represent a production notice process.\n\n"
+        "Benchmark success means expected seeded failure types were detected. It does not "
+        "establish a passed reason-content review. Operational authorization is not provided.\n\n"
         f"- Workstream: {results['workstream']}\n"
         f"- Dataset: `{results['dataset']}`\n"
         f"- Decisions reviewed: {results['decision_count']}\n"
@@ -476,10 +558,10 @@ def render_benchmark_report(results: dict[str, Any]) -> str:
         f"{supplemental_lines}\n\n"
         "## Public-Data Boundary\n\n"
         f"{results['public_data_status']}\n\n"
-        "HMDA can be used only as an off-domain mortgage-denial reason-code mechanics proxy. "
-        "SBA, PPP, and CRA data cannot prove adverse-action reason accuracy because they do "
-        "not provide the full chain of declined applications, reasons or notices, actual "
-        "decision drivers, and reviewer labels.\n\n"
+        "This benchmark assesses synthetic record consistency. Any proposed real-world "
+        "evaluation must justify its data, decision-process reference, reason records "
+        "and review evidence for the specific accuracy claim. Portfolio, lending-volume "
+        "or off-domain reason-code mechanics results alone do not establish that claim.\n\n"
         "## Limitations\n\n"
         + "\n".join(f"- {item}" for item in results["limitations"])
         + "\n"
@@ -492,6 +574,8 @@ def render_example_readme(results: dict[str, Any]) -> str:
         "This evidence pack is generated from a synthetic small-business credit benchmark. "
         "It demonstrates reason-generation and reason-QA controls under the adverse-action "
         "reason accuracy and transparency workstream.\n\n"
+        "Benchmark acceptance records expected failure detection, not a passed reason-content "
+        "review. Operational authorization is not provided.\n\n"
         "## How To Review This Pack\n\n"
         "1. Read `adverse_action_reason_benchmark_report.md` for the benchmark summary.\n"
         "2. Read `adverse_action_reason_benchmark_results.json` for machine-readable expected and observed exception types.\n"
@@ -506,7 +590,7 @@ def render_example_readme(results: dict[str, Any]) -> str:
         "- Not a production notice process.\n"
         "- Not legal advice or a Regulation B compliance certification.\n"
         "- Not evidence of lender adoption, deployment, regulatory approval, or external validation.\n"
-        "- Public small-business data cannot currently prove actual adverse-action reason accuracy.\n\n"
+        "- This synthetic run does not establish the availability or suitability of other datasets.\n\n"
         f"Expected seeded failure types observed: {results['acceptance']['expected_seeded_failures_observed']}.\n"
     )
 
