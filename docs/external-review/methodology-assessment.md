@@ -31,13 +31,12 @@ research experience can both qualify. Use the
 [settled group definitions](reviewer-groups.md); record actual expertise and
 scope rather than infer them from a title or institutional affiliation.
 
-- **Source:** v0.12.0, commit `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`,
-  tree `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
+- **Source:** v0.13.0, annotated release tag `v0.13.0`.
 - **Instructions:** save this packet's permalink: on GitHub, press **y** and
   copy the resulting URL. Its companion
   protocol and target sheet use the same documentation revision unless
-  separately agreed and recorded. These later instructions are absent from
-  the software release archive. Resolve identity mismatches before starting;
+  separately agreed and recorded. These instructions are included in the
+  software release archive. Resolve identity mismatches before starting;
   do not silently substitute a newer source or packet.
 - **Work:** critique the four questions below for the identified claims and
   materials. Record any narrower selection, context, exclusions, deliverables,
@@ -58,7 +57,7 @@ The task can be completed using this page. Linked originals are available for
 verification or deeper inspection within the cap. Distinguish critique of the
 description or excerpts from inspection of full sources or executed behavior.
 The [shared protocol](protocol.md) supplies the full common rules; the
-[target sheet](targets/v0.12.0.md) preserves source and issue references.
+[target sheet](targets/v0.13.0.md) preserves source and issue references.
 
 ## Method and evidence to assess
 
@@ -110,7 +109,7 @@ The discrepancy is disclosed; identifying it is not blinded discovery.
 
 The prepared [benchmark report][benchmark] has 11 synthetic decisions,
 10 declines, 15 recorded reason outputs, and 14 regenerated outputs. The
-[benchmark implementation][benchmark-code] defines 20 expected exception types.
+[benchmark implementation][benchmark-code] defines 21 expected exception types.
 Its acceptance criterion checks whether those types occur somewhere in the
 curated suite. The report states that expected seeded failure types were
 observed. The suite intentionally includes altered records; a recorded versus
@@ -119,7 +118,7 @@ regenerated difference alone is not an accuracy estimate.
 | Question or claim | Evidence available here | Conclusion not established |
 | --- | --- | --- |
 | Can selected record inconsistencies be described and checked? | Declared rules, controlled records, and prepared record-level QA findings | Completeness or correctness for every input |
-| Does the curated run cover its expected exception types? | Aggregate presence of the 20 types defined by the benchmark | Per-record detection rate, false-alarm rate, or independent validation |
+| Does the curated run cover its expected exception types? | Aggregate presence of the 21 types defined by the benchmark | Per-record detection rate, false-alarm rate, or independent validation |
 | Are drivers justified as explanations of a model? | Supplied driver magnitudes and a declared ranking/mapping convention | Explanation faithfulness, causal truth, or a uniquely correct principal-reason selection |
 | Does the governance output document oversight gaps? | A separate example reports `developer_self_review`, `pending_independent_review`, promotion `false`, and two open validation findings | Completion of independent validation or authority to deploy |
 | Is the approach useful across institutions or better than a simpler process? | A reproducible record structure and synthetic examples | Comparative superiority, general usefulness, adoption, or legal compliance |
@@ -134,15 +133,17 @@ external reviewer performance measurements are supplied in this packet.
 ## Known limitations
 
 These are maintainer disclosures for the fixed source, not reviewer discoveries.
-Assess their methodological consequences; do not assume they have been repaired.
+Assess the stated corrections and remaining limits; tests are maintainer evidence,
+not an independent assessment of correctness.
 
 | ID | Disclosed limitation |
 | --- | --- |
-| KI-01 | Open: generation can skip an unmapped principal driver while emitting a lower-ranked mapped reason without flagging the omitted driver. |
-| KI-02 | Open: mapping/template lifecycle checks use application date as decision date; different dates can hide expiry or wrongly flag newly active artifacts. |
-| KI-03 | Open: repository validation requires Git metadata and fails in an extracted archive; this methods-only assignment does not test execution. |
-| KI-04 | Environment-dependent: deep Windows paths have caused failures; a shorter-path workaround does not establish portability. |
-| KI-05 | Aggregate exception-type coverage does not measure per-case accuracy or false alarms. |
+| KI-01 | Corrected for the declared principal-driver scope: QA reports unmapped and omitted principal drivers, including mixed mapped/unmapped cases. Generation can still emit diagnostic candidates; content export blocks unresolved findings. Critique the coverage scope and reference expectations. |
+| KI-02 | Corrected: mapping/template lifecycle checks use the recorded UTC decision timestamp, with inclusive activation and exclusive retirement. Critique expectations for differing dates and boundaries; invalid timestamps are rejected. |
+| KI-03 | Repository validation still requires Git metadata. Use the scoped archive-compatible commands; do not infer full archive portability. |
+| KI-04 | Deep Windows paths remain an environment constraint. Use short paths and record failures; a workaround is not general portability evidence. |
+| KI-05 | Aggregate benchmark acceptance remains exception-type coverage, not per-case accuracy or false-alarm performance. Inspect decision-level outcomes; regression tests do not supply real-world reference labels. |
+| KI-06 | Content checks use editable declared reviews and a trusted local process, clock, and one writer per destination. No authenticated approval, revocation/replay protection, coordinated writes, operational authorization, or notice delivery is provided. |
 
 The disclosed issues do not exhaust possible defects. A methods assessment can
 identify unsupported claims and better tests; it does not itself fix code,
@@ -158,7 +159,7 @@ See the original [limitations][limits] for the wider demonstration boundary.
    which source or excerpt supports your assessment.
 2. **Reference answers.** Is the basis for expected results independent enough
    of implementation? Identify where a declared convention is reasonable,
-   debatable, or insufficient. Explain the consequences of KI-01 and KI-02
+   debatable, or insufficient. Assess the corrected rules and residual assumptions in KI-01 and KI-02
    for completeness and time-based validity. A reasoned disagreement is useful.
 3. **Evaluation design.** Given KI-05, propose a bounded evaluation with explicit
    units, expected outcomes, clean controls, missed defects, unexpected alarms,
@@ -174,6 +175,12 @@ See the original [limitations][limits] for the wider demonstration boundary.
 You may challenge the tasks or suggest a narrower question. Record omissions,
 navigation difficulty, assistance, and actual effort. Favorable conclusions
 are not required; keep criticism, uncertainty, and negative findings intact.
+
+The [reason-content contract](../adverse-action-reason-run-kit/REASON_CONTENT_REVIEW.md)
+separates passed content checks from operational authorization. A successful
+diagnostic run, benchmark, hash check, or review export does not authorize use.
+Assess that distinction within the selected scope; no favorable conclusion
+or expansion into the deferred approval system is required.
 
 ## Short methods response
 
@@ -211,17 +218,17 @@ implementation involvement, with separate agreement for invited work. Earlier
 conclusions do not transfer automatically. Neither review nor retest requires
 a release or tag.
 
-[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.12.0+%2F+3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
+[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.13.0+%2F+v0.13.0
 
-[project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/PROJECT_BRIEF.md
-[method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/METHOD.md
-[limits]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/LIMITATIONS.md
-[registry]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/reason-selection-methods.json
-[drivers]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/adverse-action-driver-contributions.json
-[mapping]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/reason-code-mappings.json
-[reason]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/adverse-action-reason-outputs.json
-[notice]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/rendered-adverse-action-notices.json
-[qa]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/examples/evidence-packs/adverse-action-reason-benchmark/reason_qa_results.json
-[benchmark]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_report.md
-[benchmark-code]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/scripts/run_adverse_action_reason_benchmark.py
-[governance]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/examples/evidence-packs/model-governance-review/governance-review-report.md
+[project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/PROJECT_BRIEF.md
+[method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/METHOD.md
+[limits]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/LIMITATIONS.md
+[registry]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/reason-selection-methods.json
+[drivers]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/adverse-action-driver-contributions.json
+[mapping]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/reason-code-mappings.json
+[reason]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/adverse-action-reason-outputs.json
+[notice]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/rendered-adverse-action-notices.json
+[qa]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/examples/evidence-packs/adverse-action-reason-benchmark/reason_qa_results.json
+[benchmark]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_report.md
+[benchmark-code]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/scripts/run_adverse_action_reason_benchmark.py
+[governance]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/examples/evidence-packs/model-governance-review/governance-review-report.md

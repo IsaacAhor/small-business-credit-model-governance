@@ -130,12 +130,23 @@ Use semantic-style version numbers for public milestones:
 - `v0.11.0`: executable formal governance review and vendor-model oversight
 - `v0.12.0`: reason-traceability terminology correction
   and a separate executable synthetic recourse-assessment sidecar
+- `v0.13.0`: bounded reason-content checks, exact-run provenance, and recoverable benchmark replacement
 
 The `0.x` version line signals that this is still a public demonstration and
 governance evidence engine under active development, not a production release.
 
 Patch releases can be used for material packaging, documentation, or
 reviewability improvements that do not change the implementation phase.
+
+## v0.13.0 Release Scope
+
+Version 0.13.0 distributes bounded reason-content assessment and review exports,
+principal-driver coverage and decision-time lifecycle corrections, exact source
+and input fingerprints, and recoverable benchmark replacement. Diagnostic
+generation remains available and never grants operational authorization.
+The three review packets and target sheet identify the new source; existing
+reviews retain their original versions. See the [release notes](releases/v0.13.0.md)
+for migration requirements, checks and deferred operational approval features.
 
 ## v0.12.0 Release Scope
 
@@ -182,9 +193,9 @@ Phases 0 through 4:
 - fair-lending screening and escalation outputs
 - reviewer-facing project packaging and example evidence outputs
 
-The current documented milestone is `v0.12.0`. It clarifies reason-traceability
-terminology and adds the separate synthetic recourse-assessment sidecar
-described above. The prior documented milestone is `v0.11.0`; it adds the
+The current documented milestone is `v0.13.0`, described above. Version
+`v0.12.0` remains the historical reason-traceability terminology and synthetic
+recourse-assessment milestone. Version `v0.11.0` adds the
 formal governance-validation and executable vendor-model oversight capabilities
 described above. Version `v0.10.0` repairs the SBA public-data
 workflow against the current official 7(a)/504 file layout. The adapter now

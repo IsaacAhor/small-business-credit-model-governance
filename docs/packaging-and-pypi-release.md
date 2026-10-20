@@ -9,7 +9,7 @@ regulatory approval, or independent validation by itself.
 
 ## Current Release Status
 
-`v0.12.0` is the current release. Its assets are built and verified through the
+`v0.13.0` is the current release. Its assets are built and verified through the
 controlled workflow described below. Do not reuse a prior release bundle as a
 source for a later release.
 
@@ -104,7 +104,7 @@ Use TestPyPI before uploading to the real package index:
 
 ```bash
 python -m twine upload --repository testpypi dist/*
-python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ credit-gov==0.12.0
+python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ credit-gov==0.13.0
 ```
 
 Run the same installed-command smoke checks after the TestPyPI install.
