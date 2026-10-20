@@ -120,11 +120,11 @@ These checks establish record-level traceability to the declared convention;
 they do not establish a unique model explanation, causal truth, actionability,
 or recourse. See `TERMINOLOGY.md`.
 
-## Unreleased Coverage And Event-Time Correction
+## Coverage And Event-Time Corrections In v0.13.0
 
-The working implementation corrects two gaps in the fixed v0.12.0 baseline:
+Release v0.13.0 corrects two gaps in the fixed v0.12.0 baseline:
 principal coverage previously excluded unmapped drivers, and mapping/template
-lifecycle checks used application date. The fixed release and its review target
+lifecycle checks used application date. The v0.12.0 release and its review target
 retain those limitations; this correction does not alter historical results.
 
 Lifecycle checks use `underwriting.decision_timestamp`, required as a valid UTC
@@ -141,9 +141,10 @@ do not establish model-explanation faithfulness or a general detection rate.
 
 ## Public Demonstration Boundary
 
-The unreleased [reason-content review gate](REASON_CONTENT_REVIEW.md) adds a separate local
-snapshot export boundary. Required checks, exact-input review records, and
-resolution of material reason defects must all be satisfied before export.
+Available in v0.13.0, the [reason-content review gate](REASON_CONTENT_REVIEW.md)
+provides a separate local snapshot export boundary. Required checks, exact-input
+review records, and resolution of material reason defects must all be satisfied
+before export.
 Passing reports `reason_content_checks_passed: true`; operational authorization
 remains false, including in the exported snapshot. The tool does not authenticate
 reviewers or grant live-use permission. Its scope, regulatory basis, review
