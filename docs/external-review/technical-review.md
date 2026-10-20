@@ -4,7 +4,8 @@
 model-governance and adverse-action traceability controls behave as described.
 This assignment requires source inspection, software execution, and independent
 challenge design. It covers the recorded workflows, not the whole repository.
-The data and examples are synthetic; disclosed defects remain part of the target.
+The data and examples are synthetic; seeded defects and stated limits remain
+part of the target.
 
 **From a release or invitation? You are in the right place.** Work through this
 packet, then [write your review](#work-and-return). Keep this page open while
@@ -29,13 +30,12 @@ governance or reason traceability. If expertise is split, identify each person's
 assigned work and conclusion. The [reviewer groups](reviewer-groups.md) describe
 qualifications; a second role held by one person is not a second independent review.
 
-- **Software:** v0.12.0, commit `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`,
-  tree `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
+- **Software:** v0.13.0, annotated release tag `v0.13.0`.
 - **Instructions:** save this packet's permalink: on GitHub, press **y** and
   copy the resulting URL. The companion
   protocol and target sheet use that documentation revision unless a different
-  revision is explicitly agreed and recorded. The instructions postdate the
-  software release and are absent from its archive. Resolve identity mismatches
+  revision is explicitly agreed and recorded. These instructions are included
+  in the release source archive. Resolve identity mismatches
   before claiming reproduction; a later release does not change this assignment.
 - **Scope:** reproduction, source-to-notice tracing, and reviewer-designed
   challenges below. Record the included artifacts, exclusions, deliverables,
@@ -54,7 +54,7 @@ qualifications; a second role held by one person is not a second independent rev
 
 This packet includes the routine instructions. The [shared protocol](protocol.md)
 remains the full reference for agreements, findings, response, retest, and sharing;
-the [fixed target sheet](targets/v0.12.0.md) preserves the source-specific record.
+the [fixed target sheet](targets/v0.13.0.md) preserves the source-specific record.
 
 ## Known issues in this target
 
@@ -64,11 +64,12 @@ the intended behavior or severity where justified.
 
 | ID | Behavior or limitation | Required treatment within scope |
 | --- | --- | --- |
-| KI-01 | Generation skips an unmapped driver; a lower-ranked mapped reason can be emitted without flagging the omitted principal driver. | Open. Exercise mixed mapped/unmapped drivers and establish the coverage rule. |
-| KI-02 | Mapping and notice-template lifecycle checks use application date as decision date. Different dates can hide expiry or wrongly flag a newly active artifact. | Open. Test both directions and exact activation/retirement boundaries. |
-| KI-03 | Repository validation requires Git metadata and fails in an extracted source archive. | Open. The archive-compatible commands below exclude `scripts/validate_repository.py`. |
-| KI-04 | Deep Windows paths have caused execution failures that disappeared with shorter paths. | Environment-dependent. Use a short extraction path and record the constraint; a workaround does not prove portability. |
-| KI-05 | Benchmark acceptance checks whether expected exception types appear somewhere, not per-case accuracy or false-alarm performance. | Inspect results for the intended records independently of aggregate success. |
+| KI-01 | Corrected for the declared principal-driver scope: QA reports unmapped and omitted principal drivers, including mixed mapped/unmapped cases. | Generation can still emit diagnostic candidates; content export blocks unresolved findings. Challenge both defect and clean cases. |
+| KI-02 | Corrected: mapping/template lifecycle checks use the recorded UTC decision timestamp, with inclusive activation and exclusive retirement. | Test differing application/decision dates and exact boundaries. Invalid timestamps are rejected. |
+| KI-03 | Repository validation still requires Git metadata. | Use the scoped archive-compatible commands; do not infer full archive portability. |
+| KI-04 | Deep Windows paths remain an environment constraint. | Use short paths and record failures; a workaround is not general portability evidence. |
+| KI-05 | Aggregate benchmark acceptance remains exception-type coverage, not per-case accuracy or false-alarm performance. | Inspect decision-level outcomes; regression tests do not supply real-world reference labels. |
+| KI-06 | Content checks use editable declared reviews and a trusted local process, clock, and one writer per destination. | No authenticated approval, revocation/replay protection, coordinated writes, operational authorization, or notice delivery is provided. |
 
 Reproducing a disclosed defect can complete a task while confirming a failing
 control. Do not mark the control as passing because the failure was expected.
@@ -84,15 +85,16 @@ For a Git checkout, run these commands one at a time from a short parent path:
 ```text
 git clone --no-checkout https://github.com/IsaacAhor/small-business-credit-model-governance.git review-source
 cd review-source
-git checkout --detach 3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
+git checkout --detach v0.13.0
 git rev-parse HEAD
 ```
 
-The last result must match the commit above. Alternatively, download the
+Record the resolved commit and compare it with the release tag on GitHub.
+Alternatively, download the
 [fixed source archive][archive], extract it to a short path, and work from its
 source root. Record archive origin, acquisition date, SHA-256, and how the
 extracted source identity was verified. Resolve uncertainty before claiming
-reproduction. Keep these later review instructions available separately.
+reproduction. Save the packet permalink with your review record.
 
 ### Required source inspection
 
@@ -126,11 +128,13 @@ python --version
 python scripts/validate_phase1.py data/synthetic/adverse-action-reason-benchmark
 python -m unittest discover -s tests -p test_phase3_reason_qa.py
 python -m unittest discover -s tests -p test_adverse_action_reason_benchmark.py
+python -m unittest discover -s tests -p test_reason_control_boundaries.py
+python -m unittest discover -s tests -p test_reason_content.py
 python scripts/run_adverse_action_reason_benchmark.py --output-dir review-output/reason-benchmark
 python scripts/run_governance_review.py data/synthetic/monthly-demo review-output/governance
 ```
 
-The two test files contain six tests at this source commit. The benchmark also
+The four test files contain 83 tests at this source revision. The benchmark also
 writes scratch records under `evidence/` in the isolated source directory.
 These scoped commands do not evaluate all project functions.
 
@@ -164,7 +168,11 @@ CRLF to LF, then remaining CR to LF, and compare with its entry in
 `input_fingerprints.json`. Hash output file bytes without normalization and
 compare with `output_fingerprints.json`; the fingerprint file itself is excluded.
 The implementation is in [monitoring.py][monitoring]. Record files, procedure,
-expected hashes, and observed hashes. Integrity is not correctness or authenticity.
+expected hashes, and observed hashes. Also compare exact raw input bytes and
+source-file hashes with `execution_provenance.json`; these identify the captured
+run, including any modified source state, separately from the normalized portable
+fingerprints. A prepared pack is not a fresh execution of the release tag.
+Integrity is not correctness or authenticity.
 
 Trace one consistent decision and one defective decision through supplied
 driver, mapping, recorded reason, rendered notice segment, and QA assessment.
@@ -194,6 +202,7 @@ controls and include at least one additional reviewer-designed scenario.
 | Record consistency | Are altered reason text, notice text, versions, or component links attributed to the correct affected record? |
 | Missing or invalid input | Are rejected input, incomplete execution, and an unassessed control distinguished? |
 | Scope boundary | Are limits clear when records agree but the supplied explanation has not been justified against a model? |
+| Content review | Do unresolved defects, missing checks and stale review bindings block export while every result withholds operational authorization? |
 
 Copy the relevant synthetic dataset to a new directory under `review-inputs/`
 inside the isolated source root. Keep the original and record every controlled
@@ -207,7 +216,7 @@ python scripts/run_adverse_action_reason_benchmark.py review-inputs/case-001 --o
 
 Preserve validation errors and run later stages only where meaningful. The
 monthly command reports its generated directory. The benchmark adds supplemental
-checks but retains the curated suite's fixed expectation of 20 exception types.
+checks but retains the curated suite's fixed expectation of 21 exception types.
 A clean or small custom case can return exit code 1 because it lacks that entire
 suite. Inspect `missing_expected_exception_types` and the target record's findings;
 distinguish incomplete aggregate coverage from an execution failure. Aggregate
@@ -219,6 +228,12 @@ inputs and out-of-scope cases are not correct detections. Label author-derived
 cases and disclosed-issue reproductions. Neither is a wholly new reviewer
 discovery. Preserve failures before remediation and use fresh variations beyond
 known regression cases.
+
+The [reason-content contract](../adverse-action-reason-run-kit/REASON_CONTENT_REVIEW.md)
+separates passed content checks from operational authorization. A successful
+diagnostic run, benchmark, hash check, or review export does not authorize use.
+Assess that distinction within the selected scope; no favorable conclusion
+or expansion into the deferred approval system is required.
 
 ## Work and return
 
@@ -260,13 +275,13 @@ implementation involvement, with separate agreement for invited work. Earlier
 conclusions do not transfer automatically. Neither review nor retest requires
 a release or tag.
 
-[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.12.0+%2F+3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
+[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.13.0+%2F+v0.13.0
 
-[archive]: https://github.com/IsaacAhor/small-business-credit-model-governance/archive/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca.zip
-[project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/PROJECT_BRIEF.md
-[method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/METHOD.md
-[limits]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/LIMITATIONS.md
-[terminology]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/TERMINOLOGY.md
-[pack-guide]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/EVIDENCE_PACK_REVIEW.md
-[governance-guide]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/model-governance-validation-run-kit/README.md
-[monitoring]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/src/credit_gov/monitoring.py
+[archive]: https://github.com/IsaacAhor/small-business-credit-model-governance/archive/v0.13.0.zip
+[project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/PROJECT_BRIEF.md
+[method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/METHOD.md
+[limits]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/LIMITATIONS.md
+[terminology]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/TERMINOLOGY.md
+[pack-guide]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/EVIDENCE_PACK_REVIEW.md
+[governance-guide]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/model-governance-validation-run-kit/README.md
+[monitoring]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/src/credit_gov/monitoring.py

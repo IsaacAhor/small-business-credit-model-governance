@@ -90,12 +90,13 @@ or future-outcome guarantees.
 
 ## Known Limitations
 
-The [v0.12.0 target disclosures](docs/external-review/targets/v0.12.0.md#disclosed-target-limitations)
-identify open behavior and test limitations, including skipped unmapped drivers,
-application-date use in decision-time lifecycle checks, and benchmark acceptance
-based on aggregate exception-type coverage rather than per-case accuracy.
-They also document source-archive and Windows path constraints. These disclosures
-belong to that exact source version; later corrections require separate verification.
+The [v0.13.0 target disclosures](docs/external-review/targets/v0.13.0.md#disclosed-target-limitations)
+record the bounded principal-driver coverage and decision-time lifecycle
+corrections, regression evidence, and remaining limits. Benchmark acceptance
+still measures aggregate exception-type coverage rather than per-case accuracy.
+Source-archive and Windows path constraints remain. Content checks and review
+exports never grant operational authorization; the larger approval system is
+deferred. Historical disclosures retain their original version scope.
 
 The [reason method and data limits](docs/adverse-action-reason-run-kit/LIMITATIONS.md)
 and [terminology](docs/adverse-action-reason-run-kit/TERMINOLOGY.md) distinguish
@@ -193,7 +194,7 @@ python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-
 ```
 
 Repository validation requires Git metadata at the current release. Keep Windows
-paths short; see the [target setup notes](docs/external-review/targets/v0.12.0.md#technical-source-setup)
+paths short; see the [target setup notes](docs/external-review/targets/v0.13.0.md#technical-source-setup)
 for archive-compatible review commands and reported environment constraints.
 Preserve failed runs before retrying. The benchmark also writes scratch records
 under `evidence/`; do not overwrite the curated example packs.
@@ -212,7 +213,7 @@ python -m unittest discover -s tests -p "test_*.py"
 
 ## Versioned Releases
 
-The latest software milestone is [v0.12.0](docs/releases/v0.12.0.md).
+The latest software milestone is [v0.13.0](docs/releases/v0.13.0.md).
 Releases identify stable source snapshots; development commits and later review
 documentation retain their own revisions. A documentation or navigation update
 does not change the software version or replace an existing review target.
@@ -230,8 +231,8 @@ missing application, decision-driver, or notice data.
 
 ## Near-Term Priorities
 
-1. Correct and verify the disclosed reason-control defects and strengthen
-   record-level benchmark acceptance.
+1. Extend record-level evaluation of the corrected reason controls and
+   strengthen benchmark acceptance beyond aggregate type coverage.
 2. Evaluate reason methods against an implemented model and a fit-for-purpose
    reference population, with explicit faithfulness and sensitivity questions.
 3. Obtain scoped independent technical, practitioner, and methodology review,
@@ -242,7 +243,7 @@ missing application, decision-driver, or notice data.
 ## Current Status
 
 The Python workflows, linked contracts, synthetic packs, and bounded SBA adapter
-are implemented. The public reason-control baseline has disclosed defects;
+are implemented. The bounded reason-content controls have regression coverage;
 method-level validation and independent review remain necessary. Governance
 records expose these gaps and review status rather than certify reliability.
 The vendor workflow and optional recourse sidecar remain synthetic demonstrations.

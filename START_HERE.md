@@ -26,7 +26,7 @@ they do not replace a packet's version-specific assignment.
    intended users, and current limits.
 2. Inspect the [adverse-action reason run kit](docs/adverse-action-reason-run-kit/README.md),
    its [terminology](docs/adverse-action-reason-run-kit/TERMINOLOGY.md), and the
-   [known target limitations](docs/external-review/targets/v0.12.0.md#disclosed-target-limitations).
+   [known target limitations](docs/external-review/targets/v0.13.0.md#disclosed-target-limitations).
    Follow the supplied driver-to-mapping-to-reason-to-notice chain and its
    exceptions. Distinguish consistency from explanation faithfulness.
 3. Read the [model-risk oversight run kit](docs/model-risk-oversight-run-kit/README.md)
@@ -80,7 +80,7 @@ python scripts/run_monthly_monitoring.py data/synthetic/monthly-demo --evidence-
 ```
 
 Keep Windows paths short. Repository validation requires Git metadata at the
-current release; the [target setup notes](docs/external-review/targets/v0.12.0.md#technical-source-setup)
+current release; the [target setup notes](docs/external-review/targets/v0.13.0.md#technical-source-setup)
 provide a scoped archive-compatible sequence. Preserve failed runs before retrying.
 The benchmark also writes scratch records under `evidence/`; avoid overwriting
 curated examples. For SBA data acquisition, optional dependencies, fixture
@@ -96,9 +96,10 @@ source, version, assumptions, and coverage limits.
 
 Current reason checks establish only the consistency properties they test; they
 do not establish faithful model explanations or accurate live notices. The
-[disclosed target limitations](docs/external-review/targets/v0.12.0.md#disclosed-target-limitations)
-include open defects and incomplete benchmark metrics. A reproducible failure is
-still a failing control.
+[disclosed target limitations](docs/external-review/targets/v0.13.0.md#disclosed-target-limitations)
+describe bounded corrections, residual workflow limits and incomplete benchmark
+metrics. Content checks do not authorize operational use; a reproducible failure
+is still a failing control.
 
 The repository does not establish production deployment, institutional adoption,
 regulatory approval, or legal compliance. Supporting fair-lending outputs are

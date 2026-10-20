@@ -84,7 +84,8 @@ pack. Linked governance records, reason QA, vendor oversight, and a separate SBA
 public-data adapter are also implemented.
 
 The [project overview](../README.md) identifies the current components and
-[known target limitations](external-review/targets/v0.12.0.md#disclosed-target-limitations).
-Reason-control defects, method-level validation, and scoped independent review
-remain substantive work. Supporting screening and optional recourse retain their
+[known target limitations](external-review/targets/v0.13.0.md#disclosed-target-limitations).
+The bounded reason controls have regression coverage; method-level validation,
+record-level evaluation, and scoped independent review remain substantive work.
+Supporting screening and optional recourse retain their
 separate roles and limitations.

@@ -1,13 +1,13 @@
 {
   "record_type": "evidence_pack_execution_provenance",
   "evidence_pack_format_version": 1,
-  "execution_id": "d6b0fb3a-a29c-49e7-a1de-4e17840163fc",
-  "executed_at": "2026-10-20T20:00:19Z",
+  "execution_id": "7865efff-6482-4687-853e-8f9cc25222bf",
+  "executed_at": "2026-10-20T21:36:19Z",
   "source_run_created_at": "2026-07-26T15:00:00Z",
-  "software_version": "0.12.0",
+  "software_version": "0.13.0",
   "source_fingerprint_version": 1,
   "source_snapshot_scope": "package_code_resources_effective_schemas_and_entrypoint",
-  "source_snapshot_sha256": "7ac5953e1cc73e0f09472917376b698e0e5789fd896fb7950f372d124daa398e",
+  "source_snapshot_sha256": "cad0672352bc0d73c976353edcf630d4847257eb65f5a39d80c16504cc70122f",
   "source_files_sha256": {
     "effective_schemas/adverse-action-reason-output.schema.json": "efa2643c74f31866f89f40db26e635e9feec3b89e1e7cfb9088ddea09e61aba7",
     "effective_schemas/application-decision-record.schema.json": "3c124be7812315927fc76aa7f6fcc56810d2d10a763d8a04643047996969c1a7",
@@ -40,7 +40,7 @@
     "effective_schemas/vendor-oversight-config.schema.json": "454b52279c3f6fd5083a17d5bcb77558f9f17d663c301d3f846e2339f2599452",
     "effective_schemas/vendor-risk-review-record.schema.json": "5048722fd075b181f67c73c1fd515bdc82688b5a634270b1c8dcdda947748fa0",
     "entrypoint/run_adverse_action_reason_benchmark.py": "2024bc261c1a7b6e8ef0dce5fdd4398b6da68e960489823b792e7c9bc9df722b",
-    "package/credit_gov/__init__.py": "d2cfb56cf9ec4404643fdf0e625c2d3b3d40e4687b31b9bb75f3df05e97536b1",
+    "package/credit_gov/__init__.py": "62eb8dc6ec9e7071e67001a0e25823a8c3850072921025e04398016139a8710e",
     "package/credit_gov/bisg.py": "444877e3492b299d53cf96395c05c07c3a1bd398b9cfb050e54d9397da45670d",
     "package/credit_gov/cli.py": "08635c5efe7d0de2188366e0dff1ebcc554f0e47e0cda61e84d5ed93b858c34e",
     "package/credit_gov/commands.py": "8a4e60aad712872f2af6a34c31ef8872df6d1d1f51feb26b4f345263e45553ed",
@@ -104,7 +104,7 @@
     "package/credit_gov/vendor_reporting.py": "a29ea484932398defe5ebe3c5777853de6352fa9a679d1f0e032b11f6e6a2445",
     "package/credit_gov/vendor_risk.py": "862a30c2786770913f5dd5d09b2b667773e07edc0d3ff3f60854f56d41e530d5"
   },
-  "source_revision": "09d048b9773c1292fbd1f3b4c0f69ab08ff0f565",
+  "source_revision": "9d61664a0d077f749d8095893de45d0db89c1c85",
   "source_tree_state": "modified",
   "input_snapshot_scope": "Captured top-level dataset JSON and external reference bytes used; not an atomic filesystem snapshot or a current-use authorization.",
   "input_files_sha256": {

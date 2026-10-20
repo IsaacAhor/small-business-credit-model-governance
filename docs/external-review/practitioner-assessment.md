@@ -29,14 +29,13 @@ adverse-action review, or review of credit-model documentation. Fit follows
 expertise and the assigned work, not job title or affiliation. The
 [shared group definitions](reviewer-groups.md) govern the group names.
 
-- **Software and prepared records:** v0.12.0, commit
-  `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`;
-  tree `8dc6fb0ca99a83846248ad6f239acfed7aec8632`.
+- **Software and prepared records:** v0.13.0, annotated release tag
+  `v0.13.0`.
 - **Instructions:** save this packet's permalink: on GitHub, press **y** and
   copy the resulting URL. Its companion
   protocol and target sheet use the same documentation revision unless
-  separately agreed and recorded. These instructions postdate the software
-  release and are not in its archive. Resolve any source or instruction
+  separately agreed and recorded. These instructions are included in the
+  release source archive. Resolve any source or instruction
   mismatch before starting; do not switch to a newer version automatically.
 - **Scope:** the four tasks below, selected artifacts, and your stated review
   context. Record exclusions, deliverables and your effort cap; an invited
@@ -53,7 +52,7 @@ expertise and the assigned work, not job title or affiliation. The
   alone does not imply organizational endorsement.
 
 The selected evidence is included below. Linked originals and the
-[fixed target sheet](targets/v0.12.0.md) are available for deeper inspection
+[fixed target sheet](targets/v0.13.0.md) are available for deeper inspection
 within the effort cap; record any additional materials or help used.
 
 ## Prepared review materials
@@ -170,17 +169,25 @@ reviewer discoveries, and the examples above do not resolve them.
 
 | ID | Issue and implication for this assessment |
 | --- | --- |
-| KI-01 | Generation can skip an unmapped principal driver while emitting a lower-ranked mapped reason without flagging the omitted driver. A populated reason list is insufficient evidence of coverage. |
-| KI-02 | Mapping and template lifecycle checks use application date as decision date. Different dates can hide expiry or wrongly flag a newly active artifact. The same-day example does not assess that boundary. |
-| KI-03 | Repository validation requires Git metadata and fails in an extracted archive. This task requires no execution and does not assess portability. |
-| KI-04 | Deep Windows paths have caused execution failures; shorter paths were a workaround, not proof of general portability. |
-| KI-05 | Benchmark acceptance checks exception-type presence somewhere in the suite, not per-case accuracy or false-alarm performance. |
+| KI-01 | Corrected for the declared principal-driver scope: QA reports unmapped and omitted principal drivers, including mixed mapped/unmapped cases. Generation can still emit diagnostic candidates; content export blocks unresolved findings. The prepared trace alone does not independently verify that correction. |
+| KI-02 | Corrected: mapping/template lifecycle checks use the recorded UTC decision timestamp, with inclusive activation and exclusive retirement. The same-day prepared trace does not assess differing dates or boundaries; the implementation rejects invalid timestamps. |
+| KI-03 | Repository validation still requires Git metadata. Use the scoped archive-compatible commands; do not infer full archive portability. |
+| KI-04 | Deep Windows paths remain an environment constraint. Use short paths and record failures; a workaround is not general portability evidence. |
+| KI-05 | Aggregate benchmark acceptance remains exception-type coverage, not per-case accuracy or false-alarm performance. Inspect decision-level outcomes; regression tests do not supply real-world reference labels. |
+| KI-06 | Content checks use editable declared reviews and a trusted local process, clock, and one writer per destination. No authenticated approval, revocation/replay protection, coordinated writes, operational authorization, or notice delivery is provided. |
 
-The first two remain open implementation issues; KI-03 is also open, KI-04 is
-environment-dependent, and KI-05 is a metric limitation. The disclosures do
+The first two have bounded implementation corrections and regression tests.
+KI-03 remains open, KI-04 is environment-dependent, KI-05 is a metric limitation,
+and KI-06 defines the local workflow boundary. The disclosures do
 not exhaust possible defects. No conclusion here establishes verified software
 behavior, model-explanation faithfulness, real-notice accuracy, effectiveness
 across institutions, adoption, production readiness, or legal compliance.
+
+The [reason-content contract](../adverse-action-reason-run-kit/REASON_CONTENT_REVIEW.md)
+separates passed content checks from operational authorization. A successful
+diagnostic run, benchmark, hash check, or review export does not authorize use.
+Assess that distinction within the selected scope; no favorable conclusion
+or expansion into the deferred approval system is required.
 
 ## Short response
 
@@ -218,17 +225,17 @@ implementation involvement, with separate agreement for invited work. Earlier
 conclusions do not transfer automatically. Neither review nor retest requires
 a release or tag.
 
-[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.12.0+%2F+3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca
+[review-form]: https://github.com/IsaacAhor/small-business-credit-model-governance/issues/new?template=external-review.yml&source=v0.13.0+%2F+v0.13.0
 
-[project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/PROJECT_BRIEF.md
-[method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/METHOD.md
-[limits]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/docs/adverse-action-reason-run-kit/LIMITATIONS.md
-[decision]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/application-decision-records.json
-[drivers]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/adverse-action-driver-contributions.json
-[mappings]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/reason-code-mappings.json
-[reasons]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/adverse-action-reason-outputs.json
-[notices]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/data/synthetic/adverse-action-reason-benchmark/rendered-adverse-action-notices.json
-[qa]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/examples/evidence-packs/adverse-action-reason-benchmark/reason_qa_results.json
-[notice-qa]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/examples/evidence-packs/adverse-action-reason-benchmark/rendered_notice_qa_results.json
-[governance]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/examples/evidence-packs/model-governance-review/governance-review-report.md
-[benchmark]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca/examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_report.md
+[project]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/PROJECT_BRIEF.md
+[method]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/METHOD.md
+[limits]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/docs/adverse-action-reason-run-kit/LIMITATIONS.md
+[decision]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/application-decision-records.json
+[drivers]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/adverse-action-driver-contributions.json
+[mappings]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/reason-code-mappings.json
+[reasons]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/adverse-action-reason-outputs.json
+[notices]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/data/synthetic/adverse-action-reason-benchmark/rendered-adverse-action-notices.json
+[qa]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/examples/evidence-packs/adverse-action-reason-benchmark/reason_qa_results.json
+[notice-qa]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/examples/evidence-packs/adverse-action-reason-benchmark/rendered_notice_qa_results.json
+[governance]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/examples/evidence-packs/model-governance-review/governance-review-report.md
+[benchmark]: https://github.com/IsaacAhor/small-business-credit-model-governance/blob/v0.13.0/examples/evidence-packs/adverse-action-reason-benchmark/adverse_action_reason_benchmark_report.md

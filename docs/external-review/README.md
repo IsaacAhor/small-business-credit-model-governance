@@ -50,15 +50,15 @@ reply; responses and retests are recorded separately from the original report.
 ## Supporting references
 
 The [shared protocol](protocol.md) supplies the full agreement, findings,
-response, retest and sharing rules. The [fixed target sheet](targets/v0.12.0.md)
+response, retest and sharing rules. The [fixed target sheet](targets/v0.13.0.md)
 preserves source references and known issues, including earlier route wording.
 The packets summarize the applicable rules; these references are not extra steps.
 
-Review target: [v0.12.0](targets/v0.12.0.md).
+Review target: [v0.13.0](targets/v0.13.0.md).
 
-Source ref: `3baafca5b695c6f80d5c84a2c8b4fa184d6f59ca`.
+Source ref: `v0.13.0`.
 
-The instructions postdate the software and are absent from its archive. Each
+These instructions are included in the release source archive. Each
 packet explains how to save its instruction permalink separately from the
 software identity. Existing reviews retain both.
 

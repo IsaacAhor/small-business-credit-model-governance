@@ -1,6 +1,6 @@
 # Reason-content checks and operational authorization
 
-Status: unreleased local implementation, contract `reason-content-review-v4`.
+Available in v0.13.0, contract `reason-content-review-v4`.
 This gate checks recorded reasons, rendered reason segments for declined
 decisions, and declared review records. It can export a checked review snapshot.
 It never grants operational authorization, validates an entire notice or lending

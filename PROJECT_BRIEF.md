@@ -34,9 +34,9 @@ review, keep the software version and instructions in the selected
 
 - The reason benchmark uses supplied synthetic records. It does not establish
   explanation faithfulness, causal attribution, or live notice accuracy.
-- The [v0.12.0 target disclosures](docs/external-review/targets/v0.12.0.md#disclosed-target-limitations)
-  identify open reason-control defects, aggregate benchmark acceptance limits,
-  and source-archive and Windows path constraints.
+- The [v0.13.0 target disclosures](docs/external-review/targets/v0.13.0.md#disclosed-target-limitations)
+  identify bounded reason-control corrections, remaining content/authorization
+  boundaries, aggregate benchmark limits, and source-archive/Windows constraints.
 - SBA data cover approved loans; they cannot evaluate declined applications,
   adverse-action reasons, or protected-class fairness.
 - Governance records and reproducible outputs do not independently validate a
