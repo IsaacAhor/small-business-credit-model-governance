@@ -107,14 +107,29 @@ Read these files in order:
 The benchmark should report that expected seeded failure types were observed.
 That is success for this synthetic run. The benchmark is deliberately built with
 clean cases and controlled defects so the QA workflow has something to catch.
+Benchmark acceptance and an exit code of zero do not mean the reason content
+passed review or is authorized for operational use. Generated results and reports
+state this boundary. `verify-evidence` checks file hashes only.
+
+For the separate local review workflow, see [reason-content checks and operational
+authorization](REASON_CONTENT_REVIEW.md). Use `assess-reason-content` and
+`export-reviewed-reasons` for a checked historical snapshot; neither grants
+operational permission. The result contract documents migration from earlier
+local command and review-file names.
+With the complete source-to-notice configuration, `generate-reasons` now
+produces the reason fields required by that workflow. Rendered notice segments
+and substantive review remain separate inputs. Execution provenance identifies
+the source-file snapshot and whether its code checkout is modified; see
+[evidence-pack review](EVIDENCE_PACK_REVIEW.md).
 
 ## What Would Make It Real-World Evidence
 
-A real-world validation run would require a private, deidentified
-small-business lender, CDFI, or fintech dataset containing declined
-applications, actual decision drivers, reason outputs or notice text, mapping
-versions, policy thresholds, and reviewer labels. See
-`PRIVATE_DATA_REQUIREMENTS.md`.
+The proposed private validation route calls for a deidentified small-business
+lender, CDFI, or fintech dataset containing declined applications, actual decision
+drivers, reason outputs or notice text, mapping versions, policy thresholds, and
+reviewer labels. Other data sources should be assessed against the same
+claim-specific evidence needs; private status alone does not establish
+suitability. See `PRIVATE_DATA_REQUIREMENTS.md`.
 
 ## Source-To-Rendered-Notice Traceability And Reconciliation Controls
 

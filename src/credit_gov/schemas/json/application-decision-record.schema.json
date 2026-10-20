@@ -81,7 +81,10 @@
         },
         "decision_timestamp": {
           "type": "string",
-          "minLength": 10
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$",
+          "minLength": 20,
+          "maxLength": 20
         },
         "policy_version": {
           "type": "string",

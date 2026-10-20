@@ -3,5 +3,10 @@
   "exception_count": 1,
   "exception_types": [
     "rendered_notice_text_mismatch"
-  ]
+  ],
+  "purpose": "diagnostic_rendered_notice_qa",
+  "final_use_status": "not_assessed",
+  "operational_authorization_status": "not_provided",
+  "authorized_for_operational_use": false,
+  "eligible_for_final_use": false
 }

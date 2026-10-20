@@ -13,11 +13,11 @@ compliance conclusion.
 
 ## Plain-English Definition
 
-Adverse-action reason accuracy and transparency means that a declined or
-otherwise adverse credit decision can be traced from:
+This run kit tests record-level traceability for synthetic adverse decisions.
+The supplied records connect:
 
-1. the actual model or underwriting factors considered,
-2. to the principal adverse drivers for that applicant,
+1. the recorded model or underwriting factors,
+2. to the recorded principal adverse drivers for that applicant,
 3. to governed reason codes and specific reason text,
 4. to reason QA checks for missing, generic, unmapped, stale, or mismatched
    reasons,
@@ -26,9 +26,14 @@ otherwise adverse credit decision can be traced from:
 6. to source-to-rendered-notice reconciliation and a reviewer-ready evidence
    pack.
 
-For this repository, the public demonstration uses synthetic small-business
-credit data because no current public small-business dataset contains the full
-chain needed to test real adverse-action reason accuracy.
+Agreement along this chain does not independently establish that the supplied
+driver contributions explain the model or the final decision correctly. A
+substantive accuracy assessment requires an appropriate model or decision-process
+reference, an explicit explanation question, and evidence suitable for that claim.
+
+This demonstration uses synthetic small-business credit records with declared
+reference relationships. The choice defines the demonstrated scope; it is not
+a finding that no suitable public dataset exists anywhere.
 
 ## Regulatory Anchor
 
@@ -92,8 +97,10 @@ the text record:
   combined decisions record which scoring and/or judgmental component failed;
 - the recorded source-driver rank matches deterministic ranking across the
   recorded failed source components;
-- governed principal mapped drivers within the configured review limit are not
-  absent from recorded outputs;
+- principal drivers within the configured review limit are selected before
+  mapping availability is checked; unmapped principal drivers receive an
+  explicit unresolved-mapping finding, and absent outputs receive an omission
+  finding, even when lower-ranked mapped reasons exist;
 - the reason output pins the mapping ID, mapping version, mapping effective
   date, and underwriting policy version used for the decision;
 - the recorded reason text matches the controlled mapped reason text and pins
@@ -113,13 +120,41 @@ These checks establish record-level traceability to the declared convention;
 they do not establish a unique model explanation, causal truth, actionability,
 or recourse. See `TERMINOLOGY.md`.
 
+## Unreleased Coverage And Event-Time Correction
+
+The working implementation corrects two gaps in the fixed v0.12.0 baseline:
+principal coverage previously excluded unmapped drivers, and mapping/template
+lifecycle checks used application date. The fixed release and its review target
+retain those limitations; this correction does not alter historical results.
+
+Lifecycle checks use `underwriting.decision_timestamp`, required as a valid UTC
+timestamp in `YYYY-MM-DDTHH:MM:SSZ` form. Suppliers must normalize timezone
+offsets before ingestion; naive, offset, malformed, or missing timestamps are
+rejected rather than replaced with application date. The UTC calendar date
+governs applicability: effective date is inclusive and retirement date exclusive.
+Notice-template checks intentionally use the decision event in this synthetic
+contract. They do not establish applicability at a separately timed notice event.
+
+Targeted tests challenge clean and mixed/wholly unmapped inputs, out-of-scope
+drivers, activation/retirement boundaries, and invalid timestamps. These checks
+do not establish model-explanation faithfulness or a general detection rate.
+
 ## Public Demonstration Boundary
 
-The public proof path is synthetic small-business credit data. That is the only
-on-domain public method available for this workstream because the accuracy
-question requires more than a denial outcome or a reason label. It requires
-the actual decision factors, generated or disclosed reasons, mapping versions,
-and reviewer labels.
+The unreleased [reason-content review gate](REASON_CONTENT_REVIEW.md) adds a separate local
+snapshot export boundary. Required checks, exact-input review records, and
+resolution of material reason defects must all be satisfied before export.
+Passing reports `reason_content_checks_passed: true`; operational authorization
+remains false, including in the exported snapshot. The tool does not authenticate
+reviewers or grant live-use permission. Its scope, regulatory basis, review
+contract, commands, and integration limits are documented separately.
+
+The current demonstration path uses synthetic small-business credit records.
+Evaluation of actual reason accuracy would require fit-for-purpose evidence of
+the relevant decision process and reasons, with a justified reference and stated
+limits. A denial outcome or reason label alone cannot establish that relationship.
+Data suitability depends on the claim, available fields and provenance; this
+method note does not establish the absence of other possible datasets or methods.
 
 HMDA denial-reason data may be used later only as an off-domain mortgage
 reason-code mechanics proxy. HMDA can help test ingestion and reporting

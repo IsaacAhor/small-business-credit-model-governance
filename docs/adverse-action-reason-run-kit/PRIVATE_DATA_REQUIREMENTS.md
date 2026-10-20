@@ -6,8 +6,9 @@ The canonical field specification is:
 docs/adverse-action-reason-run-kit/PRIVATE_DATA_SPEC.md
 ```
 
-This landing note summarizes the minimum dataset needed to move beyond a
-synthetic benchmark.
+This landing note summarizes the dataset requirements for the proposed private
+evaluation route. It does not establish that all real-world evaluations require
+private data.
 
 ## Required Dataset Unit
 

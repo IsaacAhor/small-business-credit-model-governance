@@ -6,15 +6,15 @@ import hashlib
 import json
 import os
 import shutil
-import subprocess
 import uuid
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from credit_gov.bisg import run_bisg_proxy_analysis
+from credit_gov.bisg import read_reference_bytes, run_bisg_proxy_analysis
 from credit_gov import __version__
+from credit_gov.input_snapshot import DatasetSnapshot
 from credit_gov.lda import assess_less_discriminatory_alternative
 from credit_gov.reason_fidelity import (
     REQUIRED_REASON_FIDELITY_FIELDS,
@@ -25,6 +25,9 @@ from credit_gov.reason_fidelity import (
     source_components_for_decision,
 )
 from credit_gov.schemas import validate_dataset
+from credit_gov.result_scope import diagnostic_scope
+from credit_gov.source_provenance import capture_source_provenance, check_source_unchanged
+from credit_gov.schemas.models import require_utc_timestamp
 from credit_gov.stats import compare_group_proportions
 from credit_gov.validation import assess_model_change, render_change_validation_report
 
@@ -50,6 +53,7 @@ class MonitoringRunResult:
     def to_dict(self) -> dict[str, Any]:
         return {
             "ok": self.ok,
+            **diagnostic_scope("diagnostic_monitoring"),
             "dataset_dir": self.dataset_dir,
             "output_dir": self.output_dir,
             "errors": self.errors,
@@ -93,21 +97,32 @@ def compute_optional_lda(dataset_dir: Path, payloads: dict[str, Any]) -> dict[st
     )
 
 
-def compute_optional_bisg(dataset_dir: Path, payloads: dict[str, Any]) -> dict[str, Any] | None:
+def compute_optional_bisg(
+    dataset_dir: Path | DatasetSnapshot, payloads: dict[str, Any]
+) -> dict[str, Any] | None:
     """Run BISG proxy-based screening when its optional inputs are present.
 
     Requires ``bisg-config.json`` and ``applicant-demographic-inputs.json``.
     Returns ``None`` when either is absent so existing datasets are unaffected.
     """
+    if not isinstance(dataset_dir, DatasetSnapshot):
+        dataset_dir = DatasetSnapshot(dataset_dir)
     config = load_optional_json(dataset_dir / "bisg-config.json")
     demographic_inputs = load_optional_json(dataset_dir / "applicant-demographic-inputs.json")
     if config is None or demographic_inputs is None:
         return None
+    reference_data = {
+        field: dataset_dir.reference_json(
+            f"bisg/{field}", read_reference_bytes(dataset_dir, config[field])
+        )
+        for field in ("surname_reference_path", "geography_reference_path", "national_marginals_path")
+    }
     return run_bisg_proxy_analysis(
         decisions=payloads["decisions"],
         demographic_inputs=demographic_inputs,
         config=config,
         dataset_dir=dataset_dir,
+        reference_data=reference_data,
     )
 
 
@@ -180,9 +195,16 @@ def module_applicability(payloads: dict[str, Any], module_name: str) -> dict[str
 def run_monthly_monitoring(
     dataset_dir: Path,
     evidence_root: Path | None = None,
+    *,
+    source_entrypoint: Path | None = None,
+    input_snapshot: DatasetSnapshot | None = None,
 ) -> MonitoringRunResult:
     dataset_dir = dataset_dir.resolve()
-    validation = validate_dataset(dataset_dir)
+    source_provenance = capture_source_provenance(source_entrypoint)
+    inputs = input_snapshot or DatasetSnapshot(dataset_dir)
+    if inputs.root != dataset_dir:
+        raise ValueError("Input snapshot belongs to a different dataset.")
+    validation = validate_dataset(inputs)
     if not validation.ok:
         return MonitoringRunResult(
             ok=False,
@@ -196,13 +218,13 @@ def run_monthly_monitoring(
             fair_lending={},
         )
 
-    payloads = load_dataset_payloads(dataset_dir)
+    payloads = load_dataset_payloads(inputs)
     metrics = compute_metrics(payloads)
     reason_qa = compute_reason_qa(payloads)
     fair_lending = compute_fair_lending_screening(payloads)
-    lda = compute_optional_lda(dataset_dir, payloads)
-    bisg = compute_optional_bisg(dataset_dir, payloads)
-    change_validation = compute_optional_change_validation(dataset_dir, payloads)
+    lda = compute_optional_lda(inputs, payloads)
+    bisg = compute_optional_bisg(inputs, payloads)
+    change_validation = compute_optional_change_validation(inputs, payloads)
     breaches = evaluate_thresholds(metrics, payloads["threshold_set"], payloads["manifest"]["run_id"])
     issues = build_issue_register(breaches, reason_qa["exceptions"], fair_lending["findings"])
 
@@ -219,6 +241,9 @@ def run_monthly_monitoring(
         lda=lda,
         bisg=bisg,
         change_validation=change_validation,
+        source_provenance=source_provenance,
+        source_entrypoint=source_entrypoint,
+        input_snapshot=inputs,
     )
     return MonitoringRunResult(
         ok=True,
@@ -336,6 +361,7 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
         reason = applicability["reason"]
         return {
             "label": "not_applicable",
+            **diagnostic_scope("diagnostic_reason_qa"),
             "status": "not_applicable",
             "reason": reason,
             "declined_decision_count": 0,
@@ -519,6 +545,7 @@ def compute_reason_qa(payloads: dict[str, Any]) -> dict[str, Any]:
     reason_code_counts = count_by_key(reason_outputs, "reason_code") if reason_outputs else {}
     return {
         "label": "qa_screening_only_not_legal_conclusion",
+        **diagnostic_scope("diagnostic_reason_qa"),
         "declined_decision_count": len(declined_decisions),
         "reason_output_count": len(reason_outputs),
         "exception_count": len(exceptions),
@@ -558,7 +585,10 @@ def compute_reason_fidelity_exceptions(
         if decision["decision_outcome"] != "declined":
             continue
         decision_id = decision["decision_id"]
-        decision_date = decision["application_date"]
+        decision_date = require_utc_timestamp(
+            decision.get("underwriting", {}).get("decision_timestamp"),
+            f"{decision_id}.underwriting.decision_timestamp",
+        )[:10]
         decision_component = decision.get("decision_component")
         policy_version = decision.get("underwriting", {}).get("policy_version")
         outputs = outputs_by_decision.get(decision_id, [])
@@ -632,9 +662,20 @@ def compute_reason_fidelity_exceptions(
         principal_sources = [
             (contribution["decision_component"], contribution["driver_or_signal"])
             for contribution in ranked[: fidelity_context.principal_driver_rank_limit]
-            if contribution["driver_or_signal"]
-            in {mapping["driver_or_signal"] for mapping in reason_mappings}
         ]
+        mapped_drivers = {mapping["driver_or_signal"] for mapping in reason_mappings}
+        unmapped = [source for source in principal_sources if source[1] not in mapped_drivers]
+        if unmapped:
+            exceptions.append(
+                build_reason_exception(
+                    decision_id,
+                    None,
+                    "principal_driver_unmapped",
+                    "A principal source driver within the configured review limit has no "
+                    "governed mapping: "
+                    + ", ".join(f"{component}:{driver}" for component, driver in unmapped),
+                )
+            )
         omitted = [source for source in principal_sources if source not in output_sources]
         if omitted:
             exceptions.append(
@@ -1331,6 +1372,7 @@ def build_issue_register(
 def build_evidence_pack(
     dataset_dir: Path,
     evidence_root: Path,
+    input_snapshot: DatasetSnapshot,
     payloads: dict[str, Any],
     metrics: dict[str, Any],
     breaches: list[dict[str, Any]],
@@ -1340,7 +1382,10 @@ def build_evidence_pack(
     lda: dict[str, Any] | None = None,
     bisg: dict[str, Any] | None = None,
     change_validation: dict[str, Any] | None = None,
+    source_provenance: dict[str, Any] | None = None,
+    source_entrypoint: Path | None = None,
 ) -> Path:
+    source_provenance = source_provenance or capture_source_provenance(source_entrypoint)
     manifest = payloads["manifest"]
     execution_id = str(uuid.uuid4())
     executed_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -1389,6 +1434,7 @@ def build_evidence_pack(
 
     generated_manifest = {
         "record_type": "evidence_pack_manifest",
+        **diagnostic_scope("diagnostic_evidence_pack"),
         "run_id": manifest["run_id"],
         "created_at": manifest["created_at"],
         "model_id": manifest["model_id"],
@@ -1396,6 +1442,7 @@ def build_evidence_pack(
         "input_references": manifest["input_references"],
         "output_files": output_files,
         "reviewer_status": manifest["reviewer_status"],
+        "reviewer_status_source": "input_manifest_unverified",
     }
     execution_provenance = {
         "record_type": "evidence_pack_execution_provenance",
@@ -1404,7 +1451,8 @@ def build_evidence_pack(
         "executed_at": executed_at,
         "source_run_created_at": manifest["created_at"],
         "software_version": __version__,
-        "source_revision": discover_source_revision(dataset_dir),
+        **source_provenance,
+        **input_snapshot.provenance(),
     }
     try:
         write_json(staging_dir / "manifest.json", generated_manifest)
@@ -1417,14 +1465,16 @@ def build_evidence_pack(
                 "thresholds": payloads["threshold_set"]["thresholds"],
             },
         )
-        write_json(staging_dir / "input_fingerprints.json", build_input_fingerprints(dataset_dir))
+        write_json(staging_dir / "input_fingerprints.json", input_snapshot.normalized_fingerprints())
         write_json(staging_dir / "model_record.json", payloads["model_registry"])
         write_json(staging_dir / "threshold_set.json", payloads["threshold_set"])
         write_json(staging_dir / "metric_results.json", metrics)
         write_json(staging_dir / "breach_register.json", breaches)
         write_json(staging_dir / "reason_qa_results.json", reason_qa)
         if rendered_notice_fidelity.get("status") == "ran_synthetic_rendered_notice_controls":
-            write_json(staging_dir / "rendered_notice_qa_results.json", rendered_notice_fidelity)
+            write_json(staging_dir / "rendered_notice_qa_results.json", {
+                **rendered_notice_fidelity, **diagnostic_scope("diagnostic_rendered_notice_qa"),
+            })
         write_json(staging_dir / "reason_stability_report.json", reason_qa["stability"])
         write_json(staging_dir / "fair_lending_screening_results.json", fair_lending)
         write_json(staging_dir / "fair_lending_escalation_register.json", fair_lending["findings"])
@@ -1460,6 +1510,7 @@ def build_evidence_pack(
             staging_dir / "output_fingerprints.json",
             build_output_fingerprints(staging_dir, output_files),
         )
+        check_source_unchanged(source_provenance, source_entrypoint)
         staging_dir.rename(evidence_dir)
     except Exception:
         shutil.rmtree(staging_dir, ignore_errors=True)
@@ -1474,11 +1525,7 @@ def build_input_fingerprints(dataset_dir: Path) -> dict[str, str]:
     The JSON content is unchanged, so evidence-pack provenance should not drift
     solely because of that checkout representation.
     """
-    fingerprints: dict[str, str] = {}
-    for path in sorted(dataset_dir.glob("*.json")):
-        canonical_bytes = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
-        fingerprints[path.name] = hashlib.sha256(canonical_bytes).hexdigest()
-    return fingerprints
+    return DatasetSnapshot(dataset_dir).normalized_fingerprints()
 
 
 def build_output_fingerprints(evidence_dir: Path, output_files: list[str]) -> dict[str, str]:
@@ -1506,6 +1553,7 @@ def verify_evidence_pack(evidence_dir: Path) -> dict[str, Any]:
     except (FileNotFoundError, json.JSONDecodeError) as exc:
         return {
             "ok": False,
+            **diagnostic_scope("evidence_pack_hash_verification_only"),
             "evidence_dir": str(evidence_dir),
             "verified_files": [],
             "errors": [str(exc)],
@@ -1554,30 +1602,11 @@ def verify_evidence_pack(evidence_dir: Path) -> dict[str, Any]:
 
     return {
         "ok": not errors,
+        **diagnostic_scope("evidence_pack_hash_verification_only"),
         "evidence_dir": str(evidence_dir),
         "verified_files": sorted(expected_fingerprints),
         "errors": errors,
     }
-
-
-def discover_source_revision(dataset_dir: Path) -> str:
-    """Return an explicit override or the enclosing Git revision when available."""
-    revision = os.environ.get("CREDIT_GOV_SOURCE_REVISION")
-    if revision:
-        return revision
-    for candidate in (dataset_dir.resolve(), *dataset_dir.resolve().parents):
-        if not (candidate / ".git").exists():
-            continue
-        completed = subprocess.run(
-            ["git", "rev-parse", "HEAD"],
-            cwd=candidate,
-            check=False,
-            capture_output=True,
-            text=True,
-        )
-        if completed.returncode == 0:
-            return completed.stdout.strip()
-    return "unavailable"
 
 
 def render_finding_significance(finding: dict[str, Any]) -> str:
@@ -1791,6 +1820,8 @@ def render_monitoring_report(
     return (
         "# Monthly Monitoring Report\n\n"
         f"{context_sentence}\n\n"
+        "Run completion and zero QA findings do not establish a passed reason-content "
+        "review. Operational authorization is not provided.\n\n"
         f"- Run ID: `{metrics['run_id']}`\n"
         f"- Model ID: `{metrics['model_id']}`\n"
         f"- Version ID: `{metrics['version_id']}`\n"
@@ -1822,11 +1853,13 @@ def render_reviewer_signoff(
     review_state = (
         "Escalation recommended"
         if breaches or reason_exceptions or fair_lending_findings
-        else "No escalation required in demo run"
+        else "No escalation triggered by the checks run; required review remains separate"
     )
     return (
-        "# Reviewer Signoff\n\n"
-        "This artifact supports governance workflow demonstration only.\n\n"
+        "# Reviewer Signoff Template\n\n"
+        "This artifact supports governance workflow demonstration only. "
+        "The reviewer status below is copied from the input manifest and is not "
+        "authenticated or verified by this run. Operational authorization is not provided.\n\n"
         f"- Run ID: `{manifest['run_id']}`\n"
         f"- Model ID: `{manifest['model_id']}`\n"
         f"- Version ID: `{manifest['version_id']}`\n"

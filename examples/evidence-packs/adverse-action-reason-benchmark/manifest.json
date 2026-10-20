@@ -1,5 +1,10 @@
 {
   "record_type": "evidence_pack_manifest",
+  "purpose": "diagnostic_evidence_pack",
+  "final_use_status": "not_assessed",
+  "operational_authorization_status": "not_provided",
+  "authorized_for_operational_use": false,
+  "eligible_for_final_use": false,
   "run_id": "run-2026-07-adverse-action",
   "created_at": "2026-07-26T15:00:00Z",
   "model_id": "mdl-adverse-reason-benchmark",
@@ -45,5 +50,6 @@
     "adverse_action_reason_benchmark_report.md",
     "README.md"
   ],
-  "reviewer_status": "pending_review"
+  "reviewer_status": "pending_review",
+  "reviewer_status_source": "input_manifest_unverified"
 }

@@ -104,19 +104,19 @@ The run kit is done when all of the following are true:
 
 ## Public-Data Rule
 
-SBA 7(a), PPP, and CRA data cannot prove adverse-action reason accuracy because
-they do not provide the complete chain of declined applications, disclosed
-reasons or notices, actual decision drivers, and review labels.
+Assess any proposed dataset by its exact version, fields, provenance and the
+accuracy claim being tested. Portfolio and lending-volume monitoring results
+alone do not establish the accuracy of actual decision reasons.
 
 HMDA may be used only as an off-domain mortgage-denial reason-code mechanics
 proxy. It should not be described as small-business credit proof.
 
 ## Candor Notes
 
-The adverse-action benchmark remains synthetic. Public small-business data still
-cannot prove real-world adverse-action reason accuracy because it lacks declined
-applications, actual decision drivers, disclosed reasons or notice text, reason
-mapping versions, and reviewer labels.
+The adverse-action benchmark remains synthetic. It does not establish the
+availability or suitability of other datasets. An actual reason-accuracy
+assessment needs evidence linking the relevant decision process to disclosed
+reasons, with a justified reference and stated limits.
 
 The strongest truthful claim is that the repository provides a reproducible
 synthetic benchmark and reviewer-ready evidence-pack method for adverse-action

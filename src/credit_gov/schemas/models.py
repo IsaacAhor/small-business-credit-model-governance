@@ -3,8 +3,27 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime
 import math
+import re
 from typing import Any
+
+
+def require_utc_timestamp(value: Any, field: str) -> str:
+    """Require a calendar-valid UTC event, to whole-second precision.
+
+    Offset and naive timestamps must be normalized by the data supplier;
+    lifecycle checks never infer a timezone or substitute an application date.
+    """
+    if not isinstance(value, str) or not re.fullmatch(
+        r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z", value
+    ):
+        raise ValueError(f"{field} must use YYYY-MM-DDTHH:MM:SSZ")
+    try:
+        datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ")
+    except ValueError as exc:
+        raise ValueError(f"{field} must be a valid UTC timestamp") from exc
+    return value
 
 
 def require_type(value: Any, expected_type: type | tuple[type, ...], field: str) -> None:
@@ -200,8 +219,8 @@ class UnderwritingFields:
         return cls(
             score=score,
             requested_amount=requested_amount,
-            decision_timestamp=require_non_empty_string(
-                payload.get("decision_timestamp"), f"{field}.decision_timestamp", 10
+            decision_timestamp=require_utc_timestamp(
+                payload.get("decision_timestamp"), f"{field}.decision_timestamp"
             ),
         )
 

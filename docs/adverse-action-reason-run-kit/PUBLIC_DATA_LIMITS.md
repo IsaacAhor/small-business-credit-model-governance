@@ -1,19 +1,17 @@
 # Public-Data Limits For Adverse-Action Reason Accuracy
 
-## Bottom Line
+## Demonstrated Scope
 
-Adverse-action reason accuracy and transparency under Regulation B 12 CFR
-1002.9 cannot be proven today with public small-business lending data.
-
-The public repo can demonstrate an on-domain synthetic workflow. Public datasets
-can support context, mechanics, or model-risk monitoring only. Real-world
-accuracy requires private, deidentified application-level data from a lender,
-CDFI, or fintech.
+This run kit demonstrates a synthetic small-business credit workflow. It does
+not evaluate actual lender reasons or establish whether a suitable public dataset
+exists. Public or private status alone does not determine data suitability.
+An evaluation needs evidence appropriate to its specific accuracy claim,
+decision process, population and reference standard.
 
 ## What Would Be Needed
 
-To prove actual adverse-action reason accuracy, a dataset would need the full
-decision chain:
+For the linked-record assessment described by this run kit, relevant evidence
+includes:
 
 - small-business credit applications, including declined applications;
 - final action taken;
@@ -24,7 +22,10 @@ decision chain:
 - reviewer labels that assess whether disclosed reasons match the actual
   principal decision factors.
 
-No current public small-business dataset provides that full chain.
+A proposed dataset should be assessed against those needs using its exact
+version, available fields and provenance. The private-data specification
+describes one prospective evaluation route; it is not a universal requirement
+that evaluation data be private.
 
 ## SBA 7(a), PPP, And CRA
 
@@ -52,8 +53,8 @@ Relevant public sources:
 
 ## HMDA
 
-HMDA is useful only as an off-domain mortgage-denial reason-code mechanics
-proxy.
+Within this run kit's scope, HMDA is treated as an off-domain mortgage-denial
+reason-code mechanics proxy.
 
 Exact label for future work:
 
@@ -95,7 +96,8 @@ Primary sources:
 
 ## Repository Discipline
 
-Public data should not be described as proof of live adverse-action reason
-accuracy unless it contains the complete decision chain. Until then, the
-strongest truthful public claim is that this repository provides a reproducible
-synthetic governance method and clearly labeled public-data boundary.
+Describe an evaluation by the property tested, exact data and source version,
+reference method and limitations. A portfolio or reason-code mechanics result
+does not by itself establish actual decision-reason accuracy. The demonstrated
+claim for this run kit remains a reproducible synthetic workflow with explicit
+coverage and limits.

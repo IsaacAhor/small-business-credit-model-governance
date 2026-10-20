@@ -9,9 +9,13 @@ from pathlib import Path
 
 from credit_gov.bisg import run_bisg_proxy_analysis
 from credit_gov.cli import main as validate_main
-from credit_gov.generation import generate_adverse_action_reasons, summarize_generation
+from credit_gov.generation import DEFAULT_MAX_REASONS, generate_adverse_action_reasons, summarize_generation
+from credit_gov.reason_content import (
+    LEGACY_REVIEW_FILE, REVIEW_FILE, assess_reason_content, export_reviewed_reasons,
+)
 from credit_gov.lda import assess_less_discriminatory_alternative
 from credit_gov.monitoring import run_monthly_monitoring, verify_evidence_pack
+from credit_gov.reason_fidelity import build_reason_fidelity_context
 from credit_gov.recourse import validate_main as recourse_validate_main
 from credit_gov.recourse_reporting import main as recourse_report_main
 from credit_gov.validation import assess_model_change, render_change_validation_report
@@ -60,7 +64,9 @@ def monitor_main(argv: list[str] | None = None) -> int:
 
 
 def verify_evidence_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Verify generated evidence-pack file hashes.")
+    parser = argparse.ArgumentParser(
+        description="Verify evidence-pack file hashes only; no content review or operational authorization."
+    )
     parser.add_argument("evidence_pack_dir", type=Path)
     return parser
 
@@ -75,7 +81,7 @@ def verify_evidence_main(argv: list[str] | None = None) -> int:
 
 def generate_reasons_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Generate governed adverse-action reason outputs."
+        description="Generate diagnostic adverse-action reason candidates; this does not authorize final use."
     )
     parser.add_argument("dataset_dir", help="Directory containing the synthetic dataset.")
     parser.add_argument(
@@ -90,32 +96,92 @@ def generate_reasons_main(argv: list[str] | None = None) -> int:
     args = generate_reasons_parser().parse_args(argv)
     dataset_dir = Path(args.dataset_dir)
 
-    decisions = load_json(dataset_dir / "application-decision-records.json")
-    contributions = load_json(dataset_dir / "adverse-action-driver-contributions.json")
-    mappings = load_json(dataset_dir / "reason-code-mappings.json")
-    version_id = load_json(dataset_dir / "model-version-record.json")["version_id"]
-
-    generated = generate_adverse_action_reasons(
-        decisions=decisions,
-        driver_contributions=contributions,
-        reason_mappings=mappings,
-        version_id=version_id,
-    )
+    try:
+        decisions = load_json(dataset_dir / "application-decision-records.json")
+        contributions = load_json(dataset_dir / "adverse-action-driver-contributions.json")
+        mappings = load_json(dataset_dir / "reason-code-mappings.json")
+        version_id = load_json(dataset_dir / "model-version-record.json")["version_id"]
+        config_paths = [dataset_dir / name for name in (
+            "reason-fidelity-policy.json", "adverse-action-notice-template.json",
+            "reason-selection-methods.json",
+        )]
+        # Recognize case variants on every filesystem; noncanonical configuration
+        # must fail loading rather than silently selecting basic mode.
+        fidelity_names = {path.name for path in config_paths} | {
+            "rendered-adverse-action-notices.json", REVIEW_FILE, LEGACY_REVIEW_FILE,
+        }
+        configured = (
+            any(path.name.casefold() in fidelity_names for path in dataset_dir.iterdir())
+            or any("decision_component" in decision for decision in decisions)
+            or any("decision_component" in item for record in contributions
+                   for item in record.get("contributions", []))
+        )
+        configs = [load_json(path) for path in config_paths] if configured else [None] * 3
+        if configured and any(value is None for value in configs):
+            raise ValueError("Source-to-notice configuration cannot be null.")
+        context = build_reason_fidelity_context(*configs)
+        limit = context.principal_driver_rank_limit if context else DEFAULT_MAX_REASONS
+        if context is not None:
+            for decision in decisions:
+                if decision["decision_outcome"] == "declined":
+                    component = decision.get("decision_component")
+                    if component not in context.methods_by_component:
+                        raise ValueError(f"No reason-selection method for declined component {component!r}.")
+        generated = generate_adverse_action_reasons(
+            decisions=decisions,
+            driver_contributions=contributions,
+            reason_mappings=mappings,
+            version_id=version_id,
+            max_reasons=limit,
+            fidelity_context=context,
+        )
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        print(f"Generation failed before writing: {exc}", file=sys.stderr)
+        return 1
     summary = summarize_generation(decisions, generated)
+    summary["reason_record_mode"] = "source_to_notice" if context else "basic_diagnostic"
+    summary["configured_reason_limit"] = limit
     output_path = dataset_dir / "adverse-action-reason-outputs.json"
 
     if args.check:
         existing = load_json(output_path) if output_path.is_file() else None
         if existing == generated:
-            print(f"OK: on-disk reasons match regeneration ({summary['reason_output_count']} outputs).")
+            print(f"OK: on-disk reasons match regeneration ({summary['reason_output_count']} outputs); reason-content review is not assessed and operational authorization is not provided.")
+            print("generation_summary=" + json.dumps(summary, sort_keys=True))
             return 0
         print("DRIFT: on-disk adverse-action reasons differ from current generation logic.")
+        print("generation_summary=" + json.dumps(summary, sort_keys=True))
         return 1
 
     output_path.write_text(json.dumps(generated, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {summary['reason_output_count']} reason outputs to {output_path}")
-    print(f"generation_summary={summary}")
+    print(f"Wrote {summary['reason_output_count']} diagnostic reason candidates to {output_path}")
+    print("generation_summary=" + json.dumps(summary, sort_keys=True))
     return 0
+
+
+def assess_reason_content_main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Check reason content and declared reviews; success does not authorize operational use."
+    )
+    parser.add_argument("dataset_dir", type=Path)
+    args = parser.parse_args(argv)
+    result = assess_reason_content(args.dataset_dir)
+    json.dump(result, sys.stdout, indent=2)
+    sys.stdout.write("\n")
+    return 0 if result["reason_content_checks_passed"] else 1
+
+
+def export_reviewed_reasons_main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Export a checked reason-content review snapshot; no operational authorization or delivery."
+    )
+    parser.add_argument("dataset_dir", type=Path)
+    parser.add_argument("--output", type=Path, required=True, help="New file outside the input dataset.")
+    args = parser.parse_args(argv)
+    result = export_reviewed_reasons(args.dataset_dir, args.output)
+    json.dump(result, sys.stdout, indent=2)
+    sys.stdout.write("\n")
+    return 0 if result["ok"] else 1
 
 
 def lda_parser() -> argparse.ArgumentParser:
@@ -257,6 +323,8 @@ def main(argv: list[str] | None = None) -> int:
         "monitor": monitor_main,
         "verify-evidence": verify_evidence_main,
         "generate-reasons": generate_reasons_main,
+        "assess-reason-content": assess_reason_content_main,
+        "export-reviewed-reasons": export_reviewed_reasons_main,
         "lda": lda_main,
         "bisg": bisg_main,
         "change-review": change_review_main,
@@ -266,18 +334,27 @@ def main(argv: list[str] | None = None) -> int:
         "recourse-report": recourse_report_main,
     }
     if not args or args[0] in {"-h", "--help"}:
-        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review,vendor-validate,vendor-report,recourse-validate,recourse-report} ...")
+        print("usage: credit-gov {" + ",".join(commands) + "} ...")
         print("\nInstalled command entry point for the credit governance evidence engine.")
+        print("Command success does not provide operational authorization.")
         print("\ncommands:")
+        notes = {
+            "assess-reason-content": "content checks and declared reviews only",
+            "export-reviewed-reasons": "checked review snapshot only",
+            "verify-evidence": "file hashes only",
+            "generate-reasons": "diagnostic candidates only",
+            "monitor": "diagnostic monitoring only",
+        }
         for command in commands:
-            print(f"  {command}")
+            note = f" ({notes[command]})" if command in notes else ""
+            print(f"  {command}{note}")
         return 0
 
     command = args[0]
     handler = commands.get(command)
     if handler is None:
         print(f"error: unknown command: {command}", file=sys.stderr)
-        print("usage: credit-gov {validate,monitor,verify-evidence,generate-reasons,lda,bisg,change-review,vendor-validate,vendor-report,recourse-validate,recourse-report} ...", file=sys.stderr)
+        print("usage: credit-gov {" + ",".join(commands) + "} ...", file=sys.stderr)
         return 2
     return handler(args[1:])
 

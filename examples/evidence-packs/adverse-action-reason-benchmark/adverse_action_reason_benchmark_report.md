@@ -2,6 +2,8 @@
 
 This report is synthetic governance evidence only. It does not provide legal advice, certify Regulation B compliance, or represent a production notice process.
 
+Benchmark success means expected seeded failure types were detected. It does not establish a passed reason-content review. Operational authorization is not provided.
+
 - Workstream: Adverse-action reason accuracy and transparency under Regulation B 12 CFR 1002.9
 - Dataset: `data/synthetic/adverse-action-reason-benchmark`
 - Decisions reviewed: 11
@@ -29,6 +31,8 @@ This report is synthetic governance evidence only. It does not provide legal adv
 - dec-0008: source_driver_rank_mismatch (Reason output source-driver rank does not match deterministic source contribution ranking.)
 - dec-0008: notice_template_version_mismatch (Reason output does not pin the governed notice-template identifier and version.)
 - dec-0009: selection_method_version_mismatch (Reason output selection-method identifier or version does not match its decision component.)
+- dec-0010: principal_driver_unmapped (A principal source driver within the configured review limit has no governed mapping: scoring:external_vendor_watchlist_signal)
+- dec-0010: principal_driver_omitted (A governed principal source driver is absent from the recorded reason outputs: scoring:external_vendor_watchlist_signal)
 - dec-0002: rendered_notice_text_mismatch (Rendered notice reason text does not match the recorded reason output.)
 
 ## Supplemental Benchmark Exceptions
@@ -41,9 +45,9 @@ This report is synthetic governance evidence only. It does not provide legal adv
 
 ## Public-Data Boundary
 
-No current public small-business dataset provides declined applications, disclosed reasons or notices, actual decision drivers, mapping versions, and reviewer labels.
+This run uses synthetic small-business credit records. It does not evaluate real-world reason accuracy or establish whether a suitable public dataset exists.
 
-HMDA can be used only as an off-domain mortgage-denial reason-code mechanics proxy. SBA, PPP, and CRA data cannot prove adverse-action reason accuracy because they do not provide the full chain of declined applications, reasons or notices, actual decision drivers, and reviewer labels.
+This benchmark assesses synthetic record consistency. Any proposed real-world evaluation must justify its data, decision-process reference, reason records and review evidence for the specific accuracy claim. Portfolio, lending-volume or off-domain reason-code mechanics results alone do not establish that claim.
 
 ## Limitations
 
@@ -52,5 +56,5 @@ HMDA can be used only as an off-domain mortgage-denial reason-code mechanics pro
 - Benchmark exceptions are governance review triggers.
 - Synthetic source-to-rendered-notice checks reconcile controlled notice segments to recorded reason outputs; they do not assess real-world notice readability or legal sufficiency.
 - The synthetic selection-method check verifies recorded method provenance and deterministic behavior, not a real creditor's selection-method sufficiency.
-- Real-world accuracy requires private deidentified lender/CDFI/fintech application, driver, notice, and reviewer-label data.
-- HMDA can support only off-domain denial-reason mechanics, not small-business proof.
+- Evaluating actual reason accuracy requires evidence linking the relevant decision process to disclosed reasons, with a justified reference and stated limits; public or private status alone does not establish suitability.
+- An HMDA mortgage-denial mechanics exercise would not establish small-business reason accuracy.

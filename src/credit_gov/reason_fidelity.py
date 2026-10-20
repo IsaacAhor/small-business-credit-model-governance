@@ -8,6 +8,7 @@ a safe harbor under Regulation B, ECOA, FCRA, or any state law.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import date
 from typing import Any
 
 
@@ -63,11 +64,12 @@ def build_reason_fidelity_context(
 
     require_fields(
         policy,
-        ("policy_id", "policy_version", "principal_driver_rank_limit"),
+        ("policy_id", "policy_version"),
         "reason-fidelity-policy.json",
     )
-    if int(policy["principal_driver_rank_limit"]) < 1:
-        raise ValueError("reason-fidelity-policy.json.principal_driver_rank_limit must be positive")
+    limit = policy.get("principal_driver_rank_limit")
+    if type(limit) is not int or limit < 1:
+        raise ValueError("reason-fidelity-policy.json.principal_driver_rank_limit must be a positive integer")
     require_fields(
         notice_template,
         ("template_id", "template_version", "effective_date"),
@@ -75,6 +77,15 @@ def build_reason_fidelity_context(
     )
     if "retired_date" not in notice_template:
         raise ValueError("adverse-action-notice-template.json is missing required field: retired_date")
+    for field in ("effective_date", "retired_date"):
+        value = notice_template[field]
+        if field == "retired_date" and value is None:
+            continue
+        if not isinstance(value, str) or date.fromisoformat(value).isoformat() != value:
+            raise ValueError(f"adverse-action-notice-template.json.{field} must be an ISO calendar date")
+    if (notice_template["retired_date"] is not None
+            and notice_template["retired_date"] <= notice_template["effective_date"]):
+        raise ValueError("Notice template retirement must follow its effective date")
 
     methods_by_component: dict[str, dict[str, Any]] = {}
     for index, method in enumerate(selection_methods):
@@ -86,6 +97,8 @@ def build_reason_fidelity_context(
             f"reason-selection-methods.json[{index}]",
         )
         component = method["decision_component"]
+        if component not in {"scoring", "judgmental", "automatic_denial", "combined"}:
+            raise ValueError(f"Unrecognized reason-selection decision component: {component!r}")
         if component in methods_by_component:
             raise ValueError(
                 "reason-selection-methods.json contains duplicate decision_component "
@@ -100,9 +113,10 @@ def build_reason_fidelity_context(
 
 
 def require_fields(payload: dict[str, Any], fields: tuple[str, ...], label: str) -> None:
-    missing = [field for field in fields if payload.get(field) in (None, "")]
+    missing = [field for field in fields
+               if not isinstance(payload.get(field), str) or not payload[field].strip()]
     if missing:
-        raise ValueError(f"{label} is missing required fields: {', '.join(missing)}")
+        raise ValueError(f"{label} requires nonempty strings for: {', '.join(missing)}")
 
 
 def normalize_reason_text(value: str) -> str:
